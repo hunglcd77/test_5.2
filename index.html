@@ -1,0 +1,873 @@
+<!doctype html><html lang="vi"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
+<title>MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu Thủ tục Môi trường</title>
+
+<style>
+:root{--bg:#fff;--ink:#09111f;--navy:#0d2e5d;--blue:#2563c9;--light:#5790e6;--teal:#0b6e97;--surface:#f3f6fa;--muted:#6d7787;--line:#e4e9f0;--ghost:#d9e0e9;--r:1.5rem;--rl:2rem;--pill:999px}
+*{box-sizing:border-box}html{font-size:16px}body{margin:0;min-height:100vh;background:#fff;color:var(--ink);font-family:"Onest",system-ui,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+@media(max-width:1920px){html{font-size:.833333vw}}@media(max-width:1440px){html{font-size:1.111111vw}}@media(max-width:1024px){html{font-size:1.5625vw}}@media(max-width:640px){html{font-size:4.444444vw}}
+main{width:100%;padding:.75rem;overflow:clip}.card{border-radius:var(--rl);overflow:hidden}
+.hero{min-height:calc(100svh - 1.5rem);background:var(--navy);color:#fff;position:relative;isolation:isolate;display:flex;flex-direction:column;padding-bottom:2.5rem}.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 82% 18%,rgba(87,144,230,.28),transparent 34%),linear-gradient(135deg,#0d2e5d,#09244b 58%,#061a35)}.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,28,55,.08),rgba(10,28,55,.48))}
+.header{display:flex;align-items:center;padding:2rem 2.5rem 0;gap:1rem;position:relative;z-index:5}.nav{display:flex;gap:2rem;flex:1;font-size:.75rem;color:rgba(255,255,255,.88)}.brand{flex:1;display:flex;justify-content:center;align-items:center;gap:.5rem;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em}.mark{width:1.35rem;height:1.35rem;border:1.8px solid currentColor;border-radius:50%;position:relative}.mark:before,.mark:after{content:"";position:absolute;inset:.15rem .4rem;border-left:1.4px solid currentColor;border-radius:50%}.mark:after{transform:scaleX(-1)}.head-actions{flex:1;display:flex;justify-content:flex-end;gap:1rem;align-items:center}.book-link{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;text-decoration:underline;text-underline-offset:.25rem;background:none;border:0;color:#fff}.burger{width:2.5rem;height:2.5rem;border:0;border-radius:var(--pill);background:rgba(255,255,255,.14);display:grid;place-content:center;gap:5px;color:#fff}.burger span{width:1rem;height:1px;background:#fff;display:block}
+.hero-inner{margin-top:auto;padding:1rem 2.5rem 0}.kicker,.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.kicker{color:rgba(255,255,255,.72)}.kicker i,.eyebrow i{width:.38rem;height:.38rem;border-radius:50%;background:var(--light)}h1{font-size:clamp(4rem,12.5vw,12rem);line-height:.83;letter-spacing:-.04em;text-transform:uppercase;margin:1rem 0 2.5rem;font-weight:700;max-width:12ch}.hero-word{display:inline-block;overflow:hidden;padding-bottom:.12em}.hero-word>span{display:inline-block;transform:translateY(115%);opacity:0;transition:transform 1.1s cubic-bezier(.16,1,.3,1),opacity .8s ease}.ready .hero-word>span{transform:none;opacity:1}.hero-word:nth-child(2)>span{transition-delay:.14s}.hero-word:nth-child(3)>span{transition-delay:.28s}.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem}.tagline{font-size:2.4rem;line-height:.95;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.86)}.tagline div{overflow:hidden}.tagline span{display:block;transform:translateY(115%);transition:transform .9s cubic-bezier(.16,1,.3,1)}.ready .tagline span{transform:none}.tagline div:nth-child(2) span{transition-delay:.11s}.hero-tools{display:flex;gap:1rem;align-items:flex-end}.glass{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border-radius:var(--r);padding:.85rem}.mini-stat{width:17rem;display:flex;gap:1rem}.mini-stat .num{font-size:2.4rem;font-weight:700;line-height:1}.mini-stat small{display:block;color:rgba(255,255,255,.68);font-size:.68rem;margin-top:.35rem}
+.section{padding:5rem 2.5rem;background:#fff}.surface{background:var(--surface)}.section-head{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end}.section-title{font-size:clamp(2.7rem,5vw,5.5rem);line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin:1rem 0 0;font-weight:700}.muted{color:var(--muted)}
+.trust{position:relative;min-height:38rem}.ghost{font-size:8.2vw;line-height:1.02;text-transform:uppercase;letter-spacing:-.05em;font-weight:700;color:var(--ghost);margin:3rem auto 0;max-width:90rem}.ghost-row{display:flex;justify-content:space-between;gap:1rem}.ghost-row span:last-child{color:var(--ink)}.rule-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-40%) rotate(5deg);width:min(22rem,42vw);background:var(--blue);color:#fff;border-radius:var(--r);padding:1rem;z-index:3;box-shadow:0 2rem 4rem rgba(13,46,93,.22)}.rule-icon{height:16rem;border-radius:1rem;background:linear-gradient(135deg,#0b6e97,#5790e6 60%,#c2e029);display:grid;place-items:center;font-size:5rem;font-weight:800}.rule-caption{margin-top:.8rem;padding:.65rem .8rem;border-radius:.75rem;background:rgba(9,17,31,.45)}.rule-caption strong{display:block}.rule-caption small{font-size:.68rem;color:rgba(255,255,255,.75)}
+.workflow-grid,.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem}.step,.module{background:var(--surface);border-radius:var(--r);padding:1.5rem;min-height:12rem}.step-num{font-size:.7rem;font-weight:800;letter-spacing:.15em;color:var(--blue)}.step h3,.module h3{font-size:1.45rem;margin:2.2rem 0 .5rem}.step p,.module p{font-size:.82rem;color:var(--muted);line-height:1.55}
+.form-section{background:var(--navy);color:#fff;padding:5rem 2.5rem;border-radius:var(--rl)}.form-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;margin-top:3rem}.form-intro p{color:rgba(255,255,255,.68);line-height:1.6;max-width:28rem}.form-card{background:#fff;color:var(--ink);border-radius:var(--r);padding:1.5rem}.toggle{display:flex;gap:.5rem;margin-bottom:1rem}.toggle button{border:1px solid var(--line);background:#fff;padding:.65rem 1rem;border-radius:var(--pill)}.toggle button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem}label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:.35rem}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.75rem;padding:.75rem;background:#fff;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--light);box-shadow:0 0 0 3px rgba(87,144,230,.15)}.full{grid-column:1/-1}.check-row{display:flex;flex-wrap:wrap;gap:.5rem}.check{border:1px solid var(--line);border-radius:var(--pill);padding:.5rem .7rem;font-size:.7rem;color:var(--muted);cursor:pointer}.check input{width:auto}.primary{border:0;border-radius:var(--pill);padding:.85rem 1.5rem;background:var(--ink);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:1rem}.primary:hover{background:var(--blue)}
+.result{margin-top:1rem;background:#f7f9fc;border:1px solid var(--line);border-radius:1rem;padding:1rem;display:none}.result.show{display:block}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}.result-box{background:#fff;border:1px solid var(--line);border-radius:.75rem;padding:.8rem}.result-box small{display:block;color:var(--muted);font-size:.65rem;text-transform:uppercase}.result-box strong{display:block;margin-top:.3rem;font-size:1.15rem}.result-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}.secondary{border:1px solid var(--line);background:#fff;border-radius:var(--pill);padding:.7rem 1rem;font-weight:700}
+.stats{background:var(--navy);color:#fff;margin-top:.75rem}.stats .eyebrow{color:rgba(255,255,255,.65)}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem}.stat{border-top:1px solid rgba(255,255,255,.2);padding-top:1.2rem}.stat b{font-size:3.8rem;line-height:1}.stat span{display:block;margin-top:.75rem;color:rgba(255,255,255,.65);font-size:.85rem}.program-list{margin-top:3.5rem;border-top:1px solid var(--line)}.program{display:grid;grid-template-columns:3rem 1fr auto;gap:1.5rem;align-items:center;padding:1.6rem 0;border-bottom:1px solid var(--line);transition:.25s}.program:hover{background:#fff;padding-left:.75rem;padding-right:.75rem}.program .idx{font-size:.8rem;font-weight:700;color:var(--muted)}.program h3{font-size:1.7rem;margin:0 0 .25rem}.program p{font-size:.85rem;margin:0;color:var(--muted)}.arrow{width:2.75rem;height:2.75rem;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}.program:hover .arrow{transform:translateX(.5rem);background:var(--ink);color:#fff}
+.footer{background:var(--navy);color:#fff;margin-top:.75rem;padding:4rem 2.5rem;border-radius:var(--rl)}.footer-cta{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:3.5rem;gap:2rem}.footer-cta h2{font-size:5.2rem;line-height:.9;text-transform:uppercase;letter-spacing:-.05em;margin:1rem 0 0}.light-btn{border:0;border-radius:var(--pill);padding:.9rem 1.6rem;background:#fff;color:var(--navy);font-weight:700;text-transform:uppercase}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding:3.5rem 0}.footer h4{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)}.footer p,.footer a,.footer address{font-size:.8rem;color:rgba(255,255,255,.68);line-height:1.7;font-style:normal}.footer ul{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.5rem}.bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem;display:flex;justify-content:space-between;color:rgba(255,255,255,.55);font-size:.72rem}
+.loader{position:fixed;inset:0;background:var(--navy);color:#fff;z-index:200;display:grid;place-items:center;transition:transform .85s cubic-bezier(.65,0,.35,1)}.loader.done{transform:translateY(-105%)}.loader-inner{display:grid;gap:2rem;justify-items:center}.loader-brand{display:flex;align-items:center;gap:.6rem;text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:1.4rem}.track{width:10rem;height:1px;background:rgba(255,255,255,.2);overflow:hidden}.fill{height:100%;background:#fff;transform-origin:left;animation:fill 1.28s cubic-bezier(.65,0,.35,1) .12s forwards;transform:scaleX(0)}@keyframes fill{to{transform:scaleX(1)}}
+.overlay{position:fixed;inset:0;background:var(--navy);z-index:80;color:#fff;padding:1rem;display:none}.overlay.open{display:block}.overlay-inner{height:100%;padding:1.5rem 2.5rem;display:flex;flex-direction:column}.overlay nav{display:grid;place-content:center;gap:.5rem;flex:1}.overlay nav a{font-size:5rem;font-weight:700;text-transform:uppercase;letter-spacing:-.04em}.overlay nav a:hover{color:var(--light)}.close{margin-left:auto;width:2.5rem;height:2.5rem;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.4rem}
+.modal{position:fixed;inset:0;background:rgba(9,17,31,.48);backdrop-filter:blur(8px);z-index:90;display:none;align-items:center;justify-content:center;padding:1.5rem}.modal.open{display:flex}.modal-panel{width:min(32rem,100%);max-height:92svh;overflow:auto;background:#fff;border-radius:var(--rl);padding:2rem}.modal-head{display:flex;justify-content:space-between}.modal h2{font-size:2.8rem;line-height:.9;text-transform:uppercase;margin:.75rem 0 0}.modal-form{display:grid;gap:1rem;margin-top:1.75rem}.success{display:none;margin-top:1.5rem;padding:1.25rem;border-radius:1rem;background:var(--surface);text-align:center}.success.show{display:block}.success-icon{width:3rem;height:3rem;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;margin:0 auto .75rem}
+@media(max-width:1024px){.nav{display:none}.brand{justify-content:flex-start}.form-layout{grid-template-columns:1fr}.footer-grid{grid-template-columns:1.4fr 1fr 1fr}}@media(max-width:768px){main{padding:.5rem}.header{padding:1.5rem}.hero{min-height:calc(100svh - 1rem)}.hero-inner{padding:1rem 1.5rem 0}h1{font-size:17vw}.hero-bottom{flex-direction:column;align-items:flex-start}.hero-tools{width:100%}.mini-stat{width:100%}.section,.form-section{padding:4rem 1.5rem}.section-head{display:block}.ghost{font-size:13vw}.rule-card{position:relative;left:auto;top:auto;transform:rotate(3deg);width:min(18rem,70vw);margin:2rem auto -2rem}.trust{min-height:auto}.workflow-grid,.modules{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.full{grid-column:auto}.result-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.footer-cta{display:block}.footer-cta h2{font-size:4rem}.footer-grid{grid-template-columns:1fr 1fr}.bottom{flex-direction:column}.overlay nav a{font-size:3rem}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* V5.1 — Đối chiếu pháp lý + Quản lý hồ sơ */
+.v51-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;margin-top:2.5rem}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.25rem}.panel.dark{background:var(--navy);color:#fff;border-color:rgba(255,255,255,.12)}.panel h3{margin:.2rem 0 .6rem;font-size:1.35rem}.panel p{color:var(--muted);font-size:.82rem;line-height:1.55}.dark p{color:rgba(255,255,255,.68)}.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}.v51-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.62rem .9rem;font-size:.72rem;font-weight:700}.v51-btn.primary{background:var(--ink);color:#fff;border-color:var(--ink);margin-top:0}.v51-btn.danger{color:#a23b3b}.case-list{margin-top:1rem;border-top:1px solid var(--line)}.case-item{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);align-items:center}.case-item strong{display:block;font-size:.86rem}.case-item small{display:block;color:var(--muted);margin-top:.25rem}.case-actions{display:flex;gap:.35rem}.case-actions button{font-size:.65rem;padding:.45rem .65rem}.badge{display:inline-flex;border-radius:999px;padding:.28rem .55rem;font-size:.62rem;font-weight:800;letter-spacing:.05em;background:#edf3ff;color:var(--blue)}.legal-table{width:100%;border-collapse:collapse;font-size:.72rem;margin-top:1rem}.legal-table th,.legal-table td{border-bottom:1px solid var(--line);padding:.65rem .5rem;text-align:left;vertical-align:top}.legal-table th{font-size:.62rem;text-transform:uppercase;color:var(--muted)}.status-dot{display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:#2d9b65;margin-right:.3rem}.plant-form{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem}.plant-form .full{grid-column:1/-1}.plant-card{background:var(--surface);border-radius:1rem;padding:1rem;margin-top:1rem}.plant-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}.metric{background:#fff;border:1px solid var(--line);border-radius:.75rem;padding:.75rem}.metric small{display:block;color:var(--muted);font-size:.6rem;text-transform:uppercase}.metric strong{display:block;margin-top:.25rem}.audit{font-size:.72rem;margin-top:1rem}.audit-row{display:grid;grid-template-columns:10rem 1fr auto;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--line)}.audit-row time{color:var(--muted)}.empty{padding:1.5rem;text-align:center;color:var(--muted);font-size:.78rem}
+@media(max-width:900px){.v51-grid{grid-template-columns:1fr}.plant-card-grid{grid-template-columns:1fr 1fr}.audit-row{grid-template-columns:1fr}.plant-form{grid-template-columns:1fr}.plant-form .full{grid-column:auto}}
+
+
+/* V5.4 — Giao diện và lớp dữ liệu */
+:root{--blue:#2563c9;--green:#178a57;--amber:#b56a00;--red:#c43d3d;--violet:#6c4bc4;--cyan:#087f95;--soft-blue:#edf4ff;--soft-green:#eaf7f0;--soft-amber:#fff4df;--soft-red:#fff0f0;--soft-violet:#f2edff}
+body{background:#eef2f7}.section.card,.form-section.card,.footer.card,.hero.card{box-shadow:0 10px 35px rgba(13,46,93,.07)}
+.section:nth-of-type(odd){background:#fff}.surface{background:#f7f9fc}.trust{background:#f2edff}.form-section{background:linear-gradient(135deg,#0d2e5d 0%,#174f9d 100%)}
+.tools-section{background:#fff}.tools-grid{grid-template-columns:repeat(3,1fr)}.tool-card{border:1px solid var(--line);text-align:left;cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s;background:#fff}.tool-card:nth-child(1){border-top:4px solid var(--blue)}.tool-card:nth-child(2){border-top:4px solid var(--green)}.tool-card:nth-child(3){border-top:4px solid var(--violet)}.tool-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(13,46,93,.1);border-color:#c9d4e3}.tool-card h3{margin-top:2rem}.tool-link{display:block;margin-top:1.25rem;font-size:.72rem;font-weight:800;color:var(--blue)}
+.plant-panel{border-top:4px solid var(--cyan)}.plant-search{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:.8rem;align-items:end}.plant-search .full{grid-column:1/-1}.plant-search label{display:block;font-size:.68rem;font-weight:800;margin-bottom:.4rem}.plant-search input,.plant-search select{width:100%;border:1px solid var(--line);border-radius:.75rem;padding:.75rem .8rem;background:#fff;color:var(--ink)}.search-main small{display:block;color:var(--muted);font-size:.64rem;margin-top:.35rem}.filter-actions{grid-column:1/-1;display:flex;align-items:center;gap:.8rem;padding-top:.2rem}.search-note{font-size:.68rem;color:var(--muted)}.plant-table th:nth-child(5),.plant-table td:nth-child(5){min-width:11rem}.plant-table td{line-height:1.45}.plant-table .v51-btn{white-space:nowrap}.tag{display:inline-flex;padding:.28rem .55rem;border-radius:999px;font-size:.62rem;font-weight:800}.plant-table tr:has(.tag){background:transparent}
+#linkStats .result-box:nth-child(2){border-top:3px solid var(--green)}#linkStats .result-box:nth-child(3){border-top:3px solid var(--blue)}#linkStats .result-box:nth-child(4){border-top:3px solid var(--red)}#linkStats .result-box:nth-child(5){border-top:3px solid var(--amber)}
+.link-issue{padding:.75rem 1rem;border-left:4px solid var(--amber);background:var(--soft-amber);border-radius:.5rem;margin-top:.55rem;font-size:.75rem;line-height:1.5}.link-issue:first-child{border-left-color:var(--blue);background:var(--soft-blue)}
+@media(max-width:900px){.tools-grid{grid-template-columns:1fr}.plant-search{grid-template-columns:1fr 1fr}.plant-search .full,.filter-actions{grid-column:1/-1}}
+@media(max-width:600px){.plant-search{grid-template-columns:1fr}.plant-search .full,.filter-actions{grid-column:auto}.filter-actions{align-items:flex-start;flex-direction:column}.search-note{line-height:1.4}}
+
+/* V5.4 — Tra cứu toàn văn, biểu mẫu và tương phản */
+:root{
+ --bg:#f4f7fb;--ink:#101828;--navy:#082b57;--blue:#0b63ce;--blue-dark:#06499a;
+ --green:#087443;--amber:#9a4f00;--red:#b42318;--violet:#6e3fbf;--cyan:#006d77;
+ --soft-blue:#eaf3ff;--soft-green:#e8f7ef;--soft-amber:#fff3df;--soft-red:#fff0ef;--soft-violet:#f3edff;--soft-cyan:#e6f7f8;
+ --line:#cbd5e1;--muted:#475467;--surface:#ffffff;
+}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans",Arial,sans-serif}
+.section,.form-section,.footer,.hero{box-shadow:0 8px 28px rgba(8,43,87,.08)}
+/* Khu tra cứu toàn văn */
+.full-search-section{background:#fff;border:2px solid #d5e3f6}
+.full-search-head{display:flex;justify-content:space-between;gap:2rem;align-items:end}
+.search-shell{margin-top:2rem;background:#eef5ff;border:1px solid #b9d2f2;border-radius:1.25rem;padding:1rem}
+.full-search-bar{display:grid;grid-template-columns:1fr auto;gap:.65rem;align-items:center}
+.full-search-input{position:relative}
+.full-search-input input{height:3.7rem;padding:.8rem 1rem .8rem 3rem;border:2px solid #8fb4e6;border-radius:1rem;background:#fff;font-size:1rem;font-weight:600;color:#101828}
+.full-search-input input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(11,99,206,.13)}
+.search-glass{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-size:1.25rem;color:var(--blue);pointer-events:none}
+.search-submit{height:3.7rem;min-width:8rem;border:0;border-radius:1rem;background:var(--blue);color:#fff;font-weight:800;padding:0 1.2rem}
+.search-submit:hover{background:var(--blue-dark)}
+.search-help{font-size:.72rem;color:#344054;margin:.6rem .25rem 0;line-height:1.5}
+.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.85rem}
+.search-tab{border:1px solid #a9bdd6;background:#fff;color:#17324f;border-radius:999px;padding:.5rem .85rem;font-size:.72rem;font-weight:800}
+.search-tab.active{background:#17324f;color:#fff;border-color:#17324f}
+.search-suggestions{display:none;position:relative;margin-top:.5rem;background:#fff;border:1px solid #cbd5e1;border-radius:.8rem;overflow:hidden;z-index:5}
+.search-suggestions.show{display:block}
+.search-suggestion{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #e5e7eb;background:#fff;padding:.65rem .8rem;font-size:.76rem}
+.search-suggestion:hover,.search-suggestion:focus{background:#eef5ff}
+.search-results{margin-top:1rem;display:grid;gap:.65rem}
+.search-result{background:#fff;border:1px solid #d7dee8;border-left:5px solid var(--blue);border-radius:.9rem;padding:.9rem 1rem}
+.search-result[data-kind="ĐTM"]{border-left-color:var(--violet)}
+.search-result[data-kind="GPMT"]{border-left-color:var(--blue)}
+.search-result[data-kind="ĐKMT"]{border-left-color:var(--green)}
+.search-result[data-kind="Nhà máy"]{border-left-color:var(--cyan)}
+.search-result[data-kind="Nguồn pháp lý"]{border-left-color:var(--amber)}
+.search-result-top{display:flex;justify-content:space-between;gap:1rem;align-items:start}
+.search-result-title{font-weight:800}.search-result-meta{color:#475467;font-size:.68rem;margin-top:.25rem;line-height:1.45}
+.search-result .tag{margin-bottom:.35rem}
+.search-empty{padding:1rem;background:#fff;border:1px dashed #b8c3d1;border-radius:.8rem;color:#475467;font-size:.78rem}
+/* Phân nhóm thủ tục */
+.procedure-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.procedure-card{border-radius:1rem;padding:1.15rem;color:#fff;min-height:8rem;cursor:pointer;border:0;text-align:left;box-shadow:0 8px 18px rgba(16,24,40,.1)}
+.procedure-card strong{font-size:1.15rem}.procedure-card span{display:block;font-size:.7rem;margin-top:.4rem;opacity:.9;line-height:1.45}
+.procedure-card.dtm{background:#5b32a3}.procedure-card.gpmt{background:#0b63ce}.procedure-card.dkmt{background:#087443}
+.procedure-card:hover{filter:brightness(1.06);transform:translateY(-2px)}
+/* Kho biểu mẫu */
+.form-library{background:#f7f9fc;border-top:4px solid var(--violet)}
+.form-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0}
+.form-filter button{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:.55rem .8rem;font-size:.7rem;font-weight:800;color:#344054}
+.form-filter button.active{background:#5b32a3;color:#fff;border-color:#5b32a3}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.form-item{background:#fff;border:1px solid #d7dee8;border-radius:.9rem;padding:1rem}
+.form-item .form-code{display:inline-flex;background:#f0eaff;color:#5b32a3;border-radius:.45rem;padding:.25rem .45rem;font-size:.65rem;font-weight:900}
+.form-item h3{font-size:.95rem;margin:.6rem 0 .35rem}.form-item p{font-size:.72rem;color:#475467;line-height:1.45;margin:0}.form-item a{display:inline-block;margin-top:.65rem;color:#06499a;font-size:.7rem;font-weight:800;text-decoration:underline}
+.form-status{display:inline-flex;margin-left:.35rem;padding:.22rem .4rem;border-radius:999px;font-size:.58rem;font-weight:800}.form-status.hienhanh{background:#e8f7ef;color:#087443}.form-status.canxacthuc{background:#fff3df;color:#9a4f00}
+/* Nền/độ tương phản các khối */
+#form{background:#082b57!important}.form-card{border:2px solid #d7e3f1}.form-card label{color:#344054}.form-card input,.form-card select{border-color:#9aaec4}.result-box{color:#101828}.result-box small{color:#475467}
+.tools-section{background:#f3f6fb}.tool-card{box-shadow:0 6px 18px rgba(16,24,40,.07)}
+#sources{background:#f4efff}.legal-table{background:#fff}.legal-table th{background:#eef2f7;color:#344054}
+#plants{background:#eaf7f8}.plant-panel{background:#fff;border-top-color:#006d77}.tag{border:1px solid transparent}.plant-table .tag{background:#eef2f7;color:#101828}
+#lienket{background:#fff8ed}.link-issue{color:#3b2a13}
+@media(max-width:800px){.full-search-head{display:block}.procedure-strip,.form-grid{grid-template-columns:1fr}.full-search-bar{grid-template-columns:1fr}.search-submit{width:100%}}
+
+
+/* V5.5 — Panel menu + tab điều hướng + hồ sơ kỹ thuật theo từng nhà máy */
+html{scroll-behavior:smooth}section[id]{scroll-margin-top:108px}.top-tab-panel{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:1rem;padding:.65rem .9rem;background:rgba(255,255,255,.97);border:1px solid #cbd5e1;border-radius:0 0 1rem 1rem;box-shadow:0 8px 24px rgba(8,43,87,.12);backdrop-filter:blur(12px)}.top-tab-title{display:flex;align-items:baseline;gap:.45rem;white-space:nowrap;color:#082b57}.top-tab-title strong{font-size:.78rem}.top-tab-title span{font-size:.62rem;color:#667085}.top-tabs{display:flex;gap:.35rem;overflow-x:auto;scrollbar-width:thin;flex:1}.top-tab{white-space:nowrap;padding:.58rem .8rem;border:1px solid #d0d9e5;border-radius:.7rem;background:#fff;color:#344054;font-size:.7rem;font-weight:800;text-decoration:none}.top-tab:hover,.top-tab.active{background:#082b57;color:#fff;border-color:#082b57}.top-menu-btn{border:0;border-radius:.7rem;background:#0b63ce;color:#fff;padding:.6rem .8rem;font-weight:800;font-size:.7rem;white-space:nowrap;cursor:pointer}.menu-panel{max-width:980px!important;background:#fff!important;color:#101828!important;border-radius:1.4rem;padding:2rem!important;box-shadow:0 24px 80px rgba(8,43,87,.24)}.menu-panel-head{padding-right:3rem}.menu-panel-head h2{font-size:clamp(2.5rem,6vw,5rem);line-height:.9;margin:.7rem 0}.menu-panel-head p{max-width:38rem;color:#475467;line-height:1.5}.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}.menu-group{background:#f7f9fc;border:1px solid #d8e0ea;border-radius:1rem;padding:1rem}.menu-group strong{display:block;color:#0b63ce;font-size:.65rem;letter-spacing:.1em;margin-bottom:.65rem}.menu-group a{display:block;padding:.55rem .65rem;margin:.15rem 0;border-radius:.6rem;color:#101828;text-decoration:none;font-weight:750;font-size:.8rem}.menu-group a:hover{background:#eaf3ff;color:#06499a}.technical-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:1.25rem;margin-top:2rem}.technical-actions{margin-top:1rem}.plant-connection{margin-top:1rem;padding:1rem;background:#eef5ff;border-left:4px solid #0b63ce;border-radius:.65rem}.plant-connection p{margin:.35rem 0 0;color:#475467;font-size:.74rem;line-height:1.5}.plant-form select,.plant-form input,.plant-form textarea{width:100%;box-sizing:border-box}.plant-table td{vertical-align:top}.plant-table .metric-inline{font-weight:800;white-space:nowrap}.plant-table .updated{font-size:.62rem;color:#667085}.plant-table .edit-btn{background:#eaf3ff;color:#06499a;border-color:#b8d0ef}.plant-profile-saved{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .45rem;border-radius:999px;background:#e8f7ef;color:#087443;font-size:.58rem;font-weight:900}.form-item .form-status.baibao{background:#fee4e2;color:#b42318}.form-item[data-status="Đã bãi bỏ"]{opacity:.82;border-left:4px solid #b42318}.form-item[data-status="Đang sử dụng"]{border-left:4px solid #087443}.form-filter button[data-form-kind="lichsu"]{color:#b42318}.form-filter button[data-form-kind="tatca-hienthi"]{color:#5b32a3}
+@media(max-width:900px){.top-tab-title{display:none}.top-tab-panel{padding:.55rem}.top-tabs{order:1}.top-menu-btn{order:2}.technical-layout{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.menu-panel{padding:1.25rem!important}}
+@media(max-width:600px){.top-tab-panel{border-radius:0}.top-tab{font-size:.66rem;padding:.52rem .65rem}.top-menu-btn{font-size:.64rem;padding:.52rem .65rem}.technical-actions{align-items:stretch;flex-direction:column}.technical-actions button{width:100%}}
+
+/* MT-1P Phase 1 — local authentication gate (UI/session only) */
+#authGate{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:1rem;background:linear-gradient(135deg,rgba(8,43,87,.96),rgba(4,18,40,.98));backdrop-filter:blur(8px)}
+#authGate[hidden]{display:none!important}
+.auth-card{width:min(440px,100%);box-sizing:border-box;background:#fff;border:1px solid #d9e2ef;border-radius:1.25rem;box-shadow:0 24px 80px rgba(0,0,0,.28);padding:2rem}
+.auth-brand{display:flex;align-items:center;justify-content:center;gap:.55rem;color:#082b57;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.auth-brand .mark{width:1.25rem;height:1.25rem}
+.auth-card h2{margin:1.35rem 0 .45rem;text-align:center;color:#101828;font-size:1.7rem}
+.auth-sub{margin:0 auto 1.4rem;text-align:center;color:#667085;font-size:.82rem;line-height:1.5;max-width:32rem}
+.auth-form{display:grid;gap:.9rem}
+.auth-form label{display:grid;gap:.35rem;color:#344054;font-size:.72rem;font-weight:800}
+.auth-form input{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:.7rem;padding:.75rem .8rem;font:inherit;color:#101828;background:#fff}
+.auth-form input:focus{outline:3px solid rgba(37,99,201,.15);border-color:#2563c9}
+.auth-primary{border:0;border-radius:.7rem;background:#0b63ce;color:#fff;padding:.8rem 1rem;font-weight:900;cursor:pointer}
+.auth-secondary{border:1px solid #cbd5e1;border-radius:.7rem;background:#fff;color:#344054;padding:.7rem 1rem;font-weight:800;cursor:pointer}
+.auth-error{min-height:1.1rem;color:#b42318;font-size:.72rem;font-weight:700}
+.auth-note{margin:.9rem 0 0;padding:.7rem .8rem;background:#f7f9fc;border-radius:.65rem;color:#667085;font-size:.68rem;line-height:1.5}
+.auth-setup{display:none}.auth-setup.show{display:block}.auth-login.hide{display:none}
+.auth-user{margin-left:auto;display:flex;align-items:center;gap:.5rem}
+.auth-user-name{font-size:.7rem;font-weight:800;color:#fff;white-space:nowrap}
+.auth-logout{border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.1);color:#fff;border-radius:.55rem;padding:.42rem .6rem;font-size:.65rem;font-weight:800;cursor:pointer}
+.auth-logout:hover{background:rgba(255,255,255,.18)}
+@media(max-width:600px){.auth-card{padding:1.25rem}.auth-user-name{display:none}}
+</style>
+
+<style id="mt1p-index-merged-css">.search-data{margin-top:.8rem;border-top:1px solid #e4e7ec;padding-top:.55rem}.search-data summary{cursor:pointer;font-weight:850;color:#082b57;list-style:none}.search-data summary::-webkit-details-marker{display:none}.search-data summary::before{content:'▸';display:inline-block;margin-right:.4rem}.search-data[open] summary::before{content:'▾'}.data-table{margin-top:.55rem;border:1px solid #d8e0ea;border-radius:.7rem;overflow:hidden;background:#fbfcfe}.data-row{display:grid;grid-template-columns:minmax(150px,.36fr) minmax(0,1fr);border-bottom:1px solid #e8ecf2}.data-row:last-child{border-bottom:0}.data-key{padding:.48rem .6rem;font-weight:750;color:#475467;background:#f3f6fa;word-break:break-word}.data-value{padding:.48rem .6rem;color:#101828;white-space:pre-wrap;word-break:break-word}.search-result{overflow:hidden}@media(max-width:600px){.data-row{grid-template-columns:1fr}.data-key{border-bottom:1px solid #e8ecf2}}</style>
+
+<style id="mt1p-v552-stable-shell">
+/* V5.5.2 stable shell: one header, one tab bar, one footer */
+body{padding-top:0}
+.header#siteHeader{position:fixed;top:.75rem;left:.75rem;right:.75rem;height:4.25rem;padding:.75rem 2rem;background:var(--navy);border:1px solid rgba(255,255,255,.12);border-radius:1.25rem;box-shadow:0 10px 28px rgba(8,43,87,.20);z-index:1000}
+.header#siteHeader .brand{flex:1;justify-content:center}
+.hero{padding-top:5.75rem}
+#topTabs{position:fixed!important;top:5.35rem;left:.75rem;right:.75rem;z-index:990;border-radius:0 0 1rem 1rem}
+main{padding-top:0}
+section[id]{scroll-margin-top:8.2rem}
+.footer#contact{position:relative;z-index:2;clear:both}
+@media(max-width:768px){.header#siteHeader{top:.5rem;left:.5rem;right:.5rem;height:3.6rem;padding:.55rem 1rem}.hero{padding-top:4.9rem}#topTabs{top:4.45rem;left:.5rem;right:.5rem;overflow-x:auto}section[id]{scroll-margin-top:7.2rem}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
+<div id="authGate" aria-modal="true" role="dialog">
+  <div class="auth-card">
+    <div class="auth-brand"><span class="mark"></span> MT-1P</div>
+    <div class="auth-login" id="authLoginPanel">
+      <h2>Đăng nhập hệ thống</h2>
+      <p class="auth-sub">Đăng nhập bằng tài khoản MT-1P đã được tạo trong Supabase.</p>
+      <form class="auth-form" id="loginForm" autocomplete="on">
+        <label>Email<input id="loginUser" name="email" type="email" autocomplete="username" required></label>
+        <label>Mật khẩu<input id="loginPass" name="password" type="password" autocomplete="current-password" required></label>
+        <div class="auth-error" id="loginError" role="alert"></div>
+        <button class="auth-primary" id="loginBtn" type="submit">Đăng nhập</button>
+      </form>
+      <div class="auth-note">Xác thực được thực hiện bởi Supabase Auth. Quyền truy cập dữ liệu được kiểm soát thêm bằng Row Level Security (RLS).</div>
+    </div>
+  </div>
+</div>
+
+<div class="loader" id="loader"><div class="loader-inner"><div class="loader-brand"><span class="mark"></span> MT-1P</div><div class="track"><div class="fill"></div></div></div></div>
+<div class="modal" id="modal"><div class="modal-panel" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="eyebrow"><i></i> Hỗ trợ MT-1P</span><h2>Trao đổi<br>hồ sơ</h2></div><button class="close" style="background:var(--surface);color:var(--ink)" id="modalClose">×</button></div><form class="modal-form" id="contactForm"><div><label>Họ và tên</label><input id="contactName" required placeholder="Người thực hiện"></div><div><label>Email</label><input type="email" required placeholder="you@example.com"></div><div><label>Nội dung</label><textarea rows="3" placeholder="Phạm vi hồ sơ cần rà soát..."></textarea></div><button class="primary" type="submit">Gửi yêu cầu</button></form><div class="success" id="success"><div class="success-icon">✓</div><strong>Đã ghi nhận</strong><p class="muted">Đây là biểu mẫu thử nghiệm; không gửi dữ liệu lên máy chủ.</p><button type="button" class="primary" id="done">Đóng</button></div></div></div>
+<main>
+<section class="hero card" id="home"><header class="header" id="siteHeader"><a class="brand" href="#home" aria-label="MT-1P"><span class="mark"></span> MT-1P</a><div class="auth-user" id="authUser" hidden><span class="auth-user-name" id="authUserName"></span><button class="auth-logout" id="authLogout" type="button">Đăng xuất</button></div></header>
+<div class="top-tab-panel" id="topTabs" role="navigation" aria-label="Các mục tra cứu trong một trang index">
+  <div class="top-tab-title"><strong>MT-1P</strong><span>Tra cứu tập trung</span></div>
+  <div class="top-tabs">
+    <a class="top-tab active" data-tab="tra-cuu" href="#form">Tra cứu</a>
+    <a class="top-tab" data-tab="tim-nhanh" href="#tracuu-tu-khoa">Tìm nhanh</a>
+    <a class="top-tab" data-tab="phap-ly" href="#sources">Văn bản pháp lý</a>
+    <a class="top-tab" data-tab="bieu-mau" href="#bieu-mau">Kho biểu mẫu</a>
+    <a class="top-tab" data-tab="ho-so" href="#waterplant">Hồ sơ kỹ thuật</a>
+    <a class="top-tab" data-tab="nha-may" href="#plants">Danh mục nhà máy</a>
+  </div>
+</div>
+<div class="hero-inner"><span class="kicker"><i></i> Hệ thống tra cứu thủ tục môi trường · V5.5.2 INDEX HỢP NHẤT</span><h1><span class="hero-word"><span>Tra</span></span> <span class="hero-word"><span>Cứu</span></span> <span class="hero-word"><span>1 Phút</span></span></h1><div class="hero-bottom"><div class="tagline"><div><span>Đúng quy trình,</span></div><div><span>rõ căn cứ.</span></div></div><div class="hero-tools"><div class="glass mini-stat"><div><div class="num">I–IV</div><small>Phân loại nhóm dự án/cơ sở</small></div><div><div class="num">3</div><small>ĐTM · GPMT · ĐKMT</small></div></div></div></div></div></section>
+<section class="section trust card" id="legal"><div class="section-head"><div><span class="eyebrow"><i></i> Đối chiếu căn cứ</span><h2 class="section-title">Không chỉ<br>trả lời “Có”</h2></div><p class="muted" style="max-width:22rem">Hiển thị quy tắc, điều kiện và căn cứ dữ liệu để người dùng kiểm tra lại kết quả.</p></div><div class="ghost"><div class="ghost-row"><span>QUY TẮC</span><span>ĐỐI CHIẾU</span></div><div class="ghost-row"><span>KIỂM TRA</span><span>CĂN CỨ</span></div></div><article class="rule-card"><div class="rule-icon">§</div><div class="rule-caption"><strong>Danh mục pháp lý</strong><small>Quy tắc → điều kiện → căn cứ → kết quả</small></div></article></section>
+<section class="section surface card" id="workflow"><span class="eyebrow"><i></i> Quy trình</span><h2 class="section-title">Từ dữ liệu<br>đến hồ sơ</h2><div class="workflow-grid"><div class="step"><span class="step-num">01 / ĐẦU VÀO</span><h3>Thu thập đầu vào</h3><p>Loại hình, địa bàn, ngành nghề, quy mô, nước thải, khí thải, CTNH và yếu tố nhạy cảm.</p></div><div class="step"><span class="step-num">02 / XỬ LÝ</span><h3>Bộ xử lý quy tắc</h3><p>Đánh giá theo bộ quy tắc hiện có và trả về Nhóm I–IV cùng các thủ tục liên quan.</p></div><div class="step"><span class="step-num">03 / PHÁP LÝ</span><h3>Đối chiếu căn cứ</h3><p>Hiển thị quy tắc, điều kiện đã kiểm tra, kết quả và căn cứ dữ liệu.</p></div><div class="step"><span class="step-num">04 / KẾT QUẢ</span><h3>Hồ sơ 1 cửa</h3><p>Tạo danh mục kiểm tra, lưu phiên tra cứu và in phiếu kết quả để tiếp tục xử lý hồ sơ.</p></div></div></section>
+<section class="form-section card" id="form"><span class="eyebrow"><i></i> Tra cứu nhanh</span><h2 class="section-title" style="color:#fff">Tra cứu<br>thủ tục</h2><div class="form-layout"><div class="form-intro"><h3 style="font-size:2rem;line-height:.95;text-transform:uppercase;margin:0">Một biểu mẫu.<br>Một kết quả<br>có thể kiểm tra.</h3><p>Nhập dữ liệu thực tế. Kết quả là hỗ trợ kỹ thuật và cần đối chiếu văn bản gốc.</p><div class="procedure-strip"><button class="procedure-card dtm" type="button" data-procedure="ĐTM"><strong>ĐTM</strong><span>Đánh giá tác động môi trường và hồ sơ liên quan.</span></button><button class="procedure-card gpmt" type="button" data-procedure="GPMT"><strong>GPMT</strong><span>Giấy phép môi trường và các mẫu hồ sơ cấp/cấp lại/điều chỉnh.</span></button><button class="procedure-card dkmt" type="button" data-procedure="ĐKMT"><strong>ĐKMT</strong><span>Đăng ký môi trường và mẫu văn bản đăng ký.</span></button></div></div>
+<div class="form-card"><div class="toggle" id="lhToggle"><button type="button" data-v="duan" class="active">Dự án</button><button type="button" data-v="coso">Cơ sở đang hoạt động</button></div><div class="fields"><div><label>Địa bàn</label><select id="tinh"></select></div><div><label>Ngành nghề</label><select id="nganh"></select></div><div><label>Vốn (tỷ đồng)</label><input id="von" type="number" min="0" value="50"></div><div><label>Diện tích (ha)</label><input id="dt" type="number" min="0" value="1" step=".1"></div><div><label>Nước thải (m³/ngày)</label><input id="nt" type="number" min="0" value="0"></div><div><label>Khí thải (m³/giờ)</label><input id="kt" type="number" min="0" value="0"></div><div><label>CTNH (kg/năm)</label><input id="ctnh" type="number" min="0" value="0"></div><div><label>CTR công nghiệp (kg/ngày)</label><input id="ctrcn" type="number" min="0" value="0"></div><div class="full"><label>Yếu tố nhạy cảm</label><div class="check-row" id="sensitive"></div></div></div><button class="primary" id="run" type="button">Tra cứu ngay →</button><div class="result" id="result"></div></div></div></section>
+<section class="section stats card"><span class="eyebrow"><i></i> Hệ thống</span><h2 class="section-title" style="color:#fff">Một bộ máy<br>nhiều lớp kiểm soát</h2><div class="stats-grid"><div class="stat"><b>I–IV</b><span>Nhóm dự án/cơ sở</span></div><div class="stat"><b>3</b><span>Thủ tục trọng tâm</span></div><div class="stat"><b>1</b><span>Đối chiếu căn cứ cho mỗi kết quả</span></div><div class="stat"><b>100%</b><span>Dữ liệu tra cứu xử lý cục bộ</span></div></div></section>
+<section class="section card full-search-section" id="tracuu-tu-khoa">
+<div class="full-search-head"><div><span class="eyebrow"><i></i> Tra cứu từ khóa</span><h2 class="section-title">Tìm nhanh<br>theo cụm từ</h2></div><p class="muted" style="max-width:26rem">Không cần nhập đầy đủ câu. Có thể nhập từng cụm, cách nhau bằng dấu phẩy. Ví dụ: <b>nhà máy, nhóm III</b>. Hệ thống tìm không dấu và ưu tiên khớp cụm từ.</p></div>
+<div class="search-shell"><div class="full-search-bar"><div class="full-search-input"><span class="search-glass" aria-hidden="true">⌕</span><input id="fullSearch" type="search" autocomplete="off" placeholder='Ví dụ: nhà máy, nhóm III hoặc "Mẫu 05A"' aria-label="Từ khóa tra cứu"><div class="search-suggestions" id="searchSuggestions"></div></div><button class="search-submit" id="fullSearchBtn" type="button">Tra cứu</button></div><div class="search-help">Gõ một phần từ khóa vẫn tìm được. Dấu ngoặc kép dùng khi cần tìm đúng cụm. Dấu phẩy chia thành nhiều điều kiện phải xuất hiện đồng thời.</div><div class="search-tabs" id="searchTabs"><button class="search-tab active" type="button" data-search-kind="tatca">Tất cả</button><button class="search-tab" type="button" data-search-kind="ĐTM">ĐTM</button><button class="search-tab" type="button" data-search-kind="GPMT">GPMT</button><button class="search-tab" type="button" data-search-kind="ĐKMT">ĐKMT</button><button class="search-tab" type="button" data-search-kind="Nhà máy">Nhà máy</button><button class="search-tab" type="button" data-search-kind="Biểu mẫu">Biểu mẫu</button></div><div class="search-results" id="fullSearchResults"><div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div></div></div></section>
+<section class="section card tools-section" id="congcu"><span class="eyebrow"><i></i> Chức năng</span><h2 class="section-title">Bộ công cụ<br>cho người làm hồ sơ</h2><div class="modules tools-grid"><button class="module tool-card" type="button" data-tool-target="#v51"><span class="step-num">01 / HỒ SƠ</span><h3>Quản lý hồ sơ</h3><p>Lưu và mở lại các phiên tra cứu đã thực hiện.</p><span class="tool-link">Mở quản lý hồ sơ →</span></button><button class="module tool-card" type="button" data-tool-target="#form" data-tool-action="checklist"><span class="step-num">02 / DANH MỤC</span><h3>Danh mục kiểm tra</h3><p>Chạy tra cứu rồi mở ngay danh mục kiểm tra của kết quả.</p><span class="tool-link">Mở danh mục kiểm tra →</span></button><button class="module tool-card" type="button" data-tool-action="print"><span class="step-num">03 / PHIẾU</span><h3>Phiếu tra cứu</h3><p>In hoặc lưu kết quả tra cứu thành PDF sau khi có kết quả.</p><span class="tool-link">In phiếu hiện tại →</span></button></div></section>
+<section class="section surface card"><span class="eyebrow"><i></i> Cấu trúc dữ liệu</span><h2 class="section-title">Kho pháp lý<br>có phiên bản</h2><div class="program-list"><a class="program" href="#legal"><span class="idx">01</span><div><h3>Danh mục pháp lý</h3><p>Văn bản · vị trí căn cứ · hiệu lực · trạng thái.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">02</span><div><h3>Phiên bản quy tắc</h3><p>Quản lý phiên bản quy tắc theo thời gian hiệu lực.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">03</span><div><h3>Nhật ký kiểm tra</h3><p>Lưu dữ liệu đầu vào, quy tắc và kết quả tra cứu.</p></div><span class="arrow">→</span></a><a class="program" href="#contact"><span class="idx">04</span><div><h3>Chuyên ngành cấp nước</h3><p>Phát triển bộ quy tắc riêng cho nhà máy/trạm cấp nước.</p></div><span class="arrow">→</span></a></div></section>
+
+<section class="section surface card" id="v51">
+  <div class="section-head"><div><span class="eyebrow"><i></i> V5.2 / Đối chiếu pháp lý</span><h2 class="section-title">Từ tra cứu<br>đến hồ sơ</h2></div><span class="badge">Xử lý tại trình duyệt</span></div>
+  <div class="v51-grid">
+    <div class="panel"><h3>Quản lý hồ sơ</h3><p>Mỗi lần tra cứu có thể trở thành một hồ sơ làm việc: lưu đầu vào, kết quả, Đối chiếu căn cứ, checklist và lịch sử thay đổi.</p><div class="toolbar"><button class="v51-btn primary" id="saveCase" type="button">Lưu hồ sơ hiện tại</button><button class="v51-btn" id="exportCases" type="button">Xuất toàn bộ hồ sơ</button><button class="v51-btn" id="importCases" type="button">Nhập JSON</button><input id="caseFile" type="file" accept="application/json" hidden></div><div class="case-list" id="caseList"></div></div>
+    <div class="panel dark"><span class="eyebrow"><i></i> Nhật ký kiểm tra</span><h3>Nhật ký kiểm tra</h3><p>Ghi nhận phiên tra cứu, phiên bản bộ máy, dữ liệu đầu vào và thao tác lưu/xuất. Nhật ký nằm trên trình duyệt của người dùng.</p><div class="audit" id="auditList"></div></div>
+  </div>
+  <div class="v51-grid">
+    <div class="panel"><span class="eyebrow"><i></i> Danh mục pháp lý</span><h3>Danh mục căn cứ đang có trong bộ dữ liệu</h3><p>Hiển thị trực tiếp từ DATA.canCu của V5.0; không tự động thay thế hoặc khẳng định hiệu lực pháp lý.</p><div style="overflow:auto"><table class="legal-table"><thead><tr><th>Mã</th><th>Văn bản</th><th>Hiệu lực</th><th>Vai trò</th></tr></thead><tbody id="legalRegistry"></tbody></table></div></div>
+    <div class="panel"><span class="eyebrow"><i></i> Phiên bản quy tắc</span><h3>Phiên bản quy tắc</h3><p>V5.4 tách khái niệm “phiên bản bộ máy” khỏi “phiên bản dữ liệu pháp lý” để mỗi hồ sơ có thể truy nguyên phiên bản đã sử dụng.</p><div class="plant-card"><div class="metric"><small>Bộ xử lý quy tắc</small><strong id="engineVersion">5.1.0</strong></div><div class="metric" style="margin-top:.7rem"><small>Dữ liệu pháp lý</small><strong>V5.0 DATASET</strong></div><div class="metric" style="margin-top:.7rem"><small>Chế độ đối chiếu</small><strong>Quy tắc → điều kiện → căn cứ</strong></div></div></div>
+  </div>
+</section>
+<section class="section card" id="waterplant">
+  <div class="section-head"><div><span class="eyebrow"><i></i> Chuyên ngành cấp nước</span><h2 class="section-title">Hồ sơ kỹ thuật<br>nhà máy / trạm</h2></div><span class="badge">Lưu trực tiếp trên trình duyệt</span></div>
+  <div class="technical-layout">
+    <div class="panel plant-panel">
+      <h3>Nhập và cập nhật số liệu nhà máy</h3>
+      <p>Chọn nhà máy trong danh mục, nhập số liệu thực tế và bấm <b>Lưu hồ sơ kỹ thuật</b>. Dữ liệu được lưu theo mã <b>MaNhaMay</b> ngay trên trình duyệt, không cần sửa hoặc cập nhật lại tệp Excel.</p>
+      <div class="plant-form">
+        <div><label>Nhà máy / trạm</label><select id="wpPlantId"></select></div>
+        <div><label>Mã nhà máy</label><input id="wpCode" readonly /></div>
+        <div><label>Tên nhà máy</label><input id="wpName" readonly /></div>
+        <div><label>Công suất (m³/ngày)</label><input id="wpCapacity" type="number" min="0" /></div>
+        <div><label>Nguồn nước</label><select id="wpSource"><option>Nước mặt</option><option>Nước dưới đất</option><option>Khác</option></select></div>
+        <div><label>Nước thải (m³/ngày)</label><input id="wpWaste" type="number" min="0" step="0.01" placeholder="Nhập số liệu thực tế" /></div>
+        <div><label>Bùn thải — số lượng</label><input id="wpSludge" type="number" min="0" step="0.01" placeholder="Nhập số liệu thực tế" /></div>
+        <div><label>Đơn vị bùn thải</label><select id="wpSludgeUnit"><option>kg/ngày</option><option>tấn/ngày</option><option>tấn/năm</option><option>m³/ngày</option><option>Khác</option></select></div>
+        <div><label>CTNH — số lượng</label><input id="wpHaz" type="number" min="0" step="0.01" placeholder="Nhập số liệu thực tế" /></div>
+        <div><label>Đơn vị CTNH</label><select id="wpHazUnit"><option>kg/năm</option><option>kg/tháng</option><option>tấn/năm</option><option>Khác</option></select></div>
+        <div><label>Hóa chất chính</label><input id="wpChem" placeholder="PAC; Clo; Polymer; ..." /></div>
+        <div><label>Quan trắc</label><input id="wpMonitoring" placeholder="Đạt / Sắp đến hạn / Chưa cập nhật..." /></div>
+        <div><label>Báo cáo BVMT</label><input id="wpReporting" placeholder="Đạt / Sắp đến hạn / Chưa cập nhật..." /></div>
+        <div><label>Kiểm kê KNK</label><input id="wpGHG" placeholder="Đạt / Cần rà soát / Chưa cập nhật..." /></div>
+        <div><label>EPR</label><input id="wpEPR" placeholder="Đạt / Cần rà soát / Không áp dụng..." /></div>
+        <div class="full"><label>Ghi chú kỹ thuật / xử lý nước thải / bùn</label><textarea id="wpNote" rows="4" placeholder="Ví dụ: nước thải lắng lọc, tuần hoàn về cụm xử lý; bùn thu gom..." ></textarea></div>
+      </div>
+      <div class="toolbar technical-actions"><button class="v51-btn primary" id="savePlant" data-role-only="admin,manager" type="button">Lưu hồ sơ kỹ thuật</button><button class="v51-btn" id="clearPlantProfile" data-role-only="admin,manager" type="button">Xóa số liệu đã nhập của nhà máy</button><span class="search-note" id="wpSaveNote"></span></div>
+    </div>
+    <div class="panel">
+      <span class="eyebrow"><i></i> Dữ liệu đang lưu</span><h3 id="plantSnapshotTitle">Chọn nhà máy</h3>
+      <div id="plantSnapshot" class="plant-card"><div class="empty">Chọn một nhà máy để xem hồ sơ kỹ thuật.</div></div>
+      <div class="plant-connection"><strong>Liên kết tự động</strong><p>MaNhaMay → Danh mục nhà máy → Hồ sơ kỹ thuật → Tra cứu từ khóa. Số liệu nhập tại đây sẽ cập nhật ngay bảng danh mục nhà máy.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section surface card" id="lienket"><div class="section-head"><div><span class="eyebrow"><i></i> Kiểm tra liên kết dữ liệu</span><h2 class="section-title">Kiểm tra dữ liệu<br>trước khi tra cứu</h2></div><p class="muted" style="max-width:25rem">Kiểm tra khóa MaNhaMay giữa các bảng Excel và chỉ ra bản ghi thiếu hoặc chưa đủ thông tin. Không tự suy đoán dữ liệu còn thiếu.</p></div><div class="panel" style="margin-top:2rem"><div class="result-grid" id="linkStats"></div><div id="linkIssues" style="margin-top:1rem"></div></div></section><section class="section surface card" id="sources"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nguồn pháp lý</span><h2 class="section-title">Nguồn pháp lý<br>được kết nối</h2></div><p class="muted" style="max-width:25rem">Mỗi nguồn có mã duy nhất và liên kết tới bản PDF trên Cổng Thông tin điện tử Chính phủ. V5.4 chỉ xem đây là nguồn tham chiếu; Quy tắc phải tiếp tục đối chiếu điều/khoản/điểm.</p></div><div class="panel" style="margin-top:2rem"><div style="overflow:auto"><table class="legal-table"><thead><tr><th>ID</th><th>Văn bản</th><th>Vai trò</th><th>Nguồn</th></tr></thead><tbody id="sourceRegistry"></tbody></table></div></div></section><section class="section card form-library" id="bieu-mau"><div class="section-head"><div><span class="eyebrow"><i></i> Phụ lục biểu mẫu</span><h2 class="section-title">Kho biểu mẫu<br>ĐTM · GPMT · ĐKMT</h2></div><p class="muted" style="max-width:25rem">Đã đối chiếu danh mục Phụ lục II và Phụ lục VI trong văn bản hợp nhất 55/VBHN-BNNMT; mỗi mẫu ghi rõ nhóm ĐTM, GPMT, ĐKMT hoặc báo cáo BVMT và trạng thái để tránh dùng nhầm mẫu đã bãi bỏ.</p></div><div class="form-filter" id="formFilter"><button class="active" type="button" data-form-kind="tatca">Đang sử dụng</button><button type="button" data-form-kind="ĐTM">ĐTM</button><button type="button" data-form-kind="GPMT">GPMT</button><button type="button" data-form-kind="ĐKMT">ĐKMT</button><button type="button" data-form-kind="Báo cáo BVMT">Báo cáo BVMT</button><button type="button" data-form-kind="lichsu">Lịch sử / đã bãi bỏ</button><button type="button" data-form-kind="tatca-hienthi">Tất cả</button></div><div class="form-grid" id="formRegistry"></div></section>
+<section class="section card" id="plants"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nhà máy · Supabase</span><h2 class="section-title">Danh mục<br><span id="plantRegistryTitleCount">28 nhà máy</span></h2></div><p class="muted" style="max-width:25rem">Danh mục nhà máy được đọc từ bảng <code>water_plants</code> trên Supabase sau khi đăng nhập. Dữ liệu nền hiện có vẫn được giữ làm dữ liệu tham chiếu; bản ghi trên Supabase được ưu tiên khi trùng mã nhà máy.</p></div><div class="panel plant-panel" style="margin-top:2rem"><div class="plant-search"><div class="full search-main"><label>Tìm kiếm theo cụm từ</label><input id="plantSearch" type="search" placeholder='Ví dụ: "Nhà máy nước mặt Đông Bình" hoặc 907/UBND-KTHĐT'><small>Không phân biệt hoa thường và dấu tiếng Việt. Cụm từ trong dấu ngoặc kép phải xuất hiện đúng theo cụm.</small></div><div><label>Chọn tên nhà máy</label><select id="plantNameFilter"><option value="tatca">Tất cả nhà máy</option></select></div><div><label>Tình trạng hồ sơ</label><select id="plantStatus"><option value="tatca">Tất cả</option><option value="gpmt">Có GPMT</option><option value="dkmt">ĐKMT/chấp thuận</option><option value="chuathuchien">Chưa thực hiện</option><option value="chuacodulieu">Chưa có dữ liệu</option></select></div><div><label>Nguồn nước</label><select id="plantSourceFilter"><option value="tatca">Tất cả</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option><option value="Khác">Khác</option></select></div><div><label>Trạng thái nghĩa vụ</label><select id="obligationFilter"><option value="tatca">Tất cả</option><option value="dat">Đạt/Còn hạn</option><option value="sapdenhan">Sắp đến hạn</option><option value="canrasoat">Cần rà soát</option><option value="chuacapnhat">Chưa cập nhật</option></select></div><div class="filter-actions"><button class="v51-btn" id="clearPlantFilters" type="button">Xóa bộ lọc</button><span class="search-note" id="plantSearchCount"></span></div></div><div style="overflow:auto"><table class="legal-table plant-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Công suất</th><th>Nguồn</th><th>Nước thải</th><th>Bùn thải</th><th>CTNH</th><th>Tình trạng hồ sơ</th><th></th></tr></thead><tbody id="plantRegistry"></tbody></table></div></div></section><footer class="footer card" id="contact"><div class="footer-cta"><div><span class="kicker"><i></i> MT-1P V5.5.2 INDEX HỢP NHẤT</span><h2>Sẵn sàng<br>tra cứu?</h2></div><button class="light-btn" id="bookFooter">Tạo hồ sơ tra cứu</button></div><div class="footer-grid"><div><div class="brand" style="justify-content:flex-start"><span class="mark"></span> MT-1P</div><p>Công cụ hỗ trợ tra cứu thủ tục môi trường theo hướng dữ liệu + quy tắc + căn cứ pháp lý.</p><address>Phiên bản kỹ thuật: 5.5.2<br>© 2026 MT-1P</address></div><div><h4>Tra cứu</h4><ul><li><a href="#form">Tra cứu nhanh</a></li><li><a href="#workflow">Quy trình</a></li><li><a href="#legal">Đối chiếu căn cứ</a></li></ul></div><div><h4>Hệ thống</h4><ul><li><a href="#form">Bộ xử lý quy tắc</a></li><li><a href="#form">Danh mục kiểm tra</a></li><li><a href="#contact">Phiếu tra cứu</a></li></ul></div><div><h4>Lưu ý</h4><p>Kết quả không thay thế văn bản gốc, hồ sơ thực tế hoặc ý kiến cơ quan có thẩm quyền.</p></div></div><div class="bottom"><span>MT-1P · Tra cứu thủ tục môi trường</span><span>Xác thực & dữ liệu danh mục nhà máy qua Supabase · RLS bảo vệ quyền truy cập</span></div></footer></main>
+<script>
+const FALLBACK_CONGTY = [
+  {"id": "nm01", "ten": "Nhà máy nước mặt Đông Bình", "diaDiem": "Khu phố Đông Bình, phường Cao Lãnh, tỉnh Đồng Tháp", "congSuat": "40.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 907/UBND-KTHĐT ngày 13/9/2025 của UBND P. Cao Lãnh  (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND phường Cao Lãnh.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm02", "ten": "Nhà máy nước mặt Tân Long", "diaDiem": "Khu phố Bến Bắc, phường Cao Lãnh, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 1927/UBND-KTHĐT ngày 7/11/2025 của UBND P. Cao Lãnh  (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND phường Cao Lãnh.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm03", "ten": "Nhà máy nước mặt Mỹ Hiệp", "diaDiem": "Cụm công nghiệp xã Mỹ Hiệp, tỉnh Đồng Tháp", "congSuat": "5.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 04/UBND-HC ngày 19/6/2025 của UBND xã Mỹ Hiệp (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Mỹ Hiệp.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm04", "ten": "Nhà máy nước mặt Mỹ An", "diaDiem": "Ấp Mỹ An 2, xã Tháp Mười, tỉnh Đồng Tháp", "congSuat": "13.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 974/UBND-KT ngày 21/4/2026 của UBND xã Tháp Mười (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Tháp Mười.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm05", "ten": "Trạm cấp nước Mỹ Thọ", "diaDiem": "Ấp Mỹ Tây, xã Mỹ Thọ, tỉnh Đồng Tháp", "congSuat": "10.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 501/PKT-HC ngày 24/3/2026 của phòng KT -UBND xã Mỹ Thọ\n (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Mỹ Thọ.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm06", "ten": "Trạm cấp nước Trường Xuân", "diaDiem": "xã Trường Xuân, tỉnh Đồng Tháp", "congSuat": "2.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 386/UBND ngày 28/5/2025 của UBND xã Trường Xuân (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Trường Xuân.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm07", "ten": "Nhà máy nước mặt Trần Quốc Toản", "diaDiem": "Quốc lộ 30, phường Mỹ Ngãi, tỉnh Đồng Tháp", "congSuat": "7.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm08", "ten": "Trạm cấp nước Tân Nghĩa", "diaDiem": "Chợ Tân Nghĩa, phường Mỹ Ngãi, tỉnh Đồng Tháp", "congSuat": "2.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm09", "ten": "Nhà máy nước Sa Đéc", "diaDiem": "270B, Trần Hưng Đạo, P. Sa Đéc, tỉnh Đồng Tháp", "congSuat": "17.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có thông báo tiếp nhận/chấp thuận: số 105/TB-UNBD ngày 18/5/2026  của UBND phường Sa Đéc — đã hoàn thành Đăng ký môi trường (ĐKMT), không yêu cầu GPMT. Cơ quan: UBND phường Sa Đéc.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm10", "ten": "Nhà máy nước KCN C", "diaDiem": "KCN C, phường Sa Đéc, tỉnh Đồng Tháp", "congSuat": "15.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có thông báo tiếp nhận/chấp thuận: số 30/TB-UBND ngày 24/4/2025 của UBND phường Tân Qui Đông — đã hoàn thành Đăng ký môi trường (ĐKMT), không yêu cầu GPMT. Cơ quan: UBND phường Tân Qui Đông (P. Sa Đéc hiện nay).", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm11", "ten": "Nhà máy nước mặt Nha Mân", "diaDiem": "QL80, xã Tân Nhuận Đông, tỉnh Đồng Tháp (cầu Nha Mân)", "congSuat": "7.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 273/UBND-KT ngày 30/5/2025 của UBND xã Tân Nhuận Đông (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức).", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm12", "ten": "Nhà máy nước mặt Nha Mân 2", "diaDiem": "QL80, xã Tân Nhuận Đông, tỉnh Đồng Tháp", "congSuat": "5.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 272/UBND-KT ngày 30/5/2025 của UBND xã Tân Nhuận Đông (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Tân Nhuận Đông.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm13", "ten": "Nhà máy nước mặt An Hiệp", "diaDiem": "cồn An Hiệp, xã Phú Hựu, tỉnh Đồng Tháp", "congSuat": "2.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 624/UBND-KT ngày 12/3/2026 của UBND xã  Phú Hựu (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã  Phú Hựu.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm14", "ten": "Nhà máy nước mặt An Phú Thuận", "diaDiem": "xã Phú Hựu (UBND xã An phú thuận cũ)", "congSuat": "2.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm15", "ten": "Nhà máy nước mặt Bình Thành", "diaDiem": "QL80, xã Lấp Vò, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 01/GPMT-UBND ngày 21/4/2025 của UBND huyện Lấp Vò  Cơ quan: UBND huyện Lấp Vò.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm16", "ten": "Nhà máy nước mặt Lộ Tiểu", "diaDiem": "QL80, xã Phú Hựu, tỉnh Đồng Tháp", "congSuat": "5.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 243/UBND-KT ngày ngày 14/5/2025 của UBND xã An Nhơn (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã An Nhơn (UBND xã Phú Hựu hiện nay).", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm17", "ten": "Nhà máy nước mặt Mương Điều", "diaDiem": "Chợ Mương Điều, xã Tân Khánh Trung, tỉnh Đồng Tháp", "congSuat": "3.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm18", "ten": "Nhà máy nước mặt Khánh Mỹ", "diaDiem": "xã Tân Khánh Trung, tỉnh Đồng Tháp", "congSuat": "2.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm19", "ten": "Nhà máy nước mặt Vĩnh Thạnh", "diaDiem": "ấp Vĩnh Thạnh, xã Lấp Vò, tỉnh Đồng Tháp (cầu Vĩnh Thạnh)", "congSuat": "500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có thông báo tiếp nhận/chấp thuận: số 38/TB-UBND ngày 11/3/2026 của UBND xã Lấp Vò — đã hoàn thành Đăng ký môi trường (ĐKMT), không yêu cầu GPMT. Cơ quan: UBND xã Lấp Vò.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm20", "ten": "Nhà máy nước mặt Phú Hựu", "diaDiem": "xã Phú Hựu, tỉnh Đồng Tháp", "congSuat": "2.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 27/GPMT-UNBD ngày 26/6/2025 của UBND huyện Châu Thành Cơ quan: UBND huyện Châu Thành (UBND xã Phú Hựu hiện nay).", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm21", "ten": "Nhà máy nước mặt Tân Phú Trung", "diaDiem": "xã Tân Phú Trung, tỉnh Đồng Tháp", "congSuat": "5.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 222/UBND-KT ngày 8/8/2025 của UBND xã Tân Phú Trung (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND xã Tân Phú Trung.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm22", "ten": "Nhà máy nước mặt Tân Dương", "diaDiem": "KDC Tân Dương, xã Tân Dương, tỉnh Đồng Tháp", "congSuat": "3.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Chưa có văn bản/GPMT — cần thực hiện thủ tục môi trường.", "status": {"gpmt": "red", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm23", "ten": "Nhà máy nước mặt TP. Hồng Ngự", "diaDiem": "phường An Bình, tỉnh Đồng Tháp", "congSuat": "17.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 1732/GPMT-UBND ngày 05/6/2025 của UBND TP. Hồng Ngự Cơ quan: UBND TP. Hồng Ngự (UBND phường An Bình hiện nay).", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm24", "ten": "Nhà máy nước Thường Thới Tiền", "diaDiem": "xã Thường Phước, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 488/GPMT-UBND ngày 12/5/2025 của UBND tỉnh Đồng Tháp Cơ quan: UBND tỉnh Đồng Tháp.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm25", "ten": "Nhà máy nước mặt An Long", "diaDiem": "QL30, xã An Long, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có thông báo tiếp nhận/chấp thuận: số 947/TB-UBND ngày 10/6/2026 của UBND xã An Long — đã hoàn thành Đăng ký môi trường (ĐKMT). Cơ quan: UBND xã An Long. ⚠️ Cần đối chiếu: dữ liệu trước đây (kế hoạch GPMT 2025) từng ghi nhận trạm này đã có GPMT số 224/GPMT-UBND ngày 14/3/2025, nhưng dữ liệu mới nhất chỉ ghi nhận Thông báo ĐKMT — cần Hùng/Trúc xác minh lại là đã có GPMT hay chỉ ĐKMT (dù trường hợp nào cũng đã hoàn thành nghĩa vụ tương ứng).", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm26", "ten": "Nhà máy nước Bình Phú", "diaDiem": "xã Tân Hồng, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 83/GPMT-UBND ngày 29/5/2025 của UBND huyện Tân Hồng Cơ quan: UBND huyện Tân Hồng (nay là xã Tân Hồng).", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm27", "ten": "Trạm cấp nước Tràm Chim", "diaDiem": "xã Tràm Chim, tỉnh Đồng Tháp", "congSuat": "6.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có GPMT: số 1438/GPMT-UBND ngày 27/6/2025 của UBND huyện Tam Nông Cơ quan: UBND xã Tràm Chim.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+  {"id": "nm28", "ten": "Nhà máy nước mặt Thanh Bình", "diaDiem": "xã Thanh Bình, tỉnh Đồng Tháp", "congSuat": "8.500 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có văn bản chấp thuận của UBND xã Thanh Bình ngày 12/11/2025 — đã hoàn thành Đăng ký môi trường (ĐKMT), không yêu cầu GPMT. Cơ quan: UBND xã Thanh Bình.", "status": {"gpmt": "green", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
+];
+const DATA = {
+
+canCu: [
+  ["1","Luật Bảo vệ môi trường số 72/2020/QH14","01/01/2022","Khung pháp lý tổng thể về bảo vệ môi trường (BVMT)."],
+  ["2","Luật số 146/2025/QH15 sửa đổi 15 luật lĩnh vực nông nghiệp và môi trường (Điều 1 sửa Luật BVMT)","01/01/2026","Sửa đổi thẩm quyền ĐTM/GPMT, mô hình 2 cấp chính quyền."],
+  ["3","Nghị định số 08/2022/NĐ-CP","10/01/2022","Quy định chi tiết thi hành Luật BVMT."],
+  ["4","Nghị định số 05/2025/NĐ-CP sửa đổi NĐ 08/2022","06/01/2025","Sửa đổi, bổ sung một số điều của NĐ 08/2022/NĐ-CP."],
+  ["5","Nghị định số 48/2026/NĐ-CP sửa đổi NĐ 08/2022 (đã sửa bởi NĐ 05/2025)","29/01/2026","Bổ sung Điều 26a (phân cấp UBND cấp tỉnh), thay đổi Phụ lục II, cập nhật thẩm quyền."],
+  ["6","VBHN số 49/VBHN-BNNMT (hợp nhất NĐ 08/2022 + 05/2025 + 48/2026)","29/01/2026","Bản hợp nhất dùng để tra cứu chính thức."],
+  ["7","Nghị định số 110/2026/NĐ-CP","25/05/2026","Trách nhiệm tái chế sản phẩm, bao bì và xử lý chất thải của nhà sản xuất, nhập khẩu (EPR)."],
+  ["8","Thông tư số 02/2022/TT-BTNMT","10/01/2022","Hướng dẫn kỹ thuật chi tiết thi hành Luật BVMT."],
+  ["9","Thông tư số 07/2025/TT-BTNMT sửa đổi TT 02/2022","28/02/2025","Sửa đổi thời hạn báo cáo BVMT định kỳ, mẫu biểu, hình thức nộp điện tử."],
+  ["10","Thông tư số 09/2026/TT-BNNMT sửa đổi TT 02/2022","29/01/2026","Bổ sung Điều 18a–18c (hồ sơ, trình tự, thời hạn cấp/điều chỉnh/cấp lại GPMT)."],
+  ["11","Thông tư số 22/2026/TT-BNNMT","19/05/2026","Phân cấp, cắt giảm, đơn giản hóa thủ tục hành chính lĩnh vực môi trường."],
+  ["11b","Nghị quyết số 66.19/2026/NQ-CP","18/05/2026 – 28/02/2027","⭐ Cắt giảm, phân quyền, đơn giản hóa TTHC lĩnh vực môi trường (Phụ lục IX) — QUY ĐỊNH NGƯỠNG CHÍNH XÁC ĐTM/GPMT/ĐKMT hiện đang áp dụng, ưu tiên hơn văn bản khác nếu có khác biệt (Điều 6.4)."],
+  ["12","VBHN số 55/VBHN-BNNMT (hợp nhất TT 02/2022 + 07/2025 + 09/2026 + 22/2026)","19/05/2026","Bản hợp nhất các Thông tư dùng để tra cứu chính thức."],
+  ["13","Luật Tổ chức chính quyền địa phương số 72/2025/QH15","2025–2026","Chuyển đổi mô hình 3 cấp sang 2 cấp."],
+  ["14","Luật Tài nguyên nước 2023 và văn bản hướng dẫn","2023","Giấy phép, đăng ký khai thác, sử dụng tài nguyên nước."],
+  ["15","Quy định về phòng cháy, chữa cháy (PCCC) hiện hành","hiện hành","Hồ sơ PCCC liên quan công trình BVMT."]
+],
+
+coQuan: [
+  ["Cấp Trung ương","Bộ Nông nghiệp và Môi trường (Bộ NN&MT)","Thẩm định ĐTM, cấp GPMT cho dự án Nhóm I và các đối tượng thuộc thẩm quyền Bộ (Điều 35, 41 Luật BVMT)."],
+  ["Cấp tỉnh","Sở Nông nghiệp và Môi trường (Sở NN&MT)","Thẩm định ĐTM, cấp GPMT cho dự án Nhóm II, III và các dự án được phân cấp từ Bộ NN&MT (Điều 26a NĐ 08/2022, VBHN 49); tiếp nhận báo cáo BVMT định kỳ."],
+  ["Cấp xã","UBND cấp xã","Tiếp nhận đăng ký môi trường (Nhóm IV); tiếp nhận báo cáo BVMT định kỳ; kiểm tra chuyên ngành BVMT trên địa bàn."],
+  ["Quốc phòng, an ninh","Bộ Quốc phòng / Bộ Công an","Thẩm định ĐTM, cấp GPMT cho dự án thuộc bí mật nhà nước về quốc phòng, an ninh."]
+],
+
+/* ===== 34 tỉnh, thành phố sau sáp nhập (Nghị quyết 202/2025/QH15, hiệu lực 01/7/2025) ===== */
+tinhThanh:[
+  {ma:"HN", ten:"TP. Hà Nội", loai:"TW", ghiChu:"Giữ nguyên"},
+  {ma:"HP", ten:"TP. Hải Phòng", loai:"TW", ghiChu:"Hợp nhất Hải Phòng + Hải Dương"},
+  {ma:"DN", ten:"TP. Đà Nẵng", loai:"TW", ghiChu:"Hợp nhất Đà Nẵng + Quảng Nam"},
+  {ma:"HCM", ten:"TP. Hồ Chí Minh", loai:"TW", ghiChu:"Hợp nhất TP.HCM + Bình Dương + Bà Rịa - Vũng Tàu"},
+  {ma:"CT", ten:"TP. Cần Thơ", loai:"TW", ghiChu:"Hợp nhất Cần Thơ + Hậu Giang + Sóc Trăng"},
+  {ma:"HUE", ten:"TP. Huế", loai:"TW", ghiChu:"Giữ nguyên (đã lên TW trước đó)"},
+  {ma:"TUYENQUANG", ten:"Tuyên Quang", loai:"tỉnh", ghiChu:"Hợp nhất Tuyên Quang + Hà Giang"},
+  {ma:"LAOCAI", ten:"Lào Cai", loai:"tỉnh", ghiChu:"Hợp nhất Lào Cai + Yên Bái"},
+  {ma:"THAINGUYEN", ten:"Thái Nguyên", loai:"tỉnh", ghiChu:"Hợp nhất Thái Nguyên + Bắc Kạn"},
+  {ma:"PHUTHO", ten:"Phú Thọ", loai:"tỉnh", ghiChu:"Hợp nhất Phú Thọ + Vĩnh Phúc + Hòa Bình"},
+  {ma:"BACNINH", ten:"Bắc Ninh", loai:"tỉnh", ghiChu:"Hợp nhất Bắc Ninh + Bắc Giang"},
+  {ma:"HUNGYEN", ten:"Hưng Yên", loai:"tỉnh", ghiChu:"Hợp nhất Hưng Yên + Thái Bình"},
+  {ma:"NINHBINH", ten:"Ninh Bình", loai:"tỉnh", ghiChu:"Hợp nhất Ninh Bình + Hà Nam + Nam Định"},
+  {ma:"QUANGTRI", ten:"Quảng Trị", loai:"tỉnh", ghiChu:"Hợp nhất Quảng Trị + Quảng Bình"},
+  {ma:"QUANGNGAI", ten:"Quảng Ngãi", loai:"tỉnh", ghiChu:"Hợp nhất Quảng Ngãi + Kon Tum"},
+  {ma:"GIALAI", ten:"Gia Lai", loai:"tỉnh", ghiChu:"Hợp nhất Gia Lai + Bình Định"},
+  {ma:"KHANHHOA", ten:"Khánh Hòa", loai:"tỉnh", ghiChu:"Hợp nhất Khánh Hòa + Ninh Thuận"},
+  {ma:"LAMDONG", ten:"Lâm Đồng", loai:"tỉnh", ghiChu:"Hợp nhất Lâm Đồng + Đắk Nông + Bình Thuận"},
+  {ma:"DAKLAK", ten:"Đắk Lắk", loai:"tỉnh", ghiChu:"Hợp nhất Đắk Lắk + Phú Yên"},
+  {ma:"DONGNAI", ten:"Đồng Nai", loai:"tỉnh", ghiChu:"Hợp nhất Đồng Nai + Bình Phước"},
+  {ma:"TAYNINH", ten:"Tây Ninh", loai:"tỉnh", ghiChu:"Hợp nhất Tây Ninh + Long An"},
+  {ma:"DONGTHAP", ten:"Đồng Tháp", loai:"tỉnh", ghiChu:"Hợp nhất Đồng Tháp + Tiền Giang"},
+  {ma:"VINHLONG", ten:"Vĩnh Long", loai:"tỉnh", ghiChu:"Hợp nhất Vĩnh Long + Bến Tre + Trà Vinh"},
+  {ma:"ANGIANG", ten:"An Giang", loai:"tỉnh", ghiChu:"Hợp nhất An Giang + Kiên Giang"},
+  {ma:"CAMAU", ten:"Cà Mau", loai:"tỉnh", ghiChu:"Hợp nhất Cà Mau + Bạc Liêu"},
+  {ma:"LANGSON", ten:"Lạng Sơn", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"CAOBANG", ten:"Cao Bằng", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"LAICHAU", ten:"Lai Châu", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"DIENBIEN", ten:"Điện Biên", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"SONLA", ten:"Sơn La", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"THANHHOA", ten:"Thanh Hóa", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"NGHEAN", ten:"Nghệ An", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"HATINH", ten:"Hà Tĩnh", loai:"tỉnh", ghiChu:"Giữ nguyên"},
+  {ma:"QUANGNINH", ten:"Quảng Ninh", loai:"tỉnh", ghiChu:"Giữ nguyên"}
+],
+
+/* ===== Ngành nghề tiêu biểu — tham chiếu Phụ lục II/III/IV/V NĐ 08/2022 (VBHN 49). 
+   DANH SÁCH MANG TÍNH ĐẠI DIỆN, chưa đầy đủ toàn bộ ~100+ mã ngành trong Phụ lục II. ===== */
+/* ===== Ngành nghề — CẬP NHẬT theo Mục VII.1.a Nghị quyết 66.19/2026/NQ-CP (18/5/2026)
+   nhomA = true: thuộc "danh sách đặc thù" áp ngưỡng GPMT THẤP hơn (100 m³/ngày, 100.000 m³/giờ)
+   nhomA = false: ngành khác áp ngưỡng GPMT thường (150 m³/ngày, 100.000 m³/giờ)
+   luonGPMT = true: luôn phải GPMT bất kể lưu lượng (dịch vụ tái chế/xử lý CTNH, nhập khẩu phế liệu) ===== */
+nganhNghe:[
+  {ma:"khoangsandochhai", ten:"Làm giàu, chế biến khoáng sản độc hại, khoáng sản kim loại (dùng hóa chất độc)", nhomA:true, dtmDat:true, ghiChu:"Mục VII.1.a NQ 66.19/2026/NQ-CP"},
+  {ma:"kimloaituquan", ten:"Sản xuất kim loại có sử dụng nguyên liệu từ quặng", nhomA:true},
+  {ma:"giaybotgiay", ten:"Sản xuất giấy, sản phẩm từ giấy có công đoạn sản xuất bột giấy", nhomA:true},
+  {ma:"hoachatvoco", ten:"Sản xuất hóa chất vô cơ cơ bản, phân bón hóa học, hóa chất BVTV (trừ phối trộn/sang chiết/đóng gói)", nhomA:true},
+  {ma:"nhietdienthan", ten:"Nhiệt điện than", nhomA:true},
+  {ma:"ximangclinker", ten:"Sản xuất xi măng có công đoạn sản xuất clinker", nhomA:true},
+  {ma:"detnhuom", ten:"Dệt may có công đoạn nhuộm; thuộc da; chế biến mủ cao su; SX tinh bột sắn, bột ngọt; chế biến thủy sản; SX đường mía", nhomA:true},
+  {ma:"kcnht", ten:"Khu sản xuất, kinh doanh, dịch vụ tập trung / cụm công nghiệp", nhomA:true, dtmDat:true},
+  {ma:"dichvuctrsh", ten:"Dịch vụ xử lý CTR sinh hoạt, CTR công nghiệp thông thường", nhomA:true},
+  {ma:"xulyctnh", ten:"Dịch vụ tái chế, xử lý chất thải nguy hại", nhomA:true, luonGPMT:true, ghiChu:"Luôn phải GPMT bất kể lưu lượng — Mục VII.1.b NQ 66.19/2026"},
+  {ma:"nhapkhauphelieu", ten:"Có hoạt động nhập khẩu phế liệu từ nước ngoài làm nguyên liệu sản xuất", nhomA:true, luonGPMT:true, ghiChu:"Luôn phải GPMT bất kể lưu lượng — Mục VII.1.b NQ 66.19/2026"},
+  {ma:"khaikhoang", ten:"Khai thác khoáng sản (theo pháp luật địa chất và khoáng sản)", nhomA:false, dtmDat:true, ghiChu:"Luôn thuộc đối tượng phải ĐTM — Mục VI.1.đ NQ 66.19/2026"},
+  {ma:"dienhatnhan", ten:"Nhà máy điện hạt nhân; lò phản ứng hạt nhân nghiên cứu", nhomA:false, dtmLuon:true, ghiChu:"Luôn thuộc đối tượng phải ĐTM, thẩm quyền Bộ NN&MT — Mục VI.1.a"},
+  {ma:"lanbien", ten:"Dự án có hoạt động lấn biển", nhomA:false, dtmLuon:true, ghiChu:"Luôn thuộc đối tượng phải ĐTM — Mục VI.1.c"},
+  {ma:"chebienthucpham", ten:"Chế biến thực phẩm, đồ uống (không thuộc danh sách đặc thù)", nhomA:false},
+  {ma:"channuoitaptrung", ten:"Chăn nuôi gia súc, gia cầm tập trung quy mô công nghiệp", nhomA:false},
+  {ma:"capnuoc", ten:"Sản xuất, cung cấp nước sạch (nhà máy nước)", nhomA:false},
+  {ma:"cokhilaprap", ten:"Cơ khí, lắp ráp, may mặc (không nhuộm, không xi mạ quy mô lớn)", nhomA:false},
+  {ma:"khobai", ten:"Kho bãi, logistics, trung tâm thương mại, văn phòng (không phát sinh nước thải/khí thải công nghiệp)", nhomA:false},
+  {ma:"yte", ten:"Cơ sở y tế, bệnh viện, phòng khám", nhomA:false, ghiChu:"Luôn phải quản lý riêng CTNH y tế theo quy định chuyên ngành"},
+  {ma:"khac", ten:"Loại hình khác / chưa xác định — cần tra trực tiếp Mục VII.1.a Phụ lục IX NQ 66.19/2026", nhomA:false}
+],
+
+/* ===== Yếu tố nhạy cảm / bắt buộc ĐTM — CẬP NHẬT theo Mục VI.1 Nghị quyết 66.19/2026/NQ-CP ===== */
+yeuToNhayCam:[
+  {id:"rungdacdung", ten:"Sử dụng đất/mặt nước rừng đặc dụng, khu bảo vệ nguồn lợi thủy sản (bất kỳ diện tích)"},
+  {id:"baotondadang", ten:"Sử dụng đất ≥0,5ha khu bảo tồn thiên nhiên / vùng lõi dự trữ sinh quyển / vùng lõi di sản thiên nhiên thế giới"},
+  {id:"ngapnuoc", ten:"Sử dụng đất ≥0,2ha vùng đất ngập nước quan trọng, hoặc rừng tự nhiên/rừng phòng hộ"},
+  {id:"quymodat", ten:"Quy mô sử dụng đất, đất có mặt nước ≥50ha, hoặc quy mô sử dụng khu vực biển ≥10ha"},
+  {id:"nguonnuocsh", ten:"Xả nước thải vào vùng bảo hộ nguồn nước mặt dùng cho cấp nước sinh hoạt"},
+  {id:"taidinhcu", ten:"Có yêu cầu di dân, tái định cư"}
+],
+
+/* ===== Ngưỡng nước thải/khí thải — CẬP NHẬT CHÍNH XÁC theo Mục VII.1 và VII.3
+   Nghị quyết 66.19/2026/NQ-CP (hiệu lực 18/5/2026 – 28/02/2027), thay thế mọi ngưỡng suy diễn trước đây ===== */
+NGUONG_66_19:{
+  gpmt_nuocThai_nhomA: 100,      // m³/ngày — danh sách ngành đặc thù Mục VII.1.a
+  gpmt_nuocThai_khac: 150,       // m³/ngày — ngành khác Mục VII.1.c
+  gpmt_khiThai: 100000,          // m³/giờ — áp dụng chung cho cả 2 nhóm
+  dkmt_tinh_nuocThai: 50,        // m³/ngày — từ ngưỡng này ĐKMT nộp UBND CẤP TỈNH (Mục VII.3.a)
+  dkmt_tinh_khiThai: 20000       // m³/giờ — từ ngưỡng này ĐKMT nộp UBND CẤP TỈNH (Mục VII.3.a)
+},
+
+
+congTyNhaMay: FALLBACK_CONGTY,
+
+decisionTree: [
+  {q:"Dự án có thuộc Nhóm I không?", yes:"Lập Báo cáo ĐTM; thực hiện Đánh giá sơ bộ TĐMT nếu chưa có chủ trương đầu tư.", no:"→ Câu hỏi 2"},
+  {q:"Dự án Nhóm II có yếu tố nhạy cảm môi trường hoặc nguy cơ ô nhiễm không?", yes:"Lập Báo cáo ĐTM.", no:"→ Câu hỏi 3"},
+  {q:"Có phát sinh nước thải, bụi, khí thải phải xử lý hoặc CTNH thuộc diện cấp phép không?", yes:"Lập hồ sơ Giấy phép môi trường (GPMT).", no:"→ Câu hỏi 4"},
+  {q:"Nhóm IV có phát sinh chất thải (kể cả khối lượng nhỏ, không thuộc diện miễn) không?", yes:"Lập hồ sơ Đăng ký môi trường (ĐKMT) tại UBND cấp xã.", no:"Kiểm tra danh mục miễn đăng ký môi trường (Mục Nhóm dự án → Miễn trừ)."}
+],
+
+nhom: {
+  I:{
+    label:"Nhóm I", full:"Dự án có nguy cơ tác động xấu đến môi trường mức độ CAO",
+    canCuChiTiet:"Phụ lục III Nghị định 08/2022/NĐ-CP (VBHN 49/VBHN-BNNMT)",
+    rows:[
+      {tt:"Đánh giá sơ bộ tác động môi trường", dk:"req", coQuan:"Cơ quan chấp thuận chủ trương đầu tư (Quốc hội, Thủ tướng, UBND cấp tỉnh...)", thoiDiem:"Giai đoạn nghiên cứu tiền khả thi, xin chủ trương đầu tư", thoiHan:"Theo thời hạn thẩm định chủ trương đầu tư"},
+      {tt:"Báo cáo ĐTM", dk:"req", coQuan:"Bộ Nông nghiệp và Môi trường (hoặc Chủ tịch UBND cấp tỉnh nếu phân cấp — Điều 26a NĐ 08/2022)", thoiDiem:"Đồng thời lập báo cáo NCKT; phê duyệt trước khi quyết định đầu tư, cấp phép xây dựng", thoiHan:"Theo quy chế hội đồng thẩm định (15 ngày tham vấn cộng đồng)"},
+      {tt:"Giấy phép môi trường", dk:"req", coQuan:"Bộ NN&MT (hoặc Chủ tịch UBND cấp tỉnh nếu phân cấp)", thoiDiem:"Trước khi vận hành thử nghiệm hoặc hoạt động chính thức", thoiHan:"Không quá 32 ngày kể từ ngày nhận đủ hồ sơ hợp lệ"},
+      {tt:"Đăng ký môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"}
+    ],
+    note:"Dự án Nhóm I có phát sinh nước thải trực tiếp ≥10.000 m³/ngày hoặc khí thải ≥200.000 m³/giờ phải qua thêm bước tham vấn UBND tỉnh liền kề và/hoặc tổ chức chuyên môn trước khi cấp GPMT."
+  },
+  II:{
+    label:"Nhóm II", full:"Dự án có nguy cơ tác động xấu đến môi trường (mức trung bình)",
+    canCuChiTiet:"Phụ lục IV Nghị định 08/2022/NĐ-CP (VBHN 49/VBHN-BNNMT)",
+    rows:[
+      {tt:"Đánh giá sơ bộ tác động môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng (chỉ Nhóm I)"},
+      {tt:"Báo cáo ĐTM", dk:"cond", coQuan:"Bộ NN&MT (dự án liên tỉnh) hoặc Chủ tịch UBND cấp tỉnh (đa số)", thoiDiem:"Đồng thời lập dự án đầu tư, phê duyệt trước quyết định đầu tư", thoiHan:"Không quy định cứng (10 ngày tham vấn)"},
+      {tt:"Giấy phép môi trường", dk:"req", coQuan:"Chủ tịch UBND cấp tỉnh (hoặc Bộ NN&MT nếu đặc thù — Điều 41)", thoiDiem:"Trước khi vận hành thử nghiệm hoặc hoạt động chính thức", thoiHan:"Không quá 30 ngày kể từ ngày nhận đủ hồ sơ hợp lệ"},
+      {tt:"Đăng ký môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"}
+    ],
+    note:"Báo cáo ĐTM chỉ bắt buộc nếu có yếu tố nhạy cảm về môi trường hoặc nguy cơ ô nhiễm (khu dân cư, nguồn nước sinh hoạt, khu bảo tồn, di sản văn hóa, tái định cư...)."
+  },
+  III:{
+    label:"Nhóm III", full:"Dự án ít có nguy cơ tác động xấu đến môi trường",
+    canCuChiTiet:"Xác định theo phương pháp loại trừ (Phụ lục V, VBHN 49/VBHN-BNNMT)",
+    rows:[
+      {tt:"Đánh giá sơ bộ tác động môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"},
+      {tt:"Báo cáo ĐTM", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"},
+      {tt:"Giấy phép môi trường", dk:"req", coQuan:"Chủ tịch UBND cấp tỉnh", thoiDiem:"Trước khi vận hành thử nghiệm hoặc hoạt động chính thức", thoiHan:"Không quá 30 ngày kể từ ngày nhận đủ hồ sơ hợp lệ"},
+      {tt:"Đăng ký môi trường", dk:"rep", coQuan:"UBND cấp xã", thoiDiem:"Trước khi hoạt động chính thức (nếu không thuộc diện GPMT)", thoiHan:"Chỉ tiếp nhận, cập nhật dữ liệu — không thời hạn thẩm định"}
+    ],
+    note:"Từ 01/01/2026, thẩm quyền cấp GPMT Nhóm III trước đây của UBND cấp huyện đã chuyển toàn bộ về Chủ tịch UBND cấp tỉnh."
+  },
+  IV:{
+    label:"Nhóm IV", full:"Dự án không có nguy cơ tác động xấu đến môi trường",
+    canCuChiTiet:"Xác định theo phương pháp loại trừ (không thuộc Nhóm I, II, III)",
+    rows:[
+      {tt:"Đánh giá sơ bộ tác động môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"},
+      {tt:"Báo cáo ĐTM", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng"},
+      {tt:"Giấy phép môi trường", dk:"na", coQuan:"—", thoiDiem:"—", thoiHan:"Không áp dụng (trừ nhập khẩu phế liệu / dịch vụ xử lý CTNH)"},
+      {tt:"Đăng ký môi trường", dk:"cond", coQuan:"UBND cấp xã nơi đặt dự án, cơ sở", thoiDiem:"Trước khi hoạt động chính thức", thoiHan:"Chỉ tiếp nhận, cập nhật CSDL môi trường quốc gia"}
+    ],
+    note:"Miễn đăng ký nếu không phát sinh chất thải hoặc khối lượng rất nhỏ được xử lý tại chỗ/theo quy định địa phương."
+  }
+},
+
+matrix:{
+  procs:["Đánh giá sơ bộ TĐMT","Báo cáo ĐTM","Giấy phép môi trường","Đăng ký môi trường"],
+  rows:[
+    {g:"Nhóm I",   v:["req","req","req","na"]},
+    {g:"Nhóm II",  v:["na","cond","req","na"]},
+    {g:"Nhóm III", v:["na","na","req","rep"]},
+    {g:"Nhóm IV",  v:["na","na","na","cond"]}
+  ]
+},
+
+thuTuc:{
+  dtm:{
+    key:"dtm", tag:"ĐTM", color:"", title:"Đánh giá tác động môi trường",
+    doiTuong:"Dự án Nhóm I; dự án Nhóm II có yếu tố nhạy cảm về môi trường hoặc nguy cơ ô nhiễm. Miễn trừ: dự án Nhóm III, Nhóm IV.",
+    coQuan:"Bộ Nông nghiệp và Môi trường (dự án Nhóm I, liên tỉnh); Chủ tịch UBND cấp tỉnh (Nhóm II còn lại, một số Nhóm I phân cấp — Điều 26a NĐ 08/2022).",
+    canCu:"Điều 30–38 Luật BVMT 2020; Điều 4 Nghị định 48/2026/NĐ-CP",
+    thoiHan:"Thực hiện đồng thời lập báo cáo nghiên cứu khả thi; phê duyệt trước khi quyết định đầu tư, cấp phép xây dựng.",
+    steps:[
+      {t:"Khảo sát dự án: quy mô, công nghệ, vị trí, hiện trạng môi trường nền", forms:""},
+      {t:"Khảo sát hiện trạng môi trường: lấy mẫu, đo đạc đất, nước, không khí", forms:""},
+      {t:"Đánh giá, dự báo tác động giai đoạn xây dựng và vận hành", forms:""},
+      {t:"Đề xuất biện pháp giảm thiểu (công trình và phi công trình)", forms:""},
+      {t:"Lập báo cáo ĐTM theo cấu trúc Phụ lục III, IV NĐ 08/2022", forms:"Mẫu 04"},
+      {t:"Tham vấn cộng đồng, cơ quan liên quan (15/10/5 ngày tùy nhóm)", forms:"Mẫu 04a"},
+      {t:"Nộp hồ sơ thẩm định tại Bộ NN&MT hoặc UBND cấp tỉnh", forms:"Mẫu 02, 03, 03a"},
+      {t:"Chỉnh sửa, hoàn thiện theo ý kiến hội đồng thẩm định", forms:"Mẫu 05–08"},
+      {t:"Nhận Quyết định phê duyệt kết quả thẩm định ĐTM", forms:"Mẫu 09, 09a, 10"}
+    ]
+  },
+  gpmt:{
+    key:"gpmt", tag:"GPMT", color:"amber", title:"Giấy phép môi trường",
+    doiTuong:"Dự án Nhóm I, II, III có phát sinh nước thải/bụi/khí thải phải xử lý hoặc CTNH cấp phép; cơ sở nhập khẩu phế liệu; dịch vụ xử lý CTNH. Miễn trừ: Nhóm IV hoặc thuộc diện ĐKMT.",
+    coQuan:"Bộ NN&MT (Nhóm I, nhập khẩu phế liệu, dịch vụ xử lý CTNH, liên tỉnh); Chủ tịch UBND cấp tỉnh (Nhóm I, II, III còn lại); Bộ Quốc phòng/Công an (bí mật quốc phòng, an ninh).",
+    canCu:"Điều 39–48 Luật BVMT 2020; Điều 10, 11 Nghị định 48/2026/NĐ-CP",
+    thoiHan:"Nộp hồ sơ chậm nhất trước 32 ngày (Bộ NN&MT) / 30 ngày (Chủ tịch UBND tỉnh). Thời hạn cấp: 32 ngày / 30 ngày kể từ ngày nhận đủ hồ sơ hợp lệ. Hiệu lực GPMT: 07 năm (Nhóm I) hoặc 10 năm (nhóm khác).",
+    steps:[
+      {t:"Khảo sát doanh nghiệp: quy mô sản xuất, ngành nghề, công nghệ", forms:""},
+      {t:"Thu thập hồ sơ pháp lý: ĐKKD, quyết định đầu tư, ĐTM đã duyệt", forms:""},
+      {t:"Khảo sát công trình xử lý môi trường: XLNT, khí thải, kho CTNH", forms:""},
+      {t:"Lấy số liệu quan trắc: mẫu, phân tích nước thải, khí thải theo QCVN", forms:""},
+      {t:"Lập Báo cáo đề xuất cấp GPMT (Điều 18a TT 02/2022)", forms:"Mẫu 22b/22c/22d"},
+      {t:"Nộp hồ sơ trực tuyến/trực tiếp; nộp phí thẩm định", forms:"Mẫu 22a"},
+      {t:"Công khai hồ sơ (≥10 ngày), tham vấn, kiểm tra thực tế", forms:"Mẫu 24, 28-33, 37, 39"},
+      {t:"Chỉnh sửa, bổ sung hồ sơ theo yêu cầu (tối đa 12 tháng)", forms:"Mẫu 33, 35"},
+      {t:"Nhận Giấy phép môi trường, thực hiện đúng nội dung GPMT", forms:"Mẫu 40, 41"}
+    ]
+  },
+  dkmt:{
+    key:"dkmt", tag:"ĐKMT", color:"slate", title:"Đăng ký môi trường",
+    doiTuong:"Dự án, cơ sở Nhóm IV có phát sinh chất thải; Nhóm III không thuộc diện GPMT nhưng có CTR sinh hoạt, chất thải thông thường, CTNH dưới ngưỡng.",
+    coQuan:"UBND cấp xã nơi đặt dự án, cơ sở sản xuất.",
+    canCu:"Điều 49 Luật BVMT 2020; Điều 12 Nghị định 48/2026/NĐ-CP",
+    thoiHan:"Thực hiện trước khi hoạt động chính thức; hiệu lực xuyên suốt vòng đời hoạt động, không có thời hạn.",
+    steps:[
+      {t:"Thu thập thông tin dự án, cơ sở", forms:""},
+      {t:"Lập báo cáo/văn bản đăng ký môi trường", forms:"Mẫu 47"},
+      {t:"Nộp hồ sơ tại UBND cấp xã (trực tiếp/bưu điện/điện tử)", forms:""},
+      {t:"UBND cấp xã tiếp nhận, cập nhật vào CSDL môi trường quốc gia", forms:""}
+    ]
+  }
+},
+
+dieuChinh:{
+  when:["Tăng công suất, mở rộng quy mô vượt ngưỡng làm thay đổi phân loại dự án","Bổ sung ngành nghề, thay đổi công nghệ sản xuất, xử lý chất thải","Thay đổi vị trí thực hiện dự án","Giấy phép hết thời hạn hiệu lực","Chuyển đổi chủ sở hữu/chủ đầu tư"],
+  time:[["Điều chỉnh GPMT","Không quá 15 ngày kể từ ngày nhận văn bản đề nghị"],["Cấp lại GPMT","Như cấp mới: 32 ngày (Bộ NN&MT) / 30 ngày (Chủ tịch UBND tỉnh)"]]
+},
+
+lich:[
+  ["Trước 15/01 năm tiếp theo","Nộp Báo cáo công tác BVMT định kỳ năm trước","Sở NN&MT tỉnh (GPMT) / UBND xã (ĐKMT)"],
+  ["03–06 tháng/lần","Quan trắc định kỳ nước thải, khí thải","Theo tần suất trong GPMT"],
+  ["Liên tục 24/24h","Quan trắc tự động (nếu thuộc diện ngưỡng lớn)","Truyền dữ liệu về Sở NN&MT"],
+  ["Tối thiểu 1 lần/năm","Quan trắc môi trường lao động","Theo Luật An toàn, vệ sinh lao động"],
+  ["Trước khi GPMT hết hạn (7 hoặc 10 năm)","Chuẩn bị hồ sơ cấp lại GPMT","Chủ động 3–6 tháng trước hạn"],
+  ["Khi thay đổi quy mô, công nghệ","Đánh giá điều chỉnh GPMT hoặc lập lại ĐTM","Tham vấn tư vấn môi trường trước khi triển khai"]
+],
+
+bieumau:{
+  A:{name:"Phụ lục A — Đánh giá tác động môi trường (ĐTM)", color:"", src:"https://www.luatmoitruong.vn/thong-tu-02-2022-tt-btnmt/phu-luc/phu-luc-ii.-mau-bieu-ve-danh-gia-mt-chien-luoc-danh-gia-tac-dong-mt-giay-phep-mt-va-dang-ky-mt", items:[
+    ["Mẫu số 02","Văn bản đề nghị thẩm định báo cáo ĐTM"],
+    ["Mẫu số 03","Quyết định thành lập hội đồng thẩm định báo cáo ĐTM"],
+    ["Mẫu số 03a","Quyết định phê duyệt danh sách chuyên gia (thủ tục rút gọn, tối thiểu 03 chuyên gia)"],
+    ["Mẫu số 04","Nội dung, cấu trúc của báo cáo ĐTM"],
+    ["Mẫu số 04a","Biên bản họp tham vấn cộng đồng"],
+    ["Mẫu số 05","Biên bản khảo sát thực tế khu vực dự án"],
+    ["Mẫu số 06","Bản nhận xét báo cáo ĐTM của thành viên hội đồng/chuyên gia"],
+    ["Mẫu số 07","Phiếu thẩm định báo cáo ĐTM"],
+    ["Mẫu số 08","Biên bản họp hội đồng thẩm định báo cáo ĐTM"],
+    ["Mẫu số 09","Thông báo kết quả thẩm định báo cáo ĐTM"],
+    ["Mẫu số 09a","Đề nghị phê duyệt kết quả thẩm định báo cáo ĐTM"],
+    ["Mẫu số 10","Quyết định phê duyệt kết quả thẩm định báo cáo ĐTM"]
+  ]},
+  B:{name:"Phụ lục B — Giấy phép môi trường (GPMT)", color:"amber", src:"https://www.luatmoitruong.vn/thong-tu-02-2022-tt-btnmt/phu-luc/phu-luc-ii.-mau-bieu-ve-danh-gia-mt-chien-luoc-danh-gia-tac-dong-mt-giay-phep-mt-va-dang-ky-mt", items:[
+    ["Mẫu số 22","Quyết định thành lập hội đồng thẩm định cấp, cấp lại GPMT"],
+    ["Mẫu số 22a","Văn bản đề nghị cấp, cấp điều chỉnh, cấp lại GPMT"],
+    ["Mẫu số 22b","Báo cáo đề xuất cấp GPMT (dự án đã có ĐTM, trước vận hành thử nghiệm)"],
+    ["Mẫu số 22c","Báo cáo đề xuất cấp, cấp lại GPMT (Nhóm II không ĐTM và Nhóm III)"],
+    ["Mẫu số 22d","Báo cáo đề xuất cấp, cấp lại GPMT (cơ sở đang hoạt động)"],
+    ["Mẫu số 22đ","Báo cáo đề xuất điều chỉnh GPMT"],
+    ["Mẫu số 24","Quyết định thành lập đoàn kiểm tra cấp, cấp lại GPMT"],
+    ["Mẫu số 28","Biên bản họp hội đồng thẩm định cấp, cấp lại GPMT"],
+    ["Mẫu số 29","Biên bản kiểm tra cấp, cấp lại GPMT"],
+    ["Mẫu số 30","Bản nhận xét của thành viên hội đồng thẩm định GPMT"],
+    ["Mẫu số 31","Phiếu thẩm định của thành viên hội đồng thẩm định GPMT"],
+    ["Mẫu số 32","Bản nhận xét của thành viên đoàn kiểm tra"],
+    ["Mẫu số 33","Văn bản thông báo hoàn thiện hoặc trả hồ sơ"],
+    ["Mẫu số 35","Văn bản thông báo điều chỉnh loại, khối lượng CTNH/phế liệu"],
+    ["Mẫu số 37","Văn bản tham vấn ý kiến cơ quan, tổ chức"],
+    ["Mẫu số 39","Văn bản trả lời tham vấn"],
+    ["Mẫu số 40","Giấy phép môi trường (cấp, cấp lại)"],
+    ["Mẫu số 41","Giấy phép môi trường điều chỉnh"],
+    ["Mẫu số 42","Quyết định thu hồi Giấy phép môi trường"],
+    ["Mẫu số 43/43a","Thông báo Kế hoạch vận hành thử nghiệm"],
+    ["Mẫu số 44/44a","Quyết định cử cán bộ/thành lập đoàn kiểm tra vận hành thử nghiệm"],
+    ["Mẫu số 45","Biên bản kiểm tra, giám sát vận hành thử nghiệm"],
+    ["Mẫu số 46","Biên bản kiểm tra VHTN (phế liệu làm nguyên liệu SX, dịch vụ xử lý CTNH)"]
+  ]},
+  C:{name:"Phụ lục C — Đăng ký môi trường (ĐKMT)", color:"slate", src:"https://www.luatmoitruong.vn/thong-tu-02-2022-tt-btnmt/phu-luc/phu-luc-ii.-mau-bieu-ve-danh-gia-mt-chien-luoc-danh-gia-tac-dong-mt-giay-phep-mt-va-dang-ky-mt", items:[
+    ["Mẫu số 47","Văn bản đăng ký môi trường"]
+  ]},
+  D:{name:"Phụ lục D — Biểu mẫu dùng chung, báo cáo định kỳ", color:"grey", src:"https://www.luatmoitruong.vn/thong-tu-02-2022-tt-btnmt/phu-luc/phu-luc-vi.-mau-bieu-ve-bao-cao-cong-tac-bao-ve-moi-truong", items:[
+    ["Mẫu 05A","Báo cáo công tác BVMT định kỳ — cơ sở có GPMT"],
+    ["Mẫu 05B","Báo cáo công tác BVMT định kỳ — cơ sở có ĐKMT"],
+    ["Mẫu số 03 (PL III)","Sổ giao nhận chất thải rắn công nghiệp thông thường"],
+    ["Mẫu số 04 (PL III)","Chứng từ chất thải nguy hại"]
+  ]},
+  E:{name:"Phụ lục E — Thanh tra, kiểm tra", color:"grey", src:"https://www.luatmoitruong.vn/thong-tu-02-2022-tt-btnmt/phu-luc/phu-luc-iii.-mau-bieu-ve-quan-ly-chat-thai-va-kiem-soat-cac-chat-o-nhiem-khac", items:[
+    ["Danh mục kiểm tra E1","Hồ sơ chuẩn bị thanh tra, kiểm tra chuyên ngành môi trường"]
+  ]}
+},
+
+vipham:[
+  ["Chậm/không thực hiện thủ tục môi trường","Đưa dự án vào hoạt động khi chưa có GPMT/ĐKMT, không lập ĐTM khi bắt buộc","Phạt tiền, đình chỉ hoạt động có thời hạn, buộc di dời"],
+  ["Vi phạm nội dung GPMT","Xả thải vượt quy chuẩn, không vận hành công trình xử lý, đổi công nghệ không điều chỉnh GPMT","Phạt tiền, thu hồi GPMT có thời hạn, đình chỉ nguồn thải vi phạm"],
+  ["Vi phạm báo cáo, hồ sơ","Không nộp/nộp muộn báo cáo BVMT định kỳ, số liệu không trung thực","Căn cứ đưa vào diện kiểm tra đột xuất"],
+  ["Vi phạm quản lý CTNH","Không phân loại, lưu chứa đúng quy định; chuyển giao cho đơn vị không chức năng","Phạt tiền, lập biên bản xử lý theo quy định"],
+  ["Vi phạm quan trắc tự động","Không lắp đặt theo lộ trình bắt buộc, không truyền dữ liệu liên tục","Phạt tiền, buộc lắp đặt, khắc phục"]
+]
+
+};
+const FORM_REGISTRY=[
+ {id:"FORM-DTM-02",code:"Mẫu số 02",kind:"ĐTM",title:"Văn bản đề nghị thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Biểu mẫu ĐTM; xem chú thích sửa đổi trong Phụ lục II."},
+ {id:"FORM-DTM-03",code:"Mẫu số 03",kind:"ĐTM",title:"Quyết định thành lập hội đồng thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Biểu mẫu phục vụ thẩm định báo cáo ĐTM."},
+ {id:"FORM-DTM-03A",code:"Mẫu số 03a",kind:"ĐTM",title:"Quyết định phê duyệt danh sách chuyên gia được lấy ý kiến thẩm định đối với dự án đầu tư công đặc biệt",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu được bổ sung theo văn bản sửa đổi; áp dụng theo trường hợp tương ứng."},
+ {id:"FORM-DTM-04",code:"Mẫu số 04",kind:"ĐTM",title:"Nội dung của báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — thay đổi nội dung",note:"Mẫu báo cáo ĐTM; nội dung đã được sửa đổi/thay thế qua các văn bản cập nhật."},
+ {id:"FORM-DTM-04A",code:"Mẫu số 04a",kind:"ĐTM",title:"Biên bản họp tham vấn cộng đồng dân cư chịu tác động trực tiếp",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu phục vụ tham vấn trong ĐTM theo trường hợp áp dụng."},
+ {id:"FORM-DTM-04B",code:"Mẫu số 04b",kind:"ĐTM",title:"Văn bản của cơ quan thẩm định báo cáo đánh giá tác động môi trường lấy ý kiến cơ quan nhà nước quản lý công trình thủy lợi",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu liên quan lấy ý kiến cơ quan quản lý công trình thủy lợi."},
+ {id:"FORM-DTM-04C",code:"Mẫu số 04c",kind:"ĐTM",title:"Văn bản trả lời của cơ quan nhà nước quản lý công trình thủy lợi về việc phê duyệt kết quả thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu văn bản trả lời theo trường hợp tương ứng."},
+ {id:"FORM-DTM-05",code:"Mẫu số 05",kind:"ĐTM",title:"Biên bản khảo sát thực tế khu vực thực hiện dự án",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Mẫu phục vụ khảo sát thực tế khu vực thực hiện dự án."},
+ {id:"FORM-DTM-06",code:"Mẫu số 06",kind:"ĐTM",title:"Bản nhận xét báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Xem chú thích thay thế trong văn bản hợp nhất."},
+ {id:"FORM-DTM-07",code:"Mẫu số 07",kind:"ĐTM",title:"Phiếu thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Phiếu thẩm định báo cáo ĐTM."},
+ {id:"FORM-DTM-08",code:"Mẫu số 08",kind:"ĐTM",title:"Biên bản phiên họp của hội đồng thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Xem chú thích thay thế trong văn bản hợp nhất."},
+ {id:"FORM-DTM-09",code:"Mẫu số 09",kind:"ĐTM",title:"Thông báo kết quả thẩm định báo cáo đánh giá tác động môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Thông báo kết quả thẩm định ĐTM."},
+ {id:"FORM-DTM-09A",code:"Mẫu số 09a",kind:"ĐTM",title:"Đề nghị phê duyệt kết quả thẩm định báo cáo đánh giá tác động môi trường của chủ dự án",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu được bổ sung theo văn bản sửa đổi."},
+ {id:"FORM-DTM-10",code:"Mẫu số 10",kind:"ĐTM",title:"Quyết định phê duyệt kết quả thẩm định báo cáo đánh giá tác động môi trường của dự án",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Quyết định phê duyệt kết quả thẩm định báo cáo ĐTM."},
+ {id:"FORM-GPMT-22A",code:"Mẫu số 22a",kind:"GPMT",title:"Văn bản đề nghị cấp, cấp điều chỉnh, cấp lại giấy phép môi trường của dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu văn bản đề nghị thực hiện thủ tục GPMT."},
+ {id:"FORM-GPMT-22B",code:"Mẫu số 22b",kind:"GPMT",title:"Báo cáo đề xuất cấp giấy phép môi trường của dự án đầu tư đã có quyết định phê duyệt kết quả thẩm định báo cáo ĐTM trước khi đi vào vận hành thử nghiệm",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Áp dụng cho trường hợp tương ứng."},
+ {id:"FORM-GPMT-22C",code:"Mẫu số 22c",kind:"GPMT",title:"Báo cáo đề xuất cấp, cấp lại giấy phép môi trường của dự án đầu tư nhóm II không thuộc đối tượng phải thực hiện ĐTM và dự án đầu tư nhóm III",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Có thể tra cứu trực tiếp bằng cụm từ: nhóm III."},
+ {id:"FORM-GPMT-22D",code:"Mẫu số 22d",kind:"GPMT",title:"Báo cáo đề xuất cấp, cấp lại giấy phép môi trường của cơ sở đang hoạt động",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu liên quan trực tiếp cơ sở đang hoạt động."},
+ {id:"FORM-GPMT-22DD",code:"Mẫu số 22đ",kind:"GPMT",title:"Báo cáo đề xuất điều chỉnh giấy phép môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu được bổ sung theo văn bản sửa đổi."},
+ {id:"FORM-GPMT-24",code:"Mẫu số 24",kind:"GPMT",title:"Quyết định thành lập đoàn kiểm tra cấp/cấp lại giấy phép môi trường của dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu phục vụ kiểm tra cấp/cấp lại GPMT."},
+ {id:"FORM-GPMT-28",code:"Mẫu số 28",kind:"GPMT",title:"Biên bản họp hội đồng thẩm định cấp/cấp lại giấy phép môi trường của dự án đầu tư",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu phục vụ thẩm định GPMT."},
+ {id:"FORM-GPMT-29",code:"Mẫu số 29",kind:"GPMT",title:"Biên bản kiểm tra cấp/cấp lại giấy phép môi trường của dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Mẫu biên bản kiểm tra GPMT."},
+ {id:"FORM-GPMT-30",code:"Mẫu số 30",kind:"GPMT",title:"Bản nhận xét của thành viên hội đồng thẩm định cấp/cấp lại giấy phép môi trường của dự án đầu tư",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Mẫu nhận xét của thành viên hội đồng thẩm định."},
+ {id:"FORM-GPMT-31",code:"Mẫu số 31",kind:"GPMT",title:"Phiếu thẩm định của thành viên hội đồng thẩm định cấp/cấp lại giấy phép môi trường của dự án đầu tư",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Phiếu thẩm định GPMT."},
+ {id:"FORM-GPMT-32",code:"Mẫu số 32",kind:"GPMT",title:"Bản nhận xét của thành viên đoàn kiểm tra cấp/cấp lại giấy phép môi trường của dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Mẫu nhận xét khi kiểm tra GPMT."},
+ {id:"FORM-GPMT-33",code:"Mẫu số 33",kind:"GPMT",title:"Văn bản thông báo hoàn thiện hoặc trả hồ sơ đề nghị cấp giấy phép môi trường của dự án đầu tư",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Mẫu thông báo xử lý hồ sơ."},
+ {id:"FORM-GPMT-35",code:"Mẫu số 35",kind:"GPMT",title:"Văn bản thông báo của cơ quan cấp giấy phép môi trường về việc điều chỉnh loại, khối lượng chất thải nguy hại được phép xử lý hoặc khối lượng phế liệu được phép nhập khẩu làm nguyên liệu sản xuất",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Áp dụng theo trường hợp tương ứng."},
+ {id:"FORM-GPMT-37",code:"Mẫu số 37",kind:"GPMT",title:"Văn bản tham vấn ý kiến cơ quan, tổ chức, chuyên gia trong quá trình cấp/cấp lại giấy phép môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Mẫu tham vấn GPMT."},
+ {id:"FORM-GPMT-39",code:"Mẫu số 39",kind:"GPMT",title:"Văn bản trả lời của cơ quan, tổ chức, chuyên gia được tham vấn trong quá trình cấp/cấp lại giấy phép môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được thay thế/cập nhật",note:"Mẫu trả lời tham vấn GPMT."},
+ {id:"FORM-GPMT-40",code:"Mẫu số 40",kind:"GPMT",title:"Giấy phép môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Mẫu giấy phép môi trường do cơ quan có thẩm quyền ban hành."},
+ {id:"FORM-GPMT-41",code:"Mẫu số 41",kind:"GPMT",title:"Giấy phép môi trường điều chỉnh",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Mẫu giấy phép môi trường điều chỉnh."},
+ {id:"FORM-GPMT-42",code:"Mẫu số 42",kind:"GPMT",title:"Quyết định thu hồi giấy phép môi trường",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Mẫu quyết định thu hồi GPMT."},
+ {id:"FORM-GPMT-43A",code:"Mẫu số 43a",kind:"GPMT",title:"Báo cáo kết quả vận hành thử nghiệm công trình xử lý chất thải của dự án quy định tại khoản 4 Điều 46 Luật Bảo vệ môi trường và dự án khác",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu báo cáo kết quả vận hành thử nghiệm."},
+ {id:"FORM-GPMT-43",code:"Mẫu số 43",kind:"GPMT",title:"Văn bản thông báo kế hoạch vận hành thử nghiệm các công trình xử lý chất thải của dự án đầu tư",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu thông báo kế hoạch vận hành thử nghiệm."},
+ {id:"FORM-GPMT-44",code:"Mẫu số 44",kind:"GPMT",title:"Quyết định cử cán bộ, công chức kiểm tra thực tế công trình xử lý chất thải trong quá trình vận hành thử nghiệm",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng",note:"Áp dụng theo trường hợp tương ứng."},
+ {id:"FORM-GPMT-44A",code:"Mẫu số 44a",kind:"GPMT",title:"Quyết định thành lập đoàn kiểm tra thực tế quá trình vận hành thử nghiệm công trình xử lý chất thải của dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — bổ sung",note:"Mẫu được bổ sung theo văn bản sửa đổi."},
+ {id:"FORM-GPMT-45",code:"Mẫu số 45",kind:"GPMT",title:"Biên bản kiểm tra, giám sát vận hành thử nghiệm công trình xử lý chất thải của cán bộ, công chức",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Mẫu biên bản kiểm tra, giám sát vận hành thử nghiệm."},
+ {id:"FORM-GPMT-46",code:"Mẫu số 46",kind:"GPMT",title:"Biên bản kiểm tra việc vận hành thử nghiệm công trình xử lý chất thải đối với dự án đầu tư, cơ sở sử dụng phế liệu làm nguyên liệu sản xuất, dịch vụ xử lý CTNH",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Chỉ áp dụng theo trường hợp tương ứng."},
+ {id:"FORM-DKMT-47",code:"Mẫu số 47",kind:"ĐKMT",title:"Văn bản đăng ký môi trường của chủ dự án đầu tư, cơ sở",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đang sử dụng — được cập nhật",note:"Mẫu văn bản đăng ký môi trường; hồ sơ đăng ký môi trường sử dụng Mẫu số 47 theo quy định."},
+ {id:"FORM-BCMT-05A",code:"Mẫu số 05.A",kind:"Báo cáo BVMT",title:"Báo cáo công tác bảo vệ môi trường của chủ cơ sở sản xuất, kinh doanh, dịch vụ — áp dụng đối với cơ sở thuộc đối tượng phải có giấy phép môi trường",appendix:"Phụ lục VI",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Đây là mẫu báo cáo công tác bảo vệ môi trường, không phải mẫu đề nghị cấp GPMT."},
+ {id:"FORM-BCMT-05B",code:"Mẫu số 05.B",kind:"Báo cáo BVMT",title:"Báo cáo công tác bảo vệ môi trường của chủ cơ sở sản xuất, kinh doanh, dịch vụ — áp dụng đối với cơ sở thuộc đối tượng phải đăng ký môi trường",appendix:"Phụ lục VI",source:"PL-VBHN55-2026",status:"Đang sử dụng — có sửa đổi",note:"Đây là mẫu báo cáo công tác bảo vệ môi trường, không phải mẫu đăng ký môi trường."},
+ // Các mẫu đã được bãi bỏ nhưng giữ trong kho để tra cứu lịch sử pháp lý.
+ {id:"FORM-GPMT-23",code:"Mẫu số 23",kind:"GPMT",title:"Mẫu số 23 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-25",code:"Mẫu số 25",kind:"GPMT",title:"Mẫu số 25 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-26",code:"Mẫu số 26",kind:"GPMT",title:"Mẫu số 26 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-27",code:"Mẫu số 27",kind:"GPMT",title:"Mẫu số 27 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-34",code:"Mẫu số 34",kind:"GPMT",title:"Mẫu số 34 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-36",code:"Mẫu số 36",kind:"GPMT",title:"Mẫu số 36 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."},
+ {id:"FORM-GPMT-38",code:"Mẫu số 38",kind:"GPMT",title:"Mẫu số 38 theo Phụ lục II",appendix:"Phụ lục II",source:"PL-VBHN55-2026",status:"Đã bãi bỏ",note:"Chỉ hiển thị để tra cứu lịch sử; không dùng để lập hồ sơ hiện hành."}
+];
+const WATER_PLANTS=[{"ma":"NM01","thongTin":{"MaNhaMay":"NM01","TenNhaMay":"Nhà máy nước mặt Đông Bình","DiaDiem":"Khu phố Đông Bình, phường Cao Lãnh, tỉnh Đồng Tháp","CongSuat_m3_ngay":40000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM01","TenNhaMay":"Nhà máy nước mặt Đông Bình","SoGPMT":"số 907/UBND-KTHĐT ngày 13/9/2025 của UBND P. Cao Lãnh ","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND phường Cao Lãnh","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":40000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM01","TenNhaMay":"Nhà máy nước mặt Đông Bình","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM02","thongTin":{"MaNhaMay":"NM02","TenNhaMay":"Nhà máy nước mặt Tân Long","DiaDiem":"Khu phố Bến Bắc, phường Cao Lãnh, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM02","TenNhaMay":"Nhà máy nước mặt Tân Long","SoGPMT":"số 1927/UBND-KTHĐT ngày 7/11/2025 của UBND P. Cao Lãnh ","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND phường Cao Lãnh","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":6000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM02","TenNhaMay":"Nhà máy nước mặt Tân Long","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM03","thongTin":{"MaNhaMay":"NM03","TenNhaMay":"Nhà máy nước mặt Mỹ Hiệp","DiaDiem":"Cụm công nghiệp xã Mỹ Hiệp, tỉnh Đồng Tháp","CongSuat_m3_ngay":5000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM03","TenNhaMay":"Nhà máy nước mặt Mỹ Hiệp","SoGPMT":"số 04/UBND-HC ngày 19/6/2025 của UBND xã Mỹ Hiệp","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Mỹ Hiệp","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":5000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM03","TenNhaMay":"Nhà máy nước mặt Mỹ Hiệp","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM04","thongTin":{"MaNhaMay":"NM04","TenNhaMay":"Nhà máy nước mặt Mỹ An","DiaDiem":"Ấp Mỹ An 2, xã Tháp Mười, tỉnh Đồng Tháp","CongSuat_m3_ngay":13000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM04","TenNhaMay":"Nhà máy nước mặt Mỹ An","SoGPMT":"số 974/UBND-KT ngày 21/4/2026 của UBND xã Tháp Mười","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Tháp Mười","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":13000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM04","TenNhaMay":"Nhà máy nước mặt Mỹ An","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM05","thongTin":{"MaNhaMay":"NM05","TenNhaMay":"Trạm cấp nước Mỹ Thọ","DiaDiem":"Ấp Mỹ Tây, xã Mỹ Thọ, tỉnh Đồng Tháp","CongSuat_m3_ngay":10000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM05","TenNhaMay":"Trạm cấp nước Mỹ Thọ","SoGPMT":"số 501/PKT-HC ngày 24/3/2026 của phòng KT -UBND xã Mỹ Thọ\n","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Mỹ Thọ","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":10000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM05","TenNhaMay":"Trạm cấp nước Mỹ Thọ","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM06","thongTin":{"MaNhaMay":"NM06","TenNhaMay":"Trạm cấp nước Trường Xuân","DiaDiem":"xã Trường Xuân, tỉnh Đồng Tháp","CongSuat_m3_ngay":2500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM06","TenNhaMay":"Trạm cấp nước Trường Xuân","SoGPMT":"số 386/UBND ngày 28/5/2025 của UBND xã Trường Xuân","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Trường Xuân","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":2500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM06","TenNhaMay":"Trạm cấp nước Trường Xuân","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM07","thongTin":{"MaNhaMay":"NM07","TenNhaMay":"Nhà máy nước mặt Trần Quốc Toản","DiaDiem":"Quốc lộ 30, phường Mỹ Ngãi, tỉnh Đồng Tháp","CongSuat_m3_ngay":7000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM07","TenNhaMay":"Nhà máy nước mặt Trần Quốc Toản","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":7000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM07","TenNhaMay":"Nhà máy nước mặt Trần Quốc Toản","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM08","thongTin":{"MaNhaMay":"NM08","TenNhaMay":"Trạm cấp nước Tân Nghĩa","DiaDiem":"Chợ Tân Nghĩa, phường Mỹ Ngãi, tỉnh Đồng Tháp","CongSuat_m3_ngay":2000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM08","TenNhaMay":"Trạm cấp nước Tân Nghĩa","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":1800,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM08","TenNhaMay":"Trạm cấp nước Tân Nghĩa","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM09","thongTin":{"MaNhaMay":"NM09","TenNhaMay":"Nhà máy nước Sa Đéc","DiaDiem":"270B, Trần Hưng Đạo, P. Sa Đéc, tỉnh Đồng Tháp","CongSuat_m3_ngay":17000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM09","TenNhaMay":"Nhà máy nước Sa Đéc","SoGPMT":"số 105/TB-UNBD ngày 18/5/2026  của UBND phường Sa Đéc","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND phường Sa Đéc","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":17000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM09","TenNhaMay":"Nhà máy nước Sa Đéc","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM10","thongTin":{"MaNhaMay":"NM10","TenNhaMay":"Nhà máy nước KCN C","DiaDiem":"KCN C, phường Sa Đéc, tỉnh Đồng Tháp","CongSuat_m3_ngay":15000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM10","TenNhaMay":"Nhà máy nước KCN C","SoGPMT":"số 30/TB-UBND ngày 24/4/2025 của UBND phường Tân Qui Đông","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND phường Tân Qui Đông (P. Sa Đéc hiện nay)","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":15000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM10","TenNhaMay":"Nhà máy nước KCN C","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM11","thongTin":{"MaNhaMay":"NM11","TenNhaMay":"Nhà máy nước mặt Nha Mân","DiaDiem":"QL80, xã Tân Nhuận Đông, tỉnh Đồng Tháp (cầu Nha Mân)","CongSuat_m3_ngay":7000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM11","TenNhaMay":"Nhà máy nước mặt Nha Mân","SoGPMT":"số 273/UBND-KT ngày 30/5/2025 của UBND xã Tân Nhuận Đông","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":5000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM11","TenNhaMay":"Nhà máy nước mặt Nha Mân","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM12","thongTin":{"MaNhaMay":"NM12","TenNhaMay":"Nhà máy nước mặt Nha Mân 2","DiaDiem":"QL80, xã Tân Nhuận Đông, tỉnh Đồng Tháp","CongSuat_m3_ngay":5000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM12","TenNhaMay":"Nhà máy nước mặt Nha Mân 2","SoGPMT":"số 272/UBND-KT ngày 30/5/2025 của UBND xã Tân Nhuận Đông","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Tân Nhuận Đông","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":3500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM12","TenNhaMay":"Nhà máy nước mặt Nha Mân 2","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM13","thongTin":{"MaNhaMay":"NM13","TenNhaMay":"Nhà máy nước mặt An Hiệp","DiaDiem":"cồn An Hiệp, xã Phú Hựu, tỉnh Đồng Tháp","CongSuat_m3_ngay":2500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM13","TenNhaMay":"Nhà máy nước mặt An Hiệp","SoGPMT":"số 624/UBND-KT ngày 12/3/2026 của UBND xã  Phú Hựu","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã  Phú Hựu","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":2500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM13","TenNhaMay":"Nhà máy nước mặt An Hiệp","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM14","thongTin":{"MaNhaMay":"NM14","TenNhaMay":"Nhà máy nước mặt An Phú Thuận","DiaDiem":"xã Phú Hựu (UBND xã An phú thuận cũ)","CongSuat_m3_ngay":2500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM14","TenNhaMay":"Nhà máy nước mặt An Phú Thuận","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"chưa thực hiện","CongSuatKhaiThac":4000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM14","TenNhaMay":"Nhà máy nước mặt An Phú Thuận","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM15","thongTin":{"MaNhaMay":"NM15","TenNhaMay":"Nhà máy nước mặt Bình Thành","DiaDiem":"QL80, xã Lấp Vò, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM15","TenNhaMay":"Nhà máy nước mặt Bình Thành","SoGPMT":"số 01/GPMT-UBND ngày 21/4/2025 của UBND huyện Lấp Vò ","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND huyện Lấp Vò","TinhTrang (tự động)":"10 năm","CongSuatKhaiThac":4000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM15","TenNhaMay":"Nhà máy nước mặt Bình Thành","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM16","thongTin":{"MaNhaMay":"NM16","TenNhaMay":"Nhà máy nước mặt Lộ Tiểu","DiaDiem":"QL80, xã Phú Hựu, tỉnh Đồng Tháp","CongSuat_m3_ngay":5000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM16","TenNhaMay":"Nhà máy nước mặt Lộ Tiểu","SoGPMT":"số 243/UBND-KT ngày ngày 14/5/2025 của UBND xã An Nhơn","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã An Nhơn (UBND xã Phú Hựu hiện nay)","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":5000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM16","TenNhaMay":"Nhà máy nước mặt Lộ Tiểu","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM17","thongTin":{"MaNhaMay":"NM17","TenNhaMay":"Nhà máy nước mặt Mương Điều","DiaDiem":"Chợ Mương Điều, xã Tân Khánh Trung, tỉnh Đồng Tháp","CongSuat_m3_ngay":3000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM17","TenNhaMay":"Nhà máy nước mặt Mương Điều","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"chưa thực hiện","CongSuatKhaiThac":4000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM17","TenNhaMay":"Nhà máy nước mặt Mương Điều","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM18","thongTin":{"MaNhaMay":"NM18","TenNhaMay":"Nhà máy nước mặt Khánh Mỹ","DiaDiem":"xã Tân Khánh Trung, tỉnh Đồng Tháp","CongSuat_m3_ngay":2500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM18","TenNhaMay":"Nhà máy nước mặt Khánh Mỹ","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"chưa thực hiện","CongSuatKhaiThac":2500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM18","TenNhaMay":"Nhà máy nước mặt Khánh Mỹ","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM19","thongTin":{"MaNhaMay":"NM19","TenNhaMay":"Nhà máy nước mặt Vĩnh Thạnh","DiaDiem":"ấp Vĩnh Thạnh, xã Lấp Vò, tỉnh Đồng Tháp (cầu Vĩnh Thạnh)","CongSuat_m3_ngay":500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM19","TenNhaMay":"Nhà máy nước mặt Vĩnh Thạnh","SoGPMT":"số 38/TB-UBND ngày 11/3/2026 của UBND xã Lấp Vò","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Lấp Vò","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":"","GhiChu":""},"nghiaVu":{"MaNhaMay":"NM19","TenNhaMay":"Nhà máy nước mặt Vĩnh Thạnh","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM20","thongTin":{"MaNhaMay":"NM20","TenNhaMay":"Nhà máy nước mặt Phú Hựu","DiaDiem":"xã Phú Hựu, tỉnh Đồng Tháp","CongSuat_m3_ngay":2500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM20","TenNhaMay":"Nhà máy nước mặt Phú Hựu","SoGPMT":"số 27/GPMT-UNBD ngày 26/6/2025 của UBND huyện Châu Thành","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND huyện Châu Thành (UBND xã Phú Hựu hiện nay)","TinhTrang (tự động)":"10 năm","CongSuatKhaiThac":5000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM20","TenNhaMay":"Nhà máy nước mặt Phú Hựu","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM21","thongTin":{"MaNhaMay":"NM21","TenNhaMay":"Nhà máy nước mặt Tân Phú Trung","DiaDiem":"xã Tân Phú Trung, tỉnh Đồng Tháp","CongSuat_m3_ngay":5000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM21","TenNhaMay":"Nhà máy nước mặt Tân Phú Trung","SoGPMT":"số 222/UBND-KT ngày 8/8/2025 của UBND xã Tân Phú Trung","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Tân Phú Trung","TinhTrang (tự động)":"không thời hạn","CongSuatKhaiThac":4000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM21","TenNhaMay":"Nhà máy nước mặt Tân Phú Trung","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM22","thongTin":{"MaNhaMay":"NM22","TenNhaMay":"Nhà máy nước mặt Tân Dương","DiaDiem":"KDC Tân Dương, xã Tân Dương, tỉnh Đồng Tháp","CongSuat_m3_ngay":3000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM22","TenNhaMay":"Nhà máy nước mặt Tân Dương","SoGPMT":"","NgayCap":"","NgayHetHan":"","CoQuanCap":"","TinhTrang (tự động)":"chưa thực hiện","CongSuatKhaiThac":5000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM22","TenNhaMay":"Nhà máy nước mặt Tân Dương","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM23","thongTin":{"MaNhaMay":"NM23","TenNhaMay":"Nhà máy nước mặt TP. Hồng Ngự","DiaDiem":"phường An Bình, tỉnh Đồng Tháp","CongSuat_m3_ngay":17500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM23","TenNhaMay":"Nhà máy nước mặt TP. Hồng Ngự","SoGPMT":"số 1732/GPMT-UBND ngày 05/6/2025 của UBND TP. Hồng Ngự","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND TP. Hồng Ngự (UBND phường An Bình hiện nay)","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":17500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM23","TenNhaMay":"Nhà máy nước mặt TP. Hồng Ngự","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM24","thongTin":{"MaNhaMay":"NM24","TenNhaMay":"Nhà máy nước Thường Thới Tiền","DiaDiem":"xã Thường Phước, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM24","TenNhaMay":"Nhà máy nước Thường Thới Tiền","SoGPMT":"số 488/GPMT-UBND ngày 12/5/2025 của UBND tỉnh Đồng Tháp","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND tỉnh Đồng Tháp","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":6000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM24","TenNhaMay":"Nhà máy nước Thường Thới Tiền","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM25","thongTin":{"MaNhaMay":"NM25","TenNhaMay":"Nhà máy nước mặt An Long","DiaDiem":"QL30, xã An Long, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM25","TenNhaMay":"Nhà máy nước mặt An Long","SoGPMT":"số 947/TB-UBND ngày 10/6/2026 của UBND xã An Long","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã An Long","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":6000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM25","TenNhaMay":"Nhà máy nước mặt An Long","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM26","thongTin":{"MaNhaMay":"NM26","TenNhaMay":"Nhà máy nước Bình Phú","DiaDiem":"xã Tân Hồng, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM26","TenNhaMay":"Nhà máy nước Bình Phú","SoGPMT":"số 83/GPMT-UBND ngày 29/5/2025 của UBND huyện Tân Hồng","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND huyện Tân Hồng (nay là xã Tân Hồng)","TinhTrang (tự động)":"Chưa có dữ liệu","CongSuatKhaiThac":6000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM26","TenNhaMay":"Nhà máy nước Bình Phú","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM27","thongTin":{"MaNhaMay":"NM27","TenNhaMay":"Trạm cấp nước Tràm Chim","DiaDiem":"xã Tràm Chim, tỉnh Đồng Tháp","CongSuat_m3_ngay":6000,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM27","TenNhaMay":"Nhà máy Tràm Chim","SoGPMT":"số 1438/GPMT-UBND ngày 27/6/2025 của UBND huyện Tam Nông","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Tràm Chim","TinhTrang (tự động)":"","CongSuatKhaiThac":6000,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM27","TenNhaMay":"Trạm cấp nước Tràm Chim","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}},{"ma":"NM28","thongTin":{"MaNhaMay":"NM28","TenNhaMay":"Nhà máy nước mặt Thanh Bình","DiaDiem":"xã Thanh Bình, tỉnh Đồng Tháp","CongSuat_m3_ngay":8500,"NguonNuoc (Mặt/Ngầm)":"Nước mặt","NguoiPhuTrach":"Đặng Thanh Hùng","GhiChu":""},"gpmt":{"MaNhaMay":"NM28","TenNhaMay":"Nhà máy nước mặt Thanh Bình","SoGPMT":"chấp thuận của UBND xã Thanh Bình ngày 12/11/2025 ","NgayCap":"","NgayHetHan":"","CoQuanCap":"UBND xã Thanh Bình","TinhTrang (tự động)":"","CongSuatKhaiThac":8500,"GhiChu":""},"nghiaVu":{"MaNhaMay":"NM28","TenNhaMay":"Nhà máy nước mặt Thanh Bình","NuocThai":"","CTNH":"","BunThai":"","HoaChat":"","QuanTrac":"","BaoCao":"","KNK":"","EPR":"","GhiChu":""}}];
+const SOURCE_DOCUMENTS=[["L-BVMT-2020","Luật Bảo vệ môi trường số 72/2020/QH14","2020-11-17","Luật nền","https://datafiles.chinhphu.vn/cpp/files/vbpq/2021/02/72.signed.pdf"],["L-146-2025","Luật số 146/2025/QH15","2025-12-25","Sửa đổi, bổ sung một số luật liên quan","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/146-qh15-2025.signed.pdf"],["ND-08-2022","Nghị định số 08/2022/NĐ-CP","2022-01-10","Quy định chi tiết một số điều của Luật BVMT","https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/08-nd.signed.pdf"],["PL-ND08","Phụ lục kèm Nghị định số 08/2022/NĐ-CP","2022-01-10","Phụ lục","https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/pl-08-nd.pdf"],["ND-05-2025","Nghị định số 05/2025/NĐ-CP","2025-01-06","Sửa đổi, bổ sung Nghị định 08/2022/NĐ-CP","https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/05-2nd.signed.pdf"],["ND-48-2026","Nghị định số 48/2026/NĐ-CP","2026-01-29","Sửa đổi, bổ sung Nghị định 08/2022/NĐ-CP đã được sửa đổi","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/48-cp.signed.pdf"],["TT-02-2022","Thông tư số 02/2022/TT-BTNMT","2022-01-10","Quy định chi tiết thi hành một số điều Luật BVMT","https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/03/02-bgddt.signed.pdf"],["TT-07-2025","Thông tư số 07/2025/TT-BNNMT","2025-02-28","Sửa đổi/bổ sung quy định chi tiết Luật BVMT","https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/07-bnnmt.pdf"],["PL-TT07-2025","Phụ lục kèm Thông tư số 07/2025/TT-BNNMT","2025-02-28","Phụ lục biểu mẫu","https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/07-bnnmt-kem.pdf"],["TT-09-2026","Thông tư số 09/2026/TT-BNNMT","2026-02","Quy định/sửa đổi liên quan lĩnh vực môi trường","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/02/09-bnnmt.pdf"],["PL-TT09-2026","Phụ lục kèm Thông tư số 09/2026/TT-BNNMT","2026-02","Phụ lục","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/02/09-bnnmt-kem.pdf"],["VBHN-49-2026","VBHN số 49/VBHN-BNNMT","2026-04","Văn bản hợp nhất","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/49-vbhn-bnnmt.pdf"],["VBHN-55-2026","VBHN số 55/VBHN-BNNMT","2026-06","Văn bản hợp nhất","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/6/55-vbhn-bnnmt.pdf"],["PL-VBHN55-2026","Phụ lục kèm VBHN số 55/VBHN-BNNMT","2026-06","Phụ lục","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/6/55-vbhn-bnnmt-pl.pdf"],["NQ-66.19-2026","Nghị quyết số 66.19/2026/NQ-CP","2026-05-21","Quy định/thủ tục theo bộ dữ liệu người dùng cung cấp","https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/5/66.19ndcp.signed.pdf"]];
+window.DATA=DATA;
+  const ENGINE_VERSION='4.2.0';
+  const n=v=>Number.isFinite(Number(v))?Number(v):0;
+  const a=v=>Array.isArray(v)?v:[];
+  function evaluate(input,data){
+    if(!data||!data.NGUONG_66_19) throw new Error('Thiếu bộ ngưỡng quyết định.');
+    const st=Object.assign({nganhNghe:'',tinh:'',von:0,dienTich:0,nuocThai:0,khiThai:0,ctnh:0,ctrCN:0,nhayCam:[],loaiHinh:'duan'},input||{});
+    ['von','dienTich','nuocThai','khiThai','ctnh','ctrCN'].forEach(k=>st[k]=n(st[k]));
+    const nganh=(data.nganhNghe||[]).find(x=>x.ma===st.nganhNghe)||(data.nganhNghe||[]).find(x=>x.ma==='khac')||{};
+    const tinh=(data.tinhThanh||[]).find(x=>x.ma===st.tinh)||null;
+    const N=data.NGUONG_66_19, sensitive=a(st.nhayCam).length>0;
+    const trace=[];
+    const add=(id,stage,condition,result,basis,notes='')=>trace.push({id,stage,condition,result,basis,notes});
+    const areaLarge=st.dienTich>=50;
+    const canDTM=!!nganh.dtmLuon||!!nganh.dtmDat||sensitive||areaLarge;
+    add('DTM-01','ĐTM',`${nganh.ten||'—'}: dtmLuon/dtmDat=${!!nganh.dtmLuon||!!nganh.dtmDat}`,canDTM?'Có':'Không','NQ 66.19/2026/NQ-CP — Mục VI (theo dữ liệu MT-1P)','Danh mục ngành/đối tượng cần được đối chiếu Phụ lục gốc.');
+    if(sensitive) add('DTM-02','ĐTM','Có yếu tố nhạy cảm',true,'NQ 66.19/2026/NQ-CP — Mục VI','Dữ liệu đầu vào do người dùng chọn.');
+    if(areaLarge) add('DTM-03','ĐTM',`Diện tích ${st.dienTich} ha >= 50 ha`,true,'NQ 66.19/2026/NQ-CP — Mục VI.1 (theo logic thử nghiệm)','Ngưỡng trong bản thử nghiệm.');
+    const ntThreshold=nganh.nhomA?n(N.gpmt_nuocThai_nhomA):n(N.gpmt_nuocThai_khac);
+    const gpmtByThreshold=st.nuocThai>=ntThreshold||st.khiThai>=n(N.gpmt_khiThai);
+    const canGPMT=!!nganh.luonGPMT||gpmtByThreshold;
+    add('GPMT-01','GPMT',`Nước thải ${st.nuocThai} >= ${ntThreshold} hoặc khí thải ${st.khiThai} >= ${n(N.gpmt_khiThai)}`,gpmtByThreshold,'NQ 66.19/2026/NQ-CP — Mục VII.1 (theo dữ liệu MT-1P)','Ngưỡng hiện đang lấy từ decision-rules/data.');
+    if(nganh.luonGPMT) add('GPMT-02','GPMT','Loại hình được đánh dấu luôn GPMT',true,'NQ 66.19/2026/NQ-CP — Mục VII.1.b (theo dữ liệu MT-1P)');
+    const waste=st.nuocThai>0||st.khiThai>0||st.ctnh>0||st.ctrCN>0;
+    const dkmtTinh=!canGPMT&&waste&&(st.nuocThai>=n(N.dkmt_tinh_nuocThai)||st.khiThai>=n(N.dkmt_tinh_khiThai));
+    const dkmtXa=!canGPMT&&waste&&!dkmtTinh;
+    add('DKMT-01','ĐKMT',`Không GPMT + có phát sinh + đạt ngưỡng tỉnh`,dkmtTinh?'Cấp tỉnh':'Không cấp tỉnh','NQ 66.19/2026/NQ-CP — Mục VII.3 (theo dữ liệu MT-1P)');
+    if(dkmtXa) add('DKMT-02','ĐKMT','Không GPMT + có phát sinh + chưa đạt ngưỡng tỉnh',true,'NQ 66.19/2026/NQ-CP — Mục VII.3 (theo dữ liệu MT-1P)');
+    let group=canDTM?(sensitive||areaLarge||nganh.dtmLuon?'I':'II'):(canGPMT?'III':'IV');
+    let dtmAgency=`Chủ tịch UBND ${tinh?tinh.ten:'cấp tỉnh'}`;
+    if(nganh.ma==='dienhatnhan'||(areaLarge&&st.dienTich>=300)||(nganh.ma==='khaikhoang'&&st.von>=500)) dtmAgency='Bộ Nông nghiệp và Môi trường';
+    let gpmtAgency=`Chủ tịch UBND ${tinh?tinh.ten:'cấp tỉnh'}`;
+    if(nganh.ma==='xulyctnh'||nganh.ma==='nhapkhauphelieu') gpmtAgency='Bộ Nông nghiệp và Môi trường';
+    const dkAgency=dkmtTinh?`UBND ${tinh?tinh.ten:'cấp tỉnh'}`:dkmtXa?`UBND cấp xã (${tinh?tinh.ten:'—'})`:'—';
+    const missing=[];
+    if(!st.nganhNghe) missing.push('Ngành nghề/loại hình');
+    if(!st.tinh) missing.push('Tỉnh/thành phố');
+    if(!st.loaiHinh) missing.push('Loại hình dự án/cơ sở');
+    const checklist=[];
+    if(canDTM){ checklist.push({id:'C1',text:'Rà soát danh mục đối tượng/ngành nghề ĐTM và yếu tố nhạy cảm',required:true}); checklist.push({id:'C2',text:'Chuẩn bị hồ sơ ĐTM theo biểu mẫu áp dụng',required:true}); }
+    if(canGPMT){ checklist.push({id:'C3',text:'Xác định đầy đủ nguồn thải, công trình xử lý và thông số xin cấp GPMT',required:true}); checklist.push({id:'C4',text:'Đối chiếu biểu mẫu hồ sơ GPMT và thẩm quyền',required:true}); }
+    if(dkmtXa||dkmtTinh){ checklist.push({id:'C5',text:'Chuẩn bị thông tin đăng ký môi trường và xác định đúng cơ quan tiếp nhận',required:true}); }
+    checklist.push({id:'C6',text:'Kiểm tra CTNH, chất thải rắn, khí thải và nghĩa vụ quan trắc/báo cáo liên quan',required:true});
+    checklist.push({id:'C7',text:'Lưu hồ sơ căn cứ pháp lý và kết quả tra cứu để kiểm tra lại',required:true});
+    return {engineVersion:ENGINE_VERSION,input:st,group,finalNhom:group,nganh,tinh,canDTM,canGPMT,canDKMT:dkmtTinh||dkmtXa,dkmtCapTinh:dkmtTinh,dkmtCapXa:dkmtXa,canDanhGiaSoBo:canDTM&&(nganh.dtmLuon||nganh.dtmDat||areaLarge),coQuanDTM:dtmAgency,coQuanGPMT:gpmtAgency,coQuanDKMT:dkAgency,thoiHanDTM:dtmAgency.startsWith('Bộ')?'Không quá 30 ngày':'Không quá 20 ngày',thoiHanGPMT:'07 năm (Nhóm I) hoặc 10 năm (nhóm khác)',thresholds:{nuocThaiGPMT:ntThreshold,khiThaiGPMT:n(N.gpmt_khiThai),nuocThaiDKMTTinh:n(N.dkmt_tinh_nuocThai),khiThaiDKMTTinh:n(N.dkmt_tinh_khiThai)},trace,checklist,missing,confidence:missing.length?'CẦN BỔ SUNG DỮ LIỆU':'TRA CỨU ĐẦY ĐỦ',disclaimer:'Kết quả hỗ trợ tra cứu theo bộ dữ liệu/quy tắc MT-1P. Không thay thế việc đối chiếu văn bản gốc, hồ sơ thực tế và ý kiến cơ quan có thẩm quyền.'};
+  }
+window.MT1PDecisionEngine={version:"5.1.0",evaluate};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],esc=v=>String(v??"—").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+let loaiHinh="duan",lastResult=null;
+const V51={version:"5.5.2",legalDataVersion:"LEGAL-SOURCE-2026-09",casesKey:"mt1p_v51_cases",auditKey:"mt1p_v51_audit",plantKey:"mt1p_v55_plant_current",plantProfilesKey:"mt1p_v55_plant_profiles"};
+function initData(){const t=$("#tinh"),n=$("#nganh");t.innerHTML=(DATA.tinhThanh||[]).map(x=>`<option value="${esc(x.ma)}">${esc(x.ten)}</option>`).join("");n.innerHTML=(DATA.nganhNghe||[]).map(x=>`<option value="${esc(x.ma)}">${esc(x.ten)}</option>`).join("");$("#sensitive").innerHTML=(DATA.yeuToNhayCam||[]).map(x=>`<label class="check"><input class="sens" type="checkbox" value="${esc(x.id)}"> ${esc(x.ten)}</label>`).join("")}
+function getInput(){return{loaiHinh,tinh:$("#tinh").value,nganhNghe:$("#nganh").value,von:+$("#von").value||0,dienTich:+$("#dt").value||0,nuocThai:+$("#nt").value||0,khiThai:+$("#kt").value||0,ctnh:+$("#ctnh").value||0,ctrCN:+$("#ctrcn").value||0,nhayCam:$$(".sens:checked").map(x=>x.value)}}
+function run(){try{const r=MT1PDecisionEngine.evaluate(getInput(),DATA);lastResult=r;const agency=r.canGPMT?r.coQuanGPMT:r.canDKMT?r.coQuanDKMT:r.coQuanDTM;$("#result").classList.add("show");$("#result").innerHTML=`<div class="result-grid">${[["Nhóm",r.finalNhom],["ĐTM",r.canDTM?"Có":"Không"],["GPMT",r.canGPMT?"Có":"Không"],["ĐKMT",r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"]].map(x=>`<div class="result-box"><small>${esc(x[0])}</small><strong>${esc(x[1])}</strong></div>`).join("")}</div><p><b>Cơ quan dự kiến:</b> ${esc(agency)}<br><b>Độ đầy đủ:</b> ${esc(r.confidence)} · <b>Quy tắc:</b> ${r.trace.length}</p><div class="result-actions"><button class="secondary" id="traceBtn" type="button">Xem Đối chiếu căn cứ</button><button class="secondary" id="printBtn" type="button">In / Lưu PDF</button><button class="secondary" id="jsonBtn" type="button">Xuất JSON</button></div><div id="trace" hidden style="margin-top:1rem;overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:.72rem"><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${r.trace.map(t=>`<tr><td>${esc(t.id)}</td><td>${esc(t.stage)}</td><td>${esc(t.condition)}</td><td>${esc(t.result===true?"Có":t.result===false?"Không":t.result)}</td><td>${esc(t.basis)}</td></tr>`).join("")}</table><h4>Danh mục kiểm tra</h4><ul>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ul></div>`;$("#traceBtn").onclick=()=>{$("#trace").hidden=!$("#trace").hidden};$("#printBtn").onclick=()=>printResult(r);$("#jsonBtn").onclick=()=>download("MT1P-V5-"+new Date().toISOString().slice(0,10)+".json",{appVersion:"5.2.0",input:r.input,result:r,createdAt:new Date().toISOString()})}catch(e){$("#result").classList.add("show");$("#result").innerHTML="<b>Lỗi:</b> "+esc(e.message)}}
+function download(name,obj){const b=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),800)}
+function printResult(r){const w=window.open("","_blank");if(!w){alert("Trình duyệt đang chặn cửa sổ in. Hãy cho phép pop-up.");return}const rows=r.trace.map(t=>`<tr><td>${esc(t.id)}</td><td>${esc(t.stage)}</td><td>${esc(t.condition)}</td><td>${esc(t.result===true?"Có":t.result===false?"Không":t.result)}</td><td>${esc(t.basis)}</td></tr>`).join("");w.document.write(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>MT-1P Phiếu tra cứu</title><style>body{font:12px Arial;margin:28px;color:#222}table{width:100%;border-collapse:collapse}th,td{border:1px solid #aaa;padding:5px;vertical-align:top}th{background:#eee}</style></head><body><h1>MT-1P — PHIẾU TRA CỨU THỦ TỤC MÔI TRƯỜNG</h1><p>V5.4 · ${new Date().toLocaleString("vi-VN")}</p><h2>Kết quả</h2><p><b>Nhóm:</b> ${esc(r.finalNhom)} · <b>ĐTM:</b> ${r.canDTM?"Có":"Không"} · <b>GPMT:</b> ${r.canGPMT?"Có":"Không"} · <b>ĐKMT:</b> ${r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"}</p><h2>Đối chiếu căn cứ</h2><table><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${rows}</table><h2>Danh mục kiểm tra</h2><ol>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ol><p><b>Lưu ý:</b> ${esc(r.disclaimer)}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
+$$("#lhToggle button").forEach(b=>b.onclick=()=>{$$("#lhToggle button").forEach(x=>x.classList.remove("active"));b.classList.add("active");loaiHinh=b.dataset.v});$("#run").onclick=run;
+function openModal(){$("#modal").classList.add("open");setTimeout(()=>$("#contactName").focus(),120)}function closeModal(){$("#modal").classList.remove("open");$("#success").classList.remove("show");$("#contactForm").style.display="grid"}$("#bookFooter").onclick=openModal;$("#modalClose").onclick=closeModal;$("#done").onclick=closeModal;$("#contactForm").onsubmit=e=>{e.preventDefault();$("#contactForm").style.display="none";$("#success").classList.add("show")};$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal()}});
+$$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const id=a.getAttribute("href");if(id&&id!=="#"){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:"smooth",block:"start"})}}));
+document.querySelectorAll("[data-tool-target]").forEach(b=>b.addEventListener("click",()=>{const target=b.dataset.toolTarget;document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});if(b.dataset.toolAction==="checklist"&&lastResult){setTimeout(()=>document.getElementById("traceBtn")?.click(),350)}}));document.querySelectorAll('[data-tool-action="print"]').forEach(b=>b.addEventListener("click",()=>{if(lastResult)printResult(lastResult);else{alert("Chưa có kết quả tra cứu để in. Hãy thực hiện tra cứu trước.");document.querySelector("#form")?.scrollIntoView({behavior:"smooth"})}}));initData();populatePlantNameFilter();renderPlants();renderLinkDiagnostics();const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(()=>{document.body.classList.add("ready");$("#loader").classList.add("done");setTimeout(()=>$("#loader")?.remove(),reduce?20:850)},reduce?200:1450);
+/* V5.5: dùng cuộn native để HTML chạy độc lập khi mở trực tiếp bằng file:// */
+/* ===== V5.1 HỒ SƠ / AUDIT / WATER-PLANT LAYER ===== */
+function readLS(k,d){try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch{return d}}
+function writeLS(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function audit(action,detail=""){const a=readLS(V51.auditKey,[]);a.unshift({at:new Date().toISOString(),action,detail,engine:V51.version});writeLS(V51.auditKey,a.slice(0,80));renderAudit()}
+function renderAudit(){const el=$("#auditList");if(!el)return;const a=readLS(V51.auditKey,[]);el.innerHTML=a.length?a.slice(0,8).map(x=>`<div class="audit-row"><time>${esc(new Date(x.at).toLocaleString("vi-VN"))}</time><span>${esc(x.action)}${x.detail?` · ${esc(x.detail)}`:""}</span><b>${esc(x.engine)}</b></div>`).join(""):"<div class=\"empty\" style=\"background:rgba(255,255,255,.06);border-radius:.75rem;color:rgba(255,255,255,.65)\">Chưa có hoạt động.</div>"}
+function saveCase(){if(!lastResult){alert("Hãy chạy Tra cứu 1 phút trước khi lưu hồ sơ.");return}const cases=readLS(V51.casesKey,[]);const name=prompt("Tên hồ sơ:",`${lastResult.nganh?.ten||lastResult.input.nganhNghe||"Tra cứu"} — ${new Date().toLocaleDateString("vi-VN")}`);if(name===null)return;const item={id:"HỒ SƠ-"+Date.now(),name,createdAt:new Date().toISOString(),engineVersion:V51.version,legalDataVersion:V51.legalDataVersion,input:lastResult.input,result:lastResult};cases.unshift(item);writeLS(V51.casesKey,cases);audit("Lưu hồ sơ",name);renderCases()}
+function loadCase(id){const c=readLS(V51.casesKey,[]).find(x=>x.id===id);if(!c)return;const i=c.input;loaiHinh=i.loaiHinh||"duan";$$('#lhToggle button').forEach(b=>b.classList.toggle('active',b.dataset.v===loaiHinh));["tinh","nganh","von","dt","nt","kt","ctnh","ctrcn"].forEach((id)=>{const m={von:"von",dt:"dienTich",nt:"nuocThai",kt:"khiThai",ctnh:"ctnh",ctrcn:"ctrCN"};if($("#"+id)&&i[m[id]]!==undefined)$("#"+id).value=i[m[id]]});$$('.sens').forEach(x=>x.checked=(i.nhayCam||[]).includes(x.value));run();audit("Mở hồ sơ",c.name);scrollTo({top:document.querySelector('#form').offsetTop-20,behavior:'smooth'})}
+function deleteCase(id){const c=readLS(V51.casesKey,[]).find(x=>x.id===id);if(!c)return;if(!confirm(`Xóa hồ sơ “${c.name}”?`))return;writeLS(V51.casesKey,readLS(V51.casesKey,[]).filter(x=>x.id!==id));audit("Xóa hồ sơ",c.name);renderCases()}
+function renderCases(){const el=$("#caseList");if(!el)return;const c=readLS(V51.casesKey,[]);el.innerHTML=c.length?c.map(x=>`<div class="case-item"><div><strong>${esc(x.name)}</strong><small>${esc(new Date(x.createdAt).toLocaleString("vi-VN"))} · ${esc(x.result.finalNhom)} · Bộ máy ${esc(x.engineVersion)}</small></div><div class="case-actions"><button class="v51-btn" onclick="loadCase('${x.id}')">Mở</button><button class="v51-btn danger" onclick="deleteCase('${x.id}')">Xóa</button></div></div>`).join(""):"<div class=\"empty\">Chưa có hồ sơ. Hãy chạy một phiên tra cứu rồi chọn “Lưu hồ sơ hiện tại”.</div>"}
+function exportCases(){download("MT1P-V5.1-cases-"+new Date().toISOString().slice(0,10)+".json",{version:V51,cases:readLS(V51.casesKey,[]),audit:readLS(V51.auditKey,[]),plant:readLS(V51.plantKey,null),exportedAt:new Date().toISOString()});audit("Xuất dữ liệu hồ sơ")}
+function renderLegal(){const el=$("#legalRegistry");if(!el||!DATA.canCu)return;el.innerHTML=DATA.canCu.map(x=>`<tr><td>${esc(x[0])}</td><td><strong>${esc(x[1])}</strong></td><td>${esc(x[2])}</td><td>${esc(x[3])}</td></tr>`).join("")}
+function renderSources(){const el=$("#sourceRegistry");if(!el)return;el.innerHTML=SOURCE_DOCUMENTS.map(x=>`<tr><td><code>${esc(x[0])}</code></td><td><strong>${esc(x[1])}</strong><br><small>${esc(x[2])}</small></td><td>${esc(x[3])}</td><td><a href="${esc(x[4])}" target="_blank" rel="noopener">Mở văn bản ↗</a></td></tr>`).join("")}
+function normalizeSearch(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim()}
+function tachTruyVan(q){const s=String(q??'').trim();const phrases=[...s.matchAll(/"([^"]+)"/g)].map(m=>normalizeSearch(m[1])).filter(Boolean);const bare=s.replace(/"[^"]+"/g,' ').replace(/[,;]+/g,' ').trim();const tokens=normalizeSearch(bare).split(/\s+/).filter(Boolean);return {phrases,tokens}}
+function khopTruyVan(text,q){const t=normalizeSearch(text),{phrases,tokens}=tachTruyVan(q);if(!phrases.length&&!tokens.length)return true;for(const p of phrases)if(!t.includes(p))return false;for(const token of tokens)if(!t.includes(token))return false;return true}
+function diemTimKiem(text,q){const t=normalizeSearch(text),{phrases,tokens}=tachTruyVan(q);let score=0,matched=0;for(const p of phrases){if(t===p)score+=100;if(t.includes(p)){score+=40;matched++}}for(const token of tokens){if(t.includes(token)){score+=Math.min(18,token.length+3);matched++}}const total=phrases.length+tokens.length;if(total&&matched===total)score+=60;return score}
+function hoSoLoai(p){const g=p.gpmt||{},so=String(g.SoGPMT||'').trim(),st=normalizeSearch(g['TinhTrang (tự động)']||''),note=normalizeSearch(p.thongTin?.GhiChu||'');if(st.includes('chua thuc hien'))return 'chuathuchien';if(so&&/\bgpmt\b/i.test(so))return 'gpmt';if(so)return 'dkmt';if(st.includes('chua co du lieu'))return 'chuacodulieu';if(note.includes('chua co van ban/gpmt'))return 'chuathuchien';return 'chuacodulieu'}
+function hoSoNhan(p){const x=hoSoLoai(p);return ({gpmt:'Có GPMT',dkmt:'ĐKMT/chấp thuận',chuathuchien:'Chưa thực hiện',chuacodulieu:'Chưa có dữ liệu'})[x]||'Chưa có dữ liệu'}
+function coNghiaVuPhuHop(p,filter){if(filter==='tatca')return true;const s=p.nghiaVu||{};const vals=Object.values(s).map(normalizeSearch).filter(Boolean);if(!vals.length)return filter==='chuacapnhat';if(filter==='dat')return vals.some(x=>x.includes('dat/con han'));if(filter==='sapdenhan')return vals.some(x=>x.includes('sap den han'));if(filter==='canrasoat')return vals.some(x=>x.includes('can ra soat'));if(filter==='chuacapnhat')return vals.length===0;return true}
+function populatePlantNameFilter(){const el=$("#plantNameFilter");if(!el)return;const current=el.value;el.innerHTML='<option value="tatca">Tất cả nhà máy</option>'+WATER_PLANTS.map(p=>`<option value="${esc(p.ma)}">${esc(p.thongTin?.TenNhaMay||p.ma)}</option>`).join('');if(WATER_PLANTS.some(p=>p.ma===current))el.value=current}
+async function loadWaterPlantsFromSupabase(){
+  const sb=window.MT1P_SUPABASE;
+  if(!sb)return;
+  try{
+    const {data,error}=await sb.from('water_plants').select('id,ma_nha_may,ten_nha_may,dia_diem,cong_suat,nguon_nuoc,gpm_t,dkmt,tinh_trang,ghi_chu,updated_at').order('id',{ascending:true});
+    if(error){console.warn('[MT-1P] Không đọc được water_plants:',error.message);return;}
+    if(!Array.isArray(data)||!data.length)return;
+    const byMa=new Map(data.map(row=>[String(row.ma_nha_may||'').trim().toUpperCase(),row]));
+    WATER_PLANTS.forEach(p=>{
+      const row=byMa.get(String(p.ma||'').trim().toUpperCase());
+      if(!row)return;
+      p.thongTin=p.thongTin||{};
+      p.thongTin.MaNhaMay=row.ma_nha_may||p.ma;
+      p.thongTin.TenNhaMay=row.ten_nha_may||p.thongTin.TenNhaMay||p.ma;
+      p.thongTin.DiaDiem=row.dia_diem??p.thongTin.DiaDiem??'';
+      p.thongTin.CongSuat_m3_ngay=row.cong_suat??p.thongTin.CongSuat_m3_ngay??0;
+      p.thongTin['NguonNuoc (Mặt/Ngầm)']=row.nguon_nuoc??p.thongTin['NguonNuoc (Mặt/Ngầm)']??'';
+      p.thongTin.GhiChu=row.ghi_chu??p.thongTin.GhiChu??'';
+      p.gpmt=p.gpmt||{};
+      if(row.gpm_t) p.gpmt.SoGPMT=row.gpm_t;
+      if(row.dkmt) p.gpmt.DKMT=row.dkmt;
+      if(row.tinh_trang) p.gpmt['TinhTrang (tự động)']=row.tinh_trang;
+      if(row.ghi_chu) p.gpmt.GhiChu=row.ghi_chu;
+      byMa.delete(String(row.ma_nha_may||'').trim().toUpperCase());
+    });
+    byMa.forEach(row=>{
+      const ma=String(row.ma_nha_may||'').trim().toUpperCase();
+      if(!ma)return;
+      WATER_PLANTS.push({
+        ma,
+        thongTin:{MaNhaMay:row.ma_nha_may,TenNhaMay:row.ten_nha_may||ma,DiaDiem:row.dia_diem||'',CongSuat_m3_ngay:row.cong_suat||0,'NguonNuoc (Mặt/Ngầm)':row.nguon_nuoc||'',NguoiPhuTrach:'',GhiChu:row.ghi_chu||''},
+        gpmt:{MaNhaMay:row.ma_nha_may,TenNhaMay:row.ten_nha_may||ma,SoGPMT:row.gpm_t||'',NgayCap:'',NgayHetHan:'',CoQuanCap:'',TinhTrang:row.tinh_trang||'', 'TinhTrang (tự động)':row.tinh_trang||'',CongSuatKhaiThac:row.cong_suat||0,GhiChu:row.ghi_chu||''},
+        nghiaVu:{MaNhaMay:row.ma_nha_may,TenNhaMay:row.ten_nha_may||ma,NuocThai:'',CTNH:'',BunThai:'',HoaChat:'',QuanTrac:'',BaoCao:'',KNK:'',EPR:'',GhiChu:row.ghi_chu||''},
+        _supabaseId:row.id,
+        _supabaseUpdatedAt:row.updated_at
+      });
+    });
+    populatePlantNameFilter();
+    renderPlants();
+    renderPlant();
+    renderLinkDiagnostics();
+    runFullSearch();
+    const countEl=$("#plantRegistryTitleCount");
+    if(countEl)countEl.textContent=`${WATER_PLANTS.length} nhà máy`;
+    const countNote=$("#plantSearchCount");
+    if(countNote)countNote.textContent=`Đã đồng bộ ${data.length} bản ghi từ Supabase.`;
+    audit(`Đồng bộ ${data.length} nhà máy từ Supabase`);
+  }catch(err){console.warn('[MT-1P] Lỗi đồng bộ water_plants:',err);}
+}
+function renderPlants(){const el=$("#plantRegistry");if(!el)return;const q=$("#plantSearch")?.value||'',nameFilter=$("#plantNameFilter")?.value||'tatca',status=$("#plantStatus")?.value||'tatca',source=$("#plantSourceFilter")?.value||'tatca',obligation=$("#obligationFilter")?.value||'tatca';const rows=WATER_PLANTS.filter(x=>{const t=x.thongTin||{},g=x.gpmt||{},pr=getPlantProfile(x.ma)||{};const blob=[x.ma,t.TenNhaMay,t.DiaDiem,t.CongSuat_m3_ngay,t['NguonNuoc (Mặt/Ngầm)'],t.NguoiPhuTrach,t.GhiChu,g.SoGPMT,g.CoQuanCap,g['TinhTrang (tự động)'],...Object.values(x.nghiaVu||{}),...Object.values(pr)].join(' | ');return khopTruyVan(blob,q)&&(nameFilter==='tatca'||x.ma===nameFilter)&&(status==='tatca'||hoSoLoai(x)===status)&&(source==='tatca'||String(t['NguonNuoc (Mặt/Ngầm)'])===source)&&coNghiaVuPhuHop(x,obligation)});el.innerHTML=rows.length?rows.map(x=>{const t=x.thongTin||{},g=x.gpmt||{},pr=getPlantProfile(x.ma)||{};const val=(v,u='')=>v!==undefined&&v!==''?`${esc(v)} ${esc(u)}`:'<span class="updated">Chưa cập nhật</span>';return `<tr><td><code>${esc(x.ma)}</code></td><td><strong>${esc(t.TenNhaMay)}</strong><br><small>${esc(t.DiaDiem)}</small>${pr.updatedAt?'<br><span class="plant-profile-saved">Đã cập nhật</span>':''}</td><td><span class="metric-inline">${esc(Number(t.CongSuat_m3_ngay||0).toLocaleString('vi-VN'))}</span> m³/ngày</td><td>${esc(t['NguonNuoc (Mặt/Ngầm)'])}</td><td>${val(pr.nuocThai,'m³/ngày')}</td><td>${val(pr.bunThai,pr.bunThaiUnit||'')}</td><td>${val(pr.ctnh,pr.ctnhUnit||'')}</td><td><span class="tag">${esc(hoSoNhan(x))}</span><br><small>${esc(g.SoGPMT||g['TinhTrang (tự động)']||'—')}</small></td><td><button class="v51-btn edit-btn" type="button" onclick="selectPlant('${esc(x.ma)}')">Hồ sơ kỹ thuật</button></td></tr>`}).join(''):'<tr><td colspan="9" class="empty">Không tìm thấy nhà máy phù hợp.</td></tr>';$("#plantSearchCount").textContent=`Hiển thị ${rows.length}/${WATER_PLANTS.length} nhà máy.`}
+
+const FORM_PAGE_MAP={
+'Mẫu số 02':40,'Mẫu số 03':42,'Mẫu số 03a':44,'Mẫu số 04':45,'Mẫu số 04a':63,'Mẫu số 04b':65,'Mẫu số 04c':66,'Mẫu số 05':67,'Mẫu số 06':68,'Mẫu số 07':71,'Mẫu số 08':73,'Mẫu số 09':75,'Mẫu số 09a':76,'Mẫu số 10':78,'Mẫu số 22a':109,'Mẫu số 22b':110,'Mẫu số 22c':117,'Mẫu số 22d':128,'Mẫu số 22đ':137,'Mẫu số 23':143,'Mẫu số 24':143,'Mẫu số 25':145,'Mẫu số 26':145,'Mẫu số 27':145,'Mẫu số 28':146,'Mẫu số 29':147,'Mẫu số 30':149,'Mẫu số 31':153,'Mẫu số 32':154,'Mẫu số 33':156,'Mẫu số 34':157,'Mẫu số 35':157,'Mẫu số 36':158,'Mẫu số 37':158,'Mẫu số 38':160,'Mẫu số 39':160,'Mẫu số 40':161,'Mẫu số 41':174,'Mẫu số 42':175,'Mẫu số 43a':177,'Mẫu số 43':181,'Mẫu số 44':182,'Mẫu số 44a':183,'Mẫu số 45':185,'Mẫu số 46':186,'Mẫu số 47':188,'Mẫu số 05.A':428,'Mẫu số 05.B':439};
+function formSourceUrl(code){const page=FORM_PAGE_MAP[code];return page?`phu-luc/nguon-phu-luc-goc.pdf#page=${page}`:''}
+function formPage(code){return FORM_PAGE_MAP[code]||''}
+
+function renderFormRegistry(kind='tatca-hienthi',q=''){
+ const el=$("#formRegistry");if(!el)return;
+ let rows=FORM_REGISTRY.filter(f=>khopTruyVan([f.code,f.kind,f.title,f.appendix,f.note,f.status].join(' | '),q));
+ if(kind==='lichsu') rows=rows.filter(f=>f.status==='Đã bãi bỏ');
+ else if(kind==='tatca') rows=rows.filter(f=>f.status!=='Đã bãi bỏ');
+ else if(kind!=='tatca-hienthi') rows=rows.filter(f=>f.kind===kind && f.status!=='Đã bãi bỏ');
+ el.innerHTML=rows.length?rows.map(f=>`<article class="form-item" data-status="${esc(f.status==='Đã bãi bỏ'?'Đã bãi bỏ':'Đang sử dụng')}"><span class="form-code">${esc(f.code)}</span><span class="form-status ${f.status==='Đã bãi bỏ'?'baibao':'hienhanh'}">${esc(f.status)}</span><h3>${esc(f.title)}</h3><p><b>Nhóm:</b> ${esc(f.kind)} · <b>Phụ lục:</b> ${esc(f.appendix)}<br>${esc(f.note)}</p><a href="${esc(formSourceUrl(f.code))}" target="_blank" rel="noopener">Mở Phụ lục II/VI chính thức ↗</a></article>`).join(''):'<div class="search-empty" style="grid-column:1/-1">Không tìm thấy biểu mẫu phù hợp.</div>'
+}
+function getPlantProfiles(){return readLS(V51.plantProfilesKey,{})||{}}
+function getPlantProfile(id){return getPlantProfiles()[id]||null}
+function setPlantProfile(id,profile){const all=getPlantProfiles();all[id]=profile;writeLS(V51.plantProfilesKey,all)}
+function removePlantProfile(id){const all=getPlantProfiles();delete all[id];writeLS(V51.plantProfilesKey,all)}
+function mergePlantProfile(p){const pr=getPlantProfile(p.ma)||{};return Object.assign({},p,{profile:pr})}
+function profileValue(p,key,fallback=''){const pr=getPlantProfile(p.ma)||{};return pr[key]!==undefined&&pr[key]!==''?pr[key]:fallback}
+function plantProfileText(p){const pr=getPlantProfile(p.ma)||{};return Object.entries(pr).filter(([k])=>!['updatedAt'].includes(k)).map(([k,v])=>v).join(' | ')}
+function searchCorpus(){const arr=[];arr.push({kind:'Quy tắc',title:'Bộ dữ liệu quy tắc và ngành nghề',meta:'Tra cứu Nhóm I–IV, ĐTM, GPMT, ĐKMT',text:JSON.stringify(DATA),data:DATA,url:''});WATER_PLANTS.forEach(p=>{const t=p.thongTin||{},g=p.gpmt||{};arr.push({kind:'Nhà máy',title:t.TenNhaMay||p.ma,meta:`${p.ma} · ${t.DiaDiem||''} · ${hoSoNhan(p)}`,text:[p.ma,t.TenNhaMay,t.DiaDiem,t.CongSuat_m3_ngay,t['NguonNuoc (Mặt/Ngầm)'],g.SoGPMT,g.CoQuanCap,Object.values(p.nghiaVu||{}),plantProfileText(p)].flat().join(' | '),data:p,action:()=>selectPlant(p.ma)} )});FORM_REGISTRY.forEach(f=>arr.push({kind:f.kind==='Báo cáo BVMT'?'Biểu mẫu':f.kind,title:`${f.code} — ${f.title}`,meta:`${f.kind} · ${f.appendix} · Trang ${formPage(f.code)||'—'} · ${f.status}`,text:[f.code,f.kind,f.title,f.appendix,f.note,f.status].join(' | '),data:f,url:formSourceUrl(f.code)}));(DATA.canCu||[]).forEach(x=>arr.push({kind:'Nguồn pháp lý',title:x[1],meta:`${x[2]} · ${x[3]}`,text:x.join(' | '),data:{ma:x[0],vanBan:x[1],hieuLuc:x[2],vaiTro:x[3]},url:(SOURCE_DOCUMENTS.find(s=>normalizeSearch(s[1])===normalizeSearch(x[1]))||[])[4]}));return arr}
+function renderSearchData(data){if(data===undefined||data===null)return '';const rows=[];const walk=(v,path)=>{if(v===null||v===undefined||typeof v!=='object'){rows.push(`<div class="data-row"><span class="data-key">${esc(path||'Giá trị')}</span><span class="data-value">${esc(v===null?'null':String(v))}</span></div>`);return}if(Array.isArray(v)){if(!v.length){rows.push(`<div class="data-row"><span class="data-key">${esc(path)}</span><span class="data-value">(rỗng)</span></div>`);return}v.forEach((x,i)=>walk(x,`${path}[${i}]`));return}Object.entries(v).forEach(([k,x])=>walk(x,path?`${path}.${k}`:k));};walk(data,'');return `<details class="search-data"><summary>Toàn bộ nội dung dữ liệu</summary><div class="data-table">${rows.join('')}</div></details>`}
+function runFullSearch(){const q=$("#fullSearch")?.value||'',kind=document.querySelector('.search-tab.active')?.dataset.searchKind||'tatca',el=$("#fullSearchResults");if(!el)return;if(!q.trim()){el.innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';return}const rows=searchCorpus().filter(x=>(kind==='tatca'||x.kind===kind)&&diemTimKiem(x.text,q)>0).sort((a,b)=>diemTimKiem(b.text,q)-diemTimKiem(a.text,q)).slice(0,80);el.innerHTML=rows.length?rows.map((x,i)=>`<article class="search-result" data-kind="${esc(x.kind)}"><div class="search-result-top"><div><span class="tag">${esc(x.kind)}</span><div class="search-result-title">${esc(x.title)}</div><div class="search-result-meta">${esc(x.meta)}</div></div>${x.url?`<a class="v51-btn" href="${esc(x.url)}" target="_blank" rel="noopener">Mở đúng nguồn${formPage(x.data?.code)?` · trang ${formPage(x.data.code)}`:''} ↗</a>`:x.action?`<button class="v51-btn" type="button" data-search-index="${i}">Mở hồ sơ</button>`:''}</div>${renderSearchData(x.data)}</article>`).join(''):'<div class="search-empty">Không tìm thấy kết quả. Thử rút gọn cụm từ, ví dụ: <b>nhà máy, nhóm III</b>.</div>';el.querySelectorAll('[data-search-index]').forEach(b=>b.addEventListener('click',()=>{const x=rows[Number(b.dataset.searchIndex)];x?.action?.()}))}
+function goProcedure(kind){$("#form")?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{$("#fullSearch")?.focus();$("#fullSearch").value=kind;runFullSearch()},250)}
+function renderLinkDiagnostics(){const el=$("#linkStats"),issues=$("#linkIssues"); if(!el||!issues)return; const noDoc=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuathuchien'), noData=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuacodulieu'); const profileCount=WATER_PLANTS.filter(x=>getPlantProfile(x.ma)).length; el.innerHTML=[["Tổng số nhà máy",WATER_PLANTS.length],["Có GPMT",WATER_PLANTS.filter(x=>hoSoLoai(x)==='gpmt').length],["ĐKMT/chấp thuận",WATER_PLANTS.filter(x=>hoSoLoai(x)==='dkmt').length],["Chưa thực hiện",noDoc.length],["Đã có hồ sơ kỹ thuật",profileCount]].map(x=>`<div class="result-box"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join(''); issues.innerHTML=`<div class="link-issue"><strong>Khóa liên kết:</strong> MaNhaMay là khóa chính giữa dữ liệu Excel và hồ sơ kỹ thuật lưu trên trình duyệt.</div><div class="link-issue"><strong>Thiếu hồ sơ:</strong> ${noDoc.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Chưa có dữ liệu:</strong> ${noData.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Hồ sơ kỹ thuật:</strong> ${profileCount}/${WATER_PLANTS.length} nhà máy đã có số liệu nhập trực tiếp.</div>`}
+function loadPlantForm(id){const p=WATER_PLANTS.find(x=>x.ma===id);if(!p)return;const t=p.thongTin||{},g=p.gpmt||{},n=p.nghiaVu||{},pr=getPlantProfile(id)||{};$("#wpPlantId").value=id;$("#wpCode").value=id;$("#wpName").value=t.TenNhaMay||'';$("#wpCapacity").value=pr.capacity??t.CongSuat_m3_ngay??0;$("#wpSource").value=pr.source??t['NguonNuoc (Mặt/Ngầm)']??'Nước mặt';$("#wpWaste").value=pr.nuocThai??'';$("#wpSludge").value=pr.bunThai??'';$("#wpSludgeUnit").value=pr.bunThaiUnit??'kg/ngày';$("#wpHaz").value=pr.ctnh??'';$("#wpHazUnit").value=pr.ctnhUnit??'kg/năm';$("#wpChem").value=pr.hoaChat??n.HoaChat??'';$("#wpMonitoring").value=pr.quanTrac??n.QuanTrac??'';$("#wpReporting").value=pr.baoCao??n.BaoCao??'';$("#wpGHG").value=pr.knk??n.KNK??'';$("#wpEPR").value=pr.epr??n.EPR??'';$("#wpNote").value=pr.note??t.GhiChu??g.GhiChu??'';$("#plantSnapshotTitle").textContent=t.TenNhaMay||id;$("#wpSaveNote").textContent=pr.updatedAt?`Đã lưu: ${new Date(pr.updatedAt).toLocaleString('vi-VN')}`:'Chưa có số liệu nhập trực tiếp';renderPlantSnapshot(id)}
+function renderPlantSnapshot(id){const p=WATER_PLANTS.find(x=>x.ma===id),el=$("#plantSnapshot");if(!p||!el)return;const t=p.thongTin||{},g=p.gpmt||{},pr=getPlantProfile(id)||{};const fmt=(v)=>v===undefined||v===''?'Chưa cập nhật':String(v);el.innerHTML=`<div class="plant-profile-head"><strong style="font-size:1.12rem">${esc(t.TenNhaMay||id)}</strong><span class="plant-profile-saved">${pr.updatedAt?'● Đã lưu trực tiếp':'○ Chưa nhập số liệu'}</span></div><p>${esc(t.DiaDiem||'')}</p><div class="plant-card-grid"><div class="metric"><small>Công suất</small><strong>${esc(Number(pr.capacity??t.CongSuat_m3_ngay??0).toLocaleString('vi-VN'))} m³/ngày</strong></div><div class="metric"><small>Nước thải</small><strong>${esc(fmt(pr.nuocThai))}${pr.nuocThai!==undefined&&pr.nuocThai!==''?' m³/ngày':''}</strong></div><div class="metric"><small>Bùn thải</small><strong>${esc(fmt(pr.bunThai))}${pr.bunThai!==undefined&&pr.bunThai!==''?' '+esc(pr.bunThaiUnit||''):''}</strong></div><div class="metric"><small>CTNH</small><strong>${esc(fmt(pr.ctnh))}${pr.ctnh!==undefined&&pr.ctnh!==''?' '+esc(pr.ctnhUnit||''):''}</strong></div></div><p><b>GPMT/ĐKMT:</b> ${esc(g.SoGPMT||g['TinhTrang (tự động)']||'Chưa cập nhật')}<br><b>Hóa chất:</b> ${esc(fmt(pr.hoaChat))}<br><b>Quan trắc:</b> ${esc(fmt(pr.quanTrac))}<br><b>Báo cáo BVMT:</b> ${esc(fmt(pr.baoCao))}<br><b>KNK:</b> ${esc(fmt(pr.knk))} · <b>EPR:</b> ${esc(fmt(pr.epr))}</p><small>${pr.updatedAt?'Cập nhật '+esc(new Date(pr.updatedAt).toLocaleString('vi-VN')):'Số liệu từ Excel nền; chưa có số liệu kỹ thuật nhập trực tiếp.'}</small>`}
+function renderPlantSelector(){const el=$("#wpPlantId");if(!el)return;const current=el.value;el.innerHTML=WATER_PLANTS.map(p=>`<option value="${esc(p.ma)}">${esc(p.ma)} — ${esc(p.thongTin?.TenNhaMay||p.ma)}</option>`).join('');el.value=current&&WATER_PLANTS.some(p=>p.ma===current)?current:(WATER_PLANTS[0]?.ma||'');if(el.value)loadPlantForm(el.value)}
+function selectPlant(id){if(!WATER_PLANTS.some(x=>x.ma===id))return;renderPlantSelector();$("#wpPlantId").value=id;loadPlantForm(id);document.querySelector('#waterplant')?.scrollIntoView({behavior:'smooth',block:'start'})}
+function plantData(){const id=$("#wpPlantId").value,p=WATER_PLANTS.find(x=>x.ma===id);return{id, name:p?.thongTin?.TenNhaMay||$("#wpName").value.trim(),capacity:+$("#wpCapacity").value||0,source:$("#wpSource").value,nuocThai:$("#wpWaste").value===''?'':(+$("#wpWaste").value||0),bunThai:$("#wpSludge").value===''?'':(+$("#wpSludge").value||0),bunThaiUnit:$("#wpSludgeUnit").value,ctnh:$("#wpHaz").value===''?'':(+$("#wpHaz").value||0),ctnhUnit:$("#wpHazUnit").value,hoaChat:$("#wpChem").value.trim(),quanTrac:$("#wpMonitoring").value.trim(),baoCao:$("#wpReporting").value.trim(),knk:$("#wpGHG").value.trim(),epr:$("#wpEPR").value.trim(),note:$("#wpNote").value.trim(),updatedAt:new Date().toISOString()}}
+function savePlant(){const p=plantData();if(!p.id){alert('Vui lòng chọn nhà máy.');return}setPlantProfile(p.id,p);audit('Lưu hồ sơ kỹ thuật nhà máy',p.name);$("#wpSaveNote").textContent=`Đã lưu ${new Date(p.updatedAt).toLocaleString('vi-VN')}`;renderPlantSnapshot(p.id);renderPlants();renderLinkDiagnostics();runFullSearch()}
+function renderPlant(){renderPlantSelector();const id=$("#wpPlantId")?.value;if(id)renderPlantSnapshot(id)}
+function clearPlant(){const id=$("#wpPlantId")?.value;if(!id)return;if(confirm('Xóa toàn bộ số liệu nhập trực tiếp của nhà máy này?')){removePlantProfile(id);loadPlantForm(id);audit('Xóa số liệu hồ sơ kỹ thuật',id);renderPlants();renderLinkDiagnostics()}}
+function usePlantCase(){const id=$("#wpPlantId")?.value,p=getPlantProfile(id);if(!p){alert('Nhà máy này chưa có số liệu kỹ thuật nhập trực tiếp.');return}$("#nt").value=p.nuocThai||0;$("#ctnh").value=p.ctnh||0;$("#dt").value=0;$("#von").value=0;loaiHinh='coso';$$('#lhToggle button').forEach(b=>b.classList.toggle('active',b.dataset.v==='coso'));audit('Dùng hồ sơ kỹ thuật cho tra cứu',p.name);document.querySelector('#form')?.scrollIntoView({behavior:'smooth',block:'start'})}
+function importCasesFile(f){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.cases)writeLS(V51.casesKey,d.cases);if(d.audit)writeLS(V51.auditKey,d.audit);if(d.plant)writeLS(V51.plantKey,d.plant);renderCases();renderAudit();renderPlant();audit("Nhập dữ liệu hồ sơ");}catch(e){alert("JSON không hợp lệ: "+e.message)}};r.readAsText(f)}
+$("#saveCase")?.addEventListener("click",saveCase);$("#exportCases")?.addEventListener("click",exportCases);$("#importCases")?.addEventListener("click",()=>$("#caseFile").click());$("#caseFile")?.addEventListener("change",e=>{if(e.target.files[0])importCasesFile(e.target.files[0])});$("#savePlant")?.addEventListener("click",savePlant);$("#usePlantCase")?.addEventListener("click",usePlantCase);$("#clearPlantProfile")?.addEventListener("click",clearPlant);$("#wpPlantId")?.addEventListener("change",e=>loadPlantForm(e.target.value));renderCases();renderAudit();renderLegal();renderSources();renderFormRegistry();populatePlantNameFilter();renderPlants();renderPlant();renderLinkDiagnostics();["plantSearch"].forEach(id=>document.getElementById(id)?.addEventListener("input",renderPlants));["plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderPlants));document.getElementById("clearPlantFilters")?.addEventListener("click",()=>{["plantSearch","plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==="plantNameFilter"||id==="plantStatus"||id==="plantSourceFilter"||id==="obligationFilter"?"tatca":""});renderPlants()});audit("Khởi tạo V5.5.2 — sửa thứ tự khởi tạo dữ liệu + menu panel + hồ sơ kỹ thuật theo MaNhaMay");
+$("#fullSearchBtn")?.addEventListener("click",runFullSearch);$("#fullSearch")?.addEventListener("keydown",e=>{if(e.key==="Enter")runFullSearch()});$("#fullSearch")?.addEventListener("input",()=>{const q=$("#fullSearch").value.trim();if(q.length>=2){const sug=searchCorpus().filter(x=>khopTruyVan(x.text,q)).slice(0,6);const el=$("#searchSuggestions");el.innerHTML=sug.map(x=>`<button class="search-suggestion" type="button">${esc(x.title)}</button>`).join("");el.classList.toggle("show",sug.length>0);el.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{$("#fullSearch").value=sug[i].title;el.classList.remove("show");runFullSearch()})}else $("#searchSuggestions")?.classList.remove("show")});document.addEventListener("click",e=>{if(!e.target.closest(".full-search-input"))$("#searchSuggestions")?.classList.remove("show")});document.querySelectorAll(".search-tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".search-tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");runFullSearch()}));document.querySelectorAll(".procedure-card").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.procedure;document.querySelectorAll(".search-tab").forEach(x=>x.classList.toggle("active",x.dataset.searchKind===k));goProcedure(k)}));document.querySelectorAll("#formFilter button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("#formFilter button").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderFormRegistry(b.dataset.formKind)}));
+
+document.querySelectorAll('.top-tab').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.top-tab').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
+
+window.addEventListener("error",function(e){console.error("[MT-1P] Lỗi khởi tạo:",e.error||e.message);const box=document.getElementById("appError");if(box){box.hidden=false;box.textContent="Ứng dụng gặp lỗi khi khởi tạo: "+(e.message||"không xác định")+". Dữ liệu nền 28 nhà máy vẫn được nhúng trong tệp này.";}});
+(function(){const tabs=[...document.querySelectorAll('#topTabs .top-tab')];const byHash={'#form':'tra-cuu','#tracuu-tu-khoa':'tim-nhanh','#waterplant':'ho-so','#plants':'nha-may','#sources':'phap-ly','#bieu-mau':'bieu-mau'};function activate(){const key=byHash[location.hash]||'tra-cuu';tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===key))}tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active')}));window.addEventListener('hashchange',activate);activate()})();
+/* MT-1P Phase 2 — Supabase Auth + profile/RLS gate */
+(function(){
+  const gate=document.getElementById('authGate');
+  const loginForm=document.getElementById('loginForm');
+  const loginError=document.getElementById('loginError');
+  const loginBtn=document.getElementById('loginBtn');
+  const userBox=document.getElementById('authUser');
+  const userName=document.getElementById('authUserName');
+  const logoutBtn=document.getElementById('authLogout');
+  const SUPABASE_URL='https://jaefczpoqjwivbswzfnd.supabase.co';
+  const SUPABASE_KEY='sb_publishable_3q2cC0lyYxaMuv3Id8JVJg_Jw2YtpZp';
+  const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+  window.MT1P_SUPABASE=sb;
+  window.MT1P_USER=null;
+
+  function setError(msg){if(loginError)loginError.textContent=msg||'';}
+  function lock(){gate.hidden=false;userBox.hidden=true;window.MT1P_USER=null;}
+  function unlock(profile,user){
+    gate.hidden=true; userBox.hidden=false;
+    userName.textContent=(profile.full_name||user.email)+' · '+profile.role;
+    window.MT1P_USER={id:user.id,email:user.email,full_name:profile.full_name||'',role:profile.role,status:profile.status};
+    applyPermissions(profile.role);
+  }
+  function applyPermissions(role){
+    const technical=document.getElementById('waterplant');
+    if(technical) technical.hidden=false;
+    document.querySelectorAll('[data-role-only]').forEach(el=>{
+      const roles=(el.dataset.roleOnly||'').split(',').map(x=>x.trim()).filter(Boolean);
+      el.hidden=roles.length ? !roles.includes(role) : false;
+    });
+    document.body.dataset.mt1pRole=role||'';
+  }
+  async function loadUser(){
+    const {data:{user}}=await sb.auth.getUser();
+    if(!user){lock();return false;}
+    const {data:profile,error}=await sb.from('profiles').select('full_name,role,status').eq('id',user.id).single();
+    if(error||!profile||profile.status!=='active'){
+      await sb.auth.signOut();
+      lock();
+      setError('Tài khoản chưa được cấp quyền hoạt động trên MT-1P.');
+      return false;
+    }
+    unlock(profile,user);
+    await loadWaterPlantsFromSupabase();
+    return true;
+  }
+  loginForm?.addEventListener('submit',async e=>{
+    e.preventDefault(); setError(''); loginBtn.disabled=true; loginBtn.textContent='Đang đăng nhập…';
+    try{
+      const email=document.getElementById('loginUser').value.trim();
+      const password=document.getElementById('loginPass').value;
+      const {error}=await sb.auth.signInWithPassword({email,password});
+      if(error){setError(error.message);return;}
+      await loadUser();
+    }catch(err){setError(err?.message||'Không thể đăng nhập.');}
+    finally{loginBtn.disabled=false;loginBtn.textContent='Đăng nhập';}
+  });
+  logoutBtn?.addEventListener('click',async()=>{await sb.auth.signOut();document.getElementById('loginPass').value='';lock();});
+  sb.auth.onAuthStateChange((event,session)=>{
+    if(session) setTimeout(loadUser,0); else lock();
+  });
+  loadUser();
+})();
+
+</script></body></html>
