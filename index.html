@@ -226,7 +226,7 @@ section[id]{scroll-margin-top:8.2rem}
         <div><label>EPR</label><input id="wpEPR" placeholder="Đạt / Cần rà soát / Không áp dụng..." /></div>
         <div class="full"><label>Ghi chú kỹ thuật / xử lý nước thải / bùn</label><textarea id="wpNote" rows="4" placeholder="Ví dụ: nước thải lắng lọc, tuần hoàn về cụm xử lý; bùn thu gom..." ></textarea></div>
       </div>
-      <div class="toolbar technical-actions"><button class="v51-btn primary" id="savePlant" data-role-only="admin,manager" type="button">Lưu hồ sơ kỹ thuật</button><button class="v51-btn" id="clearPlantProfile" data-role-only="admin,manager" type="button">Xóa số liệu đã nhập của nhà máy</button><span class="search-note" id="wpSaveNote"></span></div>
+      <div class="toolbar technical-actions"><button class="v51-btn primary" id="savePlant" data-role-only="admin,manager" type="button">Lưu hồ sơ kỹ thuật</button><button class="v51-btn" id="clearPlantProfile" data-role-only="admin" type="button">Xóa số liệu đã nhập của nhà máy</button><span class="search-note" id="wpSaveNote"></span></div>
     </div>
     <div class="panel">
       <span class="eyebrow"><i></i> Dữ liệu đang lưu</span><h3 id="plantSnapshotTitle">Chọn nhà máy</h3>
@@ -777,10 +777,135 @@ function renderFormRegistry(kind='tatca-hienthi',q=''){
  else if(kind!=='tatca-hienthi') rows=rows.filter(f=>f.kind===kind && f.status!=='Đã bãi bỏ');
  el.innerHTML=rows.length?rows.map(f=>`<article class="form-item" data-status="${esc(f.status==='Đã bãi bỏ'?'Đã bãi bỏ':'Đang sử dụng')}"><span class="form-code">${esc(f.code)}</span><span class="form-status ${f.status==='Đã bãi bỏ'?'baibao':'hienhanh'}">${esc(f.status)}</span><h3>${esc(f.title)}</h3><p><b>Nhóm:</b> ${esc(f.kind)} · <b>Phụ lục:</b> ${esc(f.appendix)}<br>${esc(f.note)}</p><a href="${esc(formSourceUrl(f.code))}" target="_blank" rel="noopener">Mở Phụ lục II/VI chính thức ↗</a></article>`).join(''):'<div class="search-empty" style="grid-column:1/-1">Không tìm thấy biểu mẫu phù hợp.</div>'
 }
-function getPlantProfiles(){return readLS(V51.plantProfilesKey,{})||{}}
-function getPlantProfile(id){return getPlantProfiles()[id]||null}
-function setPlantProfile(id,profile){const all=getPlantProfiles();all[id]=profile;writeLS(V51.plantProfilesKey,all)}
-function removePlantProfile(id){const all=getPlantProfiles();delete all[id];writeLS(V51.plantProfilesKey,all)}
+/* ==========================================================
+   MT-1P PHASE 3 — TECHNICAL RECORDS ON SUPABASE
+   Không dùng localStorage làm nguồn dữ liệu chính cho hồ sơ kỹ thuật.
+   Quyền thực tế do Supabase RLS quyết định.
+   ========================================================== */
+let TECHNICAL_RECORDS = {};
+
+function getPlantProfiles(){ return TECHNICAL_RECORDS || {}; }
+function getPlantProfile(id){ return (TECHNICAL_RECORDS && TECHNICAL_RECORDS[id]) || null; }
+function setPlantProfile(id,profile){ TECHNICAL_RECORDS[id]=profile; }
+function removePlantProfile(id){ delete TECHNICAL_RECORDS[id]; }
+
+function technicalRecordToProfile(row){
+  if(!row) return null;
+  let data={};
+  try { data=JSON.parse(row.noi_dung||'{}') || {}; } catch(e) { data={}; }
+  return Object.assign({},data,{
+    id: String(row.plant_id),
+    recordId: row.id,
+    createdBy: row.created_by || data.createdBy || '',
+    updatedBy: row.updated_by || data.updatedBy || '',
+    createdAt: row.created_at || data.createdAt || '',
+    updatedAt: row.updated_at || data.updatedAt || '',
+    trangThai: row.trang_thai || data.trangThai || 'Đang sử dụng'
+  });
+}
+
+async function loadTechnicalRecordsFromSupabase(){
+  const sb=window.MT1P_SUPABASE;
+  if(!sb || !window.MT1P_USER) return;
+  try{
+    const {data,error}=await sb
+      .from('technical_records')
+      .select('id,plant_id,ten_ho_so,loai_ho_so,noi_dung,file_url,trang_thai,created_at,updated_at,created_by,updated_by')
+      .eq('loai_ho_so','Hồ sơ kỹ thuật')
+      .order('updated_at',{ascending:false});
+    if(error) throw error;
+    TECHNICAL_RECORDS={};
+    (data||[]).forEach(row=>{
+      const key=String(row.plant_id);
+      if(!TECHNICAL_RECORDS[key]) TECHNICAL_RECORDS[key]=technicalRecordToProfile(row);
+    });
+    WATER_PLANTS.forEach(p=>{
+      const supaId=p._supabaseId;
+      if(supaId!==undefined && supaId!==null && TECHNICAL_RECORDS[String(supaId)]){
+        TECHNICAL_RECORDS[p.ma]=TECHNICAL_RECORDS[String(supaId)];
+      }
+    });
+    renderPlant();
+    renderPlants();
+    renderLinkDiagnostics();
+    runFullSearch();
+  }catch(err){
+    console.error('[MT-1P] Không tải được technical_records:',err);
+    const note=document.getElementById('wpSaveNote');
+    if(note) note.textContent='Không tải được hồ sơ kỹ thuật từ Supabase: '+(err.message||err);
+  }
+}
+
+function profileToTechnicalPayload(p,plantRow){
+  const now=new Date().toISOString();
+  const userId=window.MT1P_USER?.id || null;
+  return {
+    plant_id: Number(plantRow?.id),
+    ten_ho_so: `Hồ sơ kỹ thuật — ${p.name || p.id}`,
+    loai_ho_so: 'Hồ sơ kỹ thuật',
+    noi_dung: JSON.stringify(p),
+    file_url: null,
+    trang_thai: 'Đang sử dụng',
+    updated_by: userId,
+    updated_at: now
+  };
+}
+
+async function savePlantToSupabase(p){
+  const sb=window.MT1P_SUPABASE;
+  const user=window.MT1P_USER;
+  if(!sb || !user) throw new Error('Phiên đăng nhập Supabase không tồn tại.');
+  if(!['admin','manager'].includes(user.role)) throw new Error('Tài khoản này không có quyền thêm/sửa hồ sơ kỹ thuật.');
+
+  const plant=WATER_PLANTS.find(x=>x.ma===p.id);
+  const plantId=plant?._supabaseId;
+  if(plantId===undefined || plantId===null) throw new Error('Không xác định được ID Supabase của nhà máy '+p.id+'.');
+
+  const now=new Date().toISOString();
+  p.updatedAt=now;
+  p.updatedBy=user.id;
+  const payload=profileToTechnicalPayload(p,{id:plantId});
+
+  const existing=getPlantProfile(p.id);
+  if(existing?.recordId){
+    const {data,error}=await sb
+      .from('technical_records')
+      .update(payload)
+      .eq('id',existing.recordId)
+      .select('id,plant_id,ten_ho_so,loai_ho_so,noi_dung,file_url,trang_thai,created_at,updated_at,created_by,updated_by')
+      .single();
+    if(error) throw error;
+    TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);
+    return data;
+  }
+
+  const insertPayload=Object.assign({},payload,{created_by:user.id,created_at:now});
+  const {data,error}=await sb
+    .from('technical_records')
+    .insert(insertPayload)
+    .select('id,plant_id,ten_ho_so,loai_ho_so,noi_dung,file_url,trang_thai,created_at,updated_at,created_by,updated_by')
+    .single();
+  if(error) throw error;
+  TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);
+  return data;
+}
+
+async function deletePlantFromSupabase(id){
+  const sb=window.MT1P_SUPABASE;
+  const user=window.MT1P_USER;
+  if(!sb || !user) throw new Error('Phiên đăng nhập Supabase không tồn tại.');
+  if(user.role!=='admin') throw new Error('CHỈ ADMIN được phép xóa hồ sơ kỹ thuật.');
+  const existing=getPlantProfile(id);
+  if(!existing?.recordId) throw new Error('Không tìm thấy bản ghi hồ sơ kỹ thuật trên Supabase.');
+  const {error}=await sb.from('technical_records').delete().eq('id',existing.recordId);
+  if(error) throw error;
+  delete TECHNICAL_RECORDS[id];
+}
+
+function mergePlantProfile(p){const pr=getPlantProfile(p.ma)||{};return Object.assign({},p,{profile:pr})}
+function profileValue(p,key,fallback=''){const pr=getPlantProfile(p.ma)||{};return pr[key]!==undefined&&pr[key]!==''?pr[key]:fallback}
+function plantProfileText(p){const pr=getPlantProfile(p.ma)||{};return Object.entries(pr).filter(([k])=>!['updatedAt','recordId','createdBy','updatedBy','createdAt'].includes(k)).map(([k,v])=>v).join(' | ')}
+
 function mergePlantProfile(p){const pr=getPlantProfile(p.ma)||{};return Object.assign({},p,{profile:pr})}
 function profileValue(p,key,fallback=''){const pr=getPlantProfile(p.ma)||{};return pr[key]!==undefined&&pr[key]!==''?pr[key]:fallback}
 function plantProfileText(p){const pr=getPlantProfile(p.ma)||{};return Object.entries(pr).filter(([k])=>!['updatedAt'].includes(k)).map(([k,v])=>v).join(' | ')}
@@ -794,9 +919,47 @@ function renderPlantSnapshot(id){const p=WATER_PLANTS.find(x=>x.ma===id),el=$("#
 function renderPlantSelector(){const el=$("#wpPlantId");if(!el)return;const current=el.value;el.innerHTML=WATER_PLANTS.map(p=>`<option value="${esc(p.ma)}">${esc(p.ma)} — ${esc(p.thongTin?.TenNhaMay||p.ma)}</option>`).join('');el.value=current&&WATER_PLANTS.some(p=>p.ma===current)?current:(WATER_PLANTS[0]?.ma||'');if(el.value)loadPlantForm(el.value)}
 function selectPlant(id){if(!WATER_PLANTS.some(x=>x.ma===id))return;renderPlantSelector();$("#wpPlantId").value=id;loadPlantForm(id);document.querySelector('#waterplant')?.scrollIntoView({behavior:'smooth',block:'start'})}
 function plantData(){const id=$("#wpPlantId").value,p=WATER_PLANTS.find(x=>x.ma===id);return{id, name:p?.thongTin?.TenNhaMay||$("#wpName").value.trim(),capacity:+$("#wpCapacity").value||0,source:$("#wpSource").value,nuocThai:$("#wpWaste").value===''?'':(+$("#wpWaste").value||0),bunThai:$("#wpSludge").value===''?'':(+$("#wpSludge").value||0),bunThaiUnit:$("#wpSludgeUnit").value,ctnh:$("#wpHaz").value===''?'':(+$("#wpHaz").value||0),ctnhUnit:$("#wpHazUnit").value,hoaChat:$("#wpChem").value.trim(),quanTrac:$("#wpMonitoring").value.trim(),baoCao:$("#wpReporting").value.trim(),knk:$("#wpGHG").value.trim(),epr:$("#wpEPR").value.trim(),note:$("#wpNote").value.trim(),updatedAt:new Date().toISOString()}}
-function savePlant(){const p=plantData();if(!p.id){alert('Vui lòng chọn nhà máy.');return}setPlantProfile(p.id,p);audit('Lưu hồ sơ kỹ thuật nhà máy',p.name);$("#wpSaveNote").textContent=`Đã lưu ${new Date(p.updatedAt).toLocaleString('vi-VN')}`;renderPlantSnapshot(p.id);renderPlants();renderLinkDiagnostics();runFullSearch()}
+async function savePlant(){
+  const p=plantData();
+  if(!p.id){alert('Vui lòng chọn nhà máy.');return;}
+  if(!window.MT1P_USER || !['admin','manager'].includes(window.MT1P_USER.role)){
+    alert('Tài khoản hiện tại không có quyền thêm/sửa hồ sơ kỹ thuật.');
+    return;
+  }
+  const btn=document.getElementById('savePlant');
+  if(btn)btn.disabled=true;
+  try{
+    await savePlantToSupabase(p);
+    audit('Lưu hồ sơ kỹ thuật nhà máy',p.name);
+    $('#wpSaveNote').textContent=`Đã lưu trên Supabase · ${new Date(p.updatedAt).toLocaleString('vi-VN')}`;
+    renderPlantSnapshot(p.id);renderPlants();renderLinkDiagnostics();runFullSearch();
+  }catch(err){
+    console.error('[MT-1P] Lỗi lưu technical_records:',err);
+    alert('Không thể lưu hồ sơ kỹ thuật: '+(err.message||err));
+  }finally{if(btn)btn.disabled=false;}
+}
 function renderPlant(){renderPlantSelector();const id=$("#wpPlantId")?.value;if(id)renderPlantSnapshot(id)}
-function clearPlant(){const id=$("#wpPlantId")?.value;if(!id)return;if(confirm('Xóa toàn bộ số liệu nhập trực tiếp của nhà máy này?')){removePlantProfile(id);loadPlantForm(id);audit('Xóa số liệu hồ sơ kỹ thuật',id);renderPlants();renderLinkDiagnostics()}}
+async function clearPlant(){
+  const id=$('#wpPlantId')?.value;
+  if(!id)return;
+  if(window.MT1P_USER?.role!=='admin'){
+    alert('CHỈ ADMIN được phép xóa hồ sơ kỹ thuật.');
+    return;
+  }
+  if(!confirm('Xóa hồ sơ kỹ thuật trên Supabase của nhà máy này?'))return;
+  const btn=document.getElementById('clearPlantProfile');
+  if(btn)btn.disabled=true;
+  try{
+    await deletePlantFromSupabase(id);
+    loadPlantForm(id);
+    audit('Xóa hồ sơ kỹ thuật',id);
+    $('#wpSaveNote').textContent='Đã xóa hồ sơ kỹ thuật trên Supabase.';
+    renderPlants();renderLinkDiagnostics();runFullSearch();
+  }catch(err){
+    console.error('[MT-1P] Lỗi xóa technical_records:',err);
+    alert('Không thể xóa hồ sơ kỹ thuật: '+(err.message||err));
+  }finally{if(btn)btn.disabled=false;}
+}
 function usePlantCase(){const id=$("#wpPlantId")?.value,p=getPlantProfile(id);if(!p){alert('Nhà máy này chưa có số liệu kỹ thuật nhập trực tiếp.');return}$("#nt").value=p.nuocThai||0;$("#ctnh").value=p.ctnh||0;$("#dt").value=0;$("#von").value=0;loaiHinh='coso';$$('#lhToggle button').forEach(b=>b.classList.toggle('active',b.dataset.v==='coso'));audit('Dùng hồ sơ kỹ thuật cho tra cứu',p.name);document.querySelector('#form')?.scrollIntoView({behavior:'smooth',block:'start'})}
 function importCasesFile(f){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.cases)writeLS(V51.casesKey,d.cases);if(d.audit)writeLS(V51.auditKey,d.audit);if(d.plant)writeLS(V51.plantKey,d.plant);renderCases();renderAudit();renderPlant();audit("Nhập dữ liệu hồ sơ");}catch(e){alert("JSON không hợp lệ: "+e.message)}};r.readAsText(f)}
 $("#saveCase")?.addEventListener("click",saveCase);$("#exportCases")?.addEventListener("click",exportCases);$("#importCases")?.addEventListener("click",()=>$("#caseFile").click());$("#caseFile")?.addEventListener("change",e=>{if(e.target.files[0])importCasesFile(e.target.files[0])});$("#savePlant")?.addEventListener("click",savePlant);$("#usePlantCase")?.addEventListener("click",usePlantCase);$("#clearPlantProfile")?.addEventListener("click",clearPlant);$("#wpPlantId")?.addEventListener("change",e=>loadPlantForm(e.target.value));renderCases();renderAudit();renderLegal();renderSources();renderFormRegistry();populatePlantNameFilter();renderPlants();renderPlant();renderLinkDiagnostics();["plantSearch"].forEach(id=>document.getElementById(id)?.addEventListener("input",renderPlants));["plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderPlants));document.getElementById("clearPlantFilters")?.addEventListener("click",()=>{["plantSearch","plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==="plantNameFilter"||id==="plantStatus"||id==="plantSourceFilter"||id==="obligationFilter"?"tatca":""});renderPlants()});audit("Khởi tạo V5.5.2 — sửa thứ tự khởi tạo dữ liệu + menu panel + hồ sơ kỹ thuật theo MaNhaMay");
@@ -850,6 +1013,7 @@ window.addEventListener("error",function(e){console.error("[MT-1P] Lỗi khởi 
     }
     unlock(profile,user);
     await loadWaterPlantsFromSupabase();
+    await loadTechnicalRecordsFromSupabase();
     return true;
   }
   loginForm?.addEventListener('submit',async e=>{
