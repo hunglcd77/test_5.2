@@ -683,6 +683,9 @@ window.MT1PDecisionEngine={version:"5.1.0",evaluate};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],esc=v=>String(v??"—").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
 let loaiHinh="duan",lastResult=null;
 const V51={version:"5.5.2",legalDataVersion:"LEGAL-SOURCE-2026-09",casesKey:"mt1p_v51_cases",auditKey:"mt1p_v51_audit",plantKey:"mt1p_v55_plant_current",plantProfilesKey:"mt1p_v55_plant_profiles"};
+// TECHNICAL_RECORDS must exist before any initial render can call getPlantProfile().
+// Keep this declaration above the first renderPlants() call to avoid JavaScript TDZ errors.
+let TECHNICAL_RECORDS = {};
 function initData(){const t=$("#tinh"),n=$("#nganh");t.innerHTML=(DATA.tinhThanh||[]).map(x=>`<option value="${esc(x.ma)}">${esc(x.ten)}</option>`).join("");n.innerHTML=(DATA.nganhNghe||[]).map(x=>`<option value="${esc(x.ma)}">${esc(x.ten)}</option>`).join("");$("#sensitive").innerHTML=(DATA.yeuToNhayCam||[]).map(x=>`<label class="check"><input class="sens" type="checkbox" value="${esc(x.id)}"> ${esc(x.ten)}</label>`).join("")}
 function getInput(){return{loaiHinh,tinh:$("#tinh").value,nganhNghe:$("#nganh").value,von:+$("#von").value||0,dienTich:+$("#dt").value||0,nuocThai:+$("#nt").value||0,khiThai:+$("#kt").value||0,ctnh:+$("#ctnh").value||0,ctrCN:+$("#ctrcn").value||0,nhayCam:$$(".sens:checked").map(x=>x.value)}}
 function run(){try{const r=MT1PDecisionEngine.evaluate(getInput(),DATA);lastResult=r;const agency=r.canGPMT?r.coQuanGPMT:r.canDKMT?r.coQuanDKMT:r.coQuanDTM;$("#result").classList.add("show");$("#result").innerHTML=`<div class="result-grid">${[["Nhóm",r.finalNhom],["ĐTM",r.canDTM?"Có":"Không"],["GPMT",r.canGPMT?"Có":"Không"],["ĐKMT",r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"]].map(x=>`<div class="result-box"><small>${esc(x[0])}</small><strong>${esc(x[1])}</strong></div>`).join("")}</div><p><b>Cơ quan dự kiến:</b> ${esc(agency)}<br><b>Độ đầy đủ:</b> ${esc(r.confidence)} · <b>Quy tắc:</b> ${r.trace.length}</p><div class="result-actions"><button class="secondary" id="traceBtn" type="button">Xem Đối chiếu căn cứ</button><button class="secondary" id="printBtn" type="button">In / Lưu PDF</button><button class="secondary" id="jsonBtn" type="button">Xuất JSON</button></div><div id="trace" hidden style="margin-top:1rem;overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:.72rem"><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${r.trace.map(t=>`<tr><td>${esc(t.id)}</td><td>${esc(t.stage)}</td><td>${esc(t.condition)}</td><td>${esc(t.result===true?"Có":t.result===false?"Không":t.result)}</td><td>${esc(t.basis)}</td></tr>`).join("")}</table><h4>Danh mục kiểm tra</h4><ul>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ul></div>`;$("#traceBtn").onclick=()=>{$("#trace").hidden=!$("#trace").hidden};$("#printBtn").onclick=()=>printResult(r);$("#jsonBtn").onclick=()=>download("MT1P-V5-"+new Date().toISOString().slice(0,10)+".json",{appVersion:"5.2.0",input:r.input,result:r,createdAt:new Date().toISOString()})}catch(e){$("#result").classList.add("show");$("#result").innerHTML="<b>Lỗi:</b> "+esc(e.message)}}
@@ -717,9 +720,6 @@ function diemTimKiem(text,q){const t=normalizeSearch(text),{phrases,tokens}=tach
 function hoSoLoai(p){const g=p.gpmt||{},so=String(g.SoGPMT||'').trim(),st=normalizeSearch(g['TinhTrang (tự động)']||''),note=normalizeSearch(p.thongTin?.GhiChu||'');if(st.includes('chua thuc hien'))return 'chuathuchien';if(so&&/\bgpmt\b/i.test(so))return 'gpmt';if(so)return 'dkmt';if(st.includes('chua co du lieu'))return 'chuacodulieu';if(note.includes('chua co van ban/gpmt'))return 'chuathuchien';return 'chuacodulieu'}
 function hoSoNhan(p){const x=hoSoLoai(p);return ({gpmt:'Có GPMT',dkmt:'ĐKMT/chấp thuận',chuathuchien:'Chưa thực hiện',chuacodulieu:'Chưa có dữ liệu'})[x]||'Chưa có dữ liệu'}
 function coNghiaVuPhuHop(p,filter){if(filter==='tatca')return true;const s=p.nghiaVu||{};const vals=Object.values(s).map(normalizeSearch).filter(Boolean);if(!vals.length)return filter==='chuacapnhat';if(filter==='dat')return vals.some(x=>x.includes('dat/con han'));if(filter==='sapdenhan')return vals.some(x=>x.includes('sap den han'));if(filter==='canrasoat')return vals.some(x=>x.includes('can ra soat'));if(filter==='chuacapnhat')return vals.length===0;return true}
-
-/* Phase 3 state must exist before renderPlants/getPlantProfile can run. */
-let TECHNICAL_RECORDS = {};
 function populatePlantNameFilter(){const el=$("#plantNameFilter");if(!el)return;const current=el.value;el.innerHTML='<option value="tatca">Tất cả nhà máy</option>'+WATER_PLANTS.map(p=>`<option value="${esc(p.ma)}">${esc(p.thongTin?.TenNhaMay||p.ma)}</option>`).join('');if(WATER_PLANTS.some(p=>p.ma===current))el.value=current}
 async function loadWaterPlantsFromSupabase(){
   const sb=window.MT1P_SUPABASE;
@@ -785,8 +785,11 @@ function renderFormRegistry(kind='tatca-hienthi',q=''){
  else if(kind!=='tatca-hienthi') rows=rows.filter(f=>f.kind===kind && f.status!=='Đã bãi bỏ');
  el.innerHTML=rows.length?rows.map(f=>`<article class="form-item" data-status="${esc(f.status==='Đã bãi bỏ'?'Đã bãi bỏ':'Đang sử dụng')}"><span class="form-code">${esc(f.code)}</span><span class="form-status ${f.status==='Đã bãi bỏ'?'baibao':'hienhanh'}">${esc(f.status)}</span><h3>${esc(f.title)}</h3><p><b>Nhóm:</b> ${esc(f.kind)} · <b>Phụ lục:</b> ${esc(f.appendix)}<br>${esc(f.note)}</p><a href="${esc(formSourceUrl(f.code))}" target="_blank" rel="noopener">Mở Phụ lục II/VI chính thức ↗</a></article>`).join(''):'<div class="search-empty" style="grid-column:1/-1">Không tìm thấy biểu mẫu phù hợp.</div>'
 }
-/* MT-1P PHASE 3 — technical record functions.
-   TECHNICAL_RECORDS is declared above before any initial render. */
+/* ==========================================================
+   MT-1P PHASE 3 — TECHNICAL RECORDS ON SUPABASE
+   Không dùng localStorage làm nguồn dữ liệu chính cho hồ sơ kỹ thuật.
+   Quyền thực tế do Supabase RLS quyết định.
+   ========================================================== */
 function getPlantProfiles(){ return TECHNICAL_RECORDS || {}; }
 function getPlantProfile(id){ return (TECHNICAL_RECORDS && TECHNICAL_RECORDS[id]) || null; }
 function setPlantProfile(id,profile){ TECHNICAL_RECORDS[id]=profile; }
