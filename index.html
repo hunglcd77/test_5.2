@@ -2,6 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
 <title>MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu Thủ tục Môi trường</title>
+<meta name="theme-color" content="#0d2e5d"><link rel="icon" href="data:,">
 
 <style>
 :root{--bg:#fff;--ink:#09111f;--navy:#0d2e5d;--blue:#2563c9;--light:#5790e6;--teal:#0b6e97;--surface:#f3f6fa;--muted:#6d7787;--line:#e4e9f0;--ghost:#d9e0e9;--r:1.5rem;--rl:2rem;--pill:999px}
@@ -147,6 +148,128 @@ section[id]{scroll-margin-top:8.2rem}
 
 .public-lookup{margin-top:1.1rem;background:#fff;border:1px solid #dbe3ec;border-radius:1rem;padding:1rem;color:#09111f;min-width:0}.public-lookup-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.public-kicker{font-size:.65rem;font-weight:800;letter-spacing:.12em;color:#2563c9}.public-lookup h3{margin:.25rem 0 .15rem;font-size:1.2rem}.public-lookup p{margin:0;color:#667085;font-size:.75rem}.public-badge{white-space:nowrap;border:1px solid #cfe0f5;background:#f4f8fd;color:#1455a0;border-radius:999px;padding:.35rem .55rem;font-size:.62rem;font-weight:800}.public-lookup-tools{display:grid;grid-template-columns:1.7fr .8fr auto;gap:.55rem;margin:.8rem 0}.public-lookup-tools input,.public-lookup-tools select{min-height:2.4rem}.public-table-wrap{max-height:25rem;overflow:auto;border:1px solid #e2e8f0;border-radius:.75rem}.public-table{width:100%;border-collapse:collapse;font-size:.72rem}.public-table th,.public-table td{padding:.65rem .55rem;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}.public-table th{position:sticky;top:0;background:#f7f9fc;color:#475467;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;z-index:1}.public-table tr:last-child td{border-bottom:0}.public-table code{font-weight:800;color:#1455a0}.public-empty{text-align:center;color:#667085;padding:1.2rem}.auth-card{max-width:1100px!important}.auth-login{max-width:430px}.auth-login + .public-lookup{flex:1}@media(max-width:850px){.public-lookup-tools{grid-template-columns:1fr}.public-table{min-width:760px}}
 </style>
+
+<style id="mt1p-phase41-responsive-motion">
+/* PHASE 4.1 — Responsive UI + smooth configurable motion */
+:root{
+  --motion-fast:180ms;
+  --motion-normal:320ms;
+  --motion-slow:720ms;
+  --motion-ease:cubic-bezier(.22,1,.36,1);
+  --touch-target:44px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{overflow-x:hidden;min-width:0;}
+button,input,select,textarea{max-width:100%;}
+main,.section,.hero,.form-section,.footer{min-width:0;}
+
+/* Fix large display typography on narrow devices */
+.full-search-section{overflow:visible;}
+.full-search-head{min-width:0;}
+.full-search-head .section-title{font-size:clamp(2.2rem,8vw,5.5rem);max-width:9ch;}
+.full-search-head>p{font-size:clamp(.78rem,1.5vw,.95rem);line-height:1.5;}
+.full-search-bar{min-width:0;}
+.full-search-input{min-width:0;}
+.full-search-input input{min-width:0;font-size:clamp(.92rem,1.5vw,1rem);}
+.search-help{font-size:clamp(.68rem,1.25vw,.78rem);line-height:1.45;}
+.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem;min-width:0;}
+.search-tab{min-height:38px;white-space:nowrap;}
+.mt-search-tools{min-width:0;}
+.mt-search-check{min-height:36px;}
+.mt-search-tool-buttons{min-width:0;}
+
+/* Recent-search chips: never render native browser buttons */
+.search-history{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;width:100%;margin-top:.7rem;padding:.2rem 0;min-width:0;}
+.search-history .search-history-label{flex:0 0 auto;font-size:.68rem;color:#667085;font-weight:800;}
+.search-history .search-history-chip{
+  appearance:none;-webkit-appearance:none;border:1px solid #cbd8e8;background:#fff;color:#174a82;
+  border-radius:999px;min-height:34px;max-width:min(100%,28rem);padding:.38rem .72rem;
+  font-size:.68rem;font-weight:750;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:background var(--motion-normal) var(--motion-ease),border-color var(--motion-normal) var(--motion-ease),transform var(--motion-fast) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease);
+}
+.search-history .search-history-chip:hover{background:#eef6ff;border-color:#8fb4e6;transform:translateY(-1px);box-shadow:0 5px 16px rgba(13,46,93,.08);}
+.search-history .search-history-chip:active{transform:translateY(0);}
+.search-history .search-history-clear{border:0;background:transparent;color:#667085;font-size:.64rem;padding:.35rem .5rem;min-height:34px;}
+
+/* Results animate softly; no layout-jumping animation */
+.search-result{animation:mtFadeUp var(--motion-normal) var(--motion-ease) both;}
+@keyframes mtFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.search-result:nth-child(2){animation-delay:20ms}.search-result:nth-child(3){animation-delay:40ms}.search-result:nth-child(4){animation-delay:60ms}.search-result:nth-child(5){animation-delay:80ms}
+
+/* Motion modes */
+body.motion-soft .hero-word>span{transition-duration:var(--motion-slow)!important;}
+body.motion-soft .tagline span{transition-duration:600ms!important;}
+body.motion-normal .hero-word>span{transition-duration:900ms!important;}
+body.motion-normal .tagline span{transition-duration:700ms!important;}
+body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+
+.motion-control{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-left:auto;}
+.motion-control label{margin:0!important;text-transform:none!important;letter-spacing:0!important;font-size:.66rem!important;color:#475467!important;font-weight:750!important;}
+.motion-control select{width:auto;min-width:110px;min-height:34px;padding:.35rem .55rem;border-radius:.55rem;font-size:.68rem;background:#fff;}
+
+/* Public lookup: compact on desktop, scroll-safe on small screens */
+.public-lookup{overflow:hidden;}
+.public-lookup-tools{min-width:0;}
+.public-table-wrap{max-width:100%;-webkit-overflow-scrolling:touch;}
+.public-table{min-width:680px;}
+
+/* Forms/buttons are usable with mouse and touch */
+.v51-btn,.primary,.secondary,.auth-primary,.auth-logout,.search-submit,.light-btn{min-height:var(--touch-target);}
+
+@media(max-width:900px){
+  main{padding:.5rem;}
+  .section{padding:3rem 1rem;}
+  .full-search-head{display:block;}
+  .full-search-head .section-title{max-width:100%;margin-bottom:1rem;}
+  .full-search-head>p{max-width:100%!important;margin-top:0;}
+  .full-search-bar{grid-template-columns:minmax(0,1fr) auto;}
+  .search-submit{min-width:112px;}
+  .mt-search-tools{align-items:flex-start;}
+  .mt-search-tool-buttons{margin-left:0;width:100%;}
+  .motion-control{margin-left:0;}
+}
+@media(max-width:640px){
+  html{font-size:15px;}
+  .hero-inner{padding-left:1rem;padding-right:1rem;}
+  .section{padding:2.2rem .75rem;}
+  .full-search-section{border-width:1px;border-radius:1rem;}
+  .full-search-bar{grid-template-columns:1fr;}
+  .search-submit{width:100%;}
+  .search-tabs{gap:.35rem;overflow:visible;}
+  .search-tab{flex:0 0 auto;min-height:40px;padding:.45rem .7rem;font-size:.68rem;}
+  .search-help{font-size:.7rem;}
+  .mt-search-tools{padding:.6rem;gap:.55rem;}
+  .mt-search-tool-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+  .mt-search-tool-buttons .v51-btn{width:100%;min-width:0;padding:.5rem .35rem;font-size:.61rem;}
+  .motion-control{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);}
+  .motion-control select{width:100%;}
+  .search-history{gap:.35rem;}
+  .search-history .search-history-chip{max-width:100%;min-height:36px;font-size:.66rem;}
+  .search-result-top{display:block!important;}
+  .search-result-top>.v51-btn{margin-top:.65rem;display:inline-flex;}
+  .search-result-actions{display:grid;grid-template-columns:1fr 1fr;}
+  .search-result-actions button{min-height:42px;}
+  .public-lookup{padding:.75rem;}
+  .public-lookup-head{display:block;}
+  .public-badge{display:inline-flex;margin-top:.6rem;}
+  .public-lookup-tools{grid-template-columns:1fr;}
+  .public-table{min-width:640px;}
+}
+@media(max-width:420px){
+  .full-search-head .section-title{font-size:clamp(2rem,11vw,2.8rem);}
+  .mt-search-tool-buttons{grid-template-columns:1fr;}
+  .motion-control{grid-template-columns:1fr;}
+  .search-result-actions{grid-template-columns:1fr;}
+  .search-history .search-history-chip{width:100%;}
+}
+@media(hover:none){
+  .search-history .search-history-chip:hover{transform:none;box-shadow:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .search-result{animation:none!important;}
+}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
@@ -194,7 +317,7 @@ section[id]{scroll-margin-top:8.2rem}
 <section class="section stats card"><span class="eyebrow"><i></i> Hệ thống</span><h2 class="section-title" style="color:#fff">Một bộ máy<br>nhiều lớp kiểm soát</h2><div class="stats-grid"><div class="stat"><b>I–IV</b><span>Nhóm dự án/cơ sở</span></div><div class="stat"><b>3</b><span>Thủ tục trọng tâm</span></div><div class="stat"><b>1</b><span>Đối chiếu căn cứ cho mỗi kết quả</span></div><div class="stat"><b>100%</b><span>Dữ liệu tra cứu xử lý cục bộ</span></div></div></section>
 <section class="section card full-search-section" id="tracuu-tu-khoa">
 <div class="full-search-head"><div><span class="eyebrow"><i></i> Tra cứu từ khóa</span><h2 class="section-title">Tìm nhanh<br>theo cụm từ</h2></div><p class="muted" style="max-width:26rem">Không cần nhập đầy đủ câu. Có thể nhập từng cụm, cách nhau bằng dấu phẩy. Ví dụ: <b>nhà máy, nhóm III</b>. Hệ thống tìm không dấu và ưu tiên khớp cụm từ.</p></div>
-<div class="search-shell"><div class="full-search-bar"><div class="full-search-input"><span class="search-glass" aria-hidden="true">⌕</span><input id="fullSearch" type="search" autocomplete="off" placeholder='Ví dụ: nhà máy, nhóm III hoặc "Mẫu 05A"' aria-label="Từ khóa tra cứu"><div class="search-suggestions" id="searchSuggestions"></div></div><button class="search-submit" id="fullSearchBtn" type="button">Tra cứu</button></div><div class="search-help">Gõ một phần từ khóa vẫn tìm được. Dấu ngoặc kép dùng khi cần tìm đúng cụm. Dấu phẩy chia thành nhiều điều kiện phải xuất hiện đồng thời.</div><div class="search-tabs" id="searchTabs"><button class="search-tab active" type="button" data-search-kind="tatca">Tất cả</button><button class="search-tab" type="button" data-search-kind="ĐTM">ĐTM</button><button class="search-tab" type="button" data-search-kind="GPMT">GPMT</button><button class="search-tab" type="button" data-search-kind="ĐKMT">ĐKMT</button><button class="search-tab" type="button" data-search-kind="Nhà máy">Nhà máy</button><button class="search-tab" type="button" data-search-kind="Biểu mẫu">Biểu mẫu</button></div><div class="mt-search-tools"><label class="mt-search-check"><input id="searchExact" type="checkbox"> Tìm đúng cụm từ trong dấu ngoặc kép</label><span id="searchResultCount" class="search-note">0 kết quả</span><div class="mt-search-tool-buttons"><button class="v51-btn" id="copySearchResults" type="button">Sao chép kết quả</button><button class="v51-btn" id="exportSearchResults" type="button">Xuất JSON</button><button class="v51-btn" id="clearSearch" type="button">Xóa tìm kiếm</button></div></div><div class="search-results" id="fullSearchResults"><div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div></div></div></section>
+<div class="search-shell"><div class="full-search-bar"><div class="full-search-input"><span class="search-glass" aria-hidden="true">⌕</span><input id="fullSearch" type="search" autocomplete="off" placeholder='Ví dụ: nhà máy, nhóm III hoặc "Mẫu 05A"' aria-label="Từ khóa tra cứu"><div class="search-suggestions" id="searchSuggestions"></div></div><button class="search-submit" id="fullSearchBtn" type="button">Tra cứu</button></div><div class="search-help">Gõ một phần từ khóa vẫn tìm được. Dấu ngoặc kép dùng khi cần tìm đúng cụm. Dấu phẩy chia thành nhiều điều kiện phải xuất hiện đồng thời.</div><div class="search-tabs" id="searchTabs"><button class="search-tab active" type="button" data-search-kind="tatca">Tất cả</button><button class="search-tab" type="button" data-search-kind="ĐTM">ĐTM</button><button class="search-tab" type="button" data-search-kind="GPMT">GPMT</button><button class="search-tab" type="button" data-search-kind="ĐKMT">ĐKMT</button><button class="search-tab" type="button" data-search-kind="Nhà máy">Nhà máy</button><button class="search-tab" type="button" data-search-kind="Biểu mẫu">Biểu mẫu</button></div><div class="mt-search-tools"><label class="mt-search-check"><input id="searchExact" type="checkbox"> Tìm đúng cụm từ trong dấu ngoặc kép</label><span id="searchResultCount" class="search-note">0 kết quả</span><div class="mt-search-tool-buttons"><button class="v51-btn" id="copySearchResults" type="button">Sao chép kết quả</button><button class="v51-btn" id="exportSearchResults" type="button">Xuất JSON</button><button class="v51-btn" id="clearSearch" type="button">Xóa tìm kiếm</button><div class="motion-control"><label for="motionMode">Hiệu ứng</label><select id="motionMode" aria-label="Mức độ hiệu ứng"><option value="soft">Mượt</option><option value="normal">Chuẩn</option><option value="off">Tắt</option></select></div></div></div><div class="search-results" id="fullSearchResults"><div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div></div></div></section>
 <section class="section card tools-section" id="congcu"><span class="eyebrow"><i></i> Chức năng</span><h2 class="section-title">Bộ công cụ<br>cho người làm hồ sơ</h2><div class="modules tools-grid"><button class="module tool-card" type="button" data-tool-target="#v51"><span class="step-num">01 / HỒ SƠ</span><h3>Quản lý hồ sơ</h3><p>Lưu và mở lại các phiên tra cứu đã thực hiện.</p><span class="tool-link">Mở quản lý hồ sơ →</span></button><button class="module tool-card" type="button" data-tool-target="#form" data-tool-action="checklist"><span class="step-num">02 / DANH MỤC</span><h3>Danh mục kiểm tra</h3><p>Chạy tra cứu rồi mở ngay danh mục kiểm tra của kết quả.</p><span class="tool-link">Mở danh mục kiểm tra →</span></button><button class="module tool-card" type="button" data-tool-action="print"><span class="step-num">03 / PHIẾU</span><h3>Phiếu tra cứu</h3><p>In hoặc lưu kết quả tra cứu thành PDF sau khi có kết quả.</p><span class="tool-link">In phiếu hiện tại →</span></button></div></section>
 <section class="section surface card"><span class="eyebrow"><i></i> Cấu trúc dữ liệu</span><h2 class="section-title">Kho pháp lý<br>có phiên bản</h2><div class="program-list"><a class="program" href="#legal"><span class="idx">01</span><div><h3>Danh mục pháp lý</h3><p>Văn bản · vị trí căn cứ · hiệu lực · trạng thái.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">02</span><div><h3>Phiên bản quy tắc</h3><p>Quản lý phiên bản quy tắc theo thời gian hiệu lực.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">03</span><div><h3>Nhật ký kiểm tra</h3><p>Lưu dữ liệu đầu vào, quy tắc và kết quả tra cứu.</p></div><span class="arrow">→</span></a><a class="program" href="#contact"><span class="idx">04</span><div><h3>Chuyên ngành cấp nước</h3><p>Phát triển bộ quy tắc riêng cho nhà máy/trạm cấp nước.</p></div><span class="arrow">→</span></a></div></section>
 
@@ -1218,11 +1341,34 @@ setTimeout(renderPublicLookup,0);
     if(x.kind==='Nhà máy') score+=5;
     return score;
   }
-  function searchHistory(){try{return JSON.parse(localStorage.getItem(SEARCH_CACHE_KEY)||'[]')}catch{return[]}}
-  function saveHistory(q){q=q.trim();if(!q)return;let a=searchHistory().filter(x=>x!==q);a.unshift(q);a=a.slice(0,8);localStorage.setItem(SEARCH_CACHE_KEY,JSON.stringify(a));renderHistory()}
+  function normalizeHistoryValue(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/\s+/g,' ')}
+  function searchHistory(){
+    try{
+      const raw=JSON.parse(localStorage.getItem(SEARCH_CACHE_KEY)||'[]');
+      if(!Array.isArray(raw)) return [];
+      const out=[]; const seen=new Set();
+      raw.map(x=>String(x??'').trim()).filter(x=>x.length>=3).forEach(q=>{
+        const n=normalizeHistoryValue(q);
+        if(!n||seen.has(n)) return;
+        // Remove old corrupted entries created by saving every keystroke: short prefixes or
+        // single-word fragments that are contained in a longer multi-word query.
+        const isShortPrefix = raw.some(y=>{const ny=normalizeHistoryValue(y);return ny.length>n.length+1 && ny.startsWith(n) && String(y).trim().length>q.length;});
+        const isFragment = !n.includes(' ') && raw.some(y=>{const ny=normalizeHistoryValue(y);return ny.includes(' ') && ny.split(' ').includes(n);});
+        if(isShortPrefix || isFragment) return;
+        seen.add(n); out.push(q);
+      });
+      return out.slice(0,6);
+    }catch{return []}
+  }
+  function saveHistory(q){
+    q=q.trim(); if(q.length<3)return;
+    let a=searchHistory().filter(x=>normalizeHistoryValue(x)!==normalizeHistoryValue(q));
+    a.unshift(q); a=a.slice(0,6);
+    localStorage.setItem(SEARCH_CACHE_KEY,JSON.stringify(a)); renderHistory();
+  }
   function renderHistory(){
     const host=$('#searchHistory'); if(!host)return; const a=searchHistory();
-    host.innerHTML=a.length?'<span class="search-note">Tra cứu gần đây:</span>'+a.map(q=>`<button type="button" data-history="${escLocal(q)}">${escLocal(q)}</button>`).join(''):'';
+    host.innerHTML=a.length?'<span class="search-history-label">Tra cứu gần đây:</span>'+a.map(q=>`<button class="search-history-chip" type="button" data-history="${escLocal(q)}" title="${escLocal(q)}">${escLocal(q)}</button>`).join(''):' ';
     host.querySelectorAll('[data-history]').forEach(b=>b.addEventListener('click',()=>{$('#fullSearch').value=b.dataset.history;runEnhancedSearch()}));
   }
   function getCorpus(){
@@ -1285,13 +1431,43 @@ setTimeout(renderPublicLookup,0);
     el.querySelectorAll('[data-download-record]').forEach((b,i)=>b.addEventListener('click',()=>downloadJSON(shown[i]?.data??{},`mt1p-record-${Date.now()}.json`)));
   }
   window.runFullSearch=runEnhancedSearch;
+  function initMotion(){
+    const el=$('#motionMode'); if(!el)return;
+    const key='mt1p_motion_mode_v1';
+    const saved=localStorage.getItem(key)||'soft';
+    el.value=['soft','normal','off'].includes(saved)?saved:'soft';
+    document.body.classList.remove('motion-soft','motion-normal','motion-off');
+    document.body.classList.add('motion-'+el.value);
+    el.addEventListener('change',()=>{
+      const v=el.value;
+      document.body.classList.remove('motion-soft','motion-normal','motion-off');
+      document.body.classList.add('motion-'+v);
+      localStorage.setItem(key,v);
+    });
+  }
   document.addEventListener('DOMContentLoaded',()=>{
+    initMotion();
     const tabs=$('#searchTabs');
     if(tabs && !tabs.querySelector('[data-search-kind="Hồ sơ kỹ thuật"]')){
       const b=document.createElement('button');b.className='search-tab';b.type='button';b.dataset.searchKind='Hồ sơ kỹ thuật';b.textContent='Hồ sơ kỹ thuật';tabs.appendChild(b);b.addEventListener('click',()=>{tabs.querySelectorAll('.search-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');runEnhancedSearch()});
     }
     const bar=$('#fullSearch');
-    if(bar){bar.addEventListener('input',()=>runEnhancedSearch());bar.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runEnhancedSearch()}})}
+    if(bar){
+      // Input only updates suggestions. Saving history/search results happens on Enter or the Tra cứu button.
+      bar.addEventListener('input',()=>{
+        const q=bar.value.trim();
+        if(q.length>=2){
+          const sug=searchCorpus().filter(x=>khopTruyVan(x.text,q)).slice(0,6);
+          const se=$('#searchSuggestions');
+          if(se){
+            se.innerHTML=sug.map(x=>`<button class="search-suggestion" type="button">${escLocal(x.title)}</button>`).join('');
+            se.classList.toggle('show',sug.length>0);
+            se.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{bar.value=sug[i].title;se.classList.remove('show');runEnhancedSearch()});
+          }
+        } else $('#searchSuggestions')?.classList.remove('show');
+      });
+      bar.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runEnhancedSearch()}});
+    }
     $('#fullSearchBtn')?.addEventListener('click',runEnhancedSearch);
     $('#searchExact')?.addEventListener('change',runEnhancedSearch);
     $('#clearSearch')?.addEventListener('click',()=>{bar.value='';$('#fullSearchResults').innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';$('#searchResultCount').textContent='0 kết quả';bar.focus()});
