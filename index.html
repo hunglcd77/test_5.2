@@ -1003,7 +1003,7 @@ function renderPlants(){const el=$("#plantRegistry");if(!el)return;const q=$("#p
 
 const FORM_PAGE_MAP={
 'Mẫu số 02':40,'Mẫu số 03':42,'Mẫu số 03a':44,'Mẫu số 04':45,'Mẫu số 04a':63,'Mẫu số 04b':65,'Mẫu số 04c':66,'Mẫu số 05':67,'Mẫu số 06':68,'Mẫu số 07':71,'Mẫu số 08':73,'Mẫu số 09':75,'Mẫu số 09a':76,'Mẫu số 10':78,'Mẫu số 22a':109,'Mẫu số 22b':110,'Mẫu số 22c':117,'Mẫu số 22d':128,'Mẫu số 22đ':137,'Mẫu số 23':143,'Mẫu số 24':143,'Mẫu số 25':145,'Mẫu số 26':145,'Mẫu số 27':145,'Mẫu số 28':146,'Mẫu số 29':147,'Mẫu số 30':149,'Mẫu số 31':153,'Mẫu số 32':154,'Mẫu số 33':156,'Mẫu số 34':157,'Mẫu số 35':157,'Mẫu số 36':158,'Mẫu số 37':158,'Mẫu số 38':160,'Mẫu số 39':160,'Mẫu số 40':161,'Mẫu số 41':174,'Mẫu số 42':175,'Mẫu số 43a':177,'Mẫu số 43':181,'Mẫu số 44':182,'Mẫu số 44a':183,'Mẫu số 45':185,'Mẫu số 46':186,'Mẫu số 47':188,'Mẫu số 05.A':428,'Mẫu số 05.B':439};
-function formSourceUrl(code){const page=FORM_PAGE_MAP[code];if(!page)return '';return new URL(`./phu-luc/nguon-phu-luc-goc.pdf#page=${page}`,document.baseURI).href}
+function formSourceUrl(code){const page=FORM_PAGE_MAP[code];return page?`phu-luc/nguon-phu-luc-goc.pdf#page=${page}`:''}
 function formPage(code){return FORM_PAGE_MAP[code]||''}
 function formOfficialUrl(code){
   const f=FORM_REGISTRY.find(x=>x.code===code);
@@ -1287,6 +1287,7 @@ setTimeout(renderPublicLookup,0);
 
   let sb=null;
   let loading=false;
+  let loadPromise=null;
   let initialized=false;
 
   function setError(msg){
@@ -1331,36 +1332,47 @@ setTimeout(renderPublicLookup,0);
   }
 
   async function loadUser(){
-    if(loading) return false;
-    loading=true;
-    try{
-      const client=authClient();
-      const {data:{session},error:sessionError}=await client.auth.getSession();
-      if(sessionError) throw sessionError;
-      const user=session?.user;
-      if(!user){ lock(); return false; }
+    // Tránh race condition: lần khởi tạo ban đầu có thể đang đọc session
+    // đúng lúc người dùng bấm Đăng nhập. Các lần gọi tiếp theo sẽ chờ cùng một Promise.
+    if(loadPromise) return loadPromise;
+    loadPromise=(async()=>{
+      loading=true;
+      try{
+        const client=authClient();
+        const {data:{session},error:sessionError}=await client.auth.getSession();
+        if(sessionError) throw sessionError;
+        const user=session?.user;
+        if(!user){ lock(); return false; }
 
-      const {data:profile,error:profileError}=await client
-        .from('profiles')
-        .select('id,full_name,role,status')
-        .eq('id',user.id)
-        .maybeSingle();
+        // Đọc đúng profile theo UUID của Auth user. Policy hiện tại
+        // "Users can view own profile" cho phép chính user đọc dòng của mình.
+        const {data:profile,error:profileError}=await client
+          .from('profiles')
+          .select('id,full_name,role,status')
+          .eq('id',user.id)
+          .maybeSingle();
 
-      if(profileError) throw new Error('Không đọc được profiles: '+profileError.message);
-      if(!profile) throw new Error('Tài khoản đã đăng nhập nhưng chưa có hồ sơ trong profiles.');
-      if(profile.status!=='active') throw new Error('Tài khoản chưa ở trạng thái active.');
-      if(!['admin','manager','staff','viewer'].includes(profile.role)) throw new Error('Role không hợp lệ: '+profile.role);
+        if(profileError) throw new Error('Không đọc được profiles: '+profileError.message);
+        if(!profile) throw new Error('Tài khoản đã đăng nhập nhưng chưa có hồ sơ trong profiles.');
+        if(profile.status!=='active') throw new Error('Tài khoản chưa ở trạng thái active.');
+        if(!['admin','manager','staff','viewer'].includes(profile.role)) throw new Error('Role không hợp lệ: '+profile.role);
 
-      unlock(profile,user);
-      try{ await loadWaterPlantsFromSupabase(); }catch(e){ console.warn('[MT-1P] water_plants:',e); }
-      try{ await loadTechnicalRecordsFromSupabase(); }catch(e){ console.warn('[MT-1P] technical_records:',e); }
-      initialized=true;
-      return true;
-    }catch(err){
-      console.error('[MT-1P] loadUser:',err);
-      setError(err?.message||'Không thể kiểm tra phiên đăng nhập.');
-      return false;
-    }finally{ loading=false; }
+        unlock(profile,user);
+        // Viewer không cần tải dữ liệu ghi; chỉ đọc danh mục/hồ sơ nếu RLS cho phép.
+        try{ await loadWaterPlantsFromSupabase(); }catch(e){ console.warn('[MT-1P] water_plants:',e); }
+        try{ await loadTechnicalRecordsFromSupabase(); }catch(e){ console.warn('[MT-1P] technical_records:',e); }
+        initialized=true;
+        return true;
+      }catch(err){
+        console.error('[MT-1P] loadUser:',err);
+        setError(err?.message||'Không thể kiểm tra phiên đăng nhập.');
+        return false;
+      }finally{
+        loading=false;
+        loadPromise=null;
+      }
+    })();
+    return loadPromise;
   }
 
   loginForm?.addEventListener('submit',async e=>{
