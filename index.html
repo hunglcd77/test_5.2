@@ -1,8 +1,9 @@
 <!doctype html><html lang="vi"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="MT-1P · Tra cứu môi trường — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
-<title>MT-1P · Tra cứu môi trường — Tra cứu Thủ tục Môi trường</title>
-<meta name="theme-color" content="#0d2e5d"><link rel="icon" href="data:,">
+<meta name="description" content="MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
+<title>MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu Thủ tục Môi trường</title>
+<meta name="theme-color" content="#0d2e5d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2728%27 fill=%27%230d2e5d%27/%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2717%27 fill=%27none%27 stroke=%27white%27 stroke-width=%272%27/%3E%3Cpath d=%27M24 17c10 10 10 20 0 30M40 17c-10 10-10 20 0 30%27 fill=%27none%27 stroke=%27white%27 stroke-width=%272%27/%3E%3C/svg%3E">
 
 <style>
 :root{--bg:#fff;--ink:#09111f;--navy:#0d2e5d;--blue:#2563c9;--light:#5790e6;--teal:#0b6e97;--surface:#f3f6fa;--muted:#6d7787;--line:#e4e9f0;--ghost:#d9e0e9;--r:1.5rem;--rl:2rem;--pill:999px}
@@ -148,229 +149,221 @@ section[id]{scroll-margin-top:8.2rem}
 
 .public-lookup{margin-top:1.1rem;background:#fff;border:1px solid #dbe3ec;border-radius:1rem;padding:1rem;color:#09111f;min-width:0}.public-lookup-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.public-kicker{font-size:.65rem;font-weight:800;letter-spacing:.12em;color:#2563c9}.public-lookup h3{margin:.25rem 0 .15rem;font-size:1.2rem}.public-lookup p{margin:0;color:#667085;font-size:.75rem}.public-badge{white-space:nowrap;border:1px solid #cfe0f5;background:#f4f8fd;color:#1455a0;border-radius:999px;padding:.35rem .55rem;font-size:.62rem;font-weight:800}.public-lookup-tools{display:grid;grid-template-columns:1.7fr .8fr auto;gap:.55rem;margin:.8rem 0}.public-lookup-tools input,.public-lookup-tools select{min-height:2.4rem}.public-table-wrap{max-height:25rem;overflow:auto;border:1px solid #e2e8f0;border-radius:.75rem}.public-table{width:100%;border-collapse:collapse;font-size:.72rem}.public-table th,.public-table td{padding:.65rem .55rem;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}.public-table th{position:sticky;top:0;background:#f7f9fc;color:#475467;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;z-index:1}.public-table tr:last-child td{border-bottom:0}.public-table code{font-weight:800;color:#1455a0}.public-empty{text-align:center;color:#667085;padding:1.2rem}.auth-card{max-width:1100px!important}.auth-login{max-width:430px}.auth-login + .public-lookup{flex:1}@media(max-width:850px){.public-lookup-tools{grid-template-columns:1fr}.public-table{min-width:760px}}
 </style>
-
-<style id="mt1p-phase41-responsive-motion">
-/* PHASE 4.1 — Responsive UI + smooth configurable motion */
-:root{
-  --motion-fast:180ms;
-  --motion-normal:320ms;
-  --motion-slow:720ms;
-  --motion-ease:cubic-bezier(.22,1,.36,1);
-  --touch-target:44px;
-}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-body{overflow-x:hidden;min-width:0;}
-button,input,select,textarea{max-width:100%;}
-main,.section,.hero,.form-section,.footer{min-width:0;}
-
-/* Fix large display typography on narrow devices */
-.full-search-section{overflow:visible;}
-.full-search-head{min-width:0;}
-.full-search-head .section-title{font-size:clamp(2.2rem,8vw,5.5rem);max-width:9ch;}
-.full-search-head>p{font-size:clamp(.78rem,1.5vw,.95rem);line-height:1.5;}
-.full-search-bar{min-width:0;}
-.full-search-input{min-width:0;}
-.full-search-input input{min-width:0;font-size:clamp(.92rem,1.5vw,1rem);}
-.search-help{font-size:clamp(.68rem,1.25vw,.78rem);line-height:1.45;}
-.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem;min-width:0;}
-.search-tab{min-height:38px;white-space:nowrap;}
-.mt-search-tools{min-width:0;}
-.mt-search-check{min-height:36px;}
-.mt-search-tool-buttons{min-width:0;}
-
-/* Recent-search chips: never render native browser buttons */
-.search-history{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;width:100%;margin-top:.7rem;padding:.2rem 0;min-width:0;}
-.search-history .search-history-label{flex:0 0 auto;font-size:.68rem;color:#667085;font-weight:800;}
-.search-history .search-history-chip{
-  appearance:none;-webkit-appearance:none;border:1px solid #cbd8e8;background:#fff;color:#174a82;
-  border-radius:999px;min-height:34px;max-width:min(100%,28rem);padding:.38rem .72rem;
-  font-size:.68rem;font-weight:750;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  transition:background var(--motion-normal) var(--motion-ease),border-color var(--motion-normal) var(--motion-ease),transform var(--motion-fast) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease);
-}
-.search-history .search-history-chip:hover{background:#eef6ff;border-color:#8fb4e6;transform:translateY(-1px);box-shadow:0 5px 16px rgba(13,46,93,.08);}
-.search-history .search-history-chip:active{transform:translateY(0);}
-.search-history .search-history-clear{border:0;background:transparent;color:#667085;font-size:.64rem;padding:.35rem .5rem;min-height:34px;}
-
-/* Results animate softly; no layout-jumping animation */
-.search-result{animation:mtFadeUp var(--motion-normal) var(--motion-ease) both;}
-@keyframes mtFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.search-result:nth-child(2){animation-delay:20ms}.search-result:nth-child(3){animation-delay:40ms}.search-result:nth-child(4){animation-delay:60ms}.search-result:nth-child(5){animation-delay:80ms}
-
-/* Motion modes */
-body.motion-soft .hero-word>span{transition-duration:var(--motion-slow)!important;}
-body.motion-soft .tagline span{transition-duration:600ms!important;}
-body.motion-normal .hero-word>span{transition-duration:900ms!important;}
-body.motion-normal .tagline span{transition-duration:700ms!important;}
-body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
-
-
-.motion-control label{margin:0!important;text-transform:none!important;letter-spacing:0!important;font-size:.66rem!important;color:#475467!important;font-weight:750!important;}
-.motion-control select{width:auto;min-width:110px;min-height:34px;padding:.35rem .55rem;border-radius:.55rem;font-size:.68rem;background:#fff;}
-
-/* Public lookup: compact on desktop, scroll-safe on small screens */
-.public-lookup{overflow:hidden;}
-.public-lookup-tools{min-width:0;}
-.public-table-wrap{max-width:100%;-webkit-overflow-scrolling:touch;}
-.public-table{min-width:680px;}
-
-/* Forms/buttons are usable with mouse and touch */
-.v51-btn,.primary,.secondary,.auth-primary,.auth-logout,.search-submit,.light-btn{min-height:var(--touch-target);}
-
-@media(max-width:900px){
-  main{padding:.5rem;}
-  .section{padding:3rem 1rem;}
-  .full-search-head{display:block;}
-  .full-search-head .section-title{max-width:100%;margin-bottom:1rem;}
-  .full-search-head>p{max-width:100%!important;margin-top:0;}
-  .full-search-bar{grid-template-columns:minmax(0,1fr) auto;}
-  .search-submit{min-width:112px;}
-  .mt-search-tools{align-items:flex-start;}
-  .mt-search-tool-buttons{margin-left:0;width:100%;}
-  .motion-control{margin-left:0;}
-}
-@media(max-width:640px){
-  html{font-size:15px;}
-  .hero-inner{padding-left:1rem;padding-right:1rem;}
-  .section{padding:2.2rem .75rem;}
-  .full-search-section{border-width:1px;border-radius:1rem;}
-  .full-search-bar{grid-template-columns:1fr;}
-  .search-submit{width:100%;}
-  .search-tabs{gap:.35rem;overflow:visible;}
-  .search-tab{flex:0 0 auto;min-height:40px;padding:.45rem .7rem;font-size:.68rem;}
-  .search-help{font-size:.7rem;}
-  .mt-search-tools{padding:.6rem;gap:.55rem;}
-  .mt-search-tool-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
-  .mt-search-tool-buttons .v51-btn{width:100%;min-width:0;padding:.5rem .35rem;font-size:.61rem;}
-  .motion-control{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);}
-  .motion-control select{width:100%;}
-  .search-history{gap:.35rem;}
-  .search-history .search-history-chip{max-width:100%;min-height:36px;font-size:.66rem;}
-  .search-result-top{display:block!important;}
-  .search-result-top>.v51-btn{margin-top:.65rem;display:inline-flex;}
-  .search-result-actions{display:grid;grid-template-columns:1fr 1fr;}
-  .search-result-actions button{min-height:42px;}
-  .public-lookup{padding:.75rem;}
-  .public-lookup-head{display:block;}
-  .public-badge{display:inline-flex;margin-top:.6rem;}
-  .public-lookup-tools{grid-template-columns:1fr;}
-  .public-table{min-width:640px;}
-}
-@media(max-width:420px){
-  .full-search-head .section-title{font-size:clamp(2rem,11vw,2.8rem);}
-  .mt-search-tool-buttons{grid-template-columns:1fr;}
-  .motion-control{grid-template-columns:1fr;}
-  .search-result-actions{grid-template-columns:1fr;}
-  .search-history .search-history-chip{width:100%;}
-}
-@media(hover:none){
-  .search-history .search-history-chip:hover{transform:none;box-shadow:none;}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .search-result{animation:none!important;}
-}
-</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<style id="mt1p-phase42-clean-ui">
-/* PHASE 4.2 — Clean UI, single smooth motion, robust responsive layout */
-:root{--motion-fast:180ms;--motion-normal:320ms;--motion-slow:720ms;--motion-ease:cubic-bezier(.22,1,.36,1)}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
+<style id="mt1p-phase43-complete-responsive">
+/* MT-1P PHASE 4.3 — complete feature restoration + responsive/mobile repair + clean UI */
+:root{--mt-touch:44px;--mt-ease:cubic-bezier(.22,1,.36,1);--mt-fast:180ms;--mt-normal:320ms;--mt-slow:900ms}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
 body{overflow-x:hidden;min-width:0}
 *,*::before,*::after{box-sizing:border-box}
 button,input,select,textarea{font:inherit;max-width:100%}
-.hero,.section,.form-section,.footer,.full-search-section,.search-shell,.search-results,.search-result{min-width:0}
-/* Fixed header + tab bar must never cover the active section heading */
-#tracuu-tu-khoa{scroll-margin-top:9.2rem}
-#form,#waterplant,#plants,#sources,#bieu-mau,#contact{scroll-margin-top:8.2rem}
-.full-search-section{position:relative;overflow:visible}
-.full-search-head{min-width:0;align-items:flex-start}
-.full-search-head .section-title{font-size:clamp(2.35rem,6vw,5.5rem);line-height:.9;max-width:10ch}
-.full-search-head>p{max-width:36rem;line-height:1.55}
-.full-search-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.65rem;min-width:0}
-.full-search-input{min-width:0}
-.full-search-input input{width:100%;min-width:0;height:3.7rem;font-size:clamp(.95rem,1.25vw,1.05rem)}
-.search-submit{min-width:120px}
-.search-help{max-width:72rem;line-height:1.5}
-.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem;min-width:0}
-.search-tab{min-height:40px;white-space:nowrap}
-.mt-search-tools{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem;min-width:0}
-.mt-search-tool-buttons{display:flex;flex-wrap:wrap;gap:.5rem;min-width:0}
-/* Recent searches: one clean chip per submitted query */
-.search-history{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;width:100%;margin-top:.75rem;padding:.15rem 0;min-width:0}
-.search-history-label{flex:0 0 auto;font-size:.7rem;color:#667085;font-weight:800}
-.search-history-chip{appearance:none!important;-webkit-appearance:none!important;display:inline-flex;align-items:center;justify-content:center;max-width:min(100%,32rem);min-height:36px;padding:.45rem .8rem!important;border:1px solid #c8d8ea!important;border-radius:999px!important;background:#fff!important;color:#174a82!important;font-size:.72rem!important;font-weight:750!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;cursor:pointer;box-shadow:none!important;transform:none!important;transition:background var(--motion-normal) var(--motion-ease),border-color var(--motion-normal) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
-.search-history-chip:hover,.search-history-chip:focus-visible{background:#eef6ff!important;border-color:#8fb4e6!important;box-shadow:0 4px 14px rgba(13,46,93,.08)!important}
-/* Results remain smooth, but no selector or user-facing animation controls */
-.search-result{animation:mtFadeUp var(--motion-normal) var(--motion-ease) both}
-@keyframes mtFadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-/* Cleaner auth/public lookup */
-.auth-card{width:min(1100px,calc(100% - 24px));max-width:1100px!important}
-.public-lookup{min-width:0;overflow:hidden}
-.public-table-wrap{width:100%;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+button,.v51-btn,.primary,.secondary,.search-submit,.auth-primary,.auth-logout,.light-btn{min-height:var(--mt-touch);touch-action:manipulation}
+main,.hero,.section,.form-section,.footer,.panel,.full-search-section,.search-shell,.search-result,.public-lookup,.plant-panel,.technical-layout{min-width:0;max-width:100%}
+img,svg,video,canvas{max-width:100%;height:auto}
+.loader{will-change:transform}
+.hero:before{animation:mtHeroGlow 12s ease-in-out infinite alternate}
+@keyframes mtHeroGlow{from{filter:saturate(.95);transform:scale(1)}to{filter:saturate(1.08);transform:scale(1.025)}}
+.hero-word>span,.tagline span{will-change:transform,opacity}
+.search-result{animation:mtResultIn .34s var(--mt-ease) both}
+@keyframes mtResultIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.search-result:nth-child(2){animation-delay:20ms}.search-result:nth-child(3){animation-delay:40ms}.search-result:nth-child(4){animation-delay:60ms}.search-result:nth-child(5){animation-delay:80ms}
+.search-history{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;width:100%;margin-top:.7rem;padding:.2rem 0;min-width:0}
+.search-history .search-note{flex:0 0 auto}
+.search-history [data-history]{appearance:none;-webkit-appearance:none;border:1px solid #cbd8e8;background:#fff;color:#174a82;border-radius:999px;min-height:36px;max-width:min(100%,30rem);padding:.42rem .78rem;font-size:.7rem;font-weight:750;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;transition:background var(--mt-normal) var(--mt-ease),border-color var(--mt-normal) var(--mt-ease),transform var(--mt-fast) var(--mt-ease),box-shadow var(--mt-normal) var(--mt-ease)}
+.search-history [data-history]:hover{background:#eef6ff;border-color:#8fb4e6;transform:translateY(-1px);box-shadow:0 5px 16px rgba(13,46,93,.08)}
+.search-history [data-history]:active{transform:none}
+#lienket{display:none!important}
+.header#siteHeader{max-width:none}
+#topTabs{max-width:none;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#topTabs::-webkit-scrollbar{display:none}
+#topTabs .top-tab{flex:0 0 auto;white-space:nowrap}
+section[id]{scroll-margin-top:8rem}
+#authGate{overflow:auto;-webkit-overflow-scrolling:touch;padding:1rem}
+.auth-card{width:min(1100px,100%);max-height:calc(100svh - 2rem);overflow:auto;-webkit-overflow-scrolling:touch;display:grid;grid-template-columns:minmax(260px,430px) minmax(0,1fr);gap:1rem;align-items:start}
+.auth-login{width:100%;max-width:none}
+.auth-login + .public-lookup{width:100%;min-width:0}
+.public-lookup{margin-top:0;overflow:hidden}
+.public-lookup-tools{grid-template-columns:minmax(0,1.7fr) minmax(140px,.8fr) auto;align-items:center}
+.public-lookup-tools input,.public-lookup-tools select{width:100%;min-width:0;min-height:var(--mt-touch)}
+.public-table-wrap{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
 .public-table{min-width:680px}
-/* Plant table: contained scrolling, never page-wide overflow */
-.plant-panel>div[style*="overflow:auto"]{max-width:100%;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
-.plant-table{min-width:900px}
-/* Fixed navigation */
-.header#siteHeader{max-width:none;min-width:0}
-#topTabs{min-width:0}
-.top-tabs{min-width:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.top-tab{flex:0 0 auto}
-/* Non-touch mouse devices: keep hover subtle, never resize controls */
-@media(hover:hover){.top-tab:hover,.search-tab:hover,.v51-btn:hover,.search-history-chip:hover{transform:none}}
-/* Tablet */
+.full-search-section,.full-search-head,.full-search-bar,.full-search-input,.mt-search-tools,.search-tabs,.search-results{min-width:0;max-width:100%}
+.full-search-head .section-title{font-size:clamp(2.25rem,8vw,6rem);line-height:.9;max-width:9ch}
+.full-search-head>p{font-size:clamp(.78rem,1.4vw,.95rem);line-height:1.5}
+.full-search-bar{grid-template-columns:minmax(0,1fr) auto}
+.full-search-input input{min-width:0;font-size:clamp(.92rem,1.5vw,1rem)}
+.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem}
+.search-tab{flex:0 0 auto;min-height:40px;white-space:nowrap}
+.legal-table,.plant-table{width:100%;min-width:760px}
+.plant-panel>div[style*="overflow:auto"],.section .panel>div[style*="overflow:auto"]{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+.plant-form,.technical-actions,.custom-field-row{min-width:0}
+.custom-field-row input,.plant-form input,.plant-form select,.plant-form textarea{min-width:0}
+.custom-field-row{grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto}
 @media(max-width:900px){
-  .full-search-head{display:block}
-  .full-search-head .section-title{max-width:100%;margin-bottom:1rem}
-  .full-search-head>p{max-width:100%!important}
-  .search-result-top{gap:.75rem}
+.auth-card{grid-template-columns:1fr;max-height:calc(100svh - 1rem);padding:1rem}
+.auth-login{max-width:none}
+.public-lookup-tools{grid-template-columns:1fr}
+.public-lookup-tools #publicLookupCount{justify-self:start}
+.hero-bottom{flex-direction:column;align-items:flex-start}
+.hero-tools{width:100%}
+.mini-stat{width:100%}
+.full-search-head{display:block}
+.full-search-head .section-title{max-width:100%;margin-bottom:1rem}
+.full-search-bar{grid-template-columns:1fr}
+.search-submit{width:100%}
+.mt-search-tool-buttons{margin-left:0;width:100%}
+.fields,.form-layout,.workflow-grid,.modules,.tools-grid{grid-template-columns:1fr}
+.plant-search{grid-template-columns:1fr 1fr}
+.plant-search .full,.filter-actions{grid-column:1/-1}
 }
-/* Mobile */
 @media(max-width:640px){
-  html{font-size:15px}
-  .header#siteHeader{top:.45rem;left:.45rem;right:.45rem;height:3.65rem;padding:.5rem .8rem;border-radius:1rem}
-  .header#siteHeader .brand{justify-content:flex-start;font-size:.82rem;letter-spacing:.14em}
-  .auth-user-name{display:none}
-  #topTabs{top:4.35rem;left:.45rem;right:.45rem;border-radius:0 0 .9rem .9rem}
-  .top-tab-panel{padding:.45rem .55rem;gap:.55rem}
-  .top-tab-title{flex:0 0 auto}
-  .top-tabs{gap:.3rem}
-  .top-tab{padding:.52rem .65rem;font-size:.67rem}
-  .hero{padding-top:4.85rem}
-  .section{padding:2.1rem .75rem}
-  .full-search-section{border-radius:1rem}
-  .full-search-bar{grid-template-columns:1fr}
-  .full-search-input input{height:3.25rem;padding-left:2.7rem}
-  .search-submit{width:100%;min-height:44px}
-  .search-tabs{gap:.35rem}
-  .search-tab{min-height:40px;padding:.45rem .68rem;font-size:.68rem}
-  .mt-search-tools{align-items:stretch}
-  .mt-search-check{width:100%;font-size:.7rem}
-  .mt-search-tool-buttons{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .mt-search-tool-buttons .v51-btn{width:100%;min-width:0;padding:.55rem .35rem;font-size:.62rem}
-  .search-history{align-items:stretch}
-  .search-history-label{width:100%}
-  .search-history-chip{max-width:100%;width:auto;min-height:38px}
-  .search-result-top{display:block!important}
-  .search-result-top>.v51-btn{margin-top:.7rem;display:inline-flex}
-  .search-result-actions{display:grid;grid-template-columns:1fr 1fr}
-  .search-result-actions button{min-height:42px;min-width:0}
-  .data-row{grid-template-columns:1fr}
-  .public-lookup-tools{grid-template-columns:1fr}
-  .public-table{min-width:720px}
-  .plant-table{min-width:900px}
+html{font-size:15px}
+#authGate{padding:.5rem}
+.auth-card{border-radius:1rem;padding:.8rem;gap:.75rem;max-height:calc(100svh - 1rem)}
+.auth-brand{font-size:1rem}
+.auth-card h2{font-size:1.35rem;margin:.7rem 0 .35rem}
+.auth-sub{font-size:.72rem}
+.auth-form{gap:.7rem}
+.auth-form input{min-height:46px}
+.auth-primary{width:100%;min-height:48px}
+.public-lookup{padding:.75rem;border-radius:.8rem}
+.public-lookup-head{display:block}
+.public-lookup h3{font-size:1.05rem}
+.public-badge{display:inline-flex;margin-top:.5rem}
+.public-table{min-width:650px;font-size:.68rem}
+.public-table th,.public-table td{padding:.55rem .45rem}
+.header#siteHeader{top:.4rem;left:.4rem;right:.4rem;height:3.35rem;padding:.45rem .75rem;border-radius:1rem}
+.header#siteHeader .brand{justify-content:flex-start;font-size:.9rem}
+.auth-user{gap:.35rem}
+.auth-logout{min-height:38px;padding:.4rem .65rem;font-size:.62rem}
+#topTabs{top:4rem;left:.4rem;right:.4rem;border-radius:0 0 .8rem .8rem}
+#topTabs .top-tab{font-size:.65rem;padding:.5rem .65rem;min-height:40px}
+.hero{min-height:calc(100svh - .5rem);padding-top:4.55rem}
+.hero-inner{padding:1rem .85rem 0}
+h1{font-size:clamp(3.15rem,16vw,6rem);line-height:.86;max-width:8ch;margin:1rem 0 1.8rem}
+.tagline{font-size:clamp(1.65rem,8vw,2.5rem)}
+.hero-tools{gap:.6rem}
+.mini-stat{padding:.7rem}
+.mini-stat .num{font-size:1.8rem}
+.section,.form-section{padding:2.2rem .75rem}
+.section-title{font-size:clamp(2rem,10vw,4rem)!important;line-height:.94}
+.procedure-strip,.form-grid{grid-template-columns:1fr}
+.full-search-section{border-radius:1rem}
+.full-search-bar{grid-template-columns:1fr}
+.search-submit{width:100%;min-height:48px}
+.search-tabs{gap:.35rem}
+.search-tab{font-size:.67rem;padding:.45rem .68rem;min-height:42px}
+.mt-search-tool-buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem}
+.mt-search-tool-buttons .v51-btn{min-width:0;width:100%;padding:.5rem .3rem;font-size:.61rem}
+.search-history{gap:.35rem}
+.search-history [data-history]{width:auto;max-width:100%;min-height:38px;font-size:.67rem}
+.search-result-top{display:block!important}
+.search-result-top>.v51-btn{margin-top:.65rem}
+.search-result-actions{display:grid;grid-template-columns:1fr 1fr}
+.search-result-actions button{min-height:44px}
+.plant-search{grid-template-columns:1fr}
+.plant-search .full,.filter-actions{grid-column:auto}
+.filter-actions{align-items:stretch;flex-direction:column}
+.filter-actions button{width:100%}
+.technical-actions{align-items:stretch;flex-direction:column}
+.technical-actions button{width:100%}
+.custom-field-row{grid-template-columns:1fr}
+.custom-field-remove{width:max-content;min-height:42px}
+.footer-grid{grid-template-columns:1fr}
+.footer-cta{display:block}
+.footer-cta h2{font-size:3.2rem}
 }
-/* Very small mobile / embedded browser */
 @media(max-width:420px){
-  .section{padding-left:.55rem;padding-right:.55rem}
-  .full-search-head .section-title{font-size:clamp(2rem,10.5vw,2.75rem)}
-  .mt-search-tool-buttons{grid-template-columns:1fr}
-  .search-result-actions{grid-template-columns:1fr}
-  .search-history-chip{width:100%;justify-content:flex-start}
-  .top-tab-title span{display:none}
+.mt-search-tool-buttons{grid-template-columns:1fr}
+.search-result-actions{grid-template-columns:1fr}
+.search-history [data-history]{width:100%}
+.hero-inner{padding-left:.7rem;padding-right:.7rem}
+h1{font-size:clamp(2.9rem,17vw,4.5rem)}
+.top-tab-title{display:none}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.search-result{animation:none!important}.search-history-chip{transition:none!important}}
+@media(hover:none){.search-history [data-history]:hover{transform:none;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero:before,.search-result{animation:none!important}.hero-word>span,.tagline span{transition-duration:.01ms!important}}
+</style>
+
+<style id="mt1p-phase44-clean-ui">
+/* PHASE 4.4 — clean search results, mobile-safe controls, form-source links */
+html,body{max-width:100%;overflow-x:hidden}
+button,a,input,select,textarea{touch-action:manipulation}
+button,.v51-btn,.search-result-actions button,.search-data-toolbar button{min-height:40px}
+.search-result{overflow:hidden;min-width:0}
+.search-result-top{min-width:0}
+.search-result-top>div:first-child{min-width:0}
+.search-result-title{font-size:clamp(.95rem,1.35vw,1.15rem);line-height:1.28;overflow-wrap:anywhere}
+.search-result-meta{overflow-wrap:anywhere}
+.search-result .tag{font-size:.62rem}
+.search-result-top>.v51-btn{display:inline-flex;align-items:center;justify-content:center;white-space:normal;text-align:center;text-decoration:none;flex:0 0 auto}
+.search-result-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.search-result-actions button,.search-data-toolbar button{border:1px solid #cbd5e1;background:#fff;color:#0b2b57;border-radius:999px;padding:.58rem .85rem;font-size:.72rem;font-weight:800;line-height:1.2}
+.search-result-actions button:hover,.search-data-toolbar button:hover{background:#edf4ff;border-color:#9dbce8}
+.search-data{margin-top:.8rem;border-top:1px solid #e4e7ec;padding-top:.65rem}
+.search-data summary{display:flex;align-items:center;gap:.35rem;cursor:pointer;font-weight:850;color:#082b57;list-style:none;min-height:40px}
+.search-data summary::-webkit-details-marker{display:none}
+.search-data summary::before{content:'▸';display:inline-block;width:1rem;text-align:center}
+.search-data[open] summary::before{content:'▾'}
+.search-data-toolbar{display:flex;flex-wrap:wrap;gap:.5rem;margin:.45rem 0 .6rem}
+.data-table{max-width:100%;overflow:auto}
+.data-row{min-width:0}
+.data-key,.data-value{overflow-wrap:anywhere}
+mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
+.form-item{min-width:0;display:flex;flex-direction:column}
+.form-item h3{overflow-wrap:anywhere}
+.form-item p{overflow-wrap:anywhere}
+.form-links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.form-link{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.55rem .8rem;border-radius:999px;border:1px solid #cbd5e1;background:#fff;color:#06499a;font-size:.7rem;font-weight:800;text-decoration:none}
+.form-link.primary{background:#082b57;color:#fff;border-color:#082b57}
+.form-link:hover{background:#edf4ff}
+.top-tab-panel{min-width:0}
+#topTabs{overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none}
+#topTabs::-webkit-scrollbar{display:none}
+.top-tab{flex:0 0 auto}
+.full-search-section,.full-search-bar,.search-results,.search-result{min-width:0}
+@media(max-width:768px){
+  body{font-size:15px}
+  main{padding:.5rem}
+  .header#siteHeader{left:.5rem;right:.5rem;padding:.55rem .75rem}
+  .header#siteHeader .brand{font-size:.85rem;letter-spacing:.12em}
+  #topTabs{left:.5rem;right:.5rem;top:4.45rem;gap:.25rem;padding:.4rem .5rem}
+  .top-tab{min-height:42px;padding:.55rem .7rem}
+  .hero{padding-top:4.95rem}
+  .hero-inner{padding-left:1rem;padding-right:1rem}
+  h1{font-size:clamp(3.2rem,16vw,6.2rem);max-width:8ch}
+  .tagline{font-size:clamp(1.35rem,6vw,2rem)}
+  .section,.form-section{padding:3rem 1rem}
+  .section-title{font-size:clamp(2rem,11vw,3.6rem)!important}
+  .search-result{padding:.8rem}
+  .search-result-top{display:flex!important;flex-direction:column;gap:.65rem}
+  .search-result-top>.v51-btn{width:100%;margin-top:0}
+  .search-result-actions{display:grid;grid-template-columns:1fr 1fr}
+  .search-result-actions button{width:100%;min-width:0}
+  .search-data-toolbar{display:grid;grid-template-columns:1fr 1fr}
+  .search-data-toolbar button{width:100%}
+  .form-grid{grid-template-columns:1fr}
+  .form-links{display:grid;grid-template-columns:1fr}
+  .form-link{width:100%}
+  .legal-table{font-size:.7rem}
+  .legal-table th,.legal-table td{padding:.55rem .45rem}
+  .plant-panel{overflow:hidden}
+  .plant-search{grid-template-columns:1fr!important}
+  .plant-search .full,.filter-actions{grid-column:auto!important}
+  .plant-table{min-width:760px}
+  .technical-actions,.result-actions,.toolbar{display:grid;grid-template-columns:1fr}
+  .technical-actions button,.result-actions button,.toolbar button,.toolbar .v51-btn{width:100%}
+  .auth-card{width:min(100% - 1rem,30rem);max-height:calc(100svh - 1rem);overflow:auto}
+}
+@media(max-width:420px){
+  .search-result-actions,.search-data-toolbar{grid-template-columns:1fr}
+  .search-history [data-history]{width:100%}
+  .search-result-title{font-size:.98rem}
+  .search-result-meta{font-size:.68rem}
+  .section,.form-section{padding-left:.75rem;padding-right:.75rem}
+}
+#lienket{display:none!important}
 </style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
@@ -378,14 +371,14 @@ button,input,select,textarea{font:inherit;max-width:100%}
     <div class="auth-brand"><span class="mark"></span> MT-1P</div>
     <div class="auth-login" id="authLoginPanel">
       <h2>Đăng nhập hệ thống</h2>
-      <p class="auth-sub">Đăng nhập bằng tài khoản MT-1P của bạn.</p>
+      <p class="auth-sub">Đăng nhập để sử dụng đầy đủ chức năng quản lý hồ sơ.</p>
       <form class="auth-form" id="loginForm" autocomplete="on">
         <label>Email<input id="loginUser" name="email" type="email" autocomplete="username" required></label>
         <label>Mật khẩu<input id="loginPass" name="password" type="password" autocomplete="current-password" required></label>
         <div class="auth-error" id="loginError" role="alert"></div>
         <button class="auth-primary" id="loginBtn" type="submit">Đăng nhập</button>
       </form>
-      
+      <div class="auth-note">Tài khoản của bạn được phân quyền theo vai trò được cấp.</div>
     </div>
     <div class="public-lookup" id="publicLookupPanel">
       <div class="public-lookup-head"><div><span class="public-kicker">TRA CỨU CÔNG KHAI</span><h3>Danh mục nhà máy</h3><p>Tra cứu thông tin danh mục cơ bản mà không cần đăng nhập.</p></div><span class="public-badge">Không cần tài khoản</span></div>
@@ -397,7 +390,7 @@ button,input,select,textarea{font:inherit;max-width:100%}
 
 <div class="loader" id="loader"><div class="loader-inner"><div class="loader-brand"><span class="mark"></span> MT-1P</div><div class="track"><div class="fill"></div></div></div></div>
 <div class="modal" id="modal"><div class="modal-panel" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="eyebrow"><i></i> Hỗ trợ MT-1P</span><h2>Trao đổi<br>hồ sơ</h2></div><button class="close" style="background:var(--surface);color:var(--ink)" id="modalClose">×</button></div><form class="modal-form" id="contactForm"><div><label>Họ và tên</label><input id="contactName" required placeholder="Người thực hiện"></div><div><label>Email</label><input type="email" required placeholder="you@example.com"></div><div><label>Nội dung</label><textarea rows="3" placeholder="Phạm vi hồ sơ cần rà soát..."></textarea></div><button class="primary" type="submit">Gửi yêu cầu</button></form><div class="success" id="success"><div class="success-icon">✓</div><strong>Đã ghi nhận</strong><p class="muted">Đây là biểu mẫu thử nghiệm; không gửi dữ liệu lên máy chủ.</p><button type="button" class="primary" id="done">Đóng</button></div></div></div>
-<main class="motion-soft">
+<main>
 <section class="hero card" id="home"><header class="header" id="siteHeader"><a class="brand" href="#home" aria-label="MT-1P"><span class="mark"></span> MT-1P</a><div class="auth-user" id="authUser" hidden><span class="auth-user-name" id="authUserName"></span><button class="auth-logout" id="authLogout" type="button">Đăng xuất</button></div></header>
 <div class="top-tab-panel" id="topTabs" role="navigation" aria-label="Các mục tra cứu trong một trang index">
   <div class="top-tab-title"><strong>MT-1P</strong><span>Tra cứu tập trung</span></div>
@@ -434,7 +427,7 @@ button,input,select,textarea{font:inherit;max-width:100%}
   </div>
 </section>
 <section class="section card" id="waterplant">
-  <div class="section-head"><div><span class="eyebrow"><i></i> Chuyên ngành cấp nước</span><h2 class="section-title">Hồ sơ kỹ thuật<br>nhà máy / trạm</h2></div></div>
+  <div class="section-head"><div><span class="eyebrow"><i></i> Chuyên ngành cấp nước</span><h2 class="section-title">Hồ sơ kỹ thuật<br>nhà máy / trạm</h2></div><span class="badge">Hồ sơ kỹ thuật</span></div>
   <div class="technical-layout">
     <div class="panel plant-panel">
       <h3>Nhập và cập nhật số liệu nhà máy</h3>
@@ -467,8 +460,8 @@ button,input,select,textarea{font:inherit;max-width:100%}
     </div>
   </div>
 </section>
-<section class="section surface card" id="sources"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nguồn pháp lý</span><h2 class="section-title">Nguồn pháp lý<br>được kết nối</h2></div><p class="muted" style="max-width:25rem">Mỗi nguồn có mã duy nhất và liên kết tới bản PDF trên Cổng Thông tin điện tử Chính phủ. V5.4 chỉ xem đây là nguồn tham chiếu; Quy tắc phải tiếp tục đối chiếu điều/khoản/điểm.</p></div><div class="panel" style="margin-top:2rem"><div style="overflow:auto"><table class="legal-table"><thead><tr><th>ID</th><th>Văn bản</th><th>Vai trò</th><th>Nguồn</th></tr></thead><tbody id="sourceRegistry"></tbody></table></div></div></section><section class="section card form-library" id="bieu-mau"><div class="section-head"><div><span class="eyebrow"><i></i> Phụ lục biểu mẫu</span><h2 class="section-title">Kho biểu mẫu<br>ĐTM · GPMT · ĐKMT</h2></div><p class="muted" style="max-width:25rem">Đã đối chiếu danh mục Phụ lục II và Phụ lục VI trong văn bản hợp nhất 55/VBHN-BNNMT; mỗi mẫu ghi rõ nhóm ĐTM, GPMT, ĐKMT hoặc báo cáo BVMT và trạng thái để tránh dùng nhầm mẫu đã bãi bỏ.</p></div><div class="form-filter" id="formFilter"><button class="active" type="button" data-form-kind="tatca">Đang sử dụng</button><button type="button" data-form-kind="ĐTM">ĐTM</button><button type="button" data-form-kind="GPMT">GPMT</button><button type="button" data-form-kind="ĐKMT">ĐKMT</button><button type="button" data-form-kind="Báo cáo BVMT">Báo cáo BVMT</button><button type="button" data-form-kind="lichsu">Lịch sử / đã bãi bỏ</button><button type="button" data-form-kind="tatca-hienthi">Tất cả</button></div><div class="form-grid" id="formRegistry"></div></section>
-<section class="section card" id="plants"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nhà máy</span><h2 class="section-title">Danh mục<br><span id="plantRegistryTitleCount">28 nhà máy</span></h2></div><p class="muted" style="max-width:25rem">Tra cứu và quản lý danh mục 28 nhà máy; thông tin mới nhất được ưu tiên khi có cập nhật trùng mã nhà máy.</p></div><div class="panel plant-panel" style="margin-top:2rem"><div class="plant-search"><div class="full search-main"><label>Tìm kiếm theo cụm từ</label><input id="plantSearch" type="search" placeholder='Ví dụ: "Nhà máy nước mặt Đông Bình" hoặc 907/UBND-KTHĐT'><small>Không phân biệt hoa thường và dấu tiếng Việt. Cụm từ trong dấu ngoặc kép phải xuất hiện đúng theo cụm.</small></div><div><label>Chọn tên nhà máy</label><select id="plantNameFilter"><option value="tatca">Tất cả nhà máy</option></select></div><div><label>Tình trạng hồ sơ</label><select id="plantStatus"><option value="tatca">Tất cả</option><option value="gpmt">Có GPMT</option><option value="dkmt">ĐKMT/chấp thuận</option><option value="chuathuchien">Chưa thực hiện</option><option value="chuacodulieu">Chưa có dữ liệu</option></select></div><div><label>Nguồn nước</label><select id="plantSourceFilter"><option value="tatca">Tất cả</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option><option value="Khác">Khác</option></select></div><div><label>Trạng thái nghĩa vụ</label><select id="obligationFilter"><option value="tatca">Tất cả</option><option value="dat">Đạt/Còn hạn</option><option value="sapdenhan">Sắp đến hạn</option><option value="canrasoat">Cần rà soát</option><option value="chuacapnhat">Chưa cập nhật</option></select></div><div class="filter-actions"><button class="v51-btn" id="clearPlantFilters" type="button">Xóa bộ lọc</button><span class="search-note" id="plantSearchCount"></span></div></div><div style="overflow:auto"><table class="legal-table plant-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Công suất</th><th>Nguồn</th><th>Nước thải</th><th>Bùn thải</th><th>CTNH</th><th>Tình trạng hồ sơ</th><th></th></tr></thead><tbody id="plantRegistry"></tbody></table></div></div></section><footer class="footer card" id="contact"><div class="footer-cta"><div><span class="kicker"><i></i> MT-1P · Tra cứu môi trường</span><h2>Sẵn sàng<br>tra cứu?</h2></div><button class="light-btn" id="bookFooter">Tạo hồ sơ tra cứu</button></div><div class="footer-grid"><div><div class="brand" style="justify-content:flex-start"><span class="mark"></span> MT-1P</div><p>Công cụ hỗ trợ tra cứu thủ tục môi trường theo hướng dữ liệu + quy tắc + căn cứ pháp lý.</p><address>Phiên bản kỹ thuật: 5.5.2<br>© 2026 MT-1P</address></div><div><h4>Tra cứu</h4><ul><li><a href="#form">Tra cứu nhanh</a></li><li><a href="#workflow">Quy trình</a></li><li><a href="#legal">Đối chiếu căn cứ</a></li></ul></div><div><h4>Hệ thống</h4><ul><li><a href="#form">Bộ xử lý quy tắc</a></li><li><a href="#form">Danh mục kiểm tra</a></li><li><a href="#contact">Phiếu tra cứu</a></li></ul></div><div><h4>Lưu ý</h4><p>Kết quả không thay thế văn bản gốc, hồ sơ thực tế hoặc ý kiến cơ quan có thẩm quyền.</p></div></div><div class="bottom"><span>MT-1P · Tra cứu thủ tục môi trường</span><span>MT-1P · Tra cứu và quản lý dữ liệu</span></div></footer></main>
+<section class="section surface card" id="lienket"><div class="section-head"><div><span class="eyebrow"><i></i> Kiểm tra dữ liệu</span><h2 class="section-title">Kiểm tra dữ liệu<br>trước khi tra cứu</h2></div><p class="muted" style="max-width:25rem">Kiểm tra khóa MaNhaMay giữa các bảng Excel và chỉ ra bản ghi thiếu hoặc chưa đủ thông tin. Không tự suy đoán dữ liệu còn thiếu.</p></div><div class="panel" style="margin-top:2rem"><div class="result-grid" id="linkStats"></div><div id="linkIssues" style="margin-top:1rem"></div></div></section><section class="section surface card" id="sources"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nguồn pháp lý</span><h2 class="section-title">Nguồn pháp lý<br>được kết nối</h2></div><p class="muted" style="max-width:25rem">Mỗi nguồn có mã duy nhất và liên kết tới bản PDF trên Cổng Thông tin điện tử Chính phủ. V5.4 chỉ xem đây là nguồn tham chiếu; Quy tắc phải tiếp tục đối chiếu điều/khoản/điểm.</p></div><div class="panel" style="margin-top:2rem"><div style="overflow:auto"><table class="legal-table"><thead><tr><th>ID</th><th>Văn bản</th><th>Vai trò</th><th>Nguồn</th></tr></thead><tbody id="sourceRegistry"></tbody></table></div></div></section><section class="section card form-library" id="bieu-mau"><div class="section-head"><div><span class="eyebrow"><i></i> Phụ lục biểu mẫu</span><h2 class="section-title">Kho biểu mẫu<br>ĐTM · GPMT · ĐKMT</h2></div><p class="muted" style="max-width:25rem">Đã đối chiếu danh mục Phụ lục II và Phụ lục VI trong văn bản hợp nhất 55/VBHN-BNNMT; mỗi mẫu ghi rõ nhóm ĐTM, GPMT, ĐKMT hoặc báo cáo BVMT và trạng thái để tránh dùng nhầm mẫu đã bãi bỏ.</p></div><div class="form-filter" id="formFilter"><button class="active" type="button" data-form-kind="tatca">Đang sử dụng</button><button type="button" data-form-kind="ĐTM">ĐTM</button><button type="button" data-form-kind="GPMT">GPMT</button><button type="button" data-form-kind="ĐKMT">ĐKMT</button><button type="button" data-form-kind="Báo cáo BVMT">Báo cáo BVMT</button><button type="button" data-form-kind="lichsu">Lịch sử / đã bãi bỏ</button><button type="button" data-form-kind="tatca-hienthi">Tất cả</button></div><div class="form-grid" id="formRegistry"></div></section>
+<section class="section card" id="plants"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nhà máy</span><h2 class="section-title">Danh mục<br><span id="plantRegistryTitleCount">28 nhà máy</span></h2></div><p class="muted" style="max-width:25rem">Tra cứu và quản lý danh mục 28 nhà máy; thông tin mới nhất được ưu tiên khi có cập nhật trùng mã nhà máy.</p></div><div class="panel plant-panel" style="margin-top:2rem"><div class="plant-search"><div class="full search-main"><label>Tìm kiếm theo cụm từ</label><input id="plantSearch" type="search" placeholder='Ví dụ: "Nhà máy nước mặt Đông Bình" hoặc 907/UBND-KTHĐT'><small>Không phân biệt hoa thường và dấu tiếng Việt. Cụm từ trong dấu ngoặc kép phải xuất hiện đúng theo cụm.</small></div><div><label>Chọn tên nhà máy</label><select id="plantNameFilter"><option value="tatca">Tất cả nhà máy</option></select></div><div><label>Tình trạng hồ sơ</label><select id="plantStatus"><option value="tatca">Tất cả</option><option value="gpmt">Có GPMT</option><option value="dkmt">ĐKMT/chấp thuận</option><option value="chuathuchien">Chưa thực hiện</option><option value="chuacodulieu">Chưa có dữ liệu</option></select></div><div><label>Nguồn nước</label><select id="plantSourceFilter"><option value="tatca">Tất cả</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option><option value="Khác">Khác</option></select></div><div><label>Trạng thái nghĩa vụ</label><select id="obligationFilter"><option value="tatca">Tất cả</option><option value="dat">Đạt/Còn hạn</option><option value="sapdenhan">Sắp đến hạn</option><option value="canrasoat">Cần rà soát</option><option value="chuacapnhat">Chưa cập nhật</option></select></div><div class="filter-actions"><button class="v51-btn" id="clearPlantFilters" type="button">Xóa bộ lọc</button><span class="search-note" id="plantSearchCount"></span></div></div><div style="overflow:auto"><table class="legal-table plant-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Công suất</th><th>Nguồn</th><th>Nước thải</th><th>Bùn thải</th><th>CTNH</th><th>Tình trạng hồ sơ</th><th></th></tr></thead><tbody id="plantRegistry"></tbody></table></div></div></section><footer class="footer card" id="contact"><div class="footer-cta"><div><span class="kicker"><i></i> MT-1P V5.5.2 INDEX HỢP NHẤT</span><h2>Sẵn sàng<br>tra cứu?</h2></div><button class="light-btn" id="bookFooter">Tạo hồ sơ tra cứu</button></div><div class="footer-grid"><div><div class="brand" style="justify-content:flex-start"><span class="mark"></span> MT-1P</div><p>Công cụ hỗ trợ tra cứu thủ tục môi trường theo hướng dữ liệu + quy tắc + căn cứ pháp lý.</p><address>Phiên bản kỹ thuật: 5.5.2<br>© 2026 MT-1P</address></div><div><h4>Tra cứu</h4><ul><li><a href="#form">Tra cứu nhanh</a></li><li><a href="#workflow">Quy trình</a></li><li><a href="#legal">Đối chiếu căn cứ</a></li></ul></div><div><h4>Hệ thống</h4><ul><li><a href="#form">Bộ xử lý quy tắc</a></li><li><a href="#form">Danh mục kiểm tra</a></li><li><a href="#contact">Phiếu tra cứu</a></li></ul></div><div><h4>Lưu ý</h4><p>Kết quả không thay thế văn bản gốc, hồ sơ thực tế hoặc ý kiến cơ quan có thẩm quyền.</p></div></div><div class="bottom"><span>MT-1P · Tra cứu thủ tục môi trường</span><span>MT-1P · Tra cứu và quản lý dữ liệu</span></div></footer></main>
 <script>
 const FALLBACK_CONGTY = [
   {"id": "nm01", "ten": "Nhà máy nước mặt Đông Bình", "diaDiem": "Khu phố Đông Bình, phường Cao Lãnh, tỉnh Đồng Tháp", "congSuat": "40.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 907/UBND-KTHĐT ngày 13/9/2025 của UBND P. Cao Lãnh  (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND phường Cao Lãnh.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
@@ -1010,8 +1003,14 @@ function renderPlants(){const el=$("#plantRegistry");if(!el)return;const q=$("#p
 
 const FORM_PAGE_MAP={
 'Mẫu số 02':40,'Mẫu số 03':42,'Mẫu số 03a':44,'Mẫu số 04':45,'Mẫu số 04a':63,'Mẫu số 04b':65,'Mẫu số 04c':66,'Mẫu số 05':67,'Mẫu số 06':68,'Mẫu số 07':71,'Mẫu số 08':73,'Mẫu số 09':75,'Mẫu số 09a':76,'Mẫu số 10':78,'Mẫu số 22a':109,'Mẫu số 22b':110,'Mẫu số 22c':117,'Mẫu số 22d':128,'Mẫu số 22đ':137,'Mẫu số 23':143,'Mẫu số 24':143,'Mẫu số 25':145,'Mẫu số 26':145,'Mẫu số 27':145,'Mẫu số 28':146,'Mẫu số 29':147,'Mẫu số 30':149,'Mẫu số 31':153,'Mẫu số 32':154,'Mẫu số 33':156,'Mẫu số 34':157,'Mẫu số 35':157,'Mẫu số 36':158,'Mẫu số 37':158,'Mẫu số 38':160,'Mẫu số 39':160,'Mẫu số 40':161,'Mẫu số 41':174,'Mẫu số 42':175,'Mẫu số 43a':177,'Mẫu số 43':181,'Mẫu số 44':182,'Mẫu số 44a':183,'Mẫu số 45':185,'Mẫu số 46':186,'Mẫu số 47':188,'Mẫu số 05.A':428,'Mẫu số 05.B':439};
-function formSourceUrl(code){const page=FORM_PAGE_MAP[code];return page?`phu-luc/nguon-phu-luc-goc.pdf#page=${page}`:''}
+function formSourceUrl(code){const page=FORM_PAGE_MAP[code];if(!page)return '';return new URL(`./phu-luc/nguon-phu-luc-goc.pdf#page=${page}`,document.baseURI).href}
 function formPage(code){return FORM_PAGE_MAP[code]||''}
+function formOfficialUrl(code){
+  const f=FORM_REGISTRY.find(x=>x.code===code);
+  if(!f)return '';
+  const src=SOURCE_DOCUMENTS.find(x=>x[0]===f.source)||SOURCE_DOCUMENTS.find(x=>x[0]==='PL-VBHN55-2026');
+  return src?src[4]:'';
+}
 
 function renderFormRegistry(kind='tatca-hienthi',q=''){
  const el=$("#formRegistry");if(!el)return;
@@ -1019,7 +1018,7 @@ function renderFormRegistry(kind='tatca-hienthi',q=''){
  if(kind==='lichsu') rows=rows.filter(f=>f.status==='Đã bãi bỏ');
  else if(kind==='tatca') rows=rows.filter(f=>f.status!=='Đã bãi bỏ');
  else if(kind!=='tatca-hienthi') rows=rows.filter(f=>f.kind===kind && f.status!=='Đã bãi bỏ');
- el.innerHTML=rows.length?rows.map(f=>`<article class="form-item" data-status="${esc(f.status==='Đã bãi bỏ'?'Đã bãi bỏ':'Đang sử dụng')}"><span class="form-code">${esc(f.code)}</span><span class="form-status ${f.status==='Đã bãi bỏ'?'baibao':'hienhanh'}">${esc(f.status)}</span><h3>${esc(f.title)}</h3><p><b>Nhóm:</b> ${esc(f.kind)} · <b>Phụ lục:</b> ${esc(f.appendix)}<br>${esc(f.note)}</p><a href="${esc(formSourceUrl(f.code))}" target="_blank" rel="noopener">Mở Phụ lục II/VI chính thức ↗</a></article>`).join(''):'<div class="search-empty" style="grid-column:1/-1">Không tìm thấy biểu mẫu phù hợp.</div>'
+ el.innerHTML=rows.length?rows.map(f=>`<article class="form-item" data-status="${esc(f.status==='Đã bãi bỏ'?'Đã bãi bỏ':'Đang sử dụng')}"><span class="form-code">${esc(f.code)}</span><span class="form-status ${f.status==='Đã bãi bỏ'?'baibao':'hienhanh'}">${esc(f.status)}</span><h3>${esc(f.title)}</h3><p><b>Nhóm:</b> ${esc(f.kind)} · <b>Phụ lục:</b> ${esc(f.appendix)}<br>${esc(f.note)}</p><div class="form-links">${formSourceUrl(f.code)?`<a class="form-link primary" href="${esc(formSourceUrl(f.code))}" target="_blank" rel="noopener">Mở phụ lục · trang ${formPage(f.code)} ↗</a>`:''}${formOfficialUrl(f.code)?`<a class="form-link" href="${esc(formOfficialUrl(f.code))}" target="_blank" rel="noopener">Nguồn văn bản ↗</a>`:''}</div></article>`).join(''):'<div class="search-empty" style="grid-column:1/-1">Không tìm thấy biểu mẫu phù hợp.</div>'
 }
 /* ==========================================================
    MT-1P PHASE 3 — TECHNICAL RECORDS ON SUPABASE
@@ -1181,7 +1180,7 @@ function profileValue(p,key,fallback=''){const pr=getPlantProfile(p.ma)||{};retu
 function plantProfileText(p){const pr=getPlantProfile(p.ma)||{};return Object.entries(pr).filter(([k])=>!['updatedAt'].includes(k)).map(([k,v])=>v).join(' | ')}
 function searchCorpus(){const arr=[];arr.push({kind:'Quy tắc',title:'Bộ dữ liệu quy tắc và ngành nghề',meta:'Tra cứu Nhóm I–IV, ĐTM, GPMT, ĐKMT',text:JSON.stringify(DATA),data:DATA,url:''});WATER_PLANTS.forEach(p=>{const t=p.thongTin||{},g=p.gpmt||{};arr.push({kind:'Nhà máy',title:t.TenNhaMay||p.ma,meta:`${p.ma} · ${t.DiaDiem||''} · ${hoSoNhan(p)}`,text:[p.ma,t.TenNhaMay,t.DiaDiem,t.CongSuat_m3_ngay,t['NguonNuoc (Mặt/Ngầm)'],g.SoGPMT,g.CoQuanCap,Object.values(p.nghiaVu||{}),plantProfileText(p)].flat().join(' | '),data:p,action:()=>selectPlant(p.ma)} )});FORM_REGISTRY.forEach(f=>arr.push({kind:f.kind==='Báo cáo BVMT'?'Biểu mẫu':f.kind,title:`${f.code} — ${f.title}`,meta:`${f.kind} · ${f.appendix} · Trang ${formPage(f.code)||'—'} · ${f.status}`,text:[f.code,f.kind,f.title,f.appendix,f.note,f.status].join(' | '),data:f,url:formSourceUrl(f.code)}));(DATA.canCu||[]).forEach(x=>arr.push({kind:'Nguồn pháp lý',title:x[1],meta:`${x[2]} · ${x[3]}`,text:x.join(' | '),data:{ma:x[0],vanBan:x[1],hieuLuc:x[2],vaiTro:x[3]},url:(SOURCE_DOCUMENTS.find(s=>normalizeSearch(s[1])===normalizeSearch(x[1]))||[])[4]}));return arr}
 function renderSearchData(data){if(data===undefined||data===null)return '';const rows=[];const walk=(v,path)=>{if(v===null||v===undefined||typeof v!=='object'){rows.push(`<div class="data-row"><span class="data-key">${esc(path||'Giá trị')}</span><span class="data-value">${esc(v===null?'null':String(v))}</span></div>`);return}if(Array.isArray(v)){if(!v.length){rows.push(`<div class="data-row"><span class="data-key">${esc(path)}</span><span class="data-value">(rỗng)</span></div>`);return}v.forEach((x,i)=>walk(x,`${path}[${i}]`));return}Object.entries(v).forEach(([k,x])=>walk(x,path?`${path}.${k}`:k));};walk(data,'');return `<details class="search-data"><summary>Toàn bộ nội dung dữ liệu</summary><div class="data-table">${rows.join('')}</div></details>`}
-function runFullSearch(){const q=$("#fullSearch")?.value||'',kind=document.querySelector('.search-tab.active')?.dataset.searchKind||'tatca',el=$("#fullSearchResults");if(!el)return;if(!q.trim()){el.innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';const c=$("#searchResultCount");if(c)c.textContent='0 kết quả';return}const rows=searchCorpus().filter(x=>(kind==='tatca'||x.kind===kind)&&diemTimKiem(x.text,q)>0).sort((a,b)=>diemTimKiem(b.text,q)-diemTimKiem(a.text,q)).slice(0,80);el.innerHTML=rows.length?rows.map((x,i)=>`<article class="search-result" data-kind="${esc(x.kind)}"><div class="search-result-top"><div><span class="tag">${esc(x.kind)}</span><div class="search-result-title">${esc(x.title)}</div><div class="search-result-meta">${esc(x.meta)}</div></div>${x.url?`<a class="v51-btn" href="${esc(x.url)}" target="_blank" rel="noopener">Mở đúng nguồn${formPage(x.data?.code)?` · trang ${formPage(x.data.code)}`:''} ↗</a>`:x.action?`<button class="v51-btn" type="button" data-search-index="${i}">Mở hồ sơ</button>`:''}</div>${renderSearchData(x.data)}</article>`).join(''):'<div class="search-empty">Không tìm thấy kết quả. Thử rút gọn cụm từ, ví dụ: <b>nhà máy, nhóm III</b>.</div>';const count=$("#searchResultCount");if(count)count.textContent=`${rows.length} kết quả`;el.querySelectorAll('[data-search-index]').forEach(b=>b.addEventListener('click',()=>{const x=rows[Number(b.dataset.searchIndex)];x?.action?.()}))}
+function runFullSearch(){const q=$("#fullSearch")?.value||'',kind=document.querySelector('.search-tab.active')?.dataset.searchKind||'tatca',el=$("#fullSearchResults");if(!el)return;if(!q.trim()){el.innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';const c=$("#searchResultCount");if(c)c.textContent='0 kết quả';return}const rows=searchCorpus().filter(x=>(kind==='tatca'||x.kind===kind)&&diemTimKiem(x.text,q)>0).sort((a,b)=>diemTimKiem(b.text,q)-diemTimKiem(a.text,q)).slice(0,80);el.innerHTML=rows.length?rows.map((x,i)=>`<article class="search-result" data-kind="${esc(x.kind)}"><div class="search-result-top"><div><span class="tag">${esc(x.kind)}</span><div class="search-result-title">${esc(x.title)}</div><div class="search-result-meta">${esc(x.meta)}</div></div>${x.url?`<div class="form-links">${formPage(x.data?.code)?`<a class="v51-btn primary" href="${esc(x.url)}" target="_blank" rel="noopener">Mở phụ lục · trang ${formPage(x.data.code)} ↗</a>`:`<a class="v51-btn" href="${esc(x.url)}" target="_blank" rel="noopener">Mở đúng nguồn ↗</a>`}${formOfficialUrl(x.data?.code)?`<a class="v51-btn" href="${esc(formOfficialUrl(x.data.code))}" target="_blank" rel="noopener">Nguồn văn bản ↗</a>`:''}</div>`:x.action?`<button class="v51-btn" type="button" data-search-index="${i}">Mở hồ sơ</button>`:''}</div>${renderSearchData(x.data)}</article>`).join(''):'<div class="search-empty">Không tìm thấy kết quả. Thử rút gọn cụm từ, ví dụ: <b>nhà máy, nhóm III</b>.</div>';const count=$("#searchResultCount");if(count)count.textContent=`${rows.length} kết quả`;el.querySelectorAll('[data-search-index]').forEach(b=>b.addEventListener('click',()=>{const x=rows[Number(b.dataset.searchIndex)];x?.action?.()}))}
 function goProcedure(kind){$("#form")?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{$("#fullSearch")?.focus();$("#fullSearch").value=kind;runFullSearch()},250)}
 function renderLinkDiagnostics(){const el=$("#linkStats"),issues=$("#linkIssues"); if(!el||!issues)return; const noDoc=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuathuchien'), noData=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuacodulieu'); const profileCount=WATER_PLANTS.filter(x=>getPlantProfile(x.ma)).length; el.innerHTML=[["Tổng số nhà máy",WATER_PLANTS.length],["Có GPMT",WATER_PLANTS.filter(x=>hoSoLoai(x)==='gpmt').length],["ĐKMT/chấp thuận",WATER_PLANTS.filter(x=>hoSoLoai(x)==='dkmt').length],["Chưa thực hiện",noDoc.length],["Đã có hồ sơ kỹ thuật",profileCount]].map(x=>`<div class="result-box"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join(''); issues.innerHTML=`<div class="link-issue"><strong>Khóa liên kết:</strong> MaNhaMay liên kết danh mục nhà máy với hồ sơ kỹ thuật lưu trên Supabase.</div><div class="link-issue"><strong>Thiếu hồ sơ:</strong> ${noDoc.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Chưa có dữ liệu:</strong> ${noData.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Hồ sơ kỹ thuật:</strong> ${profileCount}/${WATER_PLANTS.length} nhà máy đã có số liệu nhập trực tiếp.</div>`}
 function loadPlantForm(id){const p=WATER_PLANTS.find(x=>x.ma===id);if(!p)return;const t=p.thongTin||{},g=p.gpmt||{},n=p.nghiaVu||{},pr=getPlantProfile(id)||{};$("#wpPlantId").value=id;$("#wpCode").value=id;$("#wpName").value=t.TenNhaMay||'';$("#wpCapacity").value=pr.capacity??t.CongSuat_m3_ngay??0;$("#wpSource").value=pr.source??t['NguonNuoc (Mặt/Ngầm)']??'Nước mặt';$("#wpWaste").value=pr.nuocThai??'';$("#wpSludge").value=pr.bunThai??'';$("#wpSludgeUnit").value=pr.bunThaiUnit??'kg/ngày';$("#wpHaz").value=pr.ctnh??'';$("#wpHazUnit").value=pr.ctnhUnit??'kg/năm';$("#wpChem").value=pr.hoaChat??n.HoaChat??'';$("#wpMonitoring").value=pr.quanTrac??n.QuanTrac??'';$("#wpReporting").value=pr.baoCao??n.BaoCao??'';$("#wpGHG").value=pr.knk??n.KNK??'';$("#wpEPR").value=pr.epr??n.EPR??'';$("#wpNote").value=pr.note??t.GhiChu??g.GhiChu??'';renderTechnicalCustomFields(pr.customFields||[]);$("#plantSnapshotTitle").textContent=t.TenNhaMay||id;$("#wpSaveNote").textContent=pr.updatedAt?`Đã lưu: ${new Date(pr.updatedAt).toLocaleString('vi-VN')}`:'Chưa có số liệu nhập trực tiếp';renderPlantSnapshot(id)}
@@ -1442,34 +1441,11 @@ setTimeout(renderPublicLookup,0);
     if(x.kind==='Nhà máy') score+=5;
     return score;
   }
-  function normalizeHistoryValue(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/\s+/g,' ')}
-  function searchHistory(){
-    try{
-      const raw=JSON.parse(localStorage.getItem(SEARCH_CACHE_KEY)||'[]');
-      if(!Array.isArray(raw)) return [];
-      const out=[]; const seen=new Set();
-      raw.map(x=>String(x??'').trim()).filter(x=>x.length>=3).forEach(q=>{
-        const n=normalizeHistoryValue(q);
-        if(!n||seen.has(n)) return;
-        // Remove old corrupted entries created by saving every keystroke: short prefixes or
-        // single-word fragments that are contained in a longer multi-word query.
-        const isShortPrefix = raw.some(y=>{const ny=normalizeHistoryValue(y);return ny.length>n.length+1 && ny.startsWith(n) && String(y).trim().length>q.length;});
-        const isFragment = !n.includes(' ') && raw.some(y=>{const ny=normalizeHistoryValue(y);return ny.includes(' ') && ny.split(' ').includes(n);});
-        if(isShortPrefix || isFragment) return;
-        seen.add(n); out.push(q);
-      });
-      return out.slice(0,6);
-    }catch{return []}
-  }
-  function saveHistory(q){
-    q=q.trim(); if(q.length<3)return;
-    let a=searchHistory().filter(x=>normalizeHistoryValue(x)!==normalizeHistoryValue(q));
-    a.unshift(q); a=a.slice(0,6);
-    localStorage.setItem(SEARCH_CACHE_KEY,JSON.stringify(a)); renderHistory();
-  }
+  function searchHistory(){try{const a=JSON.parse(localStorage.getItem(SEARCH_CACHE_KEY)||'[]');return Array.isArray(a)?a.filter(x=>typeof x==='string'&&x.trim()):[]}catch{return[]}}
+  function saveHistory(q){q=String(q||'').trim();if(!q)return;let a=searchHistory().filter(x=>x!==q);a.unshift(q);a=a.slice(0,8);localStorage.setItem(SEARCH_CACHE_KEY,JSON.stringify(a));renderHistory()}
   function renderHistory(){
     const host=$('#searchHistory'); if(!host)return; const a=searchHistory();
-    host.innerHTML=a.length?'<span class="search-history-label">Tra cứu gần đây:</span>'+a.map(q=>`<button class="search-history-chip" type="button" data-history="${escLocal(q)}" title="${escLocal(q)}">${escLocal(q)}</button>`).join(''):' ';
+    host.innerHTML=a.length?'<span class="search-note">Tra cứu gần đây:</span>'+a.map(q=>`<button class="search-history-chip" type="button" data-history="${escLocal(q)}" title="${escLocal(q)}">${escLocal(q)}</button>`).join(''):'';
     host.querySelectorAll('[data-history]').forEach(b=>b.addEventListener('click',()=>{$('#fullSearch').value=b.dataset.history;runEnhancedSearch()}));
   }
   function getCorpus(){
@@ -1524,7 +1500,7 @@ setTimeout(renderPublicLookup,0);
     if($('#searchResultCount')) $('#searchResultCount').textContent=`${lastRows.length} kết quả · hiển thị ${shown.length}`;
     saveHistory(q);
     if(!shown.length){el.innerHTML='<div class="search-empty">Không tìm thấy kết quả. Thử mã nhà máy, tên nhà máy, số GPMT, mẫu biểu hoặc một cụm từ ngắn hơn.</div>';return;}
-    el.innerHTML=shown.map((x,i)=>`<article class="search-result" data-kind="${escLocal(x.kind)}"><div class="search-result-top"><div><span class="tag">${escLocal(x.kind)}</span><div class="search-result-title">${highlightTitle(x.title,q)}</div><div class="search-result-meta">${escLocal(x.meta||'')}</div></div>${x.url?`<a class="v51-btn" href="${escLocal(x.url)}" target="_blank" rel="noopener">Mở nguồn${typeof formPage==='function'&&formPage(x.data?.code)?` · trang ${formPage(x.data.code)}`:''} ↗</a>`:x.action?`<button class="v51-btn" type="button" data-open-result="${i}">Mở hồ sơ</button>`:''}</div>${renderAllData(x.data)}<div class="search-result-actions"><button type="button" data-copy-result="${i}">Sao chép toàn bộ bản ghi</button><button type="button" data-download-result="${i}">Tải JSON</button></div></article>`).join('');
+    el.innerHTML=shown.map((x,i)=>`<article class="search-result" data-kind="${escLocal(x.kind)}"><div class="search-result-top"><div><span class="tag">${escLocal(x.kind)}</span><div class="search-result-title">${highlightTitle(x.title,q)}</div><div class="search-result-meta">${escLocal(x.meta||'')}</div></div>${x.url?`<div class="form-links">${typeof formPage==='function'&&formPage(x.data?.code)?`<a class="v51-btn primary" href="${escLocal(x.url)}" target="_blank" rel="noopener">Mở phụ lục · trang ${formPage(x.data.code)} ↗</a>`:`<a class="v51-btn" href="${escLocal(x.url)}" target="_blank" rel="noopener">Mở nguồn ↗</a>`}${typeof formOfficialUrl==='function'&&formOfficialUrl(x.data?.code)?`<a class="v51-btn" href="${escLocal(formOfficialUrl(x.data.code))}" target="_blank" rel="noopener">Nguồn văn bản ↗</a>`:''}</div>`:x.action?`<button class="v51-btn" type="button" data-open-result="${i}">Mở hồ sơ</button>`:''}</div>${renderAllData(x.data)}<div class="search-result-actions"><button type="button" data-copy-result="${i}">Sao chép toàn bộ bản ghi</button><button type="button" data-download-result="${i}">Tải JSON</button></div></article>`).join('');
     el.querySelectorAll('[data-open-result]').forEach(b=>b.addEventListener('click',()=>shown[+b.dataset.openResult]?.action?.()));
     el.querySelectorAll('[data-copy-result]').forEach(b=>b.addEventListener('click',()=>copyText(JSON.stringify(shown[+b.dataset.copyResult].data,null,2))));
     el.querySelectorAll('[data-download-result]').forEach(b=>b.addEventListener('click',()=>downloadJSON(shown[+b.dataset.downloadResult].data,`mt1p-${shown[+b.dataset.downloadResult].kind.replace(/\s+/g,'-')}-${Date.now()}.json`)));
@@ -1538,22 +1514,7 @@ setTimeout(renderPublicLookup,0);
       const b=document.createElement('button');b.className='search-tab';b.type='button';b.dataset.searchKind='Hồ sơ kỹ thuật';b.textContent='Hồ sơ kỹ thuật';tabs.appendChild(b);b.addEventListener('click',()=>{tabs.querySelectorAll('.search-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');runEnhancedSearch()});
     }
     const bar=$('#fullSearch');
-    if(bar){
-      // Input only updates suggestions. Saving history/search results happens on Enter or the Tra cứu button.
-      bar.addEventListener('input',()=>{
-        const q=bar.value.trim();
-        if(q.length>=2){
-          const sug=searchCorpus().filter(x=>khopTruyVan(x.text,q)).slice(0,6);
-          const se=$('#searchSuggestions');
-          if(se){
-            se.innerHTML=sug.map(x=>`<button class="search-suggestion" type="button">${escLocal(x.title)}</button>`).join('');
-            se.classList.toggle('show',sug.length>0);
-            se.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{bar.value=sug[i].title;se.classList.remove('show');runEnhancedSearch()});
-          }
-        } else $('#searchSuggestions')?.classList.remove('show');
-      });
-      bar.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runEnhancedSearch()}});
-    }
+    if(bar){bar.addEventListener('input',()=>runEnhancedSearch());bar.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runEnhancedSearch()}})}
     $('#fullSearchBtn')?.addEventListener('click',runEnhancedSearch);
     $('#searchExact')?.addEventListener('change',runEnhancedSearch);
     $('#clearSearch')?.addEventListener('click',()=>{bar.value='';$('#fullSearchResults').innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';$('#searchResultCount').textContent='0 kết quả';bar.focus()});
