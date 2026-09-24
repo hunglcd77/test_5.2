@@ -5,8 +5,8 @@
 
 <style>
 :root{--bg:#fff;--ink:#09111f;--navy:#0d2e5d;--blue:#2563c9;--light:#5790e6;--teal:#0b6e97;--surface:#f3f6fa;--muted:#6d7787;--line:#e4e9f0;--ghost:#d9e0e9;--r:1.5rem;--rl:2rem;--pill:999px}
-*{box-sizing:border-box}html{font-size:16px}body{margin:0;min-height:100vh;background:#fff;color:var(--ink);font-family:"Onest",system-ui,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}:focus-visible{outline:2px solid var(--light);outline-offset:3px}
-@media(max-width:1920px){html{font-size:.833333vw}}@media(max-width:1440px){html{font-size:1.111111vw}}@media(max-width:1024px){html{font-size:1.5625vw}}@media(max-width:640px){html{font-size:4.444444vw}}
+*{box-sizing:border-box}html{font-size:16px}body{margin:0;min-height:100vh;background:#fff;color:var(--ink);font-family:Inter,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+@media(max-width:640px){html{font-size:15px}}
 main{width:100%;padding:.75rem;overflow:clip}.card{border-radius:var(--rl);overflow:hidden}
 .hero{min-height:calc(100svh - 1.5rem);background:var(--navy);color:#fff;position:relative;isolation:isolate;display:flex;flex-direction:column;padding-bottom:2.5rem}.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 82% 18%,rgba(87,144,230,.28),transparent 34%),linear-gradient(135deg,#0d2e5d,#09244b 58%,#061a35)}.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,28,55,.08),rgba(10,28,55,.48))}
 .header{display:flex;align-items:center;padding:2rem 2.5rem 0;gap:1rem;position:relative;z-index:5}.nav{display:flex;gap:2rem;flex:1;font-size:.75rem;color:rgba(255,255,255,.88)}.brand{flex:1;display:flex;justify-content:center;align-items:center;gap:.5rem;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em}.mark{width:1.35rem;height:1.35rem;border:1.8px solid currentColor;border-radius:50%;position:relative}.mark:before,.mark:after{content:"";position:absolute;inset:.15rem .4rem;border-left:1.4px solid currentColor;border-radius:50%}.mark:after{transform:scaleX(-1)}.head-actions{flex:1;display:flex;justify-content:flex-end;gap:1rem;align-items:center}.book-link{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;text-decoration:underline;text-underline-offset:.25rem;background:none;border:0;color:#fff}.burger{width:2.5rem;height:2.5rem;border:0;border-radius:var(--pill);background:rgba(255,255,255,.14);display:grid;place-content:center;gap:5px;color:#fff}.burger span{width:1rem;height:1px;background:#fff;display:block}
@@ -144,6 +144,8 @@ main{padding-top:0}
 section[id]{scroll-margin-top:8.2rem}
 .footer#contact{position:relative;z-index:2;clear:both}
 @media(max-width:768px){.header#siteHeader{top:.5rem;left:.5rem;right:.5rem;height:3.6rem;padding:.55rem 1rem}.hero{padding-top:4.9rem}#topTabs{top:4.45rem;left:.5rem;right:.5rem;overflow-x:auto}section[id]{scroll-margin-top:7.2rem}}
+
+.public-lookup{margin-top:1.1rem;background:#fff;border:1px solid #dbe3ec;border-radius:1rem;padding:1rem;color:#09111f;min-width:0}.public-lookup-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.public-kicker{font-size:.65rem;font-weight:800;letter-spacing:.12em;color:#2563c9}.public-lookup h3{margin:.25rem 0 .15rem;font-size:1.2rem}.public-lookup p{margin:0;color:#667085;font-size:.75rem}.public-badge{white-space:nowrap;border:1px solid #cfe0f5;background:#f4f8fd;color:#1455a0;border-radius:999px;padding:.35rem .55rem;font-size:.62rem;font-weight:800}.public-lookup-tools{display:grid;grid-template-columns:1.7fr .8fr auto;gap:.55rem;margin:.8rem 0}.public-lookup-tools input,.public-lookup-tools select{min-height:2.4rem}.public-table-wrap{max-height:25rem;overflow:auto;border:1px solid #e2e8f0;border-radius:.75rem}.public-table{width:100%;border-collapse:collapse;font-size:.72rem}.public-table th,.public-table td{padding:.65rem .55rem;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}.public-table th{position:sticky;top:0;background:#f7f9fc;color:#475467;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;z-index:1}.public-table tr:last-child td{border-bottom:0}.public-table code{font-weight:800;color:#1455a0}.public-empty{text-align:center;color:#667085;padding:1.2rem}.auth-card{max-width:1100px!important}.auth-login{max-width:430px}.auth-login + .public-lookup{flex:1}@media(max-width:850px){.public-lookup-tools{grid-template-columns:1fr}.public-table{min-width:760px}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
@@ -160,6 +162,11 @@ section[id]{scroll-margin-top:8.2rem}
         <button class="auth-primary" id="loginBtn" type="submit">Đăng nhập</button>
       </form>
       <div class="auth-note">Xác thực được thực hiện bởi Supabase Auth. Quyền truy cập dữ liệu được kiểm soát thêm bằng Row Level Security (RLS).</div>
+    </div>
+    <div class="public-lookup" id="publicLookupPanel">
+      <div class="public-lookup-head"><div><span class="public-kicker">TRA CỨU CÔNG KHAI</span><h3>Danh mục nhà máy</h3><p>Tra cứu thông tin danh mục cơ bản mà không cần đăng nhập.</p></div><span class="public-badge">Không cần tài khoản</span></div>
+      <div class="public-lookup-tools"><input id="publicLookupSearch" type="search" placeholder="Tìm mã, tên nhà máy, địa điểm, công suất…" aria-label="Tra cứu công khai"><select id="publicLookupSource"><option value="">Tất cả nguồn nước</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option></select><span id="publicLookupCount" class="search-note"></span></div>
+      <div class="public-table-wrap"><table class="public-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Địa điểm</th><th>Công suất</th><th>Nguồn nước</th><th>Tình trạng</th></tr></thead><tbody id="publicLookupBody"></tbody></table></div>
     </div>
   </div>
 </div>
@@ -227,7 +234,7 @@ section[id]{scroll-margin-top:8.2rem}
         <div class="full"><label>Ghi chú kỹ thuật / xử lý nước thải / bùn</label><textarea id="wpNote" rows="4" placeholder="Ví dụ: nước thải lắng lọc, tuần hoàn về cụm xử lý; bùn thu gom..." ></textarea></div>
         <div class="custom-fields-panel"><div class="custom-fields-head"><h4>Trường dữ liệu bổ sung</h4><button class="v51-btn" id="addTechnicalField" type="button">+ Thêm trường dữ liệu</button></div><div id="technicalCustomFields"><div class="custom-field-empty">Chưa có trường dữ liệu bổ sung. Dùng nút trên khi phát sinh chỉ tiêu/thông tin mới.</div></div></div>
       </div>
-      <div class="toolbar technical-actions"><button class="v51-btn primary" id="savePlant" data-role-only="admin,manager" type="button">Lưu hồ sơ kỹ thuật</button><button class="v51-btn" id="clearPlantProfile" data-role-only="admin" type="button">Xóa số liệu đã nhập của nhà máy</button><span class="search-note" id="wpSaveNote"></span></div>
+      <div class="toolbar technical-actions"><button class="v51-btn primary" id="savePlant" data-role-only="admin,manager" type="button">Lưu hồ sơ kỹ thuật</button><button class="v51-btn" id="syncPlantNow" data-role-only="admin,manager" type="button">Đồng bộ mã nhà máy</button><button class="v51-btn" id="clearPlantProfile" data-role-only="admin" type="button">Xóa số liệu đã nhập của nhà máy</button><span class="search-note" id="wpSaveNote"></span></div>
     </div>
     <div class="panel">
       <span class="eyebrow"><i></i> Dữ liệu đang lưu</span><h3 id="plantSnapshotTitle">Chọn nhà máy</h3>
@@ -704,7 +711,7 @@ function printResult(r){const w=window.open("","_blank");if(!w){alert("Trình du
 $$("#lhToggle button").forEach(b=>b.onclick=()=>{$$("#lhToggle button").forEach(x=>x.classList.remove("active"));b.classList.add("active");loaiHinh=b.dataset.v});$("#run").onclick=run;
 function openModal(){$("#modal").classList.add("open");setTimeout(()=>$("#contactName").focus(),120)}function closeModal(){$("#modal").classList.remove("open");$("#success").classList.remove("show");$("#contactForm").style.display="grid"}$("#bookFooter").onclick=openModal;$("#modalClose").onclick=closeModal;$("#done").onclick=closeModal;$("#contactForm").onsubmit=e=>{e.preventDefault();$("#contactForm").style.display="none";$("#success").classList.add("show")};$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal()}});
 $$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const id=a.getAttribute("href");if(id&&id!=="#"){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:"smooth",block:"start"})}}));
-document.querySelectorAll("[data-tool-target]").forEach(b=>b.addEventListener("click",()=>{const target=b.dataset.toolTarget;document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});if(b.dataset.toolAction==="checklist"&&lastResult){setTimeout(()=>document.getElementById("traceBtn")?.click(),350)}}));document.querySelectorAll('[data-tool-action="print"]').forEach(b=>b.addEventListener("click",()=>{if(lastResult)printResult(lastResult);else{alert("Chưa có kết quả tra cứu để in. Hãy thực hiện tra cứu trước.");document.querySelector("#form")?.scrollIntoView({behavior:"smooth"})}}));initData();populatePlantNameFilter();renderPlants();renderLinkDiagnostics();const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(()=>{document.body.classList.add("ready");$("#loader").classList.add("done");setTimeout(()=>$("#loader")?.remove(),reduce?20:850)},reduce?200:1450);
+document.querySelectorAll("[data-tool-target]").forEach(b=>b.addEventListener("click",()=>{const target=b.dataset.toolTarget;document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});if(b.dataset.toolAction==="checklist"&&lastResult){setTimeout(()=>document.getElementById("traceBtn")?.click(),350)}}));document.querySelectorAll('[data-tool-action="print"]').forEach(b=>b.addEventListener("click",()=>{if(lastResult)printResult(lastResult);else{alert("Chưa có kết quả tra cứu để in. Hãy thực hiện tra cứu trước.");document.querySelector("#form")?.scrollIntoView({behavior:"smooth"})}}));initData();populatePlantNameFilter();renderPublicLookup();renderPlants();renderLinkDiagnostics();const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(()=>{document.body.classList.add("ready");$("#loader").classList.add("done");setTimeout(()=>$("#loader")?.remove(),reduce?20:850)},reduce?200:1450);
 /* V5.5: dùng cuộn native để HTML chạy độc lập khi mở trực tiếp bằng file:// */
 /* ===== V5.1 HỒ SƠ / AUDIT / WATER-PLANT LAYER ===== */
 function readLS(k,d){try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch{return d}}
@@ -886,28 +893,47 @@ async function savePlantToSupabase(p){
   const user=window.MT1P_USER;
   if(!sb || !user) throw new Error('Phiên đăng nhập Supabase không tồn tại.');
   if(!['admin','manager'].includes(user.role)) throw new Error('Tài khoản này không có quyền thêm/sửa hồ sơ kỹ thuật.');
-  const plant=WATER_PLANTS.find(x=>x.ma===p.id);
-  const plantId=plant?._supabaseId;
-  if(plantId===undefined || plantId===null) throw new Error('Không xác định được ID Supabase của nhà máy '+p.id+'. Hãy đồng bộ lại danh mục nhà máy.');
+
+  const plant=WATER_PLANTS.find(x=>String(x.ma).toUpperCase()===String(p.id).toUpperCase());
+  if(!plant) throw new Error('Không tìm thấy nhà máy '+p.id+' trong danh mục MT-1P.');
+
+  // Luôn đồng bộ ID thật từ Supabase theo ma_nha_may trước khi INSERT/UPDATE.
+  let plantId=plant._supabaseId;
+  if(plantId===undefined || plantId===null || plantId===''){
+    const lookupPlant=await sb.from('water_plants').select('id,ma_nha_may,ten_nha_may').eq('ma_nha_may',p.id).maybeSingle();
+    if(lookupPlant.error) throw new Error(`Không đọc được danh mục nhà máy [water_plants ${lookupPlant.error.code||''}]: ${lookupPlant.error.message}`);
+    if(!lookupPlant.data?.id) throw new Error(`Không tìm thấy mã ${p.id} trong water_plants trên Supabase. Kiểm tra ma_nha_may có đúng NM01…NM28.`);
+    plantId=lookupPlant.data.id;
+    plant._supabaseId=plantId;
+  }
+
   const now=new Date().toISOString();
   p.updatedAt=now;p.updatedBy=user.id;
   const payload=profileToTechnicalPayload(p,{id:plantId});
-  let existing=getPlantProfile(p.id);
-  // Đọc lại bản ghi theo plant_id để tránh dùng cache cũ.
-  const lookup=await sb.from('technical_records').select('id,plant_id,created_by,created_at').eq('plant_id',plantId).eq('loai_ho_so','Hồ sơ kỹ thuật').order('updated_at',{ascending:false}).limit(1);
-  if(lookup.error) throw lookup.error;
+
+  const lookup=await sb.from('technical_records')
+    .select('id,plant_id,created_by,created_at')
+    .eq('plant_id',plantId)
+    .eq('loai_ho_so','Hồ sơ kỹ thuật')
+    .order('updated_at',{ascending:false})
+    .limit(1);
+  if(lookup.error) throw new Error(`Không kiểm tra được hồ sơ hiện có [${lookup.error.code||''}]: ${lookup.error.message}`);
+
   const existingRow=lookup.data?.[0]||null;
-  if(existingRow?.id) existing={...(existing||{}),recordId:existingRow.id};
   const cols='id,plant_id,ten_ho_so,loai_ho_so,noi_dung,file_url,trang_thai,created_at,updated_at,created_by,updated_by';
-  if(existing?.recordId){
-    const {data,error}=await sb.from('technical_records').update(payload).eq('id',existing.recordId).select(cols).single();
-    if(error) throw new Error(`Không lưu được hồ sơ kỹ thuật [UPDATE ${error.code||''}]: ${error.message}${error.details?' — '+error.details:''}`);
-    TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);return data;
+
+  if(existingRow?.id){
+    const {data,error}=await sb.from('technical_records').update(payload).eq('id',existingRow.id).select(cols).single();
+    if(error) throw new Error(`Không lưu được hồ sơ kỹ thuật [UPDATE ${error.code||''}]: ${error.message}${error.details?' — '+error.details:''}${error.hint?' — '+error.hint:''}`);
+    TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);
+    return data;
   }
+
   const insertPayload=Object.assign({},payload,{created_by:user.id,created_at:now});
   const {data,error}=await sb.from('technical_records').insert(insertPayload).select(cols).single();
-  if(error) throw new Error(`Không lưu được hồ sơ kỹ thuật [INSERT ${error.code||''}]: ${error.message}${error.details?' — '+error.details:''}`);
-  TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);return data;
+  if(error) throw new Error(`Không lưu được hồ sơ kỹ thuật [INSERT ${error.code||''}]: ${error.message}${error.details?' — '+error.details:''}${error.hint?' — '+error.hint:''}`);
+  TECHNICAL_RECORDS[p.id]=technicalRecordToProfile(data);
+  return data;
 }
 
 async function deletePlantFromSupabase(id){
@@ -931,7 +957,7 @@ function profileValue(p,key,fallback=''){const pr=getPlantProfile(p.ma)||{};retu
 function plantProfileText(p){const pr=getPlantProfile(p.ma)||{};return Object.entries(pr).filter(([k])=>!['updatedAt'].includes(k)).map(([k,v])=>v).join(' | ')}
 function searchCorpus(){const arr=[];arr.push({kind:'Quy tắc',title:'Bộ dữ liệu quy tắc và ngành nghề',meta:'Tra cứu Nhóm I–IV, ĐTM, GPMT, ĐKMT',text:JSON.stringify(DATA),data:DATA,url:''});WATER_PLANTS.forEach(p=>{const t=p.thongTin||{},g=p.gpmt||{};arr.push({kind:'Nhà máy',title:t.TenNhaMay||p.ma,meta:`${p.ma} · ${t.DiaDiem||''} · ${hoSoNhan(p)}`,text:[p.ma,t.TenNhaMay,t.DiaDiem,t.CongSuat_m3_ngay,t['NguonNuoc (Mặt/Ngầm)'],g.SoGPMT,g.CoQuanCap,Object.values(p.nghiaVu||{}),plantProfileText(p)].flat().join(' | '),data:p,action:()=>selectPlant(p.ma)} )});FORM_REGISTRY.forEach(f=>arr.push({kind:f.kind==='Báo cáo BVMT'?'Biểu mẫu':f.kind,title:`${f.code} — ${f.title}`,meta:`${f.kind} · ${f.appendix} · Trang ${formPage(f.code)||'—'} · ${f.status}`,text:[f.code,f.kind,f.title,f.appendix,f.note,f.status].join(' | '),data:f,url:formSourceUrl(f.code)}));(DATA.canCu||[]).forEach(x=>arr.push({kind:'Nguồn pháp lý',title:x[1],meta:`${x[2]} · ${x[3]}`,text:x.join(' | '),data:{ma:x[0],vanBan:x[1],hieuLuc:x[2],vaiTro:x[3]},url:(SOURCE_DOCUMENTS.find(s=>normalizeSearch(s[1])===normalizeSearch(x[1]))||[])[4]}));return arr}
 function renderSearchData(data){if(data===undefined||data===null)return '';const rows=[];const walk=(v,path)=>{if(v===null||v===undefined||typeof v!=='object'){rows.push(`<div class="data-row"><span class="data-key">${esc(path||'Giá trị')}</span><span class="data-value">${esc(v===null?'null':String(v))}</span></div>`);return}if(Array.isArray(v)){if(!v.length){rows.push(`<div class="data-row"><span class="data-key">${esc(path)}</span><span class="data-value">(rỗng)</span></div>`);return}v.forEach((x,i)=>walk(x,`${path}[${i}]`));return}Object.entries(v).forEach(([k,x])=>walk(x,path?`${path}.${k}`:k));};walk(data,'');return `<details class="search-data"><summary>Toàn bộ nội dung dữ liệu</summary><div class="data-table">${rows.join('')}</div></details>`}
-function runFullSearch(){const q=$("#fullSearch")?.value||'',kind=document.querySelector('.search-tab.active')?.dataset.searchKind||'tatca',el=$("#fullSearchResults");if(!el)return;if(!q.trim()){el.innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';return}const rows=searchCorpus().filter(x=>(kind==='tatca'||x.kind===kind)&&diemTimKiem(x.text,q)>0).sort((a,b)=>diemTimKiem(b.text,q)-diemTimKiem(a.text,q)).slice(0,80);el.innerHTML=rows.length?rows.map((x,i)=>`<article class="search-result" data-kind="${esc(x.kind)}"><div class="search-result-top"><div><span class="tag">${esc(x.kind)}</span><div class="search-result-title">${esc(x.title)}</div><div class="search-result-meta">${esc(x.meta)}</div></div>${x.url?`<a class="v51-btn" href="${esc(x.url)}" target="_blank" rel="noopener">Mở đúng nguồn${formPage(x.data?.code)?` · trang ${formPage(x.data.code)}`:''} ↗</a>`:x.action?`<button class="v51-btn" type="button" data-search-index="${i}">Mở hồ sơ</button>`:''}</div>${renderSearchData(x.data)}</article>`).join(''):'<div class="search-empty">Không tìm thấy kết quả. Thử rút gọn cụm từ, ví dụ: <b>nhà máy, nhóm III</b>.</div>';el.querySelectorAll('[data-search-index]').forEach(b=>b.addEventListener('click',()=>{const x=rows[Number(b.dataset.searchIndex)];x?.action?.()}))}
+function runFullSearch(){const q=$("#fullSearch")?.value||'',kind=document.querySelector('.search-tab.active')?.dataset.searchKind||'tatca',el=$("#fullSearchResults");if(!el)return;if(!q.trim()){el.innerHTML='<div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div>';const c=$("#searchResultCount");if(c)c.textContent='0 kết quả';return}const rows=searchCorpus().filter(x=>(kind==='tatca'||x.kind===kind)&&diemTimKiem(x.text,q)>0).sort((a,b)=>diemTimKiem(b.text,q)-diemTimKiem(a.text,q)).slice(0,80);el.innerHTML=rows.length?rows.map((x,i)=>`<article class="search-result" data-kind="${esc(x.kind)}"><div class="search-result-top"><div><span class="tag">${esc(x.kind)}</span><div class="search-result-title">${esc(x.title)}</div><div class="search-result-meta">${esc(x.meta)}</div></div>${x.url?`<a class="v51-btn" href="${esc(x.url)}" target="_blank" rel="noopener">Mở đúng nguồn${formPage(x.data?.code)?` · trang ${formPage(x.data.code)}`:''} ↗</a>`:x.action?`<button class="v51-btn" type="button" data-search-index="${i}">Mở hồ sơ</button>`:''}</div>${renderSearchData(x.data)}</article>`).join(''):'<div class="search-empty">Không tìm thấy kết quả. Thử rút gọn cụm từ, ví dụ: <b>nhà máy, nhóm III</b>.</div>';const count=$("#searchResultCount");if(count)count.textContent=`${rows.length} kết quả`;el.querySelectorAll('[data-search-index]').forEach(b=>b.addEventListener('click',()=>{const x=rows[Number(b.dataset.searchIndex)];x?.action?.()}))}
 function goProcedure(kind){$("#form")?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{$("#fullSearch")?.focus();$("#fullSearch").value=kind;runFullSearch()},250)}
 function renderLinkDiagnostics(){const el=$("#linkStats"),issues=$("#linkIssues"); if(!el||!issues)return; const noDoc=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuathuchien'), noData=WATER_PLANTS.filter(x=>hoSoLoai(x)==='chuacodulieu'); const profileCount=WATER_PLANTS.filter(x=>getPlantProfile(x.ma)).length; el.innerHTML=[["Tổng số nhà máy",WATER_PLANTS.length],["Có GPMT",WATER_PLANTS.filter(x=>hoSoLoai(x)==='gpmt').length],["ĐKMT/chấp thuận",WATER_PLANTS.filter(x=>hoSoLoai(x)==='dkmt').length],["Chưa thực hiện",noDoc.length],["Đã có hồ sơ kỹ thuật",profileCount]].map(x=>`<div class="result-box"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join(''); issues.innerHTML=`<div class="link-issue"><strong>Khóa liên kết:</strong> MaNhaMay liên kết danh mục nhà máy với hồ sơ kỹ thuật lưu trên Supabase.</div><div class="link-issue"><strong>Thiếu hồ sơ:</strong> ${noDoc.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Chưa có dữ liệu:</strong> ${noData.map(x=>`${esc(x.ma)} — ${esc(x.thongTin?.TenNhaMay)}`).join('; ')||'Không có'}</div><div class="link-issue"><strong>Hồ sơ kỹ thuật:</strong> ${profileCount}/${WATER_PLANTS.length} nhà máy đã có số liệu nhập trực tiếp.</div>`}
 function loadPlantForm(id){const p=WATER_PLANTS.find(x=>x.ma===id);if(!p)return;const t=p.thongTin||{},g=p.gpmt||{},n=p.nghiaVu||{},pr=getPlantProfile(id)||{};$("#wpPlantId").value=id;$("#wpCode").value=id;$("#wpName").value=t.TenNhaMay||'';$("#wpCapacity").value=pr.capacity??t.CongSuat_m3_ngay??0;$("#wpSource").value=pr.source??t['NguonNuoc (Mặt/Ngầm)']??'Nước mặt';$("#wpWaste").value=pr.nuocThai??'';$("#wpSludge").value=pr.bunThai??'';$("#wpSludgeUnit").value=pr.bunThaiUnit??'kg/ngày';$("#wpHaz").value=pr.ctnh??'';$("#wpHazUnit").value=pr.ctnhUnit??'kg/năm';$("#wpChem").value=pr.hoaChat??n.HoaChat??'';$("#wpMonitoring").value=pr.quanTrac??n.QuanTrac??'';$("#wpReporting").value=pr.baoCao??n.BaoCao??'';$("#wpGHG").value=pr.knk??n.KNK??'';$("#wpEPR").value=pr.epr??n.EPR??'';$("#wpNote").value=pr.note??t.GhiChu??g.GhiChu??'';renderTechnicalCustomFields(pr.customFields||[]);$("#plantSnapshotTitle").textContent=t.TenNhaMay||id;$("#wpSaveNote").textContent=pr.updatedAt?`Đã lưu: ${new Date(pr.updatedAt).toLocaleString('vi-VN')}`:'Chưa có số liệu nhập trực tiếp';renderPlantSnapshot(id)}
@@ -939,6 +965,19 @@ function renderPlantSnapshot(id){const p=WATER_PLANTS.find(x=>x.ma===id),el=$("#
 function renderPlantSelector(){const el=$("#wpPlantId");if(!el)return;const current=el.value;el.innerHTML=WATER_PLANTS.map(p=>`<option value="${esc(p.ma)}">${esc(p.ma)} — ${esc(p.thongTin?.TenNhaMay||p.ma)}</option>`).join('');el.value=current&&WATER_PLANTS.some(p=>p.ma===current)?current:(WATER_PLANTS[0]?.ma||'');if(el.value)loadPlantForm(el.value)}
 function selectPlant(id){if(!WATER_PLANTS.some(x=>x.ma===id))return;renderPlantSelector();$("#wpPlantId").value=id;loadPlantForm(id);document.querySelector('#waterplant')?.scrollIntoView({behavior:'smooth',block:'start'})}
 function plantData(){const id=$("#wpPlantId").value,p=WATER_PLANTS.find(x=>x.ma===id);return{id,name:p?.thongTin?.TenNhaMay||$("#wpName").value.trim(),capacity:+$("#wpCapacity").value||0,source:$("#wpSource").value,nuocThai:$("#wpWaste").value===''?'':(+$("#wpWaste").value||0),bunThai:$("#wpSludge").value===''?'':(+$("#wpSludge").value||0),bunThaiUnit:$("#wpSludgeUnit").value,ctnh:$("#wpHaz").value===''?'':(+$("#wpHaz").value||0),ctnhUnit:$("#wpHazUnit").value,hoaChat:$("#wpChem").value.trim(),quanTrac:$("#wpMonitoring").value.trim(),baoCao:$("#wpReporting").value.trim(),knk:$("#wpGHG").value.trim(),epr:$("#wpEPR").value.trim(),note:$("#wpNote").value.trim(),customFields:readTechnicalCustomFields(),updatedAt:new Date().toISOString()}}
+
+async function syncSelectedPlantId(){
+  const id=$('#wpPlantId')?.value; if(!id)return;
+  const sb=window.MT1P_SUPABASE; if(!sb||!window.MT1P_USER){alert('Vui lòng đăng nhập trước.');return;}
+  const btn=document.getElementById('syncPlantNow'); if(btn)btn.disabled=true;
+  try{
+    const {data,error}=await sb.from('water_plants').select('id,ma_nha_may,ten_nha_may').eq('ma_nha_may',id).maybeSingle();
+    if(error)throw error; if(!data?.id)throw new Error('Không tìm thấy '+id+' trên Supabase.');
+    const p=WATER_PLANTS.find(x=>x.ma===id); if(p)p._supabaseId=data.id;
+    $('#wpSaveNote').textContent=`Đã đồng bộ ${id} → ID ${data.id}.`;
+    audit('Đồng bộ ID nhà máy',id);
+  }catch(e){alert('Không đồng bộ được: '+(e.message||e));}finally{if(btn)btn.disabled=false;}
+}
 async function savePlant(){
   const p=plantData();
   if(!p.id){alert('Vui lòng chọn nhà máy.');return;}
@@ -982,13 +1021,35 @@ async function clearPlant(){
 }
 function usePlantCase(){const id=$("#wpPlantId")?.value,p=getPlantProfile(id);if(!p){alert('Nhà máy này chưa có số liệu kỹ thuật nhập trực tiếp.');return}$("#nt").value=p.nuocThai||0;$("#ctnh").value=p.ctnh||0;$("#dt").value=0;$("#von").value=0;loaiHinh='coso';$$('#lhToggle button').forEach(b=>b.classList.toggle('active',b.dataset.v==='coso'));audit('Dùng hồ sơ kỹ thuật cho tra cứu',p.name);document.querySelector('#form')?.scrollIntoView({behavior:'smooth',block:'start'})}
 function importCasesFile(f){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.cases)writeLS(V51.casesKey,d.cases);if(d.audit)writeLS(V51.auditKey,d.audit);if(d.plant)writeLS(V51.plantKey,d.plant);renderCases();renderAudit();renderPlant();audit("Nhập dữ liệu hồ sơ");}catch(e){alert("JSON không hợp lệ: "+e.message)}};r.readAsText(f)}
-$("#saveCase")?.addEventListener("click",saveCase);$("#exportCases")?.addEventListener("click",exportCases);$("#importCases")?.addEventListener("click",()=>$("#caseFile").click());$("#caseFile")?.addEventListener("change",e=>{if(e.target.files[0])importCasesFile(e.target.files[0])});$("#savePlant")?.addEventListener("click",savePlant);$("#addTechnicalField")?.addEventListener("click",()=>{const current=readTechnicalCustomFields();current.push({name:'',value:''});renderTechnicalCustomFields(current);const rows=document.querySelectorAll('#technicalCustomFields [data-custom-field-row]');rows[rows.length-1]?.querySelector('[data-custom-name]')?.focus();});$("#usePlantCase")?.addEventListener("click",usePlantCase);$("#clearPlantProfile")?.addEventListener("click",clearPlant);$("#wpPlantId")?.addEventListener("change",e=>loadPlantForm(e.target.value));renderCases();renderAudit();renderLegal();renderSources();renderFormRegistry();populatePlantNameFilter();renderPlants();renderPlant();renderLinkDiagnostics();["plantSearch"].forEach(id=>document.getElementById(id)?.addEventListener("input",renderPlants));["plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderPlants));document.getElementById("clearPlantFilters")?.addEventListener("click",()=>{["plantSearch","plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==="plantNameFilter"||id==="plantStatus"||id==="plantSourceFilter"||id==="obligationFilter"?"tatca":""});renderPlants()});audit("Khởi tạo V5.5.2 — sửa thứ tự khởi tạo dữ liệu + menu panel + hồ sơ kỹ thuật theo MaNhaMay");
+$("#saveCase")?.addEventListener("click",saveCase);$("#exportCases")?.addEventListener("click",exportCases);$("#importCases")?.addEventListener("click",()=>$("#caseFile").click());$("#caseFile")?.addEventListener("change",e=>{if(e.target.files[0])importCasesFile(e.target.files[0])});$("#savePlant")?.addEventListener("click",savePlant);$("#syncPlantNow")?.addEventListener("click",syncSelectedPlantId);$("#addTechnicalField")?.addEventListener("click",()=>{const current=readTechnicalCustomFields();current.push({name:'',value:''});renderTechnicalCustomFields(current);const rows=document.querySelectorAll('#technicalCustomFields [data-custom-field-row]');rows[rows.length-1]?.querySelector('[data-custom-name]')?.focus();});$("#usePlantCase")?.addEventListener("click",usePlantCase);$("#clearPlantProfile")?.addEventListener("click",clearPlant);$("#wpPlantId")?.addEventListener("change",e=>loadPlantForm(e.target.value));renderCases();renderAudit();renderLegal();renderSources();renderFormRegistry();populatePlantNameFilter();renderPlants();renderPlant();renderLinkDiagnostics();["plantSearch"].forEach(id=>document.getElementById(id)?.addEventListener("input",renderPlants));["plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderPlants));document.getElementById("clearPlantFilters")?.addEventListener("click",()=>{["plantSearch","plantNameFilter","plantStatus","plantSourceFilter","obligationFilter"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==="plantNameFilter"||id==="plantStatus"||id==="plantSourceFilter"||id==="obligationFilter"?"tatca":""});renderPlants()});audit("Khởi tạo V5.5.2 — public lookup + đồng bộ ID nhà máy + hồ sơ kỹ thuật Supabase");
 $("#fullSearchBtn")?.addEventListener("click",runFullSearch);$("#fullSearch")?.addEventListener("keydown",e=>{if(e.key==="Enter")runFullSearch()});$("#fullSearch")?.addEventListener("input",()=>{const q=$("#fullSearch").value.trim();if(q.length>=2){const sug=searchCorpus().filter(x=>khopTruyVan(x.text,q)).slice(0,6);const el=$("#searchSuggestions");el.innerHTML=sug.map(x=>`<button class="search-suggestion" type="button">${esc(x.title)}</button>`).join("");el.classList.toggle("show",sug.length>0);el.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{$("#fullSearch").value=sug[i].title;el.classList.remove("show");runFullSearch()})}else $("#searchSuggestions")?.classList.remove("show")});document.addEventListener("click",e=>{if(!e.target.closest(".full-search-input"))$("#searchSuggestions")?.classList.remove("show")});document.querySelectorAll(".search-tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".search-tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");runFullSearch()}));document.querySelectorAll(".procedure-card").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.procedure;document.querySelectorAll(".search-tab").forEach(x=>x.classList.toggle("active",x.dataset.searchKind===k));goProcedure(k)}));document.querySelectorAll("#formFilter button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("#formFilter button").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderFormRegistry(b.dataset.formKind)}));
 
 document.querySelectorAll('.top-tab').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.top-tab').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
 
 window.addEventListener("error",function(e){console.error("[MT-1P] Lỗi khởi tạo:",e.error||e.message);const box=document.getElementById("appError");if(box){box.hidden=false;box.textContent="Ứng dụng gặp lỗi khi khởi tạo: "+(e.message||"không xác định")+". Dữ liệu nền 28 nhà máy vẫn được nhúng trong tệp này.";}});
 (function(){const tabs=[...document.querySelectorAll('#topTabs .top-tab')];const byHash={'#form':'tra-cuu','#tracuu-tu-khoa':'tim-nhanh','#waterplant':'ho-so','#plants':'nha-may','#sources':'phap-ly','#bieu-mau':'bieu-mau'};function activate(){const key=byHash[location.hash]||'tra-cuu';tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===key))}tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active')}));window.addEventListener('hashchange',activate);activate()})();
+/* MT-1P PUBLIC LOOKUP — không cần đăng nhập, chỉ hiển thị dữ liệu danh mục an toàn */
+function renderPublicLookup(){
+  const body=document.getElementById('publicLookupBody');
+  if(!body) return;
+  const q=normalizeSearch(document.getElementById('publicLookupSearch')?.value||'');
+  const source=document.getElementById('publicLookupSource')?.value||'';
+  const rows=WATER_PLANTS.filter(p=>{
+    const t=p.thongTin||{};
+    const blob=normalizeSearch([p.ma,t.TenNhaMay,t.DiaDiem,t.CongSuat_m3_ngay,t['NguonNuoc (Mặt/Ngầm)']].join(' '));
+    return (!q||blob.includes(q)) && (!source||String(t['NguonNuoc (Mặt/Ngầm)']||'')===source);
+  });
+  body.innerHTML=rows.length?rows.map(p=>{
+    const t=p.thongTin||{},g=p.gpmt||{};
+    return `<tr><td><code>${esc(p.ma)}</code></td><td><strong>${esc(t.TenNhaMay||p.ma)}</strong></td><td>${esc(t.DiaDiem||'—')}</td><td>${esc(Number(t.CongSuat_m3_ngay||0).toLocaleString('vi-VN'))} m³/ngày</td><td>${esc(t['NguonNuoc (Mặt/Ngầm)']||'—')}</td><td>${esc(hoSoNhan(p))}</td></tr>`;
+  }).join(''):`<tr><td colspan="6" class="public-empty">Không tìm thấy dữ liệu phù hợp.</td></tr>`;
+  const count=document.getElementById('publicLookupCount');
+  if(count) count.textContent=`${rows.length}/${WATER_PLANTS.length} nhà máy`;
+}
+document.getElementById('publicLookupSearch')?.addEventListener('input',renderPublicLookup);
+document.getElementById('publicLookupSource')?.addEventListener('change',renderPublicLookup);
+setTimeout(renderPublicLookup,0);
+
 /* MT-1P Phase 3.2 — Supabase Auth: stable login flow */
 (function(){
   const gate=document.getElementById('authGate');
