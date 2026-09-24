@@ -1331,41 +1331,51 @@ setTimeout(renderPublicLookup,0);
     return sb;
   }
 
-  async function loadUser(){
-    // Tránh race condition: lần khởi tạo ban đầu có thể đang đọc session
-    // đúng lúc người dùng bấm Đăng nhập. Các lần gọi tiếp theo sẽ chờ cùng một Promise.
+  async function loadUser(authSession=null, authUser=null){
+    // Khi vừa signInWithPassword(), ưu tiên dùng user/session vừa trả về thay vì
+    // gọi getSession() lại ngay lập tức. Điều này tránh lỗi session chưa đồng bộ
+    // giữa Auth client và truy vấn profiles.
     if(loadPromise) return loadPromise;
     loadPromise=(async()=>{
       loading=true;
       try{
         const client=authClient();
-        const {data:{session},error:sessionError}=await client.auth.getSession();
-        if(sessionError) throw sessionError;
-        const user=session?.user;
+        let session=authSession;
+        let user=authUser;
+        if(!user){
+          const res=await client.auth.getSession();
+          if(res.error) throw res.error;
+          session=res.data?.session||null;
+          user=session?.user||null;
+        }
         if(!user){ lock(); return false; }
 
-        // Đọc đúng profile theo UUID của Auth user. Policy hiện tại
-        // "Users can view own profile" cho phép chính user đọc dòng của mình.
         const {data:profile,error:profileError}=await client
           .from('profiles')
           .select('id,full_name,role,status')
           .eq('id',user.id)
           .maybeSingle();
 
-        if(profileError) throw new Error('Không đọc được profiles: '+profileError.message);
-        if(!profile) throw new Error('Tài khoản đã đăng nhập nhưng chưa có hồ sơ trong profiles.');
-        if(profile.status!=='active') throw new Error('Tài khoản chưa ở trạng thái active.');
-        if(!['admin','manager','staff','viewer'].includes(profile.role)) throw new Error('Role không hợp lệ: '+profile.role);
+        if(profileError){
+          throw new Error('Không đọc được quyền MT-1P từ profiles: '+profileError.message);
+        }
+        if(!profile){
+          throw new Error('Auth đã đăng nhập nhưng UUID '+user.id+' chưa có dòng tương ứng trong profiles.');
+        }
+        const role=String(profile.role||'').trim().toLowerCase();
+        const status=String(profile.status||'').trim().toLowerCase();
+        if(status!=='active') throw new Error('Tài khoản Auth đã đăng nhập nhưng profiles.status = "'+profile.status+'", không phải active.');
+        if(!['admin','manager','staff','viewer'].includes(role)) throw new Error('Role MT-1P không hợp lệ: '+profile.role);
 
-        unlock(profile,user);
-        // Viewer không cần tải dữ liệu ghi; chỉ đọc danh mục/hồ sơ nếu RLS cho phép.
+        const normalizedProfile={...profile,role,status};
+        unlock(normalizedProfile,user);
         try{ await loadWaterPlantsFromSupabase(); }catch(e){ console.warn('[MT-1P] water_plants:',e); }
         try{ await loadTechnicalRecordsFromSupabase(); }catch(e){ console.warn('[MT-1P] technical_records:',e); }
         initialized=true;
         return true;
       }catch(err){
         console.error('[MT-1P] loadUser:',err);
-        setError(err?.message||'Không thể kiểm tra phiên đăng nhập.');
+        setError(err?.message||'Không thể kiểm tra quyền MT-1P.');
         return false;
       }finally{
         loading=false;
@@ -1385,10 +1395,13 @@ setTimeout(renderPublicLookup,0);
       const email=document.getElementById('loginUser')?.value.trim();
       const password=document.getElementById('loginPass')?.value||'';
       if(!email||!password) throw new Error('Vui lòng nhập email và mật khẩu.');
-      const {error}=await client.auth.signInWithPassword({email,password});
+      const {data,error}=await client.auth.signInWithPassword({email,password});
       if(error) throw new Error('Đăng nhập thất bại: '+error.message);
-      await loadUser();
-      if(!window.MT1P_USER) throw new Error('Đăng nhập Auth thành công nhưng chưa xác thực được quyền MT-1P.');
+      if(!data?.user) throw new Error('Supabase Auth không trả về user sau khi đăng nhập.');
+      const ok=await loadUser(data.session||null,data.user);
+      if(!ok || !window.MT1P_USER){
+        throw new Error('Auth thành công nhưng chưa đọc được quyền MT-1P. Kiểm tra profiles theo UUID: '+data.user.id);
+      }
     }catch(err){
       console.error('[MT-1P] login:',err);
       setError(err?.message||'Không thể đăng nhập.');
@@ -1398,6 +1411,7 @@ setTimeout(renderPublicLookup,0);
       loginBtn.textContent='Đăng nhập';
     }
   });
+
 
   logoutBtn?.addEventListener('click',async()=>{
     try{ await authClient().auth.signOut(); }catch(e){ console.error(e); }
