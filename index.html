@@ -1,7 +1,7 @@
 <!doctype html><html lang="vi"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
-<title>MT-1P V5.5.2 INDEX HỢP NHẤT — Tra cứu Thủ tục Môi trường</title>
+<meta name="description" content="MT-1P · Tra cứu môi trường — Tra cứu thủ tục môi trường + quản lý hồ sơ.">
+<title>MT-1P · Tra cứu môi trường — Tra cứu Thủ tục Môi trường</title>
 <meta name="theme-color" content="#0d2e5d"><link rel="icon" href="data:,">
 
 <style>
@@ -203,7 +203,7 @@ body.motion-normal .hero-word>span{transition-duration:900ms!important;}
 body.motion-normal .tagline span{transition-duration:700ms!important;}
 body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
 
-.motion-control{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-left:auto;}
+
 .motion-control label{margin:0!important;text-transform:none!important;letter-spacing:0!important;font-size:.66rem!important;color:#475467!important;font-weight:750!important;}
 .motion-control select{width:auto;min-width:110px;min-height:34px;padding:.35rem .55rem;border-radius:.55rem;font-size:.68rem;background:#fff;}
 
@@ -271,20 +271,121 @@ body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-d
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style id="mt1p-phase42-clean-ui">
+/* PHASE 4.2 — Clean UI, single smooth motion, robust responsive layout */
+:root{--motion-fast:180ms;--motion-normal:320ms;--motion-slow:720ms;--motion-ease:cubic-bezier(.22,1,.36,1)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
+body{overflow-x:hidden;min-width:0}
+*,*::before,*::after{box-sizing:border-box}
+button,input,select,textarea{font:inherit;max-width:100%}
+.hero,.section,.form-section,.footer,.full-search-section,.search-shell,.search-results,.search-result{min-width:0}
+/* Fixed header + tab bar must never cover the active section heading */
+#tracuu-tu-khoa{scroll-margin-top:9.2rem}
+#form,#waterplant,#plants,#sources,#bieu-mau,#contact{scroll-margin-top:8.2rem}
+.full-search-section{position:relative;overflow:visible}
+.full-search-head{min-width:0;align-items:flex-start}
+.full-search-head .section-title{font-size:clamp(2.35rem,6vw,5.5rem);line-height:.9;max-width:10ch}
+.full-search-head>p{max-width:36rem;line-height:1.55}
+.full-search-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.65rem;min-width:0}
+.full-search-input{min-width:0}
+.full-search-input input{width:100%;min-width:0;height:3.7rem;font-size:clamp(.95rem,1.25vw,1.05rem)}
+.search-submit{min-width:120px}
+.search-help{max-width:72rem;line-height:1.5}
+.search-tabs{display:flex;flex-wrap:wrap;gap:.45rem;min-width:0}
+.search-tab{min-height:40px;white-space:nowrap}
+.mt-search-tools{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem;min-width:0}
+.mt-search-tool-buttons{display:flex;flex-wrap:wrap;gap:.5rem;min-width:0}
+/* Recent searches: one clean chip per submitted query */
+.search-history{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;width:100%;margin-top:.75rem;padding:.15rem 0;min-width:0}
+.search-history-label{flex:0 0 auto;font-size:.7rem;color:#667085;font-weight:800}
+.search-history-chip{appearance:none!important;-webkit-appearance:none!important;display:inline-flex;align-items:center;justify-content:center;max-width:min(100%,32rem);min-height:36px;padding:.45rem .8rem!important;border:1px solid #c8d8ea!important;border-radius:999px!important;background:#fff!important;color:#174a82!important;font-size:.72rem!important;font-weight:750!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;cursor:pointer;box-shadow:none!important;transform:none!important;transition:background var(--motion-normal) var(--motion-ease),border-color var(--motion-normal) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
+.search-history-chip:hover,.search-history-chip:focus-visible{background:#eef6ff!important;border-color:#8fb4e6!important;box-shadow:0 4px 14px rgba(13,46,93,.08)!important}
+/* Results remain smooth, but no selector or user-facing animation controls */
+.search-result{animation:mtFadeUp var(--motion-normal) var(--motion-ease) both}
+@keyframes mtFadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+/* Cleaner auth/public lookup */
+.auth-card{width:min(1100px,calc(100% - 24px));max-width:1100px!important}
+.public-lookup{min-width:0;overflow:hidden}
+.public-table-wrap{width:100%;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+.public-table{min-width:680px}
+/* Plant table: contained scrolling, never page-wide overflow */
+.plant-panel>div[style*="overflow:auto"]{max-width:100%;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+.plant-table{min-width:900px}
+/* Fixed navigation */
+.header#siteHeader{max-width:none;min-width:0}
+#topTabs{min-width:0}
+.top-tabs{min-width:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.top-tab{flex:0 0 auto}
+/* Non-touch mouse devices: keep hover subtle, never resize controls */
+@media(hover:hover){.top-tab:hover,.search-tab:hover,.v51-btn:hover,.search-history-chip:hover{transform:none}}
+/* Tablet */
+@media(max-width:900px){
+  .full-search-head{display:block}
+  .full-search-head .section-title{max-width:100%;margin-bottom:1rem}
+  .full-search-head>p{max-width:100%!important}
+  .search-result-top{gap:.75rem}
+}
+/* Mobile */
+@media(max-width:640px){
+  html{font-size:15px}
+  .header#siteHeader{top:.45rem;left:.45rem;right:.45rem;height:3.65rem;padding:.5rem .8rem;border-radius:1rem}
+  .header#siteHeader .brand{justify-content:flex-start;font-size:.82rem;letter-spacing:.14em}
+  .auth-user-name{display:none}
+  #topTabs{top:4.35rem;left:.45rem;right:.45rem;border-radius:0 0 .9rem .9rem}
+  .top-tab-panel{padding:.45rem .55rem;gap:.55rem}
+  .top-tab-title{flex:0 0 auto}
+  .top-tabs{gap:.3rem}
+  .top-tab{padding:.52rem .65rem;font-size:.67rem}
+  .hero{padding-top:4.85rem}
+  .section{padding:2.1rem .75rem}
+  .full-search-section{border-radius:1rem}
+  .full-search-bar{grid-template-columns:1fr}
+  .full-search-input input{height:3.25rem;padding-left:2.7rem}
+  .search-submit{width:100%;min-height:44px}
+  .search-tabs{gap:.35rem}
+  .search-tab{min-height:40px;padding:.45rem .68rem;font-size:.68rem}
+  .mt-search-tools{align-items:stretch}
+  .mt-search-check{width:100%;font-size:.7rem}
+  .mt-search-tool-buttons{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .mt-search-tool-buttons .v51-btn{width:100%;min-width:0;padding:.55rem .35rem;font-size:.62rem}
+  .search-history{align-items:stretch}
+  .search-history-label{width:100%}
+  .search-history-chip{max-width:100%;width:auto;min-height:38px}
+  .search-result-top{display:block!important}
+  .search-result-top>.v51-btn{margin-top:.7rem;display:inline-flex}
+  .search-result-actions{display:grid;grid-template-columns:1fr 1fr}
+  .search-result-actions button{min-height:42px;min-width:0}
+  .data-row{grid-template-columns:1fr}
+  .public-lookup-tools{grid-template-columns:1fr}
+  .public-table{min-width:720px}
+  .plant-table{min-width:900px}
+}
+/* Very small mobile / embedded browser */
+@media(max-width:420px){
+  .section{padding-left:.55rem;padding-right:.55rem}
+  .full-search-head .section-title{font-size:clamp(2rem,10.5vw,2.75rem)}
+  .mt-search-tool-buttons{grid-template-columns:1fr}
+  .search-result-actions{grid-template-columns:1fr}
+  .search-history-chip{width:100%;justify-content:flex-start}
+  .top-tab-title span{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.search-result{animation:none!important}.search-history-chip{transition:none!important}}
+</style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
   <div class="auth-card">
     <div class="auth-brand"><span class="mark"></span> MT-1P</div>
     <div class="auth-login" id="authLoginPanel">
       <h2>Đăng nhập hệ thống</h2>
-      <p class="auth-sub">Đăng nhập bằng tài khoản MT-1P đã được tạo trong Supabase.</p>
+      <p class="auth-sub">Đăng nhập bằng tài khoản MT-1P của bạn.</p>
       <form class="auth-form" id="loginForm" autocomplete="on">
         <label>Email<input id="loginUser" name="email" type="email" autocomplete="username" required></label>
         <label>Mật khẩu<input id="loginPass" name="password" type="password" autocomplete="current-password" required></label>
         <div class="auth-error" id="loginError" role="alert"></div>
         <button class="auth-primary" id="loginBtn" type="submit">Đăng nhập</button>
       </form>
-      <div class="auth-note">Xác thực được thực hiện bởi Supabase Auth. Quyền truy cập dữ liệu được kiểm soát thêm bằng Row Level Security (RLS).</div>
+      
     </div>
     <div class="public-lookup" id="publicLookupPanel">
       <div class="public-lookup-head"><div><span class="public-kicker">TRA CỨU CÔNG KHAI</span><h3>Danh mục nhà máy</h3><p>Tra cứu thông tin danh mục cơ bản mà không cần đăng nhập.</p></div><span class="public-badge">Không cần tài khoản</span></div>
@@ -296,7 +397,7 @@ body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-d
 
 <div class="loader" id="loader"><div class="loader-inner"><div class="loader-brand"><span class="mark"></span> MT-1P</div><div class="track"><div class="fill"></div></div></div></div>
 <div class="modal" id="modal"><div class="modal-panel" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="eyebrow"><i></i> Hỗ trợ MT-1P</span><h2>Trao đổi<br>hồ sơ</h2></div><button class="close" style="background:var(--surface);color:var(--ink)" id="modalClose">×</button></div><form class="modal-form" id="contactForm"><div><label>Họ và tên</label><input id="contactName" required placeholder="Người thực hiện"></div><div><label>Email</label><input type="email" required placeholder="you@example.com"></div><div><label>Nội dung</label><textarea rows="3" placeholder="Phạm vi hồ sơ cần rà soát..."></textarea></div><button class="primary" type="submit">Gửi yêu cầu</button></form><div class="success" id="success"><div class="success-icon">✓</div><strong>Đã ghi nhận</strong><p class="muted">Đây là biểu mẫu thử nghiệm; không gửi dữ liệu lên máy chủ.</p><button type="button" class="primary" id="done">Đóng</button></div></div></div>
-<main>
+<main class="motion-soft">
 <section class="hero card" id="home"><header class="header" id="siteHeader"><a class="brand" href="#home" aria-label="MT-1P"><span class="mark"></span> MT-1P</a><div class="auth-user" id="authUser" hidden><span class="auth-user-name" id="authUserName"></span><button class="auth-logout" id="authLogout" type="button">Đăng xuất</button></div></header>
 <div class="top-tab-panel" id="topTabs" role="navigation" aria-label="Các mục tra cứu trong một trang index">
   <div class="top-tab-title"><strong>MT-1P</strong><span>Tra cứu tập trung</span></div>
@@ -317,7 +418,7 @@ body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-d
 <section class="section stats card"><span class="eyebrow"><i></i> Hệ thống</span><h2 class="section-title" style="color:#fff">Một bộ máy<br>nhiều lớp kiểm soát</h2><div class="stats-grid"><div class="stat"><b>I–IV</b><span>Nhóm dự án/cơ sở</span></div><div class="stat"><b>3</b><span>Thủ tục trọng tâm</span></div><div class="stat"><b>1</b><span>Đối chiếu căn cứ cho mỗi kết quả</span></div><div class="stat"><b>100%</b><span>Dữ liệu tra cứu xử lý cục bộ</span></div></div></section>
 <section class="section card full-search-section" id="tracuu-tu-khoa">
 <div class="full-search-head"><div><span class="eyebrow"><i></i> Tra cứu từ khóa</span><h2 class="section-title">Tìm nhanh<br>theo cụm từ</h2></div><p class="muted" style="max-width:26rem">Không cần nhập đầy đủ câu. Có thể nhập từng cụm, cách nhau bằng dấu phẩy. Ví dụ: <b>nhà máy, nhóm III</b>. Hệ thống tìm không dấu và ưu tiên khớp cụm từ.</p></div>
-<div class="search-shell"><div class="full-search-bar"><div class="full-search-input"><span class="search-glass" aria-hidden="true">⌕</span><input id="fullSearch" type="search" autocomplete="off" placeholder='Ví dụ: nhà máy, nhóm III hoặc "Mẫu 05A"' aria-label="Từ khóa tra cứu"><div class="search-suggestions" id="searchSuggestions"></div></div><button class="search-submit" id="fullSearchBtn" type="button">Tra cứu</button></div><div class="search-help">Gõ một phần từ khóa vẫn tìm được. Dấu ngoặc kép dùng khi cần tìm đúng cụm. Dấu phẩy chia thành nhiều điều kiện phải xuất hiện đồng thời.</div><div class="search-tabs" id="searchTabs"><button class="search-tab active" type="button" data-search-kind="tatca">Tất cả</button><button class="search-tab" type="button" data-search-kind="ĐTM">ĐTM</button><button class="search-tab" type="button" data-search-kind="GPMT">GPMT</button><button class="search-tab" type="button" data-search-kind="ĐKMT">ĐKMT</button><button class="search-tab" type="button" data-search-kind="Nhà máy">Nhà máy</button><button class="search-tab" type="button" data-search-kind="Biểu mẫu">Biểu mẫu</button></div><div class="mt-search-tools"><label class="mt-search-check"><input id="searchExact" type="checkbox"> Tìm đúng cụm từ trong dấu ngoặc kép</label><span id="searchResultCount" class="search-note">0 kết quả</span><div class="mt-search-tool-buttons"><button class="v51-btn" id="copySearchResults" type="button">Sao chép kết quả</button><button class="v51-btn" id="exportSearchResults" type="button">Xuất JSON</button><button class="v51-btn" id="clearSearch" type="button">Xóa tìm kiếm</button><div class="motion-control"><label for="motionMode">Hiệu ứng</label><select id="motionMode" aria-label="Mức độ hiệu ứng"><option value="soft">Mượt</option><option value="normal">Chuẩn</option><option value="off">Tắt</option></select></div></div></div><div class="search-results" id="fullSearchResults"><div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div></div></div></section>
+<div class="search-shell"><div class="full-search-bar"><div class="full-search-input"><span class="search-glass" aria-hidden="true">⌕</span><input id="fullSearch" type="search" autocomplete="off" placeholder='Ví dụ: nhà máy, nhóm III hoặc "Mẫu 05A"' aria-label="Từ khóa tra cứu"><div class="search-suggestions" id="searchSuggestions"></div></div><button class="search-submit" id="fullSearchBtn" type="button">Tra cứu</button></div><div class="search-help">Gõ một phần từ khóa vẫn tìm được. Dấu ngoặc kép dùng khi cần tìm đúng cụm. Dấu phẩy chia thành nhiều điều kiện phải xuất hiện đồng thời.</div><div class="search-tabs" id="searchTabs"><button class="search-tab active" type="button" data-search-kind="tatca">Tất cả</button><button class="search-tab" type="button" data-search-kind="ĐTM">ĐTM</button><button class="search-tab" type="button" data-search-kind="GPMT">GPMT</button><button class="search-tab" type="button" data-search-kind="ĐKMT">ĐKMT</button><button class="search-tab" type="button" data-search-kind="Nhà máy">Nhà máy</button><button class="search-tab" type="button" data-search-kind="Biểu mẫu">Biểu mẫu</button></div><div class="mt-search-tools"><label class="mt-search-check"><input id="searchExact" type="checkbox"> Tìm đúng cụm từ trong dấu ngoặc kép</label><span id="searchResultCount" class="search-note">0 kết quả</span><div class="mt-search-tool-buttons"><button class="v51-btn" id="copySearchResults" type="button">Sao chép kết quả</button><button class="v51-btn" id="exportSearchResults" type="button">Xuất JSON</button><button class="v51-btn" id="clearSearch" type="button">Xóa tìm kiếm</button></div></div><div class="search-results" id="fullSearchResults"><div class="search-empty">Nhập từ khóa để bắt đầu tra cứu.</div></div></div></section>
 <section class="section card tools-section" id="congcu"><span class="eyebrow"><i></i> Chức năng</span><h2 class="section-title">Bộ công cụ<br>cho người làm hồ sơ</h2><div class="modules tools-grid"><button class="module tool-card" type="button" data-tool-target="#v51"><span class="step-num">01 / HỒ SƠ</span><h3>Quản lý hồ sơ</h3><p>Lưu và mở lại các phiên tra cứu đã thực hiện.</p><span class="tool-link">Mở quản lý hồ sơ →</span></button><button class="module tool-card" type="button" data-tool-target="#form" data-tool-action="checklist"><span class="step-num">02 / DANH MỤC</span><h3>Danh mục kiểm tra</h3><p>Chạy tra cứu rồi mở ngay danh mục kiểm tra của kết quả.</p><span class="tool-link">Mở danh mục kiểm tra →</span></button><button class="module tool-card" type="button" data-tool-action="print"><span class="step-num">03 / PHIẾU</span><h3>Phiếu tra cứu</h3><p>In hoặc lưu kết quả tra cứu thành PDF sau khi có kết quả.</p><span class="tool-link">In phiếu hiện tại →</span></button></div></section>
 <section class="section surface card"><span class="eyebrow"><i></i> Cấu trúc dữ liệu</span><h2 class="section-title">Kho pháp lý<br>có phiên bản</h2><div class="program-list"><a class="program" href="#legal"><span class="idx">01</span><div><h3>Danh mục pháp lý</h3><p>Văn bản · vị trí căn cứ · hiệu lực · trạng thái.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">02</span><div><h3>Phiên bản quy tắc</h3><p>Quản lý phiên bản quy tắc theo thời gian hiệu lực.</p></div><span class="arrow">→</span></a><a class="program" href="#form"><span class="idx">03</span><div><h3>Nhật ký kiểm tra</h3><p>Lưu dữ liệu đầu vào, quy tắc và kết quả tra cứu.</p></div><span class="arrow">→</span></a><a class="program" href="#contact"><span class="idx">04</span><div><h3>Chuyên ngành cấp nước</h3><p>Phát triển bộ quy tắc riêng cho nhà máy/trạm cấp nước.</p></div><span class="arrow">→</span></a></div></section>
 
@@ -333,11 +434,11 @@ body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-d
   </div>
 </section>
 <section class="section card" id="waterplant">
-  <div class="section-head"><div><span class="eyebrow"><i></i> Chuyên ngành cấp nước</span><h2 class="section-title">Hồ sơ kỹ thuật<br>nhà máy / trạm</h2></div><span class="badge">Lưu trực tiếp trên Supabase · RLS</span></div>
+  <div class="section-head"><div><span class="eyebrow"><i></i> Chuyên ngành cấp nước</span><h2 class="section-title">Hồ sơ kỹ thuật<br>nhà máy / trạm</h2></div></div>
   <div class="technical-layout">
     <div class="panel plant-panel">
       <h3>Nhập và cập nhật số liệu nhà máy</h3>
-      <p>Chọn nhà máy trong danh mục, nhập số liệu thực tế và bấm <b>Lưu hồ sơ kỹ thuật</b>. Dữ liệu được lưu trực tiếp vào <b>technical_records</b> trên Supabase theo <b>MaNhaMay</b>; quyền thêm/sửa/xóa được kiểm soát bằng Supabase RLS.</p>
+      <p>Chọn nhà máy trong danh mục, nhập số liệu thực tế và bấm <b>Lưu hồ sơ kỹ thuật</b>. Bạn có thể bổ sung trường dữ liệu khi phát sinh thông tin mới.</p>
       <div class="plant-form">
         <div><label>Nhà máy / trạm</label><select id="wpPlantId"></select></div>
         <div><label>Mã nhà máy</label><input id="wpCode" readonly /></div>
@@ -366,8 +467,8 @@ body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-d
     </div>
   </div>
 </section>
-<section class="section surface card" id="lienket"><div class="section-head"><div><span class="eyebrow"><i></i> Kiểm tra liên kết dữ liệu</span><h2 class="section-title">Kiểm tra dữ liệu<br>trước khi tra cứu</h2></div><p class="muted" style="max-width:25rem">Kiểm tra khóa MaNhaMay giữa các bảng Excel và chỉ ra bản ghi thiếu hoặc chưa đủ thông tin. Không tự suy đoán dữ liệu còn thiếu.</p></div><div class="panel" style="margin-top:2rem"><div class="result-grid" id="linkStats"></div><div id="linkIssues" style="margin-top:1rem"></div></div></section><section class="section surface card" id="sources"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nguồn pháp lý</span><h2 class="section-title">Nguồn pháp lý<br>được kết nối</h2></div><p class="muted" style="max-width:25rem">Mỗi nguồn có mã duy nhất và liên kết tới bản PDF trên Cổng Thông tin điện tử Chính phủ. V5.4 chỉ xem đây là nguồn tham chiếu; Quy tắc phải tiếp tục đối chiếu điều/khoản/điểm.</p></div><div class="panel" style="margin-top:2rem"><div style="overflow:auto"><table class="legal-table"><thead><tr><th>ID</th><th>Văn bản</th><th>Vai trò</th><th>Nguồn</th></tr></thead><tbody id="sourceRegistry"></tbody></table></div></div></section><section class="section card form-library" id="bieu-mau"><div class="section-head"><div><span class="eyebrow"><i></i> Phụ lục biểu mẫu</span><h2 class="section-title">Kho biểu mẫu<br>ĐTM · GPMT · ĐKMT</h2></div><p class="muted" style="max-width:25rem">Đã đối chiếu danh mục Phụ lục II và Phụ lục VI trong văn bản hợp nhất 55/VBHN-BNNMT; mỗi mẫu ghi rõ nhóm ĐTM, GPMT, ĐKMT hoặc báo cáo BVMT và trạng thái để tránh dùng nhầm mẫu đã bãi bỏ.</p></div><div class="form-filter" id="formFilter"><button class="active" type="button" data-form-kind="tatca">Đang sử dụng</button><button type="button" data-form-kind="ĐTM">ĐTM</button><button type="button" data-form-kind="GPMT">GPMT</button><button type="button" data-form-kind="ĐKMT">ĐKMT</button><button type="button" data-form-kind="Báo cáo BVMT">Báo cáo BVMT</button><button type="button" data-form-kind="lichsu">Lịch sử / đã bãi bỏ</button><button type="button" data-form-kind="tatca-hienthi">Tất cả</button></div><div class="form-grid" id="formRegistry"></div></section>
-<section class="section card" id="plants"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nhà máy · Supabase</span><h2 class="section-title">Danh mục<br><span id="plantRegistryTitleCount">28 nhà máy</span></h2></div><p class="muted" style="max-width:25rem">Danh mục nhà máy được đọc từ bảng <code>water_plants</code> trên Supabase sau khi đăng nhập. Dữ liệu nền hiện có vẫn được giữ làm dữ liệu tham chiếu; bản ghi trên Supabase được ưu tiên khi trùng mã nhà máy.</p></div><div class="panel plant-panel" style="margin-top:2rem"><div class="plant-search"><div class="full search-main"><label>Tìm kiếm theo cụm từ</label><input id="plantSearch" type="search" placeholder='Ví dụ: "Nhà máy nước mặt Đông Bình" hoặc 907/UBND-KTHĐT'><small>Không phân biệt hoa thường và dấu tiếng Việt. Cụm từ trong dấu ngoặc kép phải xuất hiện đúng theo cụm.</small></div><div><label>Chọn tên nhà máy</label><select id="plantNameFilter"><option value="tatca">Tất cả nhà máy</option></select></div><div><label>Tình trạng hồ sơ</label><select id="plantStatus"><option value="tatca">Tất cả</option><option value="gpmt">Có GPMT</option><option value="dkmt">ĐKMT/chấp thuận</option><option value="chuathuchien">Chưa thực hiện</option><option value="chuacodulieu">Chưa có dữ liệu</option></select></div><div><label>Nguồn nước</label><select id="plantSourceFilter"><option value="tatca">Tất cả</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option><option value="Khác">Khác</option></select></div><div><label>Trạng thái nghĩa vụ</label><select id="obligationFilter"><option value="tatca">Tất cả</option><option value="dat">Đạt/Còn hạn</option><option value="sapdenhan">Sắp đến hạn</option><option value="canrasoat">Cần rà soát</option><option value="chuacapnhat">Chưa cập nhật</option></select></div><div class="filter-actions"><button class="v51-btn" id="clearPlantFilters" type="button">Xóa bộ lọc</button><span class="search-note" id="plantSearchCount"></span></div></div><div style="overflow:auto"><table class="legal-table plant-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Công suất</th><th>Nguồn</th><th>Nước thải</th><th>Bùn thải</th><th>CTNH</th><th>Tình trạng hồ sơ</th><th></th></tr></thead><tbody id="plantRegistry"></tbody></table></div></div></section><footer class="footer card" id="contact"><div class="footer-cta"><div><span class="kicker"><i></i> MT-1P V5.5.2 INDEX HỢP NHẤT</span><h2>Sẵn sàng<br>tra cứu?</h2></div><button class="light-btn" id="bookFooter">Tạo hồ sơ tra cứu</button></div><div class="footer-grid"><div><div class="brand" style="justify-content:flex-start"><span class="mark"></span> MT-1P</div><p>Công cụ hỗ trợ tra cứu thủ tục môi trường theo hướng dữ liệu + quy tắc + căn cứ pháp lý.</p><address>Phiên bản kỹ thuật: 5.5.2<br>© 2026 MT-1P</address></div><div><h4>Tra cứu</h4><ul><li><a href="#form">Tra cứu nhanh</a></li><li><a href="#workflow">Quy trình</a></li><li><a href="#legal">Đối chiếu căn cứ</a></li></ul></div><div><h4>Hệ thống</h4><ul><li><a href="#form">Bộ xử lý quy tắc</a></li><li><a href="#form">Danh mục kiểm tra</a></li><li><a href="#contact">Phiếu tra cứu</a></li></ul></div><div><h4>Lưu ý</h4><p>Kết quả không thay thế văn bản gốc, hồ sơ thực tế hoặc ý kiến cơ quan có thẩm quyền.</p></div></div><div class="bottom"><span>MT-1P · Tra cứu thủ tục môi trường</span><span>Xác thực & dữ liệu danh mục nhà máy qua Supabase · RLS bảo vệ quyền truy cập</span></div></footer></main>
+<section class="section surface card" id="sources"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nguồn pháp lý</span><h2 class="section-title">Nguồn pháp lý<br>được kết nối</h2></div><p class="muted" style="max-width:25rem">Mỗi nguồn có mã duy nhất và liên kết tới bản PDF trên Cổng Thông tin điện tử Chính phủ. V5.4 chỉ xem đây là nguồn tham chiếu; Quy tắc phải tiếp tục đối chiếu điều/khoản/điểm.</p></div><div class="panel" style="margin-top:2rem"><div style="overflow:auto"><table class="legal-table"><thead><tr><th>ID</th><th>Văn bản</th><th>Vai trò</th><th>Nguồn</th></tr></thead><tbody id="sourceRegistry"></tbody></table></div></div></section><section class="section card form-library" id="bieu-mau"><div class="section-head"><div><span class="eyebrow"><i></i> Phụ lục biểu mẫu</span><h2 class="section-title">Kho biểu mẫu<br>ĐTM · GPMT · ĐKMT</h2></div><p class="muted" style="max-width:25rem">Đã đối chiếu danh mục Phụ lục II và Phụ lục VI trong văn bản hợp nhất 55/VBHN-BNNMT; mỗi mẫu ghi rõ nhóm ĐTM, GPMT, ĐKMT hoặc báo cáo BVMT và trạng thái để tránh dùng nhầm mẫu đã bãi bỏ.</p></div><div class="form-filter" id="formFilter"><button class="active" type="button" data-form-kind="tatca">Đang sử dụng</button><button type="button" data-form-kind="ĐTM">ĐTM</button><button type="button" data-form-kind="GPMT">GPMT</button><button type="button" data-form-kind="ĐKMT">ĐKMT</button><button type="button" data-form-kind="Báo cáo BVMT">Báo cáo BVMT</button><button type="button" data-form-kind="lichsu">Lịch sử / đã bãi bỏ</button><button type="button" data-form-kind="tatca-hienthi">Tất cả</button></div><div class="form-grid" id="formRegistry"></div></section>
+<section class="section card" id="plants"><div class="section-head"><div><span class="eyebrow"><i></i> Danh mục nhà máy</span><h2 class="section-title">Danh mục<br><span id="plantRegistryTitleCount">28 nhà máy</span></h2></div><p class="muted" style="max-width:25rem">Tra cứu và quản lý danh mục 28 nhà máy; thông tin mới nhất được ưu tiên khi có cập nhật trùng mã nhà máy.</p></div><div class="panel plant-panel" style="margin-top:2rem"><div class="plant-search"><div class="full search-main"><label>Tìm kiếm theo cụm từ</label><input id="plantSearch" type="search" placeholder='Ví dụ: "Nhà máy nước mặt Đông Bình" hoặc 907/UBND-KTHĐT'><small>Không phân biệt hoa thường và dấu tiếng Việt. Cụm từ trong dấu ngoặc kép phải xuất hiện đúng theo cụm.</small></div><div><label>Chọn tên nhà máy</label><select id="plantNameFilter"><option value="tatca">Tất cả nhà máy</option></select></div><div><label>Tình trạng hồ sơ</label><select id="plantStatus"><option value="tatca">Tất cả</option><option value="gpmt">Có GPMT</option><option value="dkmt">ĐKMT/chấp thuận</option><option value="chuathuchien">Chưa thực hiện</option><option value="chuacodulieu">Chưa có dữ liệu</option></select></div><div><label>Nguồn nước</label><select id="plantSourceFilter"><option value="tatca">Tất cả</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option><option value="Khác">Khác</option></select></div><div><label>Trạng thái nghĩa vụ</label><select id="obligationFilter"><option value="tatca">Tất cả</option><option value="dat">Đạt/Còn hạn</option><option value="sapdenhan">Sắp đến hạn</option><option value="canrasoat">Cần rà soát</option><option value="chuacapnhat">Chưa cập nhật</option></select></div><div class="filter-actions"><button class="v51-btn" id="clearPlantFilters" type="button">Xóa bộ lọc</button><span class="search-note" id="plantSearchCount"></span></div></div><div style="overflow:auto"><table class="legal-table plant-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Công suất</th><th>Nguồn</th><th>Nước thải</th><th>Bùn thải</th><th>CTNH</th><th>Tình trạng hồ sơ</th><th></th></tr></thead><tbody id="plantRegistry"></tbody></table></div></div></section><footer class="footer card" id="contact"><div class="footer-cta"><div><span class="kicker"><i></i> MT-1P · Tra cứu môi trường</span><h2>Sẵn sàng<br>tra cứu?</h2></div><button class="light-btn" id="bookFooter">Tạo hồ sơ tra cứu</button></div><div class="footer-grid"><div><div class="brand" style="justify-content:flex-start"><span class="mark"></span> MT-1P</div><p>Công cụ hỗ trợ tra cứu thủ tục môi trường theo hướng dữ liệu + quy tắc + căn cứ pháp lý.</p><address>Phiên bản kỹ thuật: 5.5.2<br>© 2026 MT-1P</address></div><div><h4>Tra cứu</h4><ul><li><a href="#form">Tra cứu nhanh</a></li><li><a href="#workflow">Quy trình</a></li><li><a href="#legal">Đối chiếu căn cứ</a></li></ul></div><div><h4>Hệ thống</h4><ul><li><a href="#form">Bộ xử lý quy tắc</a></li><li><a href="#form">Danh mục kiểm tra</a></li><li><a href="#contact">Phiếu tra cứu</a></li></ul></div><div><h4>Lưu ý</h4><p>Kết quả không thay thế văn bản gốc, hồ sơ thực tế hoặc ý kiến cơ quan có thẩm quyền.</p></div></div><div class="bottom"><span>MT-1P · Tra cứu thủ tục môi trường</span><span>MT-1P · Tra cứu và quản lý dữ liệu</span></div></footer></main>
 <script>
 const FALLBACK_CONGTY = [
   {"id": "nm01", "ten": "Nhà máy nước mặt Đông Bình", "diaDiem": "Khu phố Đông Bình, phường Cao Lãnh, tỉnh Đồng Tháp", "congSuat": "40.000 m³/ngày", "nguon": "Nước mặt", "nguoiPhuTrach": "Đặng Thanh Hùng", "ghiChu": "Đã có công văn của UBND: số 907/UBND-KTHĐT ngày 13/9/2025 của UBND P. Cao Lãnh  (đang trong quá trình hoàn thiện thủ tục môi trường, chưa phải GPMT chính thức). Cơ quan: UBND phường Cao Lãnh.", "status": {"gpmt": "yellow", "nuocthai": "blue", "ctnh": "blue", "bunthai": "blue", "hoachat": "blue", "quantrac": "blue", "baocao": "blue", "knk": "blue"}},
@@ -1431,22 +1532,7 @@ setTimeout(renderPublicLookup,0);
     el.querySelectorAll('[data-download-record]').forEach((b,i)=>b.addEventListener('click',()=>downloadJSON(shown[i]?.data??{},`mt1p-record-${Date.now()}.json`)));
   }
   window.runFullSearch=runEnhancedSearch;
-  function initMotion(){
-    const el=$('#motionMode'); if(!el)return;
-    const key='mt1p_motion_mode_v1';
-    const saved=localStorage.getItem(key)||'soft';
-    el.value=['soft','normal','off'].includes(saved)?saved:'soft';
-    document.body.classList.remove('motion-soft','motion-normal','motion-off');
-    document.body.classList.add('motion-'+el.value);
-    el.addEventListener('change',()=>{
-      const v=el.value;
-      document.body.classList.remove('motion-soft','motion-normal','motion-off');
-      document.body.classList.add('motion-'+v);
-      localStorage.setItem(key,v);
-    });
-  }
   document.addEventListener('DOMContentLoaded',()=>{
-    initMotion();
     const tabs=$('#searchTabs');
     if(tabs && !tabs.querySelector('[data-search-kind="Hồ sơ kỹ thuật"]')){
       const b=document.createElement('button');b.className='search-tab';b.type='button';b.dataset.searchKind='Hồ sơ kỹ thuật';b.textContent='Hồ sơ kỹ thuật';tabs.appendChild(b);b.addEventListener('click',()=>{tabs.querySelectorAll('.search-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');runEnhancedSearch()});
