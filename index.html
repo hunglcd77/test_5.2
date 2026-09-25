@@ -635,6 +635,59 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
   }
 }
 </style>
+
+<style id="mt1p-desktop-auth-layout">
+/* Desktop: thương hiệu chiếm toàn bộ hàng; đăng nhập + tra cứu công khai cùng một hàng */
+@media (min-width: 901px) {
+  #authGate .auth-card {
+    grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: start;
+    column-gap: 1.25rem;
+    row-gap: 1rem;
+  }
+
+  #authGate .auth-brand {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #authGate .auth-login {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #authGate #publicLookupPanel {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    align-self: stretch;
+  }
+}
+
+/* Tablet/mobile: giữ bố cục một cột, không ảnh hưởng giao diện hiện tại */
+@media (max-width: 900px) {
+  #authGate .auth-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  #authGate .auth-brand,
+  #authGate .auth-login,
+  #authGate #publicLookupPanel {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+    min-width: 0;
+  }
+}
+</style>
+
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
   <div class="auth-card">
