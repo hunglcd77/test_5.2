@@ -688,6 +688,84 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
 }
 </style>
 
+
+<style id="mt1p-modern-ui-v1">
+/* MT-1P MODERN UI — giữ nguyên cấu trúc/dữ liệu, chỉ nâng UX */
+:root{
+  --mt-primary:#2563c9;
+  --mt-primary-2:#0b63ce;
+  --mt-ink:#101828;
+  --mt-muted:#667085;
+  --mt-line:#dbe3ec;
+  --mt-soft:#f6f9fc;
+  --mt-shadow:0 12px 34px rgba(8,43,87,.10);
+  --mt-shadow-hover:0 18px 42px rgba(8,43,87,.15);
+  --mt-ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* Nền và typography */
+body{color:var(--mt-ink);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+
+/* Auth: vào trang nhẹ, không phô trương */
+#authGate{animation:mtGateIn .35s var(--mt-ease) both}
+.auth-card{box-shadow:var(--mt-shadow);transition:box-shadow .25s var(--mt-ease),transform .25s var(--mt-ease)}
+.auth-brand{animation:mtFadeUp .45s var(--mt-ease) both}
+.auth-login{animation:mtFadeUp .5s .04s var(--mt-ease) both}
+#publicLookupPanel{animation:mtFadeUp .5s .08s var(--mt-ease) both}
+.auth-form input,.public-lookup-tools input,.public-lookup-tools select{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+.auth-form input:focus,.public-lookup-tools input:focus,.public-lookup-tools select:focus{outline:none;border-color:var(--mt-primary);box-shadow:0 0 0 4px rgba(37,99,201,.11);background:#fff}
+.auth-primary,.auth-secondary,.auth-logout,.v51-btn,.primary,.secondary,.search-submit,.light-btn{transition:transform .18s var(--mt-ease),box-shadow .18s var(--mt-ease),background-color .18s ease,border-color .18s ease}
+.auth-primary:hover,.auth-secondary:hover,.v51-btn:hover,.primary:hover,.secondary:hover,.search-submit:hover,.light-btn:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(8,43,87,.10)}
+.auth-primary:active,.auth-secondary:active,.v51-btn:active,.primary:active,.secondary:active,.search-submit:active,.light-btn:active{transform:translateY(0)}
+
+/* Tra cứu công khai */
+.public-lookup-container{box-shadow:0 8px 28px rgba(8,43,87,.06);transition:box-shadow .25s var(--mt-ease),border-color .25s ease}
+.public-lookup-container:hover{box-shadow:var(--mt-shadow)}
+.public-lookup-head{margin-bottom:.25rem}
+.public-badge{transition:background-color .2s ease,border-color .2s ease,transform .2s var(--mt-ease)}
+.public-badge:hover{transform:translateY(-1px);background:#eef6ff;border-color:#a9c7ea}
+.public-lookup-tools input,.public-lookup-tools select{box-shadow:0 1px 2px rgba(16,24,40,.03)}
+
+/* Bảng: rõ ràng, hiện đại, không làm thay đổi cấu trúc */
+.public-lookup-container .public-table-wrap{box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.public-lookup-container .public-table thead th{backdrop-filter:saturate(1.05) blur(5px);box-shadow:0 1px 0 rgba(16,24,40,.06)}
+.public-lookup-container .public-table tbody tr{transition:background-color .16s ease,box-shadow .16s ease}
+.public-lookup-container .public-table tbody tr:hover{background:#f7fbff;box-shadow:inset 3px 0 0 rgba(37,99,201,.65)}
+.public-lookup-container .public-table tbody td:first-child code{transition:color .16s ease}
+.public-lookup-container .public-table tbody tr:hover td:first-child code{color:#0b63ce}
+
+/* Kết quả tra cứu chính */
+.search-result{transition:transform .18s var(--mt-ease),box-shadow .18s var(--mt-ease),border-color .18s ease}
+.search-result:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(8,43,87,.09);border-color:#c8d8eb}
+.search-result mark{border-radius:.25rem;padding:0 .08em;background:#fff0a8;color:inherit}
+.search-tab{transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .18s var(--mt-ease)}
+.search-tab:hover{transform:translateY(-1px)}
+
+/* Trạng thái rỗng */
+.public-empty,.search-empty{border-radius:.75rem;background:linear-gradient(180deg,#fbfcfe,#f7f9fc);border:1px dashed #d6dee9}
+
+/* Skeleton dùng khi hệ thống có thể thêm class loading */
+.mt-skeleton{position:relative;overflow:hidden;background:#eef2f6;color:transparent!important;border-radius:.4rem}
+.mt-skeleton::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);animation:mtShimmer 1.15s infinite}
+
+/* Toast component */
+#mt1pToast{position:fixed;right:1.1rem;bottom:1.1rem;z-index:200000;max-width:min(420px,calc(100vw - 2rem));padding:.75rem .9rem;border:1px solid #d7e1ec;border-radius:.8rem;background:rgba(255,255,255,.96);box-shadow:0 16px 40px rgba(8,43,87,.16);color:#101828;font-size:.76rem;font-weight:750;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .22s ease,transform .22s var(--mt-ease)}
+#mt1pToast.show{opacity:1;transform:none}
+#mt1pToast.success{border-color:#b7dec8}#mt1pToast.error{border-color:#f0c4c0}
+
+@keyframes mtGateIn{from{opacity:0}to{opacity:1}}
+@keyframes mtFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes mtShimmer{100%{transform:translateX(100%)}}
+
+@media(max-width:900px){
+  #mt1pToast{right:.7rem;bottom:.7rem}
+  .public-lookup-container .public-table tbody tr:hover{box-shadow:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+</style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
   <div class="auth-card">
@@ -1247,7 +1325,21 @@ function printResult(r){const w=window.open("","_blank");if(!w){alert("Trình du
 .mt-search-tools{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:.8rem;padding:.7rem .8rem;border:1px solid #d8e0ea;border-radius:.8rem;background:#f8fafc}.mt-search-check{display:flex;align-items:center;gap:.45rem;margin:0!important;text-transform:none!important;letter-spacing:0!important;font-size:.72rem!important;color:#344054!important}.mt-search-check input{width:auto}.mt-search-tool-buttons{display:flex;gap:.4rem;flex-wrap:wrap;margin-left:auto}.mt-search-tool-buttons .v51-btn{padding:.48rem .7rem;font-size:.66rem}.search-note{font-size:.68rem;color:#667085;font-weight:700}.search-result-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}.search-result-actions button{font-size:.65rem;padding:.45rem .65rem;border:1px solid #d0d9e5;border-radius:.6rem;background:#fff;font-weight:800;color:#344054}.search-result-actions button:hover{background:#eaf3ff;color:#06499a}.search-result mark{background:#fff1a8;color:inherit;border-radius:.2rem;padding:0 .08rem}.search-result-title{margin-top:.2rem}.search-data{max-height:34rem;overflow:auto}.search-data-toolbar{display:flex;gap:.4rem;flex-wrap:wrap;margin:.55rem 0}.search-data-toolbar button{font-size:.62rem;padding:.4rem .6rem;border:1px solid #d0d9e5;border-radius:.55rem;background:#fff;font-weight:800}.search-history{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}.search-history button{border:1px solid #d0d9e5;background:#fff;border-radius:999px;padding:.35rem .6rem;font-size:.62rem}.search-history button:hover{background:#eef5ff}.search-result-meta{line-height:1.45}.search-result[data-kind="Hồ sơ kỹ thuật"]{border-left:4px solid #0b63ce}.search-result[data-kind="Nguồn pháp lý"]{border-left:4px solid #7a5af8}
 @media(max-width:700px){.mt-search-tool-buttons{margin-left:0;width:100%}.mt-search-tool-buttons .v51-btn{flex:1}.search-data{max-height:28rem}}
 </style>
-</head><body><h1>MT-1P — PHIẾU TRA CỨU THỦ TỤC MÔI TRƯỜNG</h1><p>V5.4 · ${new Date().toLocaleString("vi-VN")}</p><h2>Kết quả</h2><p><b>Nhóm:</b> ${esc(r.finalNhom)} · <b>ĐTM:</b> ${r.canDTM?"Có":"Không"} · <b>GPMT:</b> ${r.canGPMT?"Có":"Không"} · <b>ĐKMT:</b> ${r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"}</p><h2>Đối chiếu căn cứ</h2><table><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${rows}</table><h2>Danh mục kiểm tra</h2><ol>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ol><p><b>Lưu ý:</b> ${esc(r.disclaimer)}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
+</head><body><h1>MT-1P — PHIẾU TRA CỨU THỦ TỤC MÔI TRƯỜNG</h1><p>V5.4 · ${new Date().toLocaleString("vi-VN")}</p><h2>Kết quả</h2><p><b>Nhóm:</b> ${esc(r.finalNhom)} · <b>ĐTM:</b> ${r.canDTM?"Có":"Không"} · <b>GPMT:</b> ${r.canGPMT?"Có":"Không"} · <b>ĐKMT:</b> ${r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"}</p><h2>Đối chiếu căn cứ</h2><table><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${rows}</table><h2>Danh mục kiểm tra</h2><ol>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ol><p><b>Lưu ý:</b> ${esc(r.disclaimer)}</p><script>window.onload=()=>window.print()<\/script>
+<script id="mt1p-modern-ui-js">
+(function(){
+  function ensureToast(){
+    let el=document.getElementById('mt1pToast');
+    if(!el){el=document.createElement('div');el.id='mt1pToast';el.setAttribute('role','status');el.setAttribute('aria-live','polite');document.body.appendChild(el)}
+    return el;
+  }
+  window.mt1pToast=function(message,type='success',duration=2600){
+    const el=ensureToast(); el.className=''; el.textContent=message; void el.offsetWidth; el.className='show '+type;
+    clearTimeout(window.__mt1pToastTimer); window.__mt1pToastTimer=setTimeout(()=>{el.className=''},duration);
+  };
+})();
+</script>
+</body></html>`);w.document.close()}
 $$("#lhToggle button").forEach(b=>b.onclick=()=>{$$("#lhToggle button").forEach(x=>x.classList.remove("active"));b.classList.add("active");loaiHinh=b.dataset.v});$("#run").onclick=run;
 function openModal(){$("#modal").classList.add("open");setTimeout(()=>$("#contactName").focus(),120)}function closeModal(){$("#modal").classList.remove("open");$("#success").classList.remove("show");$("#contactForm").style.display="grid"}$("#bookFooter").onclick=openModal;$("#modalClose").onclick=closeModal;$("#done").onclick=closeModal;$("#contactForm").onsubmit=e=>{e.preventDefault();$("#contactForm").style.display="none";$("#success").classList.add("show")};$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal()}});
 $$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const id=a.getAttribute("href");if(id&&id!=="#"){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:"smooth",block:"start"})}}));
