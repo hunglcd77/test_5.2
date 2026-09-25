@@ -180,14 +180,21 @@ img,svg,video,canvas{max-width:100%;height:auto}
 #topTabs .top-tab{flex:0 0 auto;white-space:nowrap}
 section[id]{scroll-margin-top:8rem}
 #authGate{overflow:auto;-webkit-overflow-scrolling:touch;padding:1rem}
-.auth-card{width:min(1100px,100%);max-height:calc(100svh - 2rem);overflow:auto;-webkit-overflow-scrolling:touch;display:grid;grid-template-columns:minmax(260px,430px) minmax(0,1fr);gap:1rem;align-items:start}
+.auth-card{width:min(1600px,100%);max-height:calc(100svh - 2rem);overflow:auto;-webkit-overflow-scrolling:touch;display:grid;grid-template-columns:minmax(300px,430px) minmax(0,1fr);gap:1rem;align-items:start}
 .auth-login{width:100%;max-width:none}
 .auth-login + .public-lookup{width:100%;min-width:0}
 .public-lookup{margin-top:0;overflow:hidden}
 .public-lookup-tools{grid-template-columns:minmax(0,1.7fr) minmax(140px,.8fr) auto;align-items:center}
 .public-lookup-tools input,.public-lookup-tools select{width:100%;min-width:0;min-height:var(--mt-touch)}
-.public-table-wrap{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
-.public-table{min-width:680px}
+.public-table-wrap{max-width:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.public-table{width:100%;min-width:0;table-layout:fixed}
+.public-table th,.public-table td{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.public-table th:nth-child(1),.public-table td:nth-child(1){width:8%}
+.public-table th:nth-child(2),.public-table td:nth-child(2){width:22%}
+.public-table th:nth-child(3),.public-table td:nth-child(3){width:25%}
+.public-table th:nth-child(4),.public-table td:nth-child(4){width:12%}
+.public-table th:nth-child(5),.public-table td:nth-child(5){width:13%}
+.public-table th:nth-child(6),.public-table td:nth-child(6){width:20%}
 .full-search-section,.full-search-head,.full-search-bar,.full-search-input,.mt-search-tools,.search-tabs,.search-results{min-width:0;max-width:100%}
 .full-search-head .section-title{font-size:clamp(2.25rem,8vw,6rem);line-height:.9;max-width:9ch}
 .full-search-head>p{font-size:clamp(.78rem,1.4vw,.95rem);line-height:1.5}
@@ -231,8 +238,21 @@ html{font-size:15px}
 .public-lookup-head{display:block}
 .public-lookup h3{font-size:1.05rem}
 .public-badge{display:inline-flex;margin-top:.5rem}
-.public-table{min-width:650px;font-size:.68rem}
+.public-table{min-width:0;width:100%;font-size:.68rem}
 .public-table th,.public-table td{padding:.55rem .45rem}
+.public-table-wrap{overflow:visible;border:0}
+.public-table,.public-table thead,.public-table tbody,.public-table tr,.public-table th,.public-table td{display:block;width:100%}
+.public-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.public-table tr{margin-bottom:.7rem;border:1px solid #e2e8f0;border-radius:.75rem;background:#fff;overflow:hidden}
+.public-table td{display:grid;grid-template-columns:34% minmax(0,66%);gap:.45rem;padding:.55rem .65rem;border-bottom:1px solid #edf1f5}
+.public-table td::before{font-weight:800;color:#475467}
+.public-table td:nth-child(1)::before{content:'Mã'}
+.public-table td:nth-child(2)::before{content:'Nhà máy'}
+.public-table td:nth-child(3)::before{content:'Địa điểm'}
+.public-table td:nth-child(4)::before{content:'Công suất'}
+.public-table td:nth-child(5)::before{content:'Nguồn nước'}
+.public-table td:nth-child(6)::before{content:'Tình trạng'}
+.public-table td:last-child{border-bottom:0}
 .header#siteHeader{top:.4rem;left:.4rem;right:.4rem;height:3.35rem;padding:.45rem .75rem;border-radius:1rem}
 .header#siteHeader .brand{justify-content:flex-start;font-size:.9rem}
 .auth-user{gap:.35rem}
