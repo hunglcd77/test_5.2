@@ -385,6 +385,72 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
 }
 #lienket{display:none!important}
 </style>
+
+<style id="mt1p-public-lookup-horizontal-columns-fix">
+/* Tra cứu công khai — ĐÚNG CẤU TRÚC BẢNG:
+   Tiêu đề hiển thị từ trái sang phải;
+   mỗi nhà máy (NM01, NM02...) là một hàng từ trên xuống.
+   Không chuyển bảng thành card/vertical fields. */
+.public-table-wrap{
+  width:100%;
+  max-width:100%;
+  max-height:25rem;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  border:1px solid #e2e8f0 !important;
+  border-radius:.75rem;
+  -webkit-overflow-scrolling:touch;
+}
+.public-table{
+  display:table !important;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  table-layout:fixed !important;
+  border-collapse:collapse !important;
+  font-size:.72rem;
+}
+.public-table thead{display:table-header-group !important;position:static !important;width:auto !important;height:auto !important;overflow:visible !important;clip:auto !important;margin:0 !important;padding:0 !important;white-space:normal !important;}
+.public-table tbody{display:table-row-group !important;width:auto !important;}
+.public-table tr{display:table-row !important;width:auto !important;margin:0 !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:transparent !important;overflow:visible !important;}
+.public-table th,
+.public-table td{
+  display:table-cell !important;
+  box-sizing:border-box;
+  padding:.65rem .55rem !important;
+  border-bottom:1px solid #e8edf3 !important;
+  text-align:left !important;
+  vertical-align:top !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+}
+.public-table th{
+  position:sticky !important;
+  top:0 !important;
+  z-index:2 !important;
+  background:#f7f9fc !important;
+  color:#475467 !important;
+  font-size:.62rem !important;
+  text-transform:uppercase !important;
+  letter-spacing:.06em !important;
+}
+.public-table tr:last-child td{border-bottom:0 !important;}
+.public-table td::before{content:none !important;display:none !important;}
+.public-table th:nth-child(1),.public-table td:nth-child(1){width:8% !important;}
+.public-table th:nth-child(2),.public-table td:nth-child(2){width:22% !important;}
+.public-table th:nth-child(3),.public-table td:nth-child(3){width:25% !important;}
+.public-table th:nth-child(4),.public-table td:nth-child(4){width:12% !important;}
+.public-table th:nth-child(5),.public-table td:nth-child(5){width:13% !important;}
+.public-table th:nth-child(6),.public-table td:nth-child(6){width:20% !important;}
+.public-table code{white-space:normal !important;overflow-wrap:anywhere !important;}
+@media(max-width:640px){
+  .public-table-wrap{max-height:65svh;overflow-y:auto !important;overflow-x:hidden !important;}
+  .public-table{font-size:.61rem !important;table-layout:fixed !important;}
+  .public-table th,.public-table td{padding:.5rem .35rem !important;}
+  .public-table th{font-size:.54rem !important;letter-spacing:.02em !important;}
+}
+</style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
   <div class="auth-card">
