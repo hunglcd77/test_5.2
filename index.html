@@ -503,6 +503,138 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
   #authGate .public-table th{white-space:nowrap !important;}
 }
 </style>
+
+<style id="mt1p-public-lookup-wide-final">
+/* PUBLIC LOOKUP — full width + stable horizontal table */
+#authGate .auth-card:has(.public-lookup-container) {
+  width: min(1800px, calc(100vw - 32px));
+  max-width: 1800px !important;
+  box-sizing: border-box;
+}
+
+/* Khung chứa phần Tra cứu công khai */
+.public-lookup-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Khung tìm kiếm và bộ lọc */
+.public-lookup-container .search-input,
+.public-lookup-container .select-filter {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Khu vực công cụ hiện tại của MT-1P */
+.public-lookup-container .public-lookup-tools {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Bảng dữ liệu: cho phép cuộn ngang chuẩn khi cần */
+.public-lookup-container .public-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Không ép cột co quá mức; nội dung cột giữ một dòng */
+.public-lookup-container table,
+.public-lookup-container .public-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+/* Khoảng đệm dễ đọc */
+.public-lookup-container table th,
+.public-lookup-container table td,
+.public-lookup-container .public-table th,
+.public-lookup-container .public-table td {
+  padding: 8px 12px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+/* Mã nhà máy: NM01, NM02... luôn một dòng */
+.public-lookup-container table th:first-child,
+.public-lookup-container table td:first-child,
+.public-lookup-container .public-table th:first-child,
+.public-lookup-container .public-table td:first-child {
+  width: 90px;
+  min-width: 90px;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Công suất và nguồn nước không bị bẻ chữ */
+.public-lookup-container table th:nth-child(4),
+.public-lookup-container table td:nth-child(4),
+.public-lookup-container table th:nth-child(5),
+.public-lookup-container table td:nth-child(5) {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Các trường dài vẫn giữ cấu trúc bảng, không phá chữ */
+.public-lookup-container table th:nth-child(2),
+.public-lookup-container table td:nth-child(2) {
+  min-width: 220px;
+}
+.public-lookup-container table th:nth-child(3),
+.public-lookup-container table td:nth-child(3) {
+  min-width: 240px;
+}
+.public-lookup-container table th:nth-child(6),
+.public-lookup-container table td:nth-child(6) {
+  min-width: 220px;
+}
+
+/* Desktop: bảng tận dụng chiều ngang, không tạo thanh cuộn nếu đủ chỗ */
+@media (min-width: 901px) {
+  #authGate .auth-card:has(.public-lookup-container) {
+    padding: 2rem;
+  }
+  .public-lookup-container .public-table-wrap {
+    max-height: 60vh;
+  }
+}
+
+/* Mobile: giữ bảng ngang, cho phép cuộn ngang chuẩn */
+@media (max-width: 900px) {
+  #authGate .auth-card:has(.public-lookup-container) {
+    width: calc(100vw - 20px);
+    max-width: none !important;
+    padding: 1rem;
+  }
+
+  .public-lookup-container {
+    padding: 0;
+  }
+
+  .public-lookup-container .public-table-wrap {
+    overflow-x: auto;
+  }
+
+  .public-lookup-container .public-table {
+    min-width: 1100px;
+    font-size: 13px;
+  }
+
+  .public-lookup-container .public-table th,
+  .public-lookup-container .public-table td {
+    padding: 7px 10px;
+  }
+}
+</style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" aria-modal="true" role="dialog">
   <div class="auth-card">
@@ -518,7 +650,7 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
       </form>
       <div class="auth-note">Tài khoản của bạn được phân quyền theo vai trò được cấp.</div>
     </div>
-    <div class="public-lookup" id="publicLookupPanel">
+    <div class="public-lookup public-lookup-container" id="publicLookupPanel">
       <div class="public-lookup-head"><div><span class="public-kicker">TRA CỨU CÔNG KHAI</span><h3>Danh mục nhà máy</h3><p>Tra cứu thông tin danh mục cơ bản mà không cần đăng nhập.</p></div><span class="public-badge">Không cần tài khoản</span></div>
       <div class="public-lookup-tools"><input id="publicLookupSearch" type="search" placeholder="Tìm mã, tên nhà máy, địa điểm, công suất…" aria-label="Tra cứu công khai"><select id="publicLookupSource"><option value="">Tất cả nguồn nước</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option></select><span id="publicLookupCount" class="search-note"></span></div>
       <div class="public-table-wrap"><table class="public-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Địa điểm</th><th>Công suất</th><th>Nguồn nước</th><th>Tình trạng</th></tr></thead><tbody id="publicLookupBody"></tbody></table></div>
