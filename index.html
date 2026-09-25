@@ -180,7 +180,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
 #topTabs .top-tab{flex:0 0 auto;white-space:nowrap}
 section[id]{scroll-margin-top:8rem}
 #authGate{overflow:auto;-webkit-overflow-scrolling:touch;padding:1rem}
-.auth-card{width:min(1600px,100%);max-height:calc(100svh - 2rem);overflow:auto;-webkit-overflow-scrolling:touch;display:grid;grid-template-columns:minmax(300px,430px) minmax(0,1fr);gap:1rem;align-items:start}
+.auth-card{width:min(1840px,calc(100vw - 2rem));max-height:calc(100svh - 2rem);overflow:auto;-webkit-overflow-scrolling:touch;display:grid;grid-template-columns:minmax(300px,430px) minmax(0,1fr);gap:1rem;align-items:start}
 .auth-login{width:100%;max-width:none}
 .auth-login + .public-lookup{width:100%;min-width:0}
 .public-lookup{margin-top:0;overflow:hidden}
@@ -188,13 +188,15 @@ section[id]{scroll-margin-top:8rem}
 .public-lookup-tools input,.public-lookup-tools select{width:100%;min-width:0;min-height:var(--mt-touch)}
 .public-table-wrap{max-width:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .public-table{width:100%;min-width:0;table-layout:fixed}
-.public-table th,.public-table td{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
-.public-table th:nth-child(1),.public-table td:nth-child(1){width:8%}
-.public-table th:nth-child(2),.public-table td:nth-child(2){width:22%}
-.public-table th:nth-child(3),.public-table td:nth-child(3){width:25%}
-.public-table th:nth-child(4),.public-table td:nth-child(4){width:12%}
+.public-table th,.public-table td{white-space:normal;overflow-wrap:anywhere;word-break:normal}
+.public-table th:nth-child(1),.public-table td:nth-child(1){width:7%;white-space:nowrap}
+.public-table th:nth-child(2),.public-table td:nth-child(2){width:19%}
+.public-table th:nth-child(3),.public-table td:nth-child(3){width:24%}
+.public-table th:nth-child(4),.public-table td:nth-child(4){width:11%;white-space:nowrap}
 .public-table th:nth-child(5),.public-table td:nth-child(5){width:13%}
-.public-table th:nth-child(6),.public-table td:nth-child(6){width:20%}
+.public-table th:nth-child(6),.public-table td:nth-child(6){width:26%}
+.public-table td:nth-child(1) code{white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+.public-table th{white-space:nowrap}
 .full-search-section,.full-search-head,.full-search-bar,.full-search-input,.mt-search-tools,.search-tabs,.search-results{min-width:0;max-width:100%}
 .full-search-head .section-title{font-size:clamp(2.25rem,8vw,6rem);line-height:.9;max-width:9ch}
 .full-search-head>p{font-size:clamp(.78rem,1.4vw,.95rem);line-height:1.5}
@@ -240,19 +242,12 @@ html{font-size:15px}
 .public-badge{display:inline-flex;margin-top:.5rem}
 .public-table{min-width:0;width:100%;font-size:.68rem}
 .public-table th,.public-table td{padding:.55rem .45rem}
-.public-table-wrap{overflow:visible;border:0}
-.public-table,.public-table thead,.public-table tbody,.public-table tr,.public-table th,.public-table td{display:block;width:100%}
-.public-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.public-table tr{margin-bottom:.7rem;border:1px solid #e2e8f0;border-radius:.75rem;background:#fff;overflow:hidden}
-.public-table td{display:grid;grid-template-columns:34% minmax(0,66%);gap:.45rem;padding:.55rem .65rem;border-bottom:1px solid #edf1f5}
-.public-table td::before{font-weight:800;color:#475467}
-.public-table td:nth-child(1)::before{content:'Mã'}
-.public-table td:nth-child(2)::before{content:'Nhà máy'}
-.public-table td:nth-child(3)::before{content:'Địa điểm'}
-.public-table td:nth-child(4)::before{content:'Công suất'}
-.public-table td:nth-child(5)::before{content:'Nguồn nước'}
-.public-table td:nth-child(6)::before{content:'Tình trạng'}
-.public-table td:last-child{border-bottom:0}
+.public-table-wrap{overflow-y:auto;overflow-x:hidden;border:1px solid #e2e8f0}
+.public-table,.public-table thead,.public-table tbody{display:table;width:100%}
+.public-table tr{display:table-row}
+.public-table th,.public-table td{display:table-cell}
+.public-table td:nth-child(1){white-space:nowrap}
+.public-table td:nth-child(1) code{white-space:nowrap;display:inline-block}
 .header#siteHeader{top:.4rem;left:.4rem;right:.4rem;height:3.35rem;padding:.45rem .75rem;border-radius:1rem}
 .header#siteHeader .brand{justify-content:flex-start;font-size:.9rem}
 .auth-user{gap:.35rem}
@@ -449,6 +444,63 @@ mark{background:#fff36a;color:#111;border-radius:.18rem;padding:0 .08em}
   .public-table{font-size:.61rem !important;table-layout:fixed !important;}
   .public-table th,.public-table td{padding:.5rem .35rem !important;}
   .public-table th{font-size:.54rem !important;letter-spacing:.02em !important;}
+}
+</style>
+<style id="mt1p-public-lookup-final-wide-fix">
+/* FINAL — Tra cứu công khai: bảng ngang, nhà máy xếp dọc */
+@media (min-width: 901px){
+  #authGate{padding:1rem 1.25rem;}
+  #authGate .auth-card{
+    width:min(1840px, calc(100vw - 2.5rem)) !important;
+    max-width:1840px !important;
+    grid-template-columns:minmax(300px,430px) minmax(0,1fr) !important;
+  }
+  #authGate .public-lookup{min-width:0;width:100%;}
+  #authGate .public-table-wrap{
+    width:100%;
+    max-width:none;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+  }
+  #authGate .public-table{
+    width:100% !important;
+    min-width:0 !important;
+    table-layout:fixed !important;
+    font-size:.74rem !important;
+  }
+  #authGate .public-table th,
+  #authGate .public-table td{
+    white-space:normal !important;
+    word-break:normal !important;
+    overflow-wrap:break-word !important;
+    line-height:1.4;
+  }
+  #authGate .public-table th{font-size:.64rem !important;white-space:nowrap !important;}
+  #authGate .public-table th:nth-child(1),
+  #authGate .public-table td:nth-child(1){width:7% !important;white-space:nowrap !important;}
+  #authGate .public-table th:nth-child(2),
+  #authGate .public-table td:nth-child(2){width:19% !important;}
+  #authGate .public-table th:nth-child(3),
+  #authGate .public-table td:nth-child(3){width:24% !important;}
+  #authGate .public-table th:nth-child(4),
+  #authGate .public-table td:nth-child(4){width:11% !important;white-space:nowrap !important;}
+  #authGate .public-table th:nth-child(5),
+  #authGate .public-table td:nth-child(5){width:13% !important;}
+  #authGate .public-table th:nth-child(6),
+  #authGate .public-table td:nth-child(6){width:26% !important;}
+  #authGate .public-table td:nth-child(1) code{
+    display:inline-block !important;
+    white-space:nowrap !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+    font-size:.78rem !important;
+  }
+}
+@media (max-width:900px){
+  #authGate .auth-card{max-width:none !important;}
+  #authGate .public-table td:nth-child(1),
+  #authGate .public-table td:nth-child(1) code{white-space:nowrap !important;word-break:keep-all !important;}
+  #authGate .public-table th{white-space:nowrap !important;}
 }
 </style>
 </head><body><div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
