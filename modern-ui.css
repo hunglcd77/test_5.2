@@ -1,0 +1,305 @@
+/* MT-1P PHASE 5 STEP 3 — Modern UI layer
+   UI-only layer. Does not modify Supabase/Auth/RLS/data logic.
+*/
+:root{
+  --mt-bg:#f5f8fc;
+  --mt-surface:#ffffff;
+  --mt-surface-2:#f8fafc;
+  --mt-ink:#0f172a;
+  --mt-muted:#64748b;
+  --mt-line:#e2e8f0;
+  --mt-primary:#2563eb;
+  --mt-primary-dark:#1d4ed8;
+  --mt-success:#15803d;
+  --mt-radius:16px;
+  --mt-shadow:0 12px 34px rgba(15,23,42,.07);
+  --mt-shadow-hover:0 18px 44px rgba(15,23,42,.11);
+  --mt-ease:cubic-bezier(.2,.75,.25,1);
+}
+
+body.mt1p-modern{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(37,99,235,.06),transparent 28rem),
+    radial-gradient(circle at 95% 5%,rgba(14,165,233,.05),transparent 24rem),
+    var(--mt-bg);
+  color:var(--mt-ink);
+}
+
+body.mt1p-modern::selection{background:rgba(37,99,235,.18)}
+
+/* ---------- Shared navigation ---------- */
+body.mt1p-modern .mt1p-step1-nav{
+  position:sticky;
+  top:0;
+  z-index:900;
+  min-height:58px;
+  padding:8px clamp(12px,2vw,28px);
+  gap:6px;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid rgba(226,232,240,.92);
+  box-shadow:0 4px 20px rgba(15,23,42,.05);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+}
+body.mt1p-modern .mt1p-step1-nav .nav-item{
+  border:1px solid transparent;
+  color:#475569;
+  border-radius:11px;
+  font-weight:700;
+  transition:transform .18s var(--mt-ease),background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+body.mt1p-modern .mt1p-step1-nav .nav-item:hover{
+  color:#0f172a;
+  background:#f1f5f9;
+  border-color:#e2e8f0;
+  transform:translateY(-1px);
+}
+body.mt1p-modern .mt1p-step1-nav .nav-item.active{
+  color:#1d4ed8;
+  background:#eff6ff;
+  border-color:#bfdbfe;
+  box-shadow:0 4px 12px rgba(37,99,235,.08);
+}
+body.mt1p-modern .nav-auth-state{color:#334155}
+body.mt1p-modern .nav-auth-state button{transition:all .18s var(--mt-ease)}
+body.mt1p-modern .nav-auth-state button:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,23,42,.08)}
+
+/* ---------- Main shell ---------- */
+body.mt1p-modern main{
+  width:min(1500px,calc(100% - 32px));
+  margin:0 auto;
+}
+body.mt1p-modern main > .card,
+body.mt1p-modern main > section.card{
+  border:1px solid rgba(226,232,240,.95);
+  border-radius:var(--mt-radius);
+  box-shadow:var(--mt-shadow);
+}
+body.mt1p-modern .hero.card{
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(15,23,42,.10);
+}
+
+/* ---------- Hero ---------- */
+body.mt1p-modern .hero .header{
+  border-bottom:1px solid rgba(226,232,240,.65);
+}
+body.mt1p-modern .hero .brand{
+  transition:transform .2s var(--mt-ease);
+}
+body.mt1p-modern .hero .brand:hover{transform:translateY(-1px)}
+body.mt1p-modern .hero h1{letter-spacing:-.045em}
+body.mt1p-modern .hero-word span{
+  animation:mt3-word-in .65s var(--mt-ease) both;
+}
+body.mt1p-modern .hero-word:nth-child(2) span{animation-delay:.07s}
+body.mt1p-modern .hero-word:nth-child(3) span{animation-delay:.14s}
+@keyframes mt3-word-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- Cards / modules ---------- */
+body.mt1p-modern .module,
+body.mt1p-modern .tool-card,
+body.mt1p-modern .program,
+body.mt1p-modern .rule-card,
+body.mt1p-modern .step,
+body.mt1p-modern .procedure-card{
+  transition:transform .2s var(--mt-ease),box-shadow .2s var(--mt-ease),border-color .2s ease,background .2s ease;
+}
+body.mt1p-modern .module:hover,
+body.mt1p-modern .tool-card:hover,
+body.mt1p-modern .program:hover,
+body.mt1p-modern .rule-card:hover,
+body.mt1p-modern .step:hover,
+body.mt1p-modern .procedure-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--mt-shadow-hover);
+  border-color:#cbd5e1;
+}
+body.mt1p-modern .module:focus-visible,
+body.mt1p-modern .tool-card:focus-visible,
+body.mt1p-modern .program:focus-visible,
+body.mt1p-modern .procedure-card:focus-visible{
+  outline:3px solid rgba(37,99,235,.22);
+  outline-offset:2px;
+}
+
+/* ---------- Forms ---------- */
+body.mt1p-modern input,
+body.mt1p-modern select,
+body.mt1p-modern textarea{
+  border-color:#d7dee8;
+  border-radius:10px;
+  background:#fff;
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+body.mt1p-modern input:hover,
+body.mt1p-modern select:hover,
+body.mt1p-modern textarea:hover{border-color:#b8c4d3}
+body.mt1p-modern input:focus,
+body.mt1p-modern select:focus,
+body.mt1p-modern textarea:focus{
+  border-color:#60a5fa;
+  box-shadow:0 0 0 4px rgba(37,99,235,.10);
+  outline:none;
+}
+body.mt1p-modern button.primary,
+body.mt1p-modern button.auth-primary,
+body.mt1p-modern .primary{
+  transition:transform .18s var(--mt-ease),box-shadow .18s var(--mt-ease),filter .18s ease;
+}
+body.mt1p-modern button.primary:hover,
+body.mt1p-modern button.auth-primary:hover,
+body.mt1p-modern .primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 9px 22px rgba(37,99,235,.18);
+}
+body.mt1p-modern button.primary:active,
+body.mt1p-modern button.auth-primary:active,
+body.mt1p-modern .primary:active{transform:translateY(0)}
+
+/* ---------- Tables ---------- */
+body.mt1p-modern .public-table-wrap,
+body.mt1p-modern .data-table,
+body.mt1p-modern table{
+  border-color:var(--mt-line);
+}
+body.mt1p-modern .public-table{
+  font-variant-numeric:tabular-nums;
+}
+body.mt1p-modern .public-table th{
+  background:linear-gradient(#f8fafc,#f1f5f9);
+  color:#334155;
+  border-bottom:1px solid #dbe3ec;
+}
+body.mt1p-modern .public-table tbody tr{
+  transition:background .16s ease,box-shadow .16s ease;
+}
+body.mt1p-modern .public-table tbody tr:hover{
+  background:#f8fbff;
+  box-shadow:inset 3px 0 0 #60a5fa;
+}
+body.mt1p-modern .public-table td:first-child code{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:2px 8px;
+  border-radius:8px;
+  background:#eff6ff;
+  color:#1d4ed8;
+}
+
+/* ---------- Public lookup module pages ---------- */
+body.mt1p-modern.public-lookup-page .module-page-heading,
+body.mt1p-modern.mt1p-module-page .module-page-heading{
+  width:min(1500px,calc(100% - 32px));
+  margin:0 auto;
+  padding-top:28px !important;
+}
+body.mt1p-modern .module-page-heading h1{
+  letter-spacing:-.035em;
+}
+body.mt1p-modern.public-lookup-page #authGate .public-lookup{
+  border:1px solid var(--mt-line) !important;
+  border-radius:var(--mt-radius) !important;
+  box-shadow:var(--mt-shadow) !important;
+  background:rgba(255,255,255,.96) !important;
+}
+body.mt1p-modern.public-lookup-page .public-lookup-head{
+  padding-bottom:4px;
+}
+body.mt1p-modern .public-badge{
+  box-shadow:0 2px 8px rgba(37,99,235,.05);
+}
+
+/* ---------- Auth gate ---------- */
+body.mt1p-modern #authGate .auth-card{
+  border:1px solid rgba(226,232,240,.95);
+  box-shadow:0 24px 80px rgba(15,23,42,.13);
+  border-radius:20px;
+}
+body.mt1p-modern #authGate .auth-brand{
+  letter-spacing:-.025em;
+}
+body.mt1p-modern #authGate .auth-login{
+  border-radius:16px;
+}
+
+/* ---------- Toast ---------- */
+body.mt1p-modern #mt1pToast{
+  filter:drop-shadow(0 12px 28px rgba(15,23,42,.14));
+}
+
+/* ---------- Modal ---------- */
+body.mt1p-modern .modal-panel{
+  border:1px solid rgba(226,232,240,.9);
+  border-radius:20px;
+  box-shadow:0 28px 90px rgba(15,23,42,.2);
+}
+
+/* ---------- Module page content ---------- */
+body.mt1p-modern.mt1p-module-page main{
+  width:min(1500px,calc(100% - 32px));
+}
+body.mt1p-modern.mt1p-module-page main > section,
+body.mt1p-modern.mt1p-module-page main > .section,
+body.mt1p-modern.mt1p-module-page main > .card{
+  border-radius:var(--mt-radius);
+}
+
+/* ---------- Loading ---------- */
+body.mt1p-modern .loader .track{
+  border-radius:999px;
+  overflow:hidden;
+}
+body.mt1p-modern .loader .fill{
+  box-shadow:0 0 18px rgba(37,99,235,.28);
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  body.mt1p-modern main,
+  body.mt1p-modern.mt1p-module-page main,
+  body.mt1p-modern.public-lookup-page .module-page-heading,
+  body.mt1p-modern.mt1p-module-page .module-page-heading{
+    width:calc(100% - 20px);
+  }
+  body.mt1p-modern .hero h1{font-size:clamp(2.8rem,13vw,5.5rem)}
+  body.mt1p-modern .public-lookup-tools{gap:.65rem}
+}
+
+@media(max-width:640px){
+  body.mt1p-modern .mt1p-step1-nav{
+    min-height:52px;
+    padding:6px 8px;
+  }
+  body.mt1p-modern .mt1p-step1-nav .nav-item{
+    font-size:12px;
+    padding:7px 9px;
+  }
+  body.mt1p-modern main,
+  body.mt1p-modern.mt1p-module-page main,
+  body.mt1p-modern.public-lookup-page .module-page-heading,
+  body.mt1p-modern.mt1p-module-page .module-page-heading{
+    width:calc(100% - 12px);
+  }
+  body.mt1p-modern .hero.card,
+  body.mt1p-modern main > .card,
+  body.mt1p-modern main > section.card{
+    border-radius:13px;
+  }
+  body.mt1p-modern .public-table-wrap{
+    border-radius:10px;
+  }
+}
+
+/* Motion is intentionally subtle; accessibility preference always wins. */
+@media(prefers-reduced-motion:reduce){
+  body.mt1p-modern *,
+  body.mt1p-modern *::before,
+  body.mt1p-modern *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
