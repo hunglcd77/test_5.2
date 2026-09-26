@@ -1,0 +1,30 @@
+
+/* MT-1P Phase 5 — unified modern UI, no duplicate legacy tab strip */
+.top-tab-panel{display:none!important}
+.mt1p-step1-nav{position:sticky;top:0;z-index:5000;backdrop-filter:blur(14px);background:rgba(255,255,255,.92);border-bottom:1px solid #e6ebf2;box-shadow:0 2px 14px rgba(15,23,42,.05)}
+.mt1p-step1-nav .nav-item{transition:background .18s ease,color .18s ease,transform .18s ease}
+.mt1p-step1-nav .nav-item:hover{transform:translateY(-1px)}
+.mt1p-step1-nav .nav-item.active{background:#eaf2ff;color:#1455a0}
+.mt1p-step1-nav .nav-spacer{flex:1}
+.nav-auth-state{display:inline-flex!important;align-items:center;gap:8px!important;margin-left:auto!important}
+.nav-auth-state button{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:7px 11px;font-weight:800;cursor:pointer}
+.mt5-role-badge{display:inline-flex;align-items:center;min-height:32px;padding:5px 10px;border-radius:999px;background:#eff6ff;color:#1455a0;border:1px solid #cfe0f5}
+#authGate{transition:opacity .2s ease}
+.auth-card{box-shadow:0 18px 55px rgba(15,23,42,.14)}
+.auth-primary:disabled{opacity:.65;cursor:wait}
+.mt5-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.mt5-tool-btn{border:1px solid #d7dee8;background:#fff;color:#24324a;border-radius:9px;padding:8px 12px;font-weight:750;cursor:pointer;transition:.18s ease}
+.mt5-tool-btn:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(15,23,42,.08)}
+#mt5CommandBackdrop{position:fixed;inset:0;z-index:10050;background:rgba(2,6,23,.42);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:12vh 16px}
+#mt5CommandBackdrop.open{display:flex}
+.mt5-command{width:min(720px,100%);background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.22);overflow:hidden}
+.mt5-command input{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid #e5e7eb;padding:18px 20px;font-size:16px;outline:none}
+.mt5-command-list{max-height:55vh;overflow:auto;padding:8px}
+.mt5-command-item{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:10px;text-decoration:none;color:#1f2937}
+.mt5-command-item:hover{background:#f3f6fb}
+#mt1pToast{position:fixed;right:18px;bottom:18px;z-index:12000;display:grid;gap:8px}
+.mt5-toast{min-width:260px;max-width:min(420px,calc(100vw - 36px));background:#fff;border:1px solid #dbe3ec;border-radius:12px;padding:12px 14px;box-shadow:0 12px 35px rgba(15,23,42,.16);animation:mt5Toast .22s ease both}
+.mt5-toast.success{border-left:4px solid #16a34a}.mt5-toast.info{border-left:4px solid #2563eb}.mt5-toast.error{border-left:4px solid #dc2626}
+@keyframes mt5Toast{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.mt1p-step1-nav{overflow-x:auto}.nav-auth-state{display:none!important}.mt5-toast{min-width:0}.mt5-command{border-radius:12px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
