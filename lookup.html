@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MT-1P - 🔍 Tra cứu</title>
+<style>
+/* MT-1P PHASE 5 - STEP 1: navigation shell only */
+.mt1p-step1-nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  box-sizing:border-box;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #e4e9f0;
+  box-shadow:0 2px 12px rgba(15,23,42,.06);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.mt1p-step1-nav .nav-item{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:8px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#374151;
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.mt1p-step1-nav .nav-item:hover{
+  background:#f3f6fa;
+  color:#0d2e5d;
+  transform:translateY(-1px);
+}
+.mt1p-step1-nav .nav-item.active{
+  background:#e8f0fe;
+  color:#2563c9;
+  box-shadow:inset 0 0 0 1px rgba(37,99,201,.10);
+}
+.mt1p-step1-nav .nav-spacer{flex:1 1 auto}
+.mt1p-step1-shell{
+  width:min(1200px,calc(100% - 32px));
+  margin:0 auto;
+  padding:48px 0 72px;
+}
+.mt1p-step1-card{
+  background:#fff;
+  border:1px solid #e4e9f0;
+  border-radius:18px;
+  padding:32px;
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+.mt1p-step1-card h1{margin:0 0 10px;color:#0d2e5d;font-size:clamp(24px,4vw,36px)}
+.mt1p-step1-card p{color:#6d7787;line-height:1.7;margin:8px 0 0}
+.mt1p-back{display:inline-flex;margin-top:24px;padding:9px 14px;border-radius:10px;background:#f3f6fa;color:#0d2e5d;text-decoration:none;font-weight:600}
+.mt1p-back:hover{background:#e8f0fe}
+@media(max-width:768px){
+  .mt1p-step1-nav{overflow-x:auto;flex-wrap:nowrap;padding:8px 10px;scrollbar-width:thin}
+  .mt1p-step1-nav .nav-item{flex:0 0 auto;font-size:13px;padding:8px 11px}
+  .mt1p-step1-shell{width:calc(100% - 20px);padding:28px 0 48px}
+  .mt1p-step1-card{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){.mt1p-step1-nav .nav-item{transition:none}}
+
+</style>
+</head>
+<body>
+<nav class="mt1p-step1-nav" aria-label="Điều hướng MT-1P">
+  <a href="index.html" class="nav-item">🏠 Trang chính</a>
+  <a href="lookup.html" class="nav-item active">🔍 Tra cứu</a>
+  <a href="quick.html" class="nav-item">⚡ Tìm nhanh</a>
+  <a href="plants.html" class="nav-item">🏭 Nhà máy</a>
+  <a href="technical.html" class="nav-item">📁 Hồ sơ kỹ thuật</a>
+  <a href="appendix.html" class="nav-item">📄 Phụ lục</a>
+  <span class="nav-spacer"></span>
+</nav>
+
+<main class="mt1p-step1-shell">
+  <section class="mt1p-step1-card">
+    <h1>🔍 Tra cứu</h1>
+    <p>Khu vực Tra cứu công khai sẽ được chuyển nguyên trạng từ trang chính ở Bước 2. Bước 1 chỉ tạo trang và điều hướng; không thay đổi dữ liệu hoặc logic hiện tại.</p>
+    <a class="mt1p-back" href="index.html">← Quay về Trang chính</a>
+  </section>
+</main>
+</body>
+</html>
