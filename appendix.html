@@ -860,8 +860,10 @@ body.public-module-page .mt1p-step1-nav{position:fixed;top:0;left:0;right:0}
 </style>
   <link rel="stylesheet" href="modern-ui.css">
 <link rel="stylesheet" href="step4-modern.css">
-<link rel="stylesheet" href="step5-modern.css">
-</head><body class="public-module-page mt1p-module-page mt1p-modern">
+
+<style id="mt1p-phase5-step5-clean-tabs">#topTabs,.top-tab-panel{display:none!important}</style>
+<link rel="stylesheet" href="step5-admin.css">
+</head><body data-public-page="true" data-mt1p-page="appendix" class="public-module-page mt1p-module-page mt1p-modern">
 <nav class="mt1p-step1-nav" aria-label="Điều hướng MT-1P"><a href="index.html" class="nav-item">🏠 Trang chính</a><a href="lookup.html" class="nav-item">🔍 Tra cứu</a><a href="quick.html" class="nav-item">⚡ Tìm nhanh</a><a href="plants.html" class="nav-item">🏭 Nhà máy</a><a href="technical.html" class="nav-item">📁 Hồ sơ kỹ thuật</a><a href="appendix.html" class="nav-item active">📄 Phụ lục</a><span class="nav-spacer"></span><span class="nav-auth-state" id="navAuthState" hidden></span></nav><div class="module-page-heading"><h1>📄 Phụ lục</h1><p>Kho biểu mẫu và phụ lục hiện có trong MT-1P.</p></div>
 <div id="appError" hidden style="position:fixed;z-index:99999;left:16px;right:16px;top:16px;padding:12px 16px;border:2px solid #b42318;border-radius:10px;background:#fff4f2;color:#7a271a;font:600 14px Arial;box-shadow:0 8px 24px rgba(0,0,0,.18)"></div>
 <div id="authGate" hidden aria-modal="true" role="dialog">
@@ -878,14 +880,19 @@ body.public-module-page .mt1p-step1-nav{position:fixed;top:0;left:0;right:0}
       </form>
       <div class="auth-note">Tài khoản của bạn được phân quyền theo vai trò được cấp.</div>
     </div>
+    <div class="public-lookup public-lookup-container" id="publicLookupPanel">
+      <div class="public-lookup-head"><div><span class="public-kicker">TRA CỨU CÔNG KHAI</span><h3>Danh mục nhà máy</h3><p>Tra cứu thông tin danh mục cơ bản mà không cần đăng nhập.</p></div><span class="public-badge">Không cần tài khoản</span></div>
+      <div class="public-lookup-tools"><input id="publicLookupSearch" type="search" placeholder="Tìm mã, tên nhà máy, địa điểm, công suất…" aria-label="Tra cứu công khai"><select id="publicLookupSource"><option value="">Tất cả nguồn nước</option><option value="Nước mặt">Nước mặt</option><option value="Nước dưới đất">Nước dưới đất</option></select><span id="publicLookupCount" class="search-note"></span></div>
+      <div class="public-table-wrap"><table class="public-table"><thead><tr><th>Mã</th><th>Nhà máy</th><th>Địa điểm</th><th>Công suất</th><th>Nguồn nước</th><th>Tình trạng</th></tr></thead><tbody id="publicLookupBody"></tbody></table></div>
+    </div>
   </div>
 </div>
+
 <div class="loader" id="loader"><div class="loader-inner"><div class="loader-brand"><span class="mark"></span> MT-1P</div><div class="track"><div class="fill"></div></div></div></div>
 <div class="modal" id="modal"><div class="modal-panel" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="eyebrow"><i></i> Hỗ trợ MT-1P</span><h2>Trao đổi<br>hồ sơ</h2></div><button class="close" style="background:var(--surface);color:var(--ink)" id="modalClose">×</button></div><form class="modal-form" id="contactForm"><div><label>Họ và tên</label><input id="contactName" required placeholder="Người thực hiện"></div><div><label>Email</label><input type="email" required placeholder="you@example.com"></div><div><label>Nội dung</label><textarea rows="3" placeholder="Phạm vi hồ sơ cần rà soát..."></textarea></div><button class="primary" type="submit">Gửi yêu cầu</button></form><div class="success" id="success"><div class="success-icon">✓</div><strong>Đã ghi nhận</strong><p class="muted">Đây là biểu mẫu thử nghiệm; không gửi dữ liệu lên máy chủ.</p><button type="button" class="primary" id="done">Đóng</button></div></div></div>
 <div id="mt1pToast" aria-live="polite"></div>
 <main>
 <section class="hero card" id="home"><header class="header" id="siteHeader"><a class="brand" href="#home" aria-label="MT-1P"><span class="mark"></span> MT-1P</a><div class="auth-user" id="authUser" hidden><span class="auth-user-name" id="authUserName"></span><button class="auth-logout" id="authLogout" type="button">Đăng xuất</button></div></header>
-
 <div class="hero-inner"><span class="kicker"><i></i> Hệ thống tra cứu thủ tục môi trường · V5.5.2 INDEX HỢP NHẤT</span><h1><span class="hero-word"><span>Tra</span></span> <span class="hero-word"><span>Cứu</span></span> <span class="hero-word"><span>1 Phút</span></span></h1><div class="hero-bottom"><div class="tagline"><div><span>Đúng quy trình,</span></div><div><span>rõ căn cứ.</span></div></div><div class="hero-tools"><div class="glass mini-stat"><div><div class="num">I–IV</div><small>Phân loại nhóm dự án/cơ sở</small></div><div><div class="num">3</div><small>ĐTM · GPMT · ĐKMT</small></div></div></div></div></div></section>
 <section class="section trust card" id="legal"><div class="section-head"><div><span class="eyebrow"><i></i> Đối chiếu căn cứ</span><h2 class="section-title">Không chỉ<br>trả lời “Có”</h2></div><p class="muted" style="max-width:22rem">Hiển thị quy tắc, điều kiện và căn cứ dữ liệu để người dùng kiểm tra lại kết quả.</p></div><div class="ghost"><div class="ghost-row"><span>QUY TẮC</span><span>ĐỐI CHIẾU</span></div><div class="ghost-row"><span>KIỂM TRA</span><span>CĂN CỨ</span></div></div><article class="rule-card"><div class="rule-icon">§</div><div class="rule-caption"><strong>Danh mục pháp lý</strong><small>Quy tắc → điều kiện → căn cứ → kết quả</small></div></article></section>
 <section class="section surface card" id="workflow"><span class="eyebrow"><i></i> Quy trình</span><h2 class="section-title">Từ dữ liệu<br>đến hồ sơ</h2><div class="workflow-grid"><div class="step"><span class="step-num">01 / ĐẦU VÀO</span><h3>Thu thập đầu vào</h3><p>Loại hình, địa bàn, ngành nghề, quy mô, nước thải, khí thải, CTNH và yếu tố nhạy cảm.</p></div><div class="step"><span class="step-num">02 / XỬ LÝ</span><h3>Bộ xử lý quy tắc</h3><p>Đánh giá theo bộ quy tắc hiện có và trả về Nhóm I–IV cùng các thủ tục liên quan.</p></div><div class="step"><span class="step-num">03 / PHÁP LÝ</span><h3>Đối chiếu căn cứ</h3><p>Hiển thị quy tắc, điều kiện đã kiểm tra, kết quả và căn cứ dữ liệu.</p></div><div class="step"><span class="step-num">04 / KẾT QUẢ</span><h3>Hồ sơ 1 cửa</h3><p>Tạo danh mục kiểm tra, lưu phiên tra cứu và in phiếu kết quả để tiếp tục xử lý hồ sơ.</p></div></div></section>
@@ -1408,7 +1415,7 @@ function printResult(r){const w=window.open("","_blank");if(!w){alert("Trình du
 @media(max-width:700px){.mt-search-tool-buttons{margin-left:0;width:100%}.mt-search-tool-buttons .v51-btn{flex:1}.search-data{max-height:28rem}}
 </style>
 </head><body><h1>MT-1P — PHIẾU TRA CỨU THỦ TỤC MÔI TRƯỜNG</h1><p>V5.4 · ${new Date().toLocaleString("vi-VN")}</p><h2>Kết quả</h2><p><b>Nhóm:</b> ${esc(r.finalNhom)} · <b>ĐTM:</b> ${r.canDTM?"Có":"Không"} · <b>GPMT:</b> ${r.canGPMT?"Có":"Không"} · <b>ĐKMT:</b> ${r.canDKMT?(r.dkmtCapTinh?"Cấp tỉnh":"Cấp xã"):"Không"}</p><h2>Đối chiếu căn cứ</h2><table><tr><th>Quy tắc</th><th>Khâu</th><th>Điều kiện</th><th>Kết quả</th><th>Căn cứ</th></tr>${rows}</table><h2>Danh mục kiểm tra</h2><ol>${r.checklist.map(c=>`<li>${esc(c.text)}</li>`).join("")}</ol><p><b>Lưu ý:</b> ${esc(r.disclaimer)}</p><script>window.onload=()=>window.print()<\/script><script src="step4-modern.js"></script>
-<script src="step5-app.js"></script>
+<script src="step5-admin.js" defer></script>
 </body></html>`);w.document.close()}
 $$("#lhToggle button").forEach(b=>b.onclick=()=>{$$("#lhToggle button").forEach(x=>x.classList.remove("active"));b.classList.add("active");loaiHinh=b.dataset.v});$("#run").onclick=run;
 function openModal(){$("#modal").classList.add("open");setTimeout(()=>$("#contactName").focus(),120)}function closeModal(){$("#modal").classList.remove("open");$("#success").classList.remove("show");$("#contactForm").style.display="grid"}$("#bookFooter").onclick=openModal;$("#modalClose").onclick=closeModal;$("#done").onclick=closeModal;$("#contactForm").onsubmit=e=>{e.preventDefault();$("#contactForm").style.display="none";$("#success").classList.add("show")};$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal()}});
@@ -1758,10 +1765,115 @@ document.getElementById('publicLookupSearch')?.addEventListener('input',renderPu
 document.getElementById('publicLookupSource')?.addEventListener('change',renderPublicLookup);
 setTimeout(renderPublicLookup,0);
 
-/* MT-1P Phase 5 — shared stable Supabase Auth */
+/* MT-1P Phase 5 — Supabase Auth stable login / profile authorization */
+(function(){
+  'use strict';
+  const gate=document.getElementById('authGate');
+  const loginForm=document.getElementById('loginForm');
+  const loginError=document.getElementById('loginError');
+  const loginBtn=document.getElementById('loginBtn');
+  const userBox=document.getElementById('authUser');
+  const userName=document.getElementById('authUserName');
+  const logoutBtn=document.getElementById('authLogout');
+  const SUPABASE_URL='https://jaefczpoqjwivbswzfnd.supabase.co';
+  const SUPABASE_KEY='sb_publishable_3q2cC0lyYxaMuv3Id8JVJg_Jw2YtpZp';
+  const PUBLIC_PAGE=document.body?.dataset.publicPage==='true';
+  let sb=null, loadPromise=null;
 
+  function setError(msg){ if(loginError) loginError.textContent=msg||''; }
+  function syncNavAuth(profile,user){
+    const el=document.getElementById('navAuthState'); if(!el) return;
+    if(profile&&user){
+      el.hidden=false;
+      el.innerHTML='<span>'+String(profile.full_name||user.email||'').replace(/[&<>"\\']/g,'')+' · '+String(profile.role||'')+'</span><button type="button" id="navLogoutBtn">Đăng xuất</button>';
+      document.getElementById('navLogoutBtn')?.addEventListener('click',()=>logoutBtn?.click());
+    }else{el.hidden=true;el.innerHTML='';}
+  }
+  function lock(){
+    if(PUBLIC_PAGE){ if(gate) gate.hidden=true; return; }
+    if(gate) gate.hidden=false;
+    if(userBox) userBox.hidden=true;
+    window.MT1P_USER=null;
+    document.body.dataset.mt1pRole='';
+    syncNavAuth(null,null);
+  }
+  function unlock(profile,user){
+    if(gate) gate.hidden=true;
+    if(userBox) userBox.hidden=false;
+    if(userName) userName.textContent=(profile.full_name||user.email||'')+' · '+profile.role;
+    window.MT1P_USER={id:user.id,email:user.email||'',full_name:profile.full_name||'',role:profile.role,status:profile.status,profile};
+    document.body.dataset.mt1pRole=profile.role||'';
+    document.querySelectorAll('[data-role-only]').forEach(el=>{
+      const roles=(el.dataset.roleOnly||'').split(',').map(x=>x.trim()).filter(Boolean);
+      el.hidden=roles.length ? !roles.includes(profile.role) : false;
+    });
+    syncNavAuth(profile,user);
+    document.dispatchEvent(new CustomEvent('mt1p:auth',{detail:{profile,user}}));
+  }
+  function authClient(){
+    if(sb) return sb;
+    if(!window.supabase || typeof window.supabase.createClient!=='function') throw new Error('Không tải được thư viện Supabase JS.');
+    sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'mt1p-supabase-auth'}});
+    window.MT1P_SUPABASE=sb; return sb;
+  }
+  async function readProfile(client,user){
+    let lastError=null;
+    for(let attempt=0;attempt<2;attempt++){
+      const {data,error}=await client.from('profiles').select('id,full_name,role,status').eq('id',user.id).maybeSingle();
+      if(!error && data) return data;
+      lastError=error || new Error('Không tìm thấy profile');
+      await new Promise(r=>setTimeout(r,250));
+    }
+    throw new Error('Auth thành công nhưng chưa đọc được profiles theo UUID '+user.id+'. '+(lastError?.message||''));
+  }
+  async function loadUser(sessionArg=null,userArg=null){
+    if(PUBLIC_PAGE){ lock(); return true; }
+    if(loadPromise) return loadPromise;
+    loadPromise=(async()=>{
+      try{
+        const client=authClient();
+        let session=sessionArg, user=userArg;
+        if(!user){
+          const r=await client.auth.getSession();
+          if(r.error) throw r.error;
+          session=r.data?.session||null; user=session?.user||null;
+        }
+        if(!user){lock();return false;}
+        const profile=await readProfile(client,user);
+        const role=String(profile.role||'').trim().toLowerCase();
+        const status=String(profile.status||'').trim().toLowerCase();
+        if(status!=='active') throw new Error('Tài khoản đã đăng nhập nhưng profiles.status không phải active.');
+        if(!['admin','manager','staff','viewer'].includes(role)) throw new Error('Role MT-1P không hợp lệ: '+profile.role);
+        const normalized={...profile,role,status};
+        unlock(normalized,user);
+        try{await loadWaterPlantsFromSupabase();}catch(e){console.warn('[MT-1P] water_plants:',e)}
+        try{await loadTechnicalRecordsFromSupabase();}catch(e){console.warn('[MT-1P] technical_records:',e)}
+        return true;
+      }catch(err){
+        console.error('[MT-1P] loadUser:',err); setError(err?.message||'Không thể xác thực quyền MT-1P.'); lock(); return false;
+      }finally{loadPromise=null;}
+    })();
+    return loadPromise;
+  }
+  loginForm?.addEventListener('submit',async e=>{
+    e.preventDefault(); setError('');
+    if(loginBtn){loginBtn.disabled=true;loginBtn.textContent='Đang đăng nhập…';}
+    try{
+      const client=authClient();
+      const email=document.getElementById('loginUser')?.value.trim();
+      const password=document.getElementById('loginPass')?.value||'';
+      if(!email||!password) throw new Error('Vui lòng nhập email và mật khẩu.');
+      const {data,error}=await client.auth.signInWithPassword({email,password});
+      if(error) throw new Error('Đăng nhập thất bại: '+error.message);
+      const ok=await loadUser(data?.session||null,data?.user||null);
+      if(!ok) throw new Error('Không xác thực được quyền MT-1P.');
+    }catch(err){console.error('[MT-1P] login:',err);setError(err?.message||'Không thể đăng nhập.');lock();}
+    finally{if(loginBtn){loginBtn.disabled=false;loginBtn.textContent='Đăng nhập';}}
+  });
+  logoutBtn?.addEventListener('click',async()=>{try{await authClient().auth.signOut();}catch(e){console.error(e)} if(document.getElementById('loginPass')) document.getElementById('loginPass').value='';setError('');lock();});
+  (async()=>{try{authClient();await loadUser();}catch(e){console.error('[MT-1P] Auth init:',e);if(!PUBLIC_PAGE)setError(e?.message||'Không khởi tạo được Supabase Auth.');lock();}})();
+})();
 
-</script><script src="mt1p-auth.js"></script>
 <script id="mt1p-enhanced-search">
 (function(){
   const $=window.$||((s)=>document.querySelector(s));
